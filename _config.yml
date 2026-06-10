@@ -1,0 +1,43 @@
+# Jupyter Book configuration
+# Docs: https://jupyterbook.org/customize/config.html
+
+title: Introduction to Glaciology and Ice-Flow Modeling
+author: Rice Glaciology
+copyright: "2026"
+only_build_toc_files: true
+
+# Notebooks are NOT executed at build time — icepack/Firedrake are too heavy for CI.
+# Run them locally with the Docker image (see "Running icepack with Docker").
+execute:
+  execute_notebooks: 'off'
+
+bibtex_bibfiles:
+  - references.bib
+
+repository:
+  url: https://github.com/rice-glaciology/glaciology-book
+  path_to_book: .
+  branch: main
+
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+  home_page_in_navbar: true
+
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - dollarmath
+    - colon_fence
+    - deflist
+    - linkify
+
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+    mathjax3_config:
+      tex:
+        macros:
+          "bx": "\\mathbf{x}"
+          "bu": "\\mathbf{u}"

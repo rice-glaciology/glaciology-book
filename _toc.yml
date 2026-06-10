@@ -1,0 +1,20 @@
+# Table of contents
+# Docs: https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Ice flow
+    chapters:
+      - file: sections/ice_flow/ice-flow-intro
+      - file: sections/ice_flow/mass-balance
+      - file: sections/ice_flow/stress-and-strain
+      - file: sections/ice_flow/ice-rheology
+  - caption: Modeling ice flow with icepack
+    chapters:
+      - file: sections/modeling/icepack-intro
+      - file: sections/modeling/running-icepack-docker
+      - file: sections/modeling/icepack-ice-shelf
+  - caption: References
+    chapters:
+      - file: references

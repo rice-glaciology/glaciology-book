@@ -1,0 +1,10 @@
+# Jupyter Book build output
+_build/
+
+# Python / Jupyter cruft
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+
+# OS
+.DS_Store

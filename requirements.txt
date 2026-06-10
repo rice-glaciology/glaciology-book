@@ -1,0 +1,4 @@
+# Build dependencies for the book (NOT for running icepack — see the Docker page for that).
+jupyter-book>=1.0,<2.0
+matplotlib
+numpy

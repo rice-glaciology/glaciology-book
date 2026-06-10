@@ -1,17 +1,42 @@
 # Table of contents
 # Docs: https://jupyterbook.org/customize/toc.html
+# Framed as a glaciology course; icepack and ApRES labs attach to the relevant topics.
 
 format: jb-book
 root: intro
 parts:
+  - caption: The material
+    chapters:
+      - file: sections/foundations/snow-to-ice
+  - caption: Mass balance
+    chapters:
+      - file: sections/ice_flow/mass-balance
+  - caption: Ice deformation
+    chapters:
+      - file: sections/ice_flow/stress-and-strain
+      - file: sections/ice_flow/ice-rheology
+      - file: sections/ice_flow/ice-fabric
   - caption: Ice flow
     chapters:
       - file: sections/ice_flow/ice-flow-intro
-      - file: sections/ice_flow/mass-balance
-      - file: sections/ice_flow/stress-and-strain
-      - file: sections/ice_flow/ice-rheology
-  - caption: Modeling ice flow with icepack
+      - file: sections/ice_flow/stress-balance
+      - file: sections/ice_flow/shallow-ice
+      - file: sections/ice_flow/flow-approximations
+  - caption: Thermomechanics
     chapters:
+      - file: sections/thermomechanics/thermal-structure
+  - caption: The bed
+    chapters:
+      - file: sections/thermomechanics/basal-motion
+  - caption: Observing ice
+    chapters:
+      - file: sections/observing/elevation
+      - file: sections/radar/apres
+      - file: sections/radar/apres-lab
+      - file: sections/radar/radiowave-fabric
+  - caption: Modeling with icepack
+    chapters:
+      - file: sections/modeling/labs-intro
       - file: sections/modeling/icepack-intro
       - file: sections/modeling/running-icepack-docker
       - file: sections/modeling/icepack-ice-shelf

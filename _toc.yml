@@ -5,20 +5,19 @@
 format: jb-book
 root: intro
 parts:
-  - caption: The material
+  - caption: The physics of ice
     chapters:
+      - file: sections/foundations/water-molecule
+      - file: sections/foundations/ice-structure
       - file: sections/foundations/snow-to-ice
   - caption: Mass balance
     chapters:
       - file: sections/ice_flow/mass-balance
-  - caption: Ice deformation
+  - caption: Ice deformation and flow
     chapters:
       - file: sections/ice_flow/stress-and-strain
       - file: sections/ice_flow/ice-rheology
       - file: sections/ice_flow/ice-fabric
-  - caption: Ice flow
-    chapters:
-      - file: sections/ice_flow/ice-flow-intro
       - file: sections/ice_flow/stress-balance
       - file: sections/ice_flow/shallow-ice
       - file: sections/ice_flow/flow-approximations

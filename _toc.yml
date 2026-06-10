@@ -1,6 +1,8 @@
 # Table of contents
 # Docs: https://jupyterbook.org/customize/toc.html
-# Framed as a glaciology course; icepack and ApRES labs attach to the relevant topics.
+# Framed as a glaciology course. The diagnostic problem (velocity for a given
+# geometry) comes first, with all the material it needs; mass balance, firn,
+# and climate are held for the prognostic problem (evolution in time).
 
 format: jb-book
 root: intro
@@ -9,10 +11,6 @@ parts:
     chapters:
       - file: sections/foundations/water-molecule
       - file: sections/foundations/ice-structure
-      - file: sections/foundations/snow-to-ice
-  - caption: Mass balance
-    chapters:
-      - file: sections/ice_flow/mass-balance
   - caption: Ice deformation and flow
     chapters:
       - file: sections/ice_flow/stress-and-strain
@@ -33,12 +31,16 @@ parts:
       - file: sections/radar/apres
       - file: sections/radar/apres-lab
       - file: sections/radar/radiowave-fabric
-  - caption: Modeling with icepack
+  - caption: Diagnostic modeling with icepack
     chapters:
       - file: sections/modeling/labs-intro
       - file: sections/modeling/icepack-intro
       - file: sections/modeling/running-icepack-docker
       - file: sections/modeling/icepack-ice-shelf
+  - caption: Mass balance and climate
+    chapters:
+      - file: sections/ice_flow/mass-balance
+      - file: sections/foundations/snow-to-ice
   - caption: References
     chapters:
       - file: references

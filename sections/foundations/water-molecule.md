@@ -12,6 +12,42 @@ The oxygen atom has the electron configuration $(1s)^2(2s)^2(2p)^4$, so it is th
 
 A more careful treatment classifies the molecular orbitals by the symmetry of the molecule, which belongs to the point group $C_{2v}$: it has a twofold rotation axis bisecting the H-O-H angle and two reflection planes. The orbitals fall into symmetry classes labelled $A_1$, $B_1$, and $B_2$, and the ground-state configuration fills the lowest of them. Two of the filled orbitals are the lone pairs. One, of $A_1$ symmetry, is directed along the symmetry axis away from the hydrogens, and the other, of $B_1$ symmetry, is a nearly pure oxygen 2p orbital sticking out of the plane of the molecule. The calculated orbital energies agree reasonably well with the ionization energies measured by electron impact and by photoelectron spectroscopy, which gives confidence that this picture captures the real electronic structure.
 
+The whole story of the bond angle, from the crude right-angle prediction to the measured 104.5°, can be told with vectors and one orthogonality condition, and it is worth telling yourself once with a pencil.
+
+```{admonition} Exercise — the angle between the hydrogens
+:class: tip
+
+The text claims that pure p bonding predicts a 90° angle, that perfect sp³ hybrids predict 109.47°, and that the real molecule sits between. Derive all three.
+
+(a) Four equivalent sp³ hybrids point toward alternating corners of a cube centered on the oxygen. Write unit vectors for two of them, for instance toward $(1,1,1)$ and $(1,-1,-1)$, and compute the angle between them.
+
+(b) Model each O-H bonding orbital as a normalized mixture of the oxygen 2s orbital and a 2p orbital pointing along the bond direction $\hat{\mathbf{b}}_i$,
+
+$$
+\psi_i = \frac{s + \lambda\, p_i}{\sqrt{1+\lambda^2}},
+$$
+
+where the mixing parameter $\lambda$ measures p character and the p orbitals satisfy $\langle p_1 | p_2 \rangle = \hat{\mathbf{b}}_1 \cdot \hat{\mathbf{b}}_2 = \cos\theta$. Hybrids on the same oxygen must be orthogonal. Show that this requires
+
+$$
+\cos\theta = -\frac{1}{\lambda^2},
+$$
+
+and check that pure p bonding ($\lambda \to \infty$) and equal sharing among four hybrids ($\lambda^2 = 3$) reproduce the two limits of part (a).
+
+(c) The measured angle is 104.5°. What $\lambda^2$ does that imply for the bonding orbitals? The molecule has one 2s orbital to distribute among four hybrids, so if each bond uses an s fraction $1/(1+\lambda^2)$, what fraction is left for each lone pair, and at what angle do the two lone pairs sit?
+```
+
+```{admonition} Solution
+:class: dropdown
+
+(a) The dot product of $(1,1,1)/\sqrt{3}$ and $(1,-1,-1)/\sqrt{3}$ is $(1-1-1)/3 = -1/3$, so $\theta = \arccos(-1/3) = 109.47°$.
+
+(b) Orthogonality gives $\langle \psi_1 | \psi_2 \rangle = (1 + \lambda^2 \cos\theta)/(1+\lambda^2) = 0$, hence $\cos\theta = -1/\lambda^2$. With $\lambda \to \infty$ the angle goes to $\arccos(0) = 90°$, the pure-p limit, and with $\lambda^2 = 3$ it returns $\arccos(-1/3)$.
+
+(c) $\lambda^2 = -1/\cos(104.5°) \approx 4.0$, so each bonding hybrid is one part s to four parts p, an s fraction of $1/(1+\lambda^2) = 20\%$ rather than the 25% of perfect sp³. The two bonds together use 40% of the s orbital, leaving 30% for each lone pair; setting $1/(1+\mu^2) = 0.3$ gives $\mu^2 = 7/3$ for the lone-pair hybrids, which sit at $\arccos(-3/7) \approx 115°$. Squeezing the bonds together spreads the lone pairs apart, which is the orbital version of the repulsion argument in the text. The bending force constant of the next section is small, so none of these angles is rigid, and the molecule in ice relaxes back toward the tetrahedral 109.5° that the lattice prefers.
+```
+
 ## Charge distribution and electric moments
 
 The molecule is electrically neutral, but because the bonds are polar and the lone pairs are offset to one side, it carries a permanent electric dipole moment. In the vapor phase that moment is about 1.84 debye. A useful and somewhat surprising result of detailed calculations is that a large part of the dipole comes from the lone-pair electrons rather than from the polarity of the O-H bonds alone, so much so that the lone-pair contribution can outweigh the bond contribution. The molecule also has nonzero higher electric moments, a quadrupole and an octupole, which are weaker but still matter when molecules approach closely, as they do in the crystal.

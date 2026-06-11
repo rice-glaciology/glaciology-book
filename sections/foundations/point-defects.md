@@ -16,6 +16,13 @@ What the ionic defects lack in number they make up in mobility. The positive def
 
 The second native family was proposed by Bjerrum to explain how the molecules of ice can change their orientation at all. If a single molecule rotates by one third of a turn about one of its bond directions, it leaves one bond carrying two protons and another carrying none. The doubly occupied bond is called a D-defect, from the German for doubly, and the empty bond an L-defect. Like the ionic defects they are created in pairs and can then diffuse apart by successive molecular rotations, each rotation handing the defect on to a neighbor.
 
+```{figure} figures/bjerrum-defect-lattice.png
+:name: fig-bjerrum-defect
+:width: 55%
+
+A patch of proton-disordered lattice with a misbonded molecule (blue) carrying an orientational defect. Each molecular rotation hands the defect to a neighbor, so the blue site wanders through the crystal, and every molecule it visits comes away reoriented. Frame from the defect-migration animation in the UW ESS 431 course slides of K. Christianson.
+```
+
 Two facts about the orientational defects make them central to what follows. They are far more numerous than the ionic defects, with a formation energy near $0.68\ \mathrm{eV}$ giving an equilibrium concentration of order $10^{15}$ to $10^{16}$ per cubic centimeter near $-10\ \mathrm{^\circ C}$, a thousand times the ionic population. And they are the only mechanism by which a water molecule can reorient. A molecule cannot simply turn in place without violating the bonding rules with all four of its neighbors; reorientation happens only as a D- or L-defect passes through, rotating each molecule it visits. The migration of these defects is thermally activated, with an energy barrier of a few tenths of an electron volt, and is slower than the motion of the ionic defects despite their greater number. Because they reorient the molecular dipoles, the orientational defects control the dielectric relaxation of ice, and because they rearrange the proton configuration ahead of a moving dislocation, they also control the rate of creep. The same defect therefore links the electrical and mechanical behavior of ice, a connection developed in {doc}`../radar/radiowave-fabric` and {doc}`../ice_flow/ice-rheology`.
 
 ## Impurities as dopants

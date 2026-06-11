@@ -6,11 +6,32 @@ The previous chapter ended with the hydrogen bond: each water molecule, with two
 
 At the temperatures and pressures found in glaciers and ice sheets, water freezes into hexagonal ice, known as ice Ih. The structure is the direct expression of the tetrahedral hydrogen bond. Every oxygen atom sits at the center of a tetrahedron formed by four neighboring oxygen atoms, joined to each by a hydrogen bond, with an oxygen-to-oxygen distance of about 2.76 angstroms. These tetrahedra link into puckered hexagonal layers, and the layers stack one above another to fill space.
 
+```{figure} figures/tetrahedral-coordination.png
+:name: fig-tetrahedral-coordination
+:width: 50%
+
+One molecule and its four hydrogen-bonded neighbors, with the tetrahedron they define shown at upper right. The 0.28 nm spacing is the oxygen-to-oxygen distance of the bond, and the 109.47° angle is the tetrahedral angle derived in the exercise of {doc}`water-molecule`. Repeat this motif through space and the lattice below follows. Reproduced from the UW ESS 431 course slides of K. Christianson.
+```
+
+```{figure} figures/ice-ih-lattice.png
+:name: fig-ice-ih-lattice
+:width: 65%
+
+The ice Ih lattice, oxygens in red and protons in blue, viewed obliquely so the puckered hexagonal rings and the open channels through them are visible. The emptiness of the structure is the point, since it is why ice floats on its own melt. Reproduced from the UW ESS 431 course slides of K. Christianson.
+```
+
 Because the tetrahedral framework holds the molecules well apart, the structure is open, with a good deal of empty space between the molecules. This is why ice is less dense than the liquid water it forms from, and why ice floats. That single fact, a consequence of the bonding geometry of one molecule, is among the most consequential in Earth science, since it is why ice shelves and sea ice float on the ocean rather than sinking, and why lakes freeze from the top down.
 
 ## The c-axis and basal planes
 
 The stack of hexagonal layers gives the crystal one special direction: the axis of hexagonal symmetry, perpendicular to the layers, called the c-axis. The layers themselves are the basal planes. This single axis of symmetry is the source of the crystal's anisotropy, the fact that its properties depend on direction.
+
+```{figure} figures/snow-crystal-libbrecht.jpg
+:name: fig-snow-crystal
+:width: 55%
+
+The lattice made visible. A snow crystal grows fastest along the six directions the basal plane prefers, so its six-fold symmetry is the hexagonal unit cell expressed at a scale you can see with a hand lens, photographed through a microscope. Photograph by K. Libbrecht (snowcrystals.com), reproduced from the UW ESS 431 course slides.
+```
 
 The mechanical consequence is that ice deforms far more easily by gliding along its basal planes than across them, in the way a deck of cards shears. A single ice crystal is therefore strongly directional in its response to stress, and the direction of its c-axis records the direction in which it is stiff. This is the molecular origin of the single-crystal anisotropy behind Glen's flow law in {doc}`../ice_flow/ice-rheology`, and it is why the distribution of c-axis orientations, the crystal fabric of {doc}`../ice_flow/ice-fabric`, exerts so strong a control on how ice sheets flow. The same axis makes the electrical permittivity of ice different along and across the c-axis, the dielectric anisotropy that lets radar sense fabric through birefringence, as shown in {doc}`../radar/radiowave-fabric`.
 

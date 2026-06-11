@@ -11,6 +11,11 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Mathematical and chemical background
+    chapters:
+      - file: sections/math/chemistry-primer
+      - file: sections/math/tensor-algebra
+      - file: sections/math/finite-elements
   - caption: The physics of ice
     chapters:
       - file: sections/foundations/water-molecule
@@ -18,10 +23,6 @@ parts:
       - file: sections/foundations/lattice-dynamics
       - file: sections/foundations/point-defects
       - file: sections/foundations/optical-properties
-  - caption: Mathematical background
-    chapters:
-      - file: sections/math/tensor-algebra
-      - file: sections/math/finite-elements
   - caption: Ice deformation and flow
     chapters:
       - file: sections/ice_flow/stress-and-strain

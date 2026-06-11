@@ -1,39 +1,53 @@
 # The shallow-ice approximation
 
-The full Stokes equations are exact but expensive. The way glaciology has made progress for decades is to exploit a simple geometric fact: **ice sheets are thin**. An ice sheet may be 3 km thick but 3000 km across — an aspect ratio of $\varepsilon \sim 10^{-3}$. Scaling the Stokes equations with this small parameter and discarding the smallest terms produces a hierarchy of cheaper, approximate models. The first and simplest is the **shallow-ice approximation** (SIA).
+The full Stokes equations of {doc}`stress-balance` are exact but expensive. The way glaciology has made progress for decades is to exploit a simple geometric fact: ice sheets are thin. An ice sheet may be three kilometres thick and three thousand kilometres across, an aspect ratio of about $\varepsilon\sim10^{-3}$. Scaling the Stokes equations with this small parameter and discarding the smallest terms produces a hierarchy of cheaper, approximate models. The first and simplest is the shallow-ice approximation, and this chapter derives it and the velocity profile it predicts. The full hierarchy is the subject of {doc}`flow-approximations`, and the analytical ice-sheet shapes that the shallow-ice approximation makes possible are derived in {doc}`analytical-solutions`. The development follows {cite}`hutter1983` and {cite}`cuffey2010`.
 
 ## The scaling idea
 
-Let $[H]$ be a typical thickness and $[L]$ a typical horizontal length, with $\varepsilon = [H]/[L] \ll 1$. When the Stokes equations are non-dimensionalized, each stress term carries a power of $\varepsilon$. Some terms are order 1, some order $\varepsilon$, some order $\varepsilon^2$. An approximation is just a decision about **how many powers of $\varepsilon$ to keep**. Keeping only the leading order gives the SIA; keeping more terms gives the higher-order models of the next chapter. This single idea organizes the entire family of ice-flow models {cite}`schoof2010`.
+Let $[H]$ be a typical thickness and $[L]$ a typical horizontal length, with $\varepsilon=[H]/[L]\ll1$. When the Stokes equations are written in dimensionless form, each stress term carries a power of $\varepsilon$. Some terms are of order one, some of order $\varepsilon$, some of order $\varepsilon^2$. An approximation is a decision about how many powers of $\varepsilon$ to keep. Keeping only the leading order gives the shallow-ice approximation; keeping more terms gives the higher-order models of the next chapter. This single idea organizes the entire family of ice-flow models {cite}`schoof2010`.
 
-## What the SIA keeps
+## What the approximation keeps
 
-At leading order, the horizontal momentum balance reduces to a local balance between the **driving stress** and the **vertical gradient of horizontal shear stress**. All membrane (longitudinal and lateral) stresses are dropped. The shear stress at depth is then simply
+At leading order two simplifications follow from the thin geometry. In the vertical, the deviatoric terms are negligible and the vertical momentum balance reduces to the hydrostatic relation, so the pressure is cryostatic,
 
 $$
-\tau_{xz}(z) = -\rho\, g\, (s - z)\, \frac{\partial s}{\partial x},
+p = \rho_i g\,(s-z).
 $$
 
-which grows linearly from zero at the surface to its maximum at the bed. Physically: each layer of ice must support the weight of all the ice above it, sliding over the layer below.
+In the horizontal, the balance reduces to a local one between the gradient of this pressure, set by the surface slope, and the vertical gradient of the horizontal shear stress. Integrating that balance downward from the stress-free surface gives the shear stress at depth,
+
+$$
+\tau_{xz}(z) = -\rho_i g\,(s-z)\,\frac{\partial s}{\partial x},
+$$
+
+which grows linearly from zero at the surface to its largest value at the bed. Physically, each layer of ice must support, through shear, the downslope weight of all the ice above it. All membrane stresses, the longitudinal and lateral stresses carried in {doc}`stress-balance`, are dropped at this order.
 
 ## The velocity profile
 
-Feeding this shear stress into Glen's flow law and integrating from the bed upward gives the classic **SIA velocity–depth profile**. For flow with no basal sliding,
+Feeding this shear stress into Glen's flow law, written for simple shear as $\partial u/\partial z = 2A\,|\tau_{xz}|^{\,n-1}\tau_{xz}$, and integrating upward from the bed gives the velocity at each depth,
 
 $$
-u(z) = u_b + \frac{2A}{n+1}\,(\rho g)^n\,\left|\frac{\partial s}{\partial x}\right|^{\,n-1}\frac{\partial s}{\partial x}\left[\,H^{\,n+1} - (s-z)^{\,n+1}\right],
+u(z) = u_b + \frac{2A(\rho_i g)^{n}}{n+1}\,\left[H^{\,n+1}-(s-z)^{\,n+1}\right]\left|\frac{\partial s}{\partial x}\right|^{\,n-1}\left(-\frac{\partial s}{\partial x}\right),
 $$
 
-where $u_b$ is any basal sliding velocity. The surface velocity therefore scales as
+where $u_b$ is any basal sliding velocity supplied by the friction law of {doc}`../thermomechanics/basal-motion`. The deformation is concentrated near the bed, where the shear stress is largest, so the velocity changes most rapidly there and the profile is nearly uniform through the upper ice. This shape, the Lliboutry profile, matches the deformation measured in deep boreholes reasonably well {cite}`cuffey2010`. Averaging through the thickness gives the depth-averaged velocity,
 
 $$
-u_s \;\propto\; A\,(\rho g)^n\,|\nabla s|^{\,n}\,H^{\,n+1}.
+\bar u = u_b + \frac{2A(\rho_i g)^{n}}{n+2}\,H^{\,n+1}\,\left|\frac{\partial s}{\partial x}\right|^{\,n-1}\left(-\frac{\partial s}{\partial x}\right),
 $$
 
-This compact result captures a great deal of intuition: flow is faster where the ice is **thicker** (the $H^{n+1}$ factor), where the surface is **steeper**, and where the ice is **softer/warmer** (larger $A$). Because $n\approx 3$, the dependence on thickness and slope is steep — small geometric changes produce large changes in speed. The shape of the profile — most of the deformation concentrated near the warm bed — is the **Lliboutry profile**, and it matches deformation measured in deep boreholes reasonably well {cite}`cuffey2010`.
+the single result that the shallow-ice approximation contributes to the evolution of an ice sheet. The deformational part depends very steeply on the geometry, growing as the thickness to the power $n+1$ and the surface slope to the power $n$. Because $n\approx3$, a small change in thickness or slope produces a large change in speed, and the velocity is controlled almost entirely by the ice thickness and the surface slope.
 
-## When the SIA is good — and when it fails
+## The thickness equation
 
-The SIA is excellent in the **slow interior** of an ice sheet, where flow really is dominated by vertical shear and basal drag and where stresses are not transmitted far horizontally. It is cheap enough to run for whole ice sheets over glacial cycles, which is why it underlies many paleo-ice-sheet models.
+The depth-averaged velocity closes the equation that evolves an ice sheet. Conservation of mass, integrated through the thickness, states that the thickness changes when the flux of ice into a column does not balance the net surface and basal mass gain,
 
-It **fails** exactly where the interesting dynamics happen: ice streams, outlet glaciers, ice shelves, and grounding lines. There, ice slides rapidly, vertical shear is small, and the flow is controlled by membrane stresses and by stresses transmitted over long distances — all of which the SIA throws away. For those regimes we need a different member of the hierarchy, which is the subject of the next chapter.
+$$
+\frac{\partial H}{\partial t} + \frac{\partial}{\partial x}\!\left(\bar u\,H\right) = \dot b,
+$$
+
+where the balance function $\dot b=a-m$ is the net rate of accumulation minus melt, the subject of {doc}`mass-balance`. Substituting the shallow-ice expression for $\bar u$ turns this into a single nonlinear diffusion equation for the surface, cheap enough to integrate over whole glacial cycles, which is why the shallow-ice approximation underlies most paleo-ice-sheet models. Its steady solutions, the classic analytical ice-sheet profiles, are derived in {doc}`analytical-solutions`.
+
+## When the approximation holds
+
+The shallow-ice approximation is excellent in the slow interior of an ice sheet, where the flow really is dominated by vertical shear balanced locally by basal drag, and where stresses are not transmitted far horizontally. It fails exactly where the interesting dynamics happen: ice streams, outlet glaciers, ice shelves, and grounding lines. There the ice slides rapidly, vertical shear is small, and the flow is controlled by the membrane stresses and the long-range stress transmission that the approximation discards. For those regimes a different member of the hierarchy is needed, which is the subject of {doc}`flow-approximations`.

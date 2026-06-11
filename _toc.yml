@@ -21,10 +21,12 @@ parts:
       - file: sections/ice_flow/stress-balance
       - file: sections/ice_flow/shallow-ice
       - file: sections/ice_flow/flow-approximations
+      - file: sections/ice_flow/analytical-solutions
   - caption: The bed and basal processes
     chapters:
       - file: sections/thermomechanics/thermal-structure
       - file: sections/thermomechanics/basal-motion
+      - file: sections/thermomechanics/hydrology
   - caption: Observing ice
     chapters:
       - file: sections/observing/elevation

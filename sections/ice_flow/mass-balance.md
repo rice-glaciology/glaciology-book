@@ -13,14 +13,14 @@ Accumulation is everything that adds mass to the ice. It is mostly snowfall, but
 Ablation is not always gentle melt. Penitentes in the high, dry Andes near the Atacama Desert, metre-scale blades carved where sublimation dominates the surface energy budget; the spikes grow because hollows concentrate reflected light and deepen preferentially. Sublimation costs nearly ten times the latent heat of melting, a price set by the hydrogen bonds of {doc}`../foundations/water-molecule`. Photograph: ESO (eso.org).
 ```
 
-On a typical mountain glacier or ice sheet the balance is positive at high elevation, in the accumulation zone, and negative at low elevation, in the ablation zone. The line between them, where $\dot a=0$, is the equilibrium line, and its altitude is one of the most sensitive recorders of climate a glacier has.
+On a typical mountain glacier or ice sheet the balance is positive at high elevation, in the accumulation zone, and negative at low elevation, in the ablation zone. The line between them, where $\dot a=0$, is the equilibrium line, and its altitude is one of the most sensitive recorders of climate a glacier has. Without flow the accumulation zone would thicken without limit while the ablation zone wasted away. Flow prevents this by carrying ice continuously from where it is gained to where it is lost, and the speed at which it must do so to hold the glacier in balance is set by the budget.
 
 ```{figure} figures/blue-glacier-balance-gradient.jpeg
 :name: fig-blue-glacier-gradient
 :width: 80%
 
 The mass-balance gradient measured. Specific net balance against elevation for seven years on Blue Glacier, Washington, from stake and pit surveys. Each curve crosses zero at that year's equilibrium line, near 1600–2000 m, and the spread between wet and dry years shows how the whole profile, not just the ELA, shifts with climate.
-``` Without flow the accumulation zone would thicken without limit while the ablation zone wasted away. Flow prevents this by carrying ice continuously from where it is gained to where it is lost, and the speed at which it must do so to hold the glacier in balance is set by the budget.
+```
 
 ## Conservation of mass
 

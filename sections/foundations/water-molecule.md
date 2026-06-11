@@ -89,14 +89,14 @@ When two water molecules approach so that a hydrogen of one points toward a lone
 
 In strength the hydrogen bond sits between the weak van der Waals forces and the strong covalent bond inside the molecule. A single hydrogen bond in ice is worth a few kilocalories per mole, roughly a quarter of an electron volt. That is perhaps twenty times a typical van der Waals attraction but about an order of magnitude weaker than the covalent O-H bond, whose dissociation energy is several electron volts. This intermediate strength is the source of water's peculiarities. The bonds are strong enough to impose a definite structure and to give water its high melting and boiling points and its large latent heats, yet weak enough to break and reform continually, which is in turn why ice can deform under stress and why its protons can rearrange.
 
-The geometry of the molecule fixes how many neighbors it bonds to. Each molecule carries two hydrogens that can donate bonds and two lone pairs that can accept them, and these four arms point toward the corners of a tetrahedron. A molecule therefore bonds to four neighbors, donating to two of them and accepting from the other two, and because the bonds prefer to be straight, those four neighbors sit at roughly tetrahedral angles.
+The geometry of the molecule fixes how many neighbors it bonds to. Each molecule carries two hydrogens that can donate bonds and two lone pairs that can accept them, and these four arms point toward the corners of a tetrahedron. A molecule therefore bonds to four neighbors, donating to two of them and accepting from the other two, and because the bonds prefer to be straight, those four neighbors sit at roughly tetrahedral angles. This fourfold tetrahedral coordination, repeated through space, is what builds the crystal of the next chapter, and the openness of the arrangement, with a large empty volume between molecules, is the reason ice is less dense than the water it freezes from.
 
 ```{figure} ../math/figures/hydrogen-bond-network.gif
 :name: fig-hydrogen-bond-network
 :width: 55%
 
-The four-armed motif. Each δ+ hydrogen points at a δ− lone pair of a neighbor (dashed bonds), so the central molecule donates two hydrogen bonds and accepts two more. Repeated through space, this is the seed of the ice lattice of the next chapter.
-``` This fourfold tetrahedral coordination, repeated through space, is what builds the crystal of the next chapter, and the openness of the arrangement, with a large empty volume between molecules, is the reason ice is less dense than the water it freezes from.
+The four-armed motif. Each δ+ hydrogen points at a δ− lone pair of a neighbor (dashed bonds), so the central molecule donates two hydrogen bonds and accepts two more.
+```
 
 The bonding is also cooperative. A molecule placed in the field of its hydrogen-bonded neighbors has its electron cloud distorted and its dipole moment enhanced, from about 1.84 debye in isolation to roughly 2.6 debye in ice. A larger dipole makes a stronger hydrogen bond, which polarizes the next molecule a little more, so the bonds reinforce one another and the network is more than a collection of independent pairs. This cooperativity is part of why a hydrogen bond in bulk ice is stronger than one measured between an isolated pair of molecules in the vapor, and it is what makes the tetrahedral network of the next chapter so stable.
 

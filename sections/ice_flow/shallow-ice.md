@@ -30,7 +30,13 @@ $$
 u(z) = u_b + \frac{2A(\rho_i g)^{n}}{n+1}\,\left[H^{\,n+1}-(s-z)^{\,n+1}\right]\left|\frac{\partial s}{\partial x}\right|^{\,n-1}\left(-\frac{\partial s}{\partial x}\right),
 $$
 
-where $u_b$ is any basal sliding velocity supplied by the friction law of {doc}`../thermomechanics/basal-motion`. The deformation is concentrated near the bed, where the shear stress is largest, so the velocity changes most rapidly there and the profile is nearly uniform through the upper ice. This shape, the Lliboutry profile, matches the deformation measured in deep boreholes reasonably well {cite}`cuffey2010`.
+where $u_b$ is any basal sliding velocity supplied by the friction law of {doc}`../thermomechanics/basal-motion`. The deformation is concentrated near the bed, where the shear stress is largest, so the velocity changes most rapidly there and the profile is nearly uniform through the upper ice. This shape, the Lliboutry profile, matches the deformation measured in deep boreholes reasonably well {cite}`cuffey2010`. Averaging through the thickness gives the depth-averaged velocity,
+
+$$
+\bar u = u_b + \frac{2A(\rho_i g)^{n}}{n+2}\,H^{\,n+1}\,\left|\frac{\partial s}{\partial x}\right|^{\,n-1}\left(-\frac{\partial s}{\partial x}\right),
+$$
+
+the single result that the shallow-ice approximation contributes to the evolution of an ice sheet. The deformational part depends very steeply on the geometry, growing as the thickness to the power $n+1$ and the surface slope to the power $n$. Because $n\approx3$, a small change in thickness or slope produces a large change in speed, and the velocity is controlled almost entirely by the ice thickness and the surface slope.
 
 ```{figure} figures/velocity-profiles-n1-n3.png
 :name: fig-velocity-profiles-n
@@ -46,13 +52,7 @@ The same flow law shapes the velocity across a glacier. In a parabolic valley th
 :width: 80%
 
 Surface velocity measured by stake triangulation across three sections of Athabasca Glacier, Alberta {cite}`raymond1971`. The profile is the transverse cousin of the $u(z)$ result above, nearly flat across the central half of the glacier and falling to almost nothing at the valley walls.
-``` Averaging through the thickness gives the depth-averaged velocity,
-
-$$
-\bar u = u_b + \frac{2A(\rho_i g)^{n}}{n+2}\,H^{\,n+1}\,\left|\frac{\partial s}{\partial x}\right|^{\,n-1}\left(-\frac{\partial s}{\partial x}\right),
-$$
-
-the single result that the shallow-ice approximation contributes to the evolution of an ice sheet. The deformational part depends very steeply on the geometry, growing as the thickness to the power $n+1$ and the surface slope to the power $n$. Because $n\approx3$, a small change in thickness or slope produces a large change in speed, and the velocity is controlled almost entirely by the ice thickness and the surface slope.
+```
 
 ```{admonition} Worked problem: from stress to surface speed
 :class: note

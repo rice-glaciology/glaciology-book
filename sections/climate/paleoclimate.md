@@ -60,7 +60,7 @@ Read together, the records show climate over the last million years oscillating 
 :name: fig-gisp2-abrupt
 :width: 75%
 
-The last deglaciation at annual resolution in the GISP2 core, on a layer-counted timescale, after the fossil-air work of J. Severinghaus and colleagues. Accumulation (top) and δ¹⁸O of the ice (second) jump at the Bølling warming (14.7 ka) and the end of the Younger Dryas (11.6 ka); methane (third, with Taylor Dome for the south) follows within decades; and the δ¹⁵N of trapped N₂ (bottom) spikes at each warming, a thermal-fractionation signal from the firn that converts the isotope record into degrees and shows the warmings took years to decades, not centuries.
+The last deglaciation at annual resolution in the GISP2 core, on a layer-counted timescale, after the fossil-air work of J. Severinghaus and colleagues. Accumulation (top) and δ¹⁸O of the ice (second) jump at the Bølling warming (14.7 ka) and the end of the Younger Dryas (11.6 ka); methane (third, with Taylor Dome for the south) follows within decades; and the δ¹⁵N of the nitrogen trapped in the bubbles (bottom) spikes at each warming, an independent fingerprint of rapid surface warming recorded by the firn, showing the warmings took years to decades, not centuries.
 ```
 
 ## Orbital pacing

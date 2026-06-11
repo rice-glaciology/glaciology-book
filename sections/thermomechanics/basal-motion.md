@@ -80,14 +80,7 @@ $$
 \tau_f = \mu\,\sigma_e, \qquad \sigma_e = p - p_w,
 $$
 
-a Coulomb friction law with a coefficient $\mu\approx 0.4$ acting on the effective stress $\sigma_e$, which is again the overburden minus the pore-water pressure. The field evidence that till actually deforms came first from Iceland, where markers inserted through the ice into the bed of Breiðamerkurjökull were found displaced down-glacier days later, with nearly all the motion taken up in the upper half metre of sediment.
-
-```{figure} figures/till-deformation-breidamerkurjokull.png
-:name: fig-till-deformation
-:width: 95%
-
-Marker columns in the till beneath Breiðamerkurjökull, Iceland, shown at three stages over ten days of flow. The upper till (A) shears pervasively while the lower till (B) barely moves, so the glacier rides on a deforming carpet of sediment rather than slipping on a discrete surface. After Boulton and Hindmarsh, as redrawn in {cite}`benn2010`.
-``` The decisive observation is that once the till yields, the stress it supports is almost independent of the rate of shearing. The till is, to a good approximation, perfectly plastic, so the basal shear stress is simply
+a Coulomb friction law with a coefficient $\mu\approx 0.4$ acting on the effective stress $\sigma_e$, which is again the overburden minus the pore-water pressure. The decisive observation is that once the till yields, the stress it supports is almost independent of the rate of shearing. The till is, to a good approximation, perfectly plastic, so the basal shear stress is simply
 
 $$
 \tau_b = \mu N,
@@ -95,9 +88,18 @@ $$
 
 independent of sliding speed. Ring-shear experiments confirm this plateau and show how it arises: at low effective pressure or low speed the ice slips along the ice-till interface, while at higher stress the larger clasts plough through a deforming layer of till, with the depth of deforming sediment varying non-monotonically with effective pressure {cite}`zoet2020`. The practical consequence is that a till bed has no reserve of strength. If it is asked to support more than $\mu N$ it cannot, and the extra driving stress must be transmitted elsewhere, to the lateral margins or across the grounding line. Because the regularized Coulomb law of the previous section also saturates at $\mu N$, it is often used to represent both hard beds with cavities and soft till beds within a single expression.
 
+The field evidence that till actually deforms came first from Iceland, where markers inserted through the ice into the bed of Breiðamerkurjökull were found displaced down-glacier days later, with nearly all the motion taken up in the upper half metre of sediment.
+
+```{figure} figures/till-deformation-breidamerkurjokull.png
+:name: fig-till-deformation
+:width: 95%
+
+Marker columns in the till beneath Breiðamerkurjökull, Iceland, shown at three stages over ten days of flow. The upper till (A) shears pervasively while the lower till (B) barely moves, so the glacier rides on a deforming carpet of sediment rather than slipping on a discrete surface. After Boulton and Hindmarsh, as redrawn in {cite}`benn2010`.
+```
+
 ## The controlling role of water
 
-Every law beyond the simplest hard-bed power law depends on the effective pressure $N$, and through it on the subglacial water system. When the water pressure rises toward the ice overburden, $N$ falls, the bed is partly floated, and the glacier slides faster; when the water drains and $N$ recovers, the bed strengthens. This is why the same glacier can speed up and slow down within a single melt season. Field measurements bear out the coupling but also show its complexity. Some records, such as those of Iken and Bindschadler, show ice speed tracking borehole water pressure closely, while others show no consistent relation. In west Greenland the diurnal swings of ice speed correlate with water pressure in moulins yet run out of phase with pressure in nearby boreholes, a sign that the bed is drained by more than one kind of pathway at once {cite}`hewitt_karthaus`.
+Every law beyond the simplest hard-bed power law depends on the effective pressure $N$, and through it on the subglacial water system. When the water pressure rises toward the ice overburden, $N$ falls, the bed is partly floated, and the glacier slides faster; when the water drains and $N$ recovers, the bed strengthens. This is why the same glacier can speed up and slow down within a single melt season. Field measurements bear out the coupling but also show its complexity. Some records, such as those of Iken and Bindschadler, show ice speed tracking borehole water pressure closely, while others show no consistent relation. In west Greenland the diurnal swings of ice speed correlate with water pressure in moulins yet run out of phase with pressure in nearby boreholes, a sign that the bed is drained by more than one kind of pathway at once {cite}`hewitt_karthaus`. What sets $N$, and why the drainage system can be efficient at one moment and inefficient the next, is the subject of {doc}`hydrology`. The friction law and the hydrology are two halves of one problem.
 
 ```{figure} figures/iken-sliding-water-level.png
 :name: fig-iken-sliding
@@ -111,7 +113,7 @@ Sliding speed against borehole water level (depth below the surface, so pressure
 :width: 75%
 
 A month of borehole water pressure (dashed) and surface speed (solid) at Storglaciären, Sweden, in July 1993 {cite}`hanson1998`. The glacier accelerates within hours of each pressure rise and settles as the bed drains, the friction law and the hydrology trading control on a daily clock.
-``` What sets $N$, and why the drainage system can be efficient at one moment and inefficient the next, is the subject of {doc}`hydrology`. The friction law and the hydrology are two halves of one problem.
+```
 
 ## Friction laws in models
 

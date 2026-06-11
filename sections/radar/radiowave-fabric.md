@@ -1,6 +1,6 @@
 # Radio-wave propagation in anisotropic ice
 
-The previous chapters described fabric as a product of deformation and as a control on flow. Fabric also has an electromagnetic signature, and that signature is what lets radar measure fabric over large areas where no ice core exists. The reason is that radio waves travel through ice at a speed that depends on their polarization relative to the fabric, a property called birefringence. This chapter develops that link, following the wave-propagation notes of {cite}`rathmann_notes`, and it is the basis for the group's polarimetric radar work.
+The previous chapters described fabric as a product of deformation and as a control on flow. Fabric also has an electromagnetic signature, and that signature is what lets radar measure fabric over large areas where no ice core exists. The reason is that radio waves travel through ice at a speed that depends on their polarization relative to the fabric, a property called birefringence. This chapter develops that link, building on the dielectric properties of ice set out in {doc}`em-waves` and following the wave-propagation notes of {cite}`rathmann_notes`, and it is the basis for the group's polarimetric radar work.
 
 ## Ice as an anisotropic dielectric
 

@@ -3,6 +3,10 @@
 # Framed as a glaciology course. The diagnostic problem (velocity for a given
 # geometry) comes first, with all the material it needs; mass balance, firn,
 # and climate are held for the prognostic problem (evolution in time).
+#
+# Labs are distributed: each sits with the chapter it illustrates, diagnostic
+# first then prognostic. Lines marked "# lab:" are placeholders for notebooks
+# to be written in a later pass and run in the icepack Docker image.
 
 format: jb-book
 root: intro
@@ -20,32 +24,44 @@ parts:
     chapters:
       - file: sections/ice_flow/stress-and-strain
       - file: sections/ice_flow/ice-rheology
+      # lab (diagnostic, numpy): Glen's law and the creep curve
       - file: sections/ice_flow/ice-fabric
+      # lab (diagnostic, specfab): fabric evolution and directional enhancement
       - file: sections/ice_flow/stress-balance
       - file: sections/ice_flow/shallow-ice
+      # lab (diagnostic, numpy): the Vialov and perfect-plastic profiles
       - file: sections/ice_flow/flow-approximations
-      - file: sections/ice_flow/analytical-solutions
   - caption: The bed and basal processes
     chapters:
       - file: sections/thermomechanics/thermal-structure
+      # lab (diagnostic, numpy): the temperature profile and basal thermal state
       - file: sections/thermomechanics/basal-motion
+      # lab (diagnostic, numpy): hard-bed, Budd, regularized-Coulomb and till friction laws
       - file: sections/thermomechanics/hydrology
+      # lab (diagnostic, numpy): channels vs cavities, effective pressure vs discharge
   - caption: Observing ice
     chapters:
       - file: sections/observing/elevation
+      - file: sections/radar/em-waves
+      # lab (numpy): the dielectric spectrum and radar wave speed
       - file: sections/radar/apres
       - file: sections/radar/apres-lab
       - file: sections/radar/radiowave-fabric
-  - caption: Diagnostic modeling with icepack
+  - caption: Computing with icepack
     chapters:
       - file: sections/modeling/labs-intro
       - file: sections/modeling/icepack-intro
       - file: sections/modeling/running-icepack-docker
       - file: sections/modeling/icepack-ice-shelf
+      # diagnostic lab above: floating ice-shelf velocity
   - caption: Mass balance and climate
     chapters:
       - file: sections/ice_flow/mass-balance
+      # lab (prognostic, icepack): SIA evolution toward the Vialov steady state
       - file: sections/foundations/snow-to-ice
+      - file: sections/climate/paleoclimate
+      # lab (prognostic, numpy): ice-core layer thinning and Milankovitch forcing
+      # lab (prognostic, icepack): glacial-cycle ice-sheet evolution
   - caption: References
     chapters:
       - file: references

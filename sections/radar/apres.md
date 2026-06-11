@@ -1,6 +1,6 @@
 # Phase-sensitive radar (ApRES)
 
-Radar is one of the main tools glaciologists use to see inside ice. Radio waves pass through cold ice with little loss and reflect from changes in electrical properties, so a radar records echoes from internal layers and from the bed. Ordinary ice-penetrating radar measures the strength and timing of those echoes to map thickness and internal structure, and the radar texts {cite}`bogorodsky1985` and {cite}`richards2010` cover the underlying theory. This chapter describes a particular instrument, the Autonomous phase-sensitive Radio-Echo Sounder, or ApRES, which the group uses to measure how ice deforms and melts.
+Radar is one of the main tools glaciologists use to see inside ice. Radio waves pass through cold ice with little loss and reflect from changes in electrical properties, so a radar records echoes from internal layers and from the bed. Why ice is transparent to radio waves at all, and what sets their speed and attenuation, is the subject of {doc}`em-waves`. Ordinary ice-penetrating radar measures the strength and timing of those echoes to map thickness and internal structure, and the radar texts {cite}`bogorodsky1985` and {cite}`richards2010` cover the underlying theory. This chapter describes a particular instrument, the Autonomous phase-sensitive Radio-Echo Sounder, or ApRES, which the group uses to measure how ice deforms and melts.
 
 ## Why phase matters
 

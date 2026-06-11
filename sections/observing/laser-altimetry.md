@@ -1,6 +1,6 @@
 # Laser altimetry
 
-The most direct way to measure the height of an ice surface from space is to bounce a laser off it and time the return. A satellite laser altimeter sends a short pulse of light straight down, records the round-trip travel time, and multiplies by the speed of light to get the range to the surface; combined with the precisely known position of the spacecraft, this gives the surface elevation. Because light reflects from the true snow surface rather than penetrating it, and because a laser beam can be made narrow, laser altimetry gives the cleanest and most precise surface heights available. This chapter describes the method and what it measures. It is the first of the elevation techniques surveyed in {doc}`elevation`.
+Height is the observable that converts most directly into mass, and the most direct way to measure it from space is to bounce a laser off the ice and time the return. A satellite laser altimeter sends a short pulse of light straight down, records the round-trip travel time, and multiplies by the speed of light to get the range to the surface; combined with the precisely known position of the spacecraft, this gives the surface elevation. Because light reflects from the true snow surface rather than penetrating it, and because a laser beam can be made narrow, laser altimetry gives the cleanest and most precise surface heights available. This chapter describes the method and what it measures. It is the first of the elevation techniques surveyed in {doc}`elevation`.
 
 ## The instruments
 

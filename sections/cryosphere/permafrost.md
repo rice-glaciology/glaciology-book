@@ -1,6 +1,6 @@
 # Permafrost
 
-A quarter of the land surface of the Northern Hemisphere is frozen year-round, not as glaciers but as frozen ground. Permafrost is defined thermally, as ground that remains at or below 0 °C for at least two consecutive years, and that definition makes this chapter a direct application of the heat conduction physics of {doc}`../thermomechanics/thermal-structure`, with the glacier removed and the soil left behind. The comprehensive treatment of the material in this chapter is {cite}`french2017`.
+Winter outlasts summer in the ground across a quarter of the Northern Hemisphere's land surface, and the result is land frozen year-round, not as glaciers but as frozen ground. Permafrost is defined thermally, as ground that remains at or below 0 °C for at least two consecutive years, and that definition makes this chapter a direct application of the heat conduction physics of {doc}`../thermomechanics/thermal-structure`, with the glacier removed and the soil left behind. The comprehensive treatment of the material in this chapter is {cite}`french2017`.
 
 ## The thermal structure of frozen ground
 

@@ -9,7 +9,7 @@ One of the most surprising facts about ice is that, in large enough quantities, 
 Flow you can see. The Mer de Glace in the Mont Blanc massif, with two tributaries merging into a single trunk. The dark arcs sweeping across the glacier are ogives, surface bands that left the icefall as straight lines and were bent into parabolas because the center moves faster than the margins, a pattern derived quantitatively in {doc}`shallow-ice`. Imagery © Google Earth / DigitalGlobe.
 ```
 
-Ice flow is not just a curiosity. It is the process that controls how glaciers and ice sheets **grow, shrink, and deliver ice to the sea**, and it therefore sits at the heart of the connection between glaciers and sea level. Roughly two-thirds of the world's fresh water is locked in the Greenland and Antarctic ice sheets; if they were to melt or flow into the ocean entirely, global sea level would rise by tens of meters. Understanding how fast ice flows — and how that flow responds to a warming climate — is one of the central problems of modern glaciology.
+The creep of ice is the process that controls how glaciers and ice sheets **grow, shrink, and deliver ice to the sea**, and it therefore sits at the heart of the connection between glaciers and sea level. Roughly two-thirds of the world's fresh water is locked in the Greenland and Antarctic ice sheets; if they were to melt or flow into the ocean entirely, global sea level would rise by tens of meters. Understanding how fast ice flows — and how that flow responds to a warming climate — is one of the central problems of modern glaciology.
 
 ## What controls the flow?
 

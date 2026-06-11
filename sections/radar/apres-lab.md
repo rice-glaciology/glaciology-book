@@ -1,10 +1,10 @@
 # Lab: basal melt from ApRES
 
-This lab turns a series of repeat ApRES acquisitions into a record of vertical strain and basal melt, using the group's own `apres` processing package rather than writing the signal processing from scratch. As with the modeling labs, it is not executed when the book is built, so the page shows the code and explains what it produces. Run it where the `apres` package and a folder of ApRES data are available.
+This lab turns a series of repeat ApRES acquisitions into a record of vertical strain and basal melt, using the open `apres` processing package rather than writing the signal processing from scratch. As with the modeling labs, it is not executed when the book is built, so the page shows the code and explains what it produces. Run it where the `apres` package and a folder of ApRES data are available.
 
 ```{admonition} Getting the package
 :class: note
-The `apres` package implements the preprocessing and strain workflow used in the group's ice-shelf melt studies. It currently lives alongside the field-site processing repositories. To use it here it should be installed as a package, for example with `pip install -e path/to/apres`, so that `import apres` works from any notebook. Packaging it into a single installable repository, and adding it to the book's Docker image, is on the to-do list.
+The `apres` package implements a standard ApRES preprocessing and strain workflow of the kind used in published ice-shelf melt studies. It currently lives alongside the field-site processing repositories. To use it here it should be installed as a package, for example with `pip install -e path/to/apres`, so that `import apres` works from any notebook. Packaging it into a single installable repository, and adding it to the book's Docker image, is on the to-do list.
 ```
 
 ## Configure a station

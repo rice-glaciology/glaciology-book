@@ -325,7 +325,7 @@ is typically of order $0.005$–$0.01\ \mathrm{yr^{-1}}$ for temperate mountain 
 The profile is capped at some maximum accumulation rate above, because no glacier
 accumulates without limit at its summit, and the cap prevents unphysical behavior in the
 prognostic model at high elevation. The entire influence of climate on the glacier enters
-through a single number, $z_\mathrm{ELA}$: a warming climate raises the ELA, reduces the
+through a single number, $z_\mathrm{ELA}$; a warming climate raises the ELA, reduces the
 accumulation area, and shifts the integrated balance negative.
 
 Climate scenarios for prognostic experiments come in three standard flavors. A step change

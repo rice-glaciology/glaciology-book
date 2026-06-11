@@ -28,5 +28,5 @@ The subtlest reading is temperature. The erosion chapter ended with the observat
 ```{admonition} Why this matters beyond geology
 :class: tip
 
-Reconstructed ice sheets are the principal targets for the prognostic models at the end of this book. A glacial-cycle simulation of the Laurentide or the LGM Antarctic ice sheet is tested against exactly these data, moraine extents, trimline thicknesses, lineation flow fields, and cold/warm bed patterns, and the isostatic rebound the vanished loads still drive, described in {doc}`ice-sheets`, ties the reconstructions to modern geodesy. The landscape is the validation dataset.
+Reconstructed ice sheets are principal targets for the prognostic models of {doc}`../modeling/prognostic-problem`. A glacial-cycle simulation of the Laurentide or the LGM Antarctic ice sheet is tested against exactly these data, moraine extents, trimline thicknesses, lineation flow fields, and cold/warm bed patterns, and the isostatic rebound the vanished loads still drive, described in {doc}`ice-sheets`, ties the reconstructions to modern geodesy. The landscape is the validation dataset.
 ```

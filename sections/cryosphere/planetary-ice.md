@@ -42,7 +42,7 @@ $$
 \dot\varepsilon = A(\tau)\,\tau^n,
 $$
 
-but with different material parameters: $n \approx 2$ for N₂ ice near its triple point, and the rate factor $A$ is orders of magnitude larger than for water ice at the same homologous temperature, which is why Sputnik Planitia can convect and deform visibly on million-year timescales despite Pluto's feeble heat flux. Nitrogen glaciers also flow off the edges of the basin down into the surrounding terrain, and their profiles obey the shallow-ice approximation ({doc}`../ice_flow/shallow-ice`) just as terrestrial valley glaciers do — the same depth-integrated force balance, the same relationship between surface slope and flux, just with a different viscosity and a gravity of 0.063g. The continuum machinery is indifferent to the molecular identity of the material.
+but with different material parameters, $n \approx 2$ for N₂ ice near its triple point and a rate factor $A$ orders of magnitude larger than for water ice at the same homologous temperature, which is why Sputnik Planitia can convect and deform visibly on million-year timescales despite Pluto's feeble heat flux. Nitrogen glaciers also flow off the edges of the basin down into the surrounding terrain, and their profiles obey the shallow-ice approximation ({doc}`../ice_flow/shallow-ice`) just as terrestrial valley glaciers do — the same depth-integrated force balance, the same relationship between surface slope and flux, just with a different viscosity and a gravity of 0.063g. The continuum machinery is indifferent to the molecular identity of the material.
 
 ## Amorphous ice and high-pressure phases
 

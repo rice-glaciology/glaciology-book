@@ -1,6 +1,6 @@
 # Gravity
 
-Gravity measures mass, and an ice sheet is a great deal of mass, so a sufficiently precise gravity measurement can weigh it. Two quite different uses of gravity have become central to glaciology. From orbit, satellites that sense the tiny time variations in the Earth's gravity field weigh the ice sheets directly and watch their mass change month by month. From aircraft, measurements of the static gravity field reveal the rock and water beneath the ice where radar cannot see, mapping the shape of the bed and the cavities the ocean fills. This chapter covers both. The first speaks to the mass balance of {doc}`../ice_flow/mass-balance`, the second to the bathymetry that controls ocean-driven melt and the stability of marine ice.
+Every method in this part so far has inferred mass change from geometry or motion; gravity is the observable that weighs the ice directly, because the mass itself is the signal. Two quite different uses of gravity have become central to glaciology. From orbit, satellites that sense the tiny time variations in the Earth's gravity field weigh the ice sheets directly and watch their mass change month by month. From aircraft, measurements of the static gravity field reveal the rock and water beneath the ice where radar cannot see, mapping the shape of the bed and the cavities the ocean fills. This chapter covers both. The first speaks to the mass balance of {doc}`../ice_flow/mass-balance`, the second to the bathymetry that controls ocean-driven melt and the stability of marine ice.
 
 ## Weighing the ice sheets from orbit
 

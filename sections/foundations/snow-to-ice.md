@@ -12,14 +12,14 @@ In the first stage, the grains rearrange and pack more tightly, and the density 
 :name: fig-lachapelle-metamorphism
 :width: 80%
 
-What the first stage looks like at the grain scale. A stellar snow crystal sketched at 0, 2, 5, 14, 23, and 57 days, its dendritic arms retreating as vapor moves from sharp, high-curvature points to flatter surfaces. The rounded grains that remain pack far more efficiently than the original stars, which is why settling alone carries the density to about 550 kg per cubic metre. From E. LaChapelle, *Field Guide to Snow Crystals*, reproduced from the UW ESS 431 course slides.
+What the first stage looks like at the grain scale. A stellar snow crystal sketched at 0, 2, 5, 14, 23, and 57 days, its dendritic arms retreating as vapor moves from sharp, high-curvature points to flatter surfaces. The rounded grains that remain pack far more efficiently than the original stars, which is why settling alone carries the density to about 550 kg per cubic metre. From E. LaChapelle, *Field Guide to Snow Crystals*.
 ```
 
 ```{figure} figures/siple-pit-annual-layers.jpeg
 :name: fig-siple-pit-layers
 :width: 60%
 
-A back-lit snow-pit wall at Siple Dome, West Antarctica, with depth markers in centimetres. Coarse summer layers and fine wind-packed winter layers transmit light differently, so the annual stratigraphy that densification will carry to depth is visible directly. Photograph by R. Tremblay, reproduced from the UW ESS 431 course slides.
+A back-lit snow-pit wall at Siple Dome, West Antarctica, with depth markers in centimetres. Coarse summer layers and fine wind-packed winter layers transmit light differently, so the annual stratigraphy that densification will carry to depth is visible directly. Photograph by R. Tremblay.
 ```
 
 The depth at which ice forms depends on temperature and accumulation rate. In the cold, dry interior of East Antarctica the firn column can be more than a hundred metres thick and the ice can take thousands of years to form, while on a warm temperate glacier with abundant melt the transition happens within a few metres and a single season.
@@ -30,7 +30,7 @@ Where meltwater enters the story, it reorganizes it. The accumulation area of a 
 :name: fig-benson-facies
 :width: 95%
 
-The classical division of the accumulation area into facies, after Benson and Müller. Each zone marks a different route from snow to ice, dry densification on the left grading into refreezing-dominated transformation near the equilibrium line. From {cite}`paterson1994`, reproduced from the UW ESS 431 course slides.
+The classical division of the accumulation area into facies, after Benson and Müller. Each zone marks a different route from snow to ice, dry densification on the left grading into refreezing-dominated transformation near the equilibrium line. From {cite}`paterson1994`.
 ```
 
 ## Why firn matters

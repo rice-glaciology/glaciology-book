@@ -35,6 +35,13 @@ $$
 
 penetrating to a depth $z_* = \sqrt{\kappa_T P/\pi}$ for a forcing of period $P$, about 0.2 m for the daily cycle and 3 m for the annual one. This is the quantitative version of the statement made earlier that the seasons are erased within the upper ten to twenty meters, and the phase lag $\alpha z$ means midwinter cold arrives at depth months late. The permafrost trumpet diagram of {doc}`../cryosphere/permafrost` is this same solution drawn in soil.
 
+```{figure} figures/seasonal-wave-periods.png
+:name: fig-seasonal-wave-periods
+:width: 95%
+
+The damped wave solution drawn for surface forcing periods of 1, 10, and 100 years, with snapshots through each cycle. The envelope scales as $\sqrt{P}$ exactly as $z_*$ promises, so the annual wave dies within about 15 m while a century-scale climate oscillation still registers at 50 m, which is why borehole temperatures remember past climate. After B. Hills and co-workers (2018).
+```
+
 **The conductive profile.** In ice that is thick, slow, and old enough to ignore advection, the steady balance is conduction alone, and with the geothermal flux $G$ entering the base the profile is linear, $T = T_s + G(H-z)/k$. The bed then reaches the melting point at a critical thickness
 
 $$
@@ -50,6 +57,20 @@ Pe = \frac{aH}{\kappa_T},
 $$
 
 the ratio of advective to conductive heat transport. High accumulation (large $Pe$) flushes cold surface ice downward, holding the upper column isothermal at the surface temperature and compressing all the geothermal warming into a thin basal layer; low accumulation lets the profile relax toward the conductive line. The kink seen partway down many interior boreholes, where mid-depth ice is colder than the ice above and below it, is the signature of the third process, horizontal advection of ice from the colder, higher interior, and needs the full equation rather than any of these reduced balances.
+
+```{figure} figures/divide-temperature-profile.png
+:name: fig-divide-profile
+:width: 75%
+
+A temperature profile beneath an ice divide, plotted as height above the bed. The upper half of the column rides near the surface temperature while the geothermal warming is compressed into the lowest kilometre, the high-Peclet Robin shape, and the bed here stays a few degrees below the melting point.
+```
+
+```{figure} figures/jakobshavn-temperature-profiles.png
+:name: fig-jakobshavn-profiles
+:width: 70%
+
+Measured profiles from the fast-flowing trunk and margins of Jakobshavn Isbræ {cite}`luthi2002`. The mid-depth minimum near −22 °C is cold interior ice advected downstream faster than conduction can erase it, the kink that no one-dimensional balance reproduces, while strain heating drives the basal ice toward the pressure-melting line (dashed) at the bed.
+```
 
 In a slow-moving ice sheet far from the margin, the temperature is lowest at the surface, set by the cold air, and generally increases with depth as the geothermal flux warms the ice from below and deformation adds heat near the bed. Whether the base reaches the melting point depends on the surface temperature, the ice thickness, the geothermal flux, and the rate of deformational heating. This question matters because a frozen bed holds the ice fast, while a bed at the melting point allows sliding and the fast flow that comes with it.
 
@@ -69,9 +90,14 @@ Two regulating mechanisms are recognized, and the first is a heat-flow instabili
 
 The second mechanism is hydrological rather than thermal and governs the faster surges of temperate glaciers such as Variegated Glacier in Alaska. There the bed is everywhere at the melting point, and the switch is in the drainage system: an efficient channelized network keeps the water pressure low and the bed strong during quiescence, but when the drainage becomes inefficient and distributed the water pressure rises, the effective pressure of {doc}`hydrology` collapses, and the bed slides fast until an efficient system re-establishes, often abruptly through an outburst flood, and the surge halts {cite}`kamb1985`. The two mechanisms are end members of a single picture in which surging happens wherever the throughput of ice cannot be balanced by a steady thermal and hydrological state of the bed {cite}`sevestre2015`.
 
-```{admonition} Visual: the surge of Paulabreen
-:class: tip
-A time-lapse of Paulabreen, a polythermal tidewater glacier in Svalbard that surged between about 2003 and 2005, accompanies this section. It shows the terminus advancing rapidly during the active phase as ice is flushed from the reservoir into the receiving zone, an example of the thermally regulated cluster discussed above. The clip (`paulabreen_surge.m4v`, from the course materials) is to be embedded here once the media is copied into the book.
+The surge cycle is easier to believe once you have watched one. The clip below shows Paulabreen, a polythermal tidewater glacier in Svalbard that surged between about 2003 and 2005, its terminus advancing rapidly during the active phase as ice flushed from the reservoir into the receiving zone, an example of the thermally regulated cluster discussed above.
+
+```{raw} html
+<video controls width="85%" preload="metadata" style="max-width: 700px;">
+  <source src="https://github.com/rice-glaciology/glaciology-book/releases/download/media-v1/paulabreen-surge.m4v" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>The 2003–2005 surge of Paulabreen, Svalbard.</em></p>
 ```
 
 ## The thermal state of the bed

@@ -1,6 +1,42 @@
 # Lattice vibrations and thermal properties
 
-The previous chapter treated the ice crystal as a fixed arrangement of oxygen atoms with protons distributed over the bonds between them. That static picture is enough to explain why ice is open and floats and why it has a single soft direction, but it leaves out the motion. At any temperature above absolute zero the molecules are never still. They oscillate about their lattice sites, the lighter protons swinging through larger excursions than the heavier oxygens, and the collective patterns of this motion are the lattice vibrations of the crystal. These vibrations are not a side issue. They carry the thermal energy that sets the heat capacity, they transport heat down a temperature gradient and so fix the thermal conductivity, and through the point defects they help create they govern the rate at which ice deforms. This chapter develops the vibrational spectrum and the thermal properties that follow from it, drawing on Chapter 6 of {cite}`fletcher1970` and the modern account in {cite}`petrenko1999`.
+The previous chapter treated the ice crystal as a fixed arrangement of oxygen atoms with protons distributed over the bonds between them. That static picture is enough to explain why ice is open and floats and why it has a single soft direction, but it leaves out the motion. At any temperature above absolute zero the molecules are never still. They oscillate about their lattice sites, the lighter protons swinging through larger excursions than the heavier oxygens, and the collective patterns of this motion are the lattice vibrations of the crystal. These vibrations are not a side issue. They carry the thermal energy that sets the heat capacity, they transport heat down a temperature gradient and so fix the thermal conductivity, and through the point defects they help create they govern the rate at which ice deforms. This chapter develops the vibrational spectrum and the thermal properties that follow from it, drawing on Chapter 6 of {cite}`fletcher1970` and the modern account in {cite}`petrenko1999`. It is also the right place to make temperature itself precise, along with the freezing point where every glacier story ends, because both ideas are statements about the statistics of exactly these vibrations.
+
+## What temperature measures
+
+Much of glacier physics is the statistics of jostling molecules, and the machinery for that statistics deserves more than a formula pulled from the air. The starting point, due to Boltzmann, is a counting argument {cite}`boltzmann1877`. A macroscopic state, a block of ice with a given energy, corresponds to an astronomical number $W$ of microstates, distinct molecular arrangements consistent with what we can measure. The entropy is the logarithm of that count,
+
+$$
+S = k_B \ln W,
+$$
+
+with $k_B$ Boltzmann's constant, and an isolated system evolves toward the macrostate with the most microstates simply because that is overwhelmingly where the dice land. The residual entropy of the proton-disordered crystal in {doc}`ice-structure` was this formula at work, with $W$ counted by Pauling.
+
+It is worth doing the count once, with numbers small enough to hold in your head. Energy in a vibrating lattice comes in discrete quanta, so picture two tiny blocks of ice, each just three of the oscillators of this chapter, sharing six quanta between them. The number of ways to arrange $q$ indistinguishable quanta among $N$ oscillators is a standard counting result, $W = \binom{q+N-1}{q}$, and multiplying the counts for the two blocks gives the number of microstates for each way of splitting the energy.
+
+| $q_A$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|---|
+| $W_A \cdot W_B$ | 28 | 63 | 90 | **100** | 90 | 63 | 28 |
+
+Every one of the 462 microstates is equally likely; nothing prefers the even split. Yet the even split owns more microstates than any other, and if the blocks were real, with $10^{23}$ oscillators rather than three, the peak of this table would sharpen into a needle of relative width $\sim 1/\sqrt{N}$. Energy spreads out, and ice in a warm room ends up at the room's temperature, not because any force pushes it there but because the alternatives are statistically invisible.
+
+The table also says *when* the spreading stops. The most probable split is the one where moving a quantum from block A to block B no longer increases the product $W_A W_B$, that is, where it no longer increases $\ln W_A + \ln W_B$. In the language of entropy, energy flows until
+
+$$
+\frac{\partial S_A}{\partial E_A} = \frac{\partial S_B}{\partial E_B},
+$$
+
+and this shared quantity is what temperature is. Define $1/T = \partial S/\partial E$, the rate at which a system's entropy buys energy, and the equation above becomes the familiar statement that two bodies in contact come to the same temperature. The definition explains the direction of heat flow rather than assuming it. A cold body is one whose entropy grows steeply with energy, so moving a joule from hot to cold creates more entropy in the receiver than it destroys in the donor, and the joule moves. Temperature is the exchange rate in that trade, and a thermometer lowered down a borehole is reading it; the temperature profiles of {doc}`../thermomechanics/thermal-structure` are maps of $\partial S/\partial E$ through an ice column.
+
+The same derivative produces the most important distribution in this book. Let a single molecule, or any small system, exchange energy with a large reservoir, and ask for the probability of finding it in one particular microstate of energy $E$. That probability is proportional to the number of arrangements left to the reservoir, $W_R(E_{tot}-E) = e^{S_R(E_{tot}-E)/k_B}$, and because the system is small the reservoir's entropy can be expanded to first order, $S_R(E_{tot}-E) \approx S_R(E_{tot}) - E\,\partial S_R/\partial E = S_R(E_{tot}) - E/T$. The constant first term drops into the normalization, leaving the Boltzmann factor,
+
+$$
+p \propto e^{-E/k_B T}.
+$$
+
+Nothing here is specific to the system; the exponential is purely the price the reservoir's count pays to lend out energy $E$. The normalization, the sum of Boltzmann factors over all microstates, is the partition function $Z = \sum_i e^{-E_i/k_B T}$, from which every equilibrium property follows by differentiation {cite}`gibbs1902`. The free energy $F = -k_B T \ln Z$ packages the competition that decides phase equilibrium, since minimizing $F$ means trading energy against entropy, and that trade is exactly what the freezing point at the end of this chapter expresses.
+
+Before moving on, put scales on the counting. At 0 °C the thermal energy $RT$ is about 2.3 kJ/mol, while a hydrogen bond costs roughly 20 kJ/mol to break, so the Boltzmann factor for borrowing a bond's worth of energy is $e^{-20/2.3} \approx 10^{-4}$. That looks prohibitive until you recall that molecules attempt the move at vibrational frequencies near $10^{13}$ Hz, so any given bond still breaks millions of times per second. Ice near the melting point is solid by majority vote, not unanimity, and the rare fluctuations that win are what let it creep, diffuse, and trade molecules with the vapor. The Arrhenius law that turns this exponential into the rate of every slow process in ice is developed with the point defects of {doc}`point-defects`, and it is why the rate factor in Glen's flow law of {doc}`../ice_flow/ice-rheology` makes ice at the melting point deform orders of magnitude faster than the cold ice of the polar plateaus.
 
 ## Three families of vibration
 
@@ -37,6 +73,27 @@ k = \tfrac13\,C_V\,\bar v\,\Lambda,
 $$
 
 where $C_V$ is the heat capacity per unit volume, $\bar v$ is the mean phonon speed, close to the speed of sound in ice, and $\Lambda$ is the mean free path between scattering events. Near the melting point the mean free path inferred this way is only about $15\ \mathrm{angstroms}$, a few molecular spacings, so the phonons scatter almost as soon as they are launched. What limits the mean free path at the temperatures of glacier ice is phonon-phonon scattering through the anharmonicity of the bonds, specifically the umklapp processes in which two phonons combine to produce a third whose wave vector has been folded back into the Brillouin zone. Because the number of phonons available for umklapp scattering grows in proportion to temperature while the heat capacity is nearly constant in this range, the conductivity falls roughly as the inverse of the absolute temperature. Cold ice therefore conducts heat better than warm ice, the opposite of the trend for the heat capacity, and near the melting point the conductivity is about $2.1\ \mathrm{W\,m^{-1}\,K^{-1}}$, rising as the ice cools. The conductivity is also weakly anisotropic, larger by a few percent along the c-axis than across it, a faint mechanical echo of the crystal symmetry. This coefficient $k$ closes the conduction term in the heat equation, and its inverse temperature dependence means that the cold upper layers of an ice sheet are also its most conductive.
+
+## The freezing point
+
+The free energy $F = -k_BT\ln Z$ defined above earns its keep the moment two phases compete. Ice, liquid water, and vapor are phases of one substance, and which phase wins at given temperature and pressure is settled by the competition between energy and entropy that $F$ packages. The familiar 0 °C is nothing more than the temperature at which the free energies of ice and liquid water cross at atmospheric pressure; below it the crystal's lower energy wins, above it the liquid's greater entropy does, and a thermometer in an ice bath is reading the location of that crossing. Two phases coexist wherever their free energies match, and the coexistence lines in the pressure-temperature plane make up the phase diagram, with the melting line, the vapor-pressure curve, and the triple point where all three phases meet.
+
+```{figure} ../math/figures/water-phase-diagram.png
+:name: fig-water-phase-diagram
+:width: 90%
+
+The phase diagram of water across fourteen decades of pressure, with the many crystalline polymorphs of ice labelled by Roman numeral. Glaciology lives in a thin horizontal band around 1 bar, where the only players are vapor, liquid, and ordinary hexagonal ice Ih, but the wider view explains what is special about our corner, the nearly vertical melting line that tilts slightly *backward*, so that pressure favors the liquid. Figure from M. Chaplin's *Water Structure and Science*.
+```
+
+The slope of a coexistence line follows from the Clausius-Clapeyron relation,
+
+$$
+\frac{dP}{dT} = \frac{L}{T\,\Delta v},
+$$
+
+where $L$ is the latent heat of the transition and $\Delta v$ the volume change per unit mass. Two of its consequences run through this book. Along the melting line, ice is anomalous, since melting *shrinks* water ($\Delta v < 0$), the slope is negative and pressure lowers the melting point, the fact that puts the bed of a thick ice sheet at its pressure-melting point in {doc}`../thermomechanics/thermal-structure` and makes the homologous temperature, measured relative to that local melting point, the natural argument of the flow law in {doc}`../ice_flow/ice-rheology`. Along the vapor curve, the saturation vapor pressure falls near-exponentially as air cools, which is why cooling air sheds moisture, why snow falls at all, and why the Rayleigh distillation of {doc}`../climate/paleoclimate` turns the isotopic composition of snow into a thermometer.
+
+Latent heat itself deserves its moment. Melting ice absorbs 334 kJ/kg without warming at all, and sublimation absorbs nearly ten times that, energies that dominate the heat budgets of melting surfaces, refreezing firn, and the brine pockets of {doc}`../cryosphere/sea-ice`. Where a later chapter balances an energy budget, the largest entries are usually latent.
 
 ## Why the vibrations matter for flow
 

@@ -88,6 +88,16 @@ $$
 
 reproduces the characteristic flood hydrograph, a slow exponential rise to a sharp peak followed by an abrupt collapse when the lake empties and the channel creeps shut. The model of {cite}`nye1976`, refined by later workers, matches recorded jökulhlaup discharges from Iceland closely.
 
+The clip below shows what the sharp end of that hydrograph looks like from the proglacial zone, a glacial outburst flood in full flow.
+
+```{raw} html
+<video controls width="85%" preload="metadata" style="max-width: 700px;">
+  <source src="https://github.com/rice-glaciology/glaciology-book/releases/download/media-v1/outburst-flood-usgs.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>A glacial outburst flood. Video courtesy of the U.S. Geological Survey.</em></p>
+```
+
 ## Linked cavities and canals
 
 The channel theory assumes melt opening, which requires the strong potential gradients of steep glaciers. Under the gentle surface slopes of an ice-sheet interior the water moves too slowly to melt open a channel, and the distributed system survives. Two distributed systems are important. Over hard beds the water occupies cavities in the lee of bumps, linked into a network {cite}`walder1986,kamb1987`. The cavities are opened not by melting but by sliding, the ice being dragged off the downstream side of each bump at a rate proportional to the sliding speed $U_b$ and bump height $h_r$, and closed by creep,

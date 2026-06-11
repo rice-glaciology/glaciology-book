@@ -80,7 +80,14 @@ $$
 \tau_f = \mu\,\sigma_e, \qquad \sigma_e = p - p_w,
 $$
 
-a Coulomb friction law with a coefficient $\mu\approx 0.4$ acting on the effective stress $\sigma_e$, which is again the overburden minus the pore-water pressure. The decisive observation is that once the till yields, the stress it supports is almost independent of the rate of shearing. The till is, to a good approximation, perfectly plastic, so the basal shear stress is simply
+a Coulomb friction law with a coefficient $\mu\approx 0.4$ acting on the effective stress $\sigma_e$, which is again the overburden minus the pore-water pressure. The field evidence that till actually deforms came first from Iceland, where markers inserted through the ice into the bed of Breiðamerkurjökull were found displaced down-glacier days later, with nearly all the motion taken up in the upper half metre of sediment.
+
+```{figure} figures/till-deformation-breidamerkurjokull.png
+:name: fig-till-deformation
+:width: 95%
+
+Marker columns in the till beneath Breiðamerkurjökull, Iceland, shown at three stages over ten days of flow. The upper till (A) shears pervasively while the lower till (B) barely moves, so the glacier rides on a deforming carpet of sediment rather than slipping on a discrete surface. After Boulton and Hindmarsh, as redrawn in {cite}`benn2010`.
+``` The decisive observation is that once the till yields, the stress it supports is almost independent of the rate of shearing. The till is, to a good approximation, perfectly plastic, so the basal shear stress is simply
 
 $$
 \tau_b = \mu N,
@@ -90,7 +97,21 @@ independent of sliding speed. Ring-shear experiments confirm this plateau and sh
 
 ## The controlling role of water
 
-Every law beyond the simplest hard-bed power law depends on the effective pressure $N$, and through it on the subglacial water system. When the water pressure rises toward the ice overburden, $N$ falls, the bed is partly floated, and the glacier slides faster; when the water drains and $N$ recovers, the bed strengthens. This is why the same glacier can speed up and slow down within a single melt season. Field measurements bear out the coupling but also show its complexity. Some records, such as those of Iken and Bindschadler, show ice speed tracking borehole water pressure closely, while others show no consistent relation. In west Greenland the diurnal swings of ice speed correlate with water pressure in moulins yet run out of phase with pressure in nearby boreholes, a sign that the bed is drained by more than one kind of pathway at once {cite}`hewitt_karthaus`. What sets $N$, and why the drainage system can be efficient at one moment and inefficient the next, is the subject of {doc}`hydrology`. The friction law and the hydrology are two halves of one problem.
+Every law beyond the simplest hard-bed power law depends on the effective pressure $N$, and through it on the subglacial water system. When the water pressure rises toward the ice overburden, $N$ falls, the bed is partly floated, and the glacier slides faster; when the water drains and $N$ recovers, the bed strengthens. This is why the same glacier can speed up and slow down within a single melt season. Field measurements bear out the coupling but also show its complexity. Some records, such as those of Iken and Bindschadler, show ice speed tracking borehole water pressure closely, while others show no consistent relation. In west Greenland the diurnal swings of ice speed correlate with water pressure in moulins yet run out of phase with pressure in nearby boreholes, a sign that the bed is drained by more than one kind of pathway at once {cite}`hewitt_karthaus`.
+
+```{figure} figures/iken-sliding-water-level.png
+:name: fig-iken-sliding
+:width: 55%
+
+Sliding speed against borehole water level (depth below the surface, so pressure increases to the right) at Findelengletscher in the early 1980s, from A. Iken's borehole campaigns. Speed climbs steeply as the water level approaches flotation, the empirical backbone of every $N$-dependent friction law in this chapter.
+```
+
+```{figure} figures/storglaciaren-pressure-speed.png
+:name: fig-storglaciaren-speed
+:width: 75%
+
+A month of borehole water pressure (dashed) and surface speed (solid) at Storglaciären, Sweden, in July 1993 {cite}`hanson1998`. The glacier accelerates within hours of each pressure rise and settles as the bed drains, the friction law and the hydrology trading control on a daily clock.
+``` What sets $N$, and why the drainage system can be efficient at one moment and inefficient the next, is the subject of {doc}`hydrology`. The friction law and the hydrology are two halves of one problem.
 
 ## Friction laws in models
 

@@ -1,12 +1,21 @@
 # The water molecule
 
-Nearly every property of ice that matters to a glaciologist can be traced to the water molecule and the way water molecules bond to one another. Ice is among the simplest molecular solids, and its unusual behavior, the open low-density structure, the mechanical and electrical anisotropy of the crystal, the high melting point, all follow from the structure of a single small molecule. This chapter reviews that molecule in some detail, following the account of {cite}`fletcher1970`, before the next chapter assembles many of them into the crystal.
+Everyone arrives at this book already knowing the main character. Water is H₂O, two hydrogens on an oxygen, and nearly every property of ice that matters to a glaciologist can be traced to that one small molecule and the way copies of it bond to one another. Ice is among the simplest molecular solids, and its unusual behavior, the open low-density structure, the mechanical and electrical anisotropy of the crystal, the high melting point, all follow from the structure of the molecule. This chapter reviews it in some detail, following the account of {cite}`fletcher1970`, before the next chapter assembles many molecules into the crystal. No chemistry beyond this chapter is assumed anywhere in the book, so a reader who last saw orbitals long ago should find everything here that the later chapters lean on.
 
 ## Shape and size
 
 A water molecule is bent. That it is triangular rather than linear was known long before modern spectroscopy, from the specific heat of water vapor: the measured heat capacity near room temperature implies contributions from three rotational degrees of freedom with appreciable moments of inertia, which a linear molecule could not provide. Spectroscopy later fixed the geometry precisely. In its equilibrium configuration the oxygen-hydrogen bond length is 0.958 angstroms and the H-O-H angle is 104 degrees and 27 minutes, close to 104.5 degrees. In the lowest vibrational state, which is the relevant one at glacier temperatures, the values shift slightly, to an angle near 105 degrees. The angle is notably smaller than the 109.5 degrees of a perfect tetrahedron, a point we return to below.
 
+```{figure} ../math/figures/water-molecule-geometry.png
+:name: fig-water-molecule-geometry
+:width: 55%
+
+The bent molecule, with bond length, bond angle, and the partial charges left by the uneven tug-of-war over the shared electrons. The values shown come from an electronic-structure model and differ slightly from the measured gas-phase geometry quoted in the text; the angle is soft, and the section on vibrations explains why. Figure from M. Chaplin's *Water Structure and Science*.
+```
+
 ## Electronic structure
+
+An electron bound to a nucleus does not orbit it like a planet. It occupies an orbital, a standing-wave pattern with a characteristic shape and energy, and the shapes matter because they decide the geometry of molecules. The lowest orbitals are spherical, the s orbitals; the next are dumbbell-shaped along three perpendicular axes, the p orbitals; and each holds at most two electrons. Everything in this section is bookkeeping with these shapes.
 
 The oxygen atom has the electron configuration $(1s)^2(2s)^2(2p)^4$, so it is the outer 2p electrons that form bonds. Two of them pair with the 1s electrons of the two hydrogen atoms, forming bonding orbitals concentrated between the nuclei, while the rest remain as non-bonding lone pairs. A first, crude version of this picture, using only the two 2p orbitals for bonding, would predict a right angle between the bonds. The bonds are polar, however, with positive charge on the hydrogen side, so they repel one another, and the oxygen orbitals respond by mixing in some 2s character. This hybridization opens the angle toward the observed value and leaves the oxygen with an approximately tetrahedral arrangement of four orbitals: two bonding pairs pointing toward the hydrogen atoms and two lone pairs pointing away from them.
 
@@ -50,6 +59,8 @@ and check that pure p bonding ($\lambda \to \infty$) and equal sharing among fou
 
 ## Charge distribution and electric moments
 
+Atoms do not share electrons evenly. Electronegativity measures how strongly an atom pulls shared electrons toward itself, and oxygen is among the most electronegative of the elements while hydrogen is middling. Each O-H bond is therefore polar covalent, with the shared electrons displaced toward the oxygen, leaving a partial negative charge on the oxygen and partial positive charges on the hydrogens.
+
 The molecule is electrically neutral, but because the bonds are polar and the lone pairs are offset to one side, it carries a permanent electric dipole moment. In the vapor phase that moment is about 1.84 debye. A useful and somewhat surprising result of detailed calculations is that a large part of the dipole comes from the lone-pair electrons rather than from the polarity of the O-H bonds alone, so much so that the lone-pair contribution can outweigh the bond contribution. The molecule also has nonzero higher electric moments, a quadrupole and an octupole, which are weaker but still matter when molecules approach closely, as they do in the crystal.
 
 The tidy cartoon of two positive arms and two sharp negative lone-pair lobes should be treated with care. When the electron density is calculated directly, the density at the proton is roughly twenty percent greater than in an isolated hydrogen atom, while the lone-pair charge is not concentrated into two neat lobes at all. Instead it forms a diffuse ridge of negative charge spread perpendicular to the plane of the molecule. The tetrahedral picture is a guide to the bonding directions, not a literal map of the charge.
@@ -78,7 +89,14 @@ When two water molecules approach so that a hydrogen of one points toward a lone
 
 In strength the hydrogen bond sits between the weak van der Waals forces and the strong covalent bond inside the molecule. A single hydrogen bond in ice is worth a few kilocalories per mole, roughly a quarter of an electron volt. That is perhaps twenty times a typical van der Waals attraction but about an order of magnitude weaker than the covalent O-H bond, whose dissociation energy is several electron volts. This intermediate strength is the source of water's peculiarities. The bonds are strong enough to impose a definite structure and to give water its high melting and boiling points and its large latent heats, yet weak enough to break and reform continually, which is in turn why ice can deform under stress and why its protons can rearrange.
 
-The geometry of the molecule fixes how many neighbors it bonds to. Each molecule carries two hydrogens that can donate bonds and two lone pairs that can accept them, and these four arms point toward the corners of a tetrahedron. A molecule therefore bonds to four neighbors, donating to two of them and accepting from the other two, and because the bonds prefer to be straight, those four neighbors sit at roughly tetrahedral angles. This fourfold tetrahedral coordination, repeated through space, is what builds the crystal of the next chapter, and the openness of the arrangement, with a large empty volume between molecules, is the reason ice is less dense than the water it freezes from.
+The geometry of the molecule fixes how many neighbors it bonds to. Each molecule carries two hydrogens that can donate bonds and two lone pairs that can accept them, and these four arms point toward the corners of a tetrahedron. A molecule therefore bonds to four neighbors, donating to two of them and accepting from the other two, and because the bonds prefer to be straight, those four neighbors sit at roughly tetrahedral angles.
+
+```{figure} ../math/figures/hydrogen-bond-network.gif
+:name: fig-hydrogen-bond-network
+:width: 55%
+
+The four-armed motif. Each δ+ hydrogen points at a δ− lone pair of a neighbor (dashed bonds), so the central molecule donates two hydrogen bonds and accepts two more. Repeated through space, this is the seed of the ice lattice of the next chapter.
+``` This fourfold tetrahedral coordination, repeated through space, is what builds the crystal of the next chapter, and the openness of the arrangement, with a large empty volume between molecules, is the reason ice is less dense than the water it freezes from.
 
 The bonding is also cooperative. A molecule placed in the field of its hydrogen-bonded neighbors has its electron cloud distorted and its dipole moment enhanced, from about 1.84 debye in isolation to roughly 2.6 debye in ice. A larger dipole makes a stronger hydrogen bond, which polarizes the next molecule a little more, so the bonds reinforce one another and the network is more than a collection of independent pairs. This cooperativity is part of why a hydrogen bond in bulk ice is stronger than one measured between an isolated pair of molecules in the vapor, and it is what makes the tetrahedral network of the next chapter so stable.
 

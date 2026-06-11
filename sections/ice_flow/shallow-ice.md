@@ -30,7 +30,23 @@ $$
 u(z) = u_b + \frac{2A(\rho_i g)^{n}}{n+1}\,\left[H^{\,n+1}-(s-z)^{\,n+1}\right]\left|\frac{\partial s}{\partial x}\right|^{\,n-1}\left(-\frac{\partial s}{\partial x}\right),
 $$
 
-where $u_b$ is any basal sliding velocity supplied by the friction law of {doc}`../thermomechanics/basal-motion`. The deformation is concentrated near the bed, where the shear stress is largest, so the velocity changes most rapidly there and the profile is nearly uniform through the upper ice. This shape, the Lliboutry profile, matches the deformation measured in deep boreholes reasonably well {cite}`cuffey2010`. Averaging through the thickness gives the depth-averaged velocity,
+where $u_b$ is any basal sliding velocity supplied by the friction law of {doc}`../thermomechanics/basal-motion`. The deformation is concentrated near the bed, where the shear stress is largest, so the velocity changes most rapidly there and the profile is nearly uniform through the upper ice. This shape, the Lliboutry profile, matches the deformation measured in deep boreholes reasonably well {cite}`cuffey2010`.
+
+```{figure} figures/velocity-profiles-n1-n3.png
+:name: fig-velocity-profiles-n
+:width: 65%
+
+The velocity profile as a rheology experiment. Fractional horizontal displacement against fractional depth for a linear fluid ($n=1$) and for Glen's law ($n=3$); the larger exponent concentrates the shear near the bed and leaves the upper column riding almost rigidly. Borehole deformation surveys fall in the hatched band, which is the field's vote for $n \approx 3$.
+```
+
+The same flow law shapes the velocity across a glacier. In a parabolic valley the shear stress grows toward the margins, so the transverse profile of surface speed is blunt in the middle and drops steeply at the walls, and measured transects show exactly this.
+
+```{figure} figures/athabasca-transverse-velocity.png
+:name: fig-athabasca-transverse
+:width: 80%
+
+Surface velocity measured by stake triangulation across three sections of Athabasca Glacier, Alberta {cite}`raymond1971`. The profile is the transverse cousin of the $u(z)$ result above, nearly flat across the central half of the glacier and falling to almost nothing at the valley walls.
+``` Averaging through the thickness gives the depth-averaged velocity,
 
 $$
 \bar u = u_b + \frac{2A(\rho_i g)^{n}}{n+2}\,H^{\,n+1}\,\left|\frac{\partial s}{\partial x}\right|^{\,n-1}\left(-\frac{\partial s}{\partial x}\right),

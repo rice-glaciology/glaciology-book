@@ -6,6 +6,13 @@ An ice sheet is not only a flowing solid; it is an archive. Every year a layer o
 
 The first task with any core is to assign an age to each depth. Near the surface the annual cycle of accumulation leaves visible layers, in dust, in chemistry, and in the isotopes below, and these can be counted like tree rings, giving an exact chronology for the upper tens of thousands of years in high-accumulation sites such as central Greenland. Deeper down the layers thin under their own weight, by the very flow law of {doc}`../ice_flow/shallow-ice`, until they can no longer be resolved, and the age must be found instead from a flow model that tracks how an annual layer is stretched and lowered as the ice carries it from the surface toward the bed. Independent tie points anchor these chronologies: layers of sulfate from known volcanic eruptions, spikes of the cosmogenic isotope beryllium-10 from times of weak solar activity, and the global signal of past changes in atmospheric methane, which lets cores from opposite poles be placed on a common timescale.
 
+```{figure} figures/wais-sulfate-volcanic-markers.png
+:name: fig-wais-sulfate
+:width: 85%
+
+Two centuries of non-sea-salt sulfate from a West Antarctic core. The annual variability rides on a quiet baseline punctuated by volcanic spikes, with Tambora (1815) unmistakable, and each identified eruption pins the depth-age scale to the calendar.
+```
+
 ## Temperature from water isotopes
 
 The central measurement is the isotopic composition of the ice itself. Water molecules built from the heavier isotopes of oxygen and hydrogen, $^{18}\mathrm{O}$ and deuterium, are slightly less volatile than ordinary water, so each time water evaporates or condenses the heavy molecules are preferentially left behind in the liquid. By the time an air mass has cooled on its journey from a warm ocean to a cold ice sheet and rained out most of its moisture, the snow that finally falls is depleted in the heavy isotopes, and the colder the journey, the greater the depletion. The isotopic ratio of the ice, written as $\delta^{18}\mathrm{O}$ or $\delta\mathrm{D}$ relative to ocean water, is therefore a thermometer: lower values mean colder conditions at the time of snowfall. The relation is calibrated against the modern spatial gradient of isotopes and temperature and against borehole temperatures, and gives temperature changes through time to a degree or so. The small second-order difference between the two isotopes, the deuterium excess, carries additional information about the temperature and humidity of the distant ocean where the moisture first evaporated.
@@ -34,6 +41,13 @@ The model also explains how the thermometer is calibrated and why the calibratio
 
 The ice carries the only direct samples of the ancient atmosphere. As snow turns to ice through the firn column of {doc}`../foundations/snow-to-ice`, the pore space pinches off into sealed bubbles at the firn-ice transition, trapping air a few tens of metres below the surface. Crushing the ice in the laboratory releases that air, and its composition gives the past concentrations of the greenhouse gases carbon dioxide and methane directly, with no proxy in between. Because the air is sealed only at the bottom of the firn, while the ice around it formed at the surface decades to millennia earlier, the trapped gas is younger than its enclosing ice by an amount, the ice-age to gas-age difference, that must be modelled and that grows large in the cold, low-accumulation conditions of glacial Antarctica. The records show carbon dioxide swinging between about 180 parts per million in the depths of each ice age and 280 in each warm interglacial, marching almost in lock-step with the isotopic temperature, the clearest evidence that greenhouse gases and climate are tightly coupled. The pre-industrial ceiling of 280 has now been left far behind.
 
+```{figure} figures/vostok-ghg-temperature.png
+:name: fig-vostok-ghg
+:width: 90%
+
+The lock-step march, from the Vostok core {cite}`petit1999`. Methane (top), carbon dioxide (middle), and isotopic temperature (bottom) through four glacial cycles; every termination, every interglacial, and most of the millennial structure appear in all three records together.
+```
+
 ## The records
 
 A handful of deep cores carry most of the story. From Greenland, the GRIP, GISP2, and NGRIP cores reach back through the last glacial cycle to the previous interglacial about 123,000 years ago, with the annual resolution that the island's heavy snowfall allows {cite}`ngrip2004,dansgaard1993`. From Antarctica, where accumulation is far lower but the ice is far older, the Vostok core reached back 420,000 years {cite}`petit1999` and the EPICA Dome C core extended the continuous record to 800,000 years, eight full glacial cycles {cite}`epica2004,jouzel2007`. The West Antarctic WAIS Divide core trades length for resolution, giving an exquisitely detailed picture of the last deglaciation. The current frontier, the search for the oldest ice, aims to recover a continuous record reaching back more than a million years, into the era before the ice ages took on their present rhythm. The fifty-year arc of this enterprise, from the first deep core at Camp Century in 1966 to the international hunt for 1.5-million-year-old ice, is itself a remarkable story of science, told from the inside by one of its principals in {cite}`jouzel2013`.
@@ -41,6 +55,13 @@ A handful of deep cores carry most of the story. From Greenland, the GRIP, GISP2
 ## The rhythm of the ice ages
 
 Read together, the records show climate over the last million years oscillating between long, cold glacial periods and short, warm interglacials in a sawtooth pattern. Each cycle lasts roughly a hundred thousand years and is strongly asymmetric: the descent into an ice age is slow and stepwise, taking tens of thousands of years, while the recovery, called a termination, is abrupt, the climate warming out of a glacial maximum in only a few thousand years. The Antarctic temperature swings through about ten degrees over a cycle, and the Greenland and global swings are larger still. Superimposed on the slow cycle is a faster, more violent variability seen sharply in the Greenland cores: the Dansgaard-Oeschger events, in which the North Atlantic region warmed by many degrees within decades and then cooled gradually, recurring through the last glacial period, together with the Heinrich events that mark massive discharges of icebergs from the Laurentide ice sheet. The Antarctic counterpart of this millennial variability is muted and out of phase, the southern hemisphere warming slowly while the north is cold and cooling when the north warms, a pattern called the bipolar seesaw that points to the ocean's overturning circulation as the link between the hemispheres.
+
+```{figure} figures/gisp2-abrupt-change-severinghaus.jpeg
+:name: fig-gisp2-abrupt
+:width: 75%
+
+The last deglaciation at annual resolution in the GISP2 core, on a layer-counted timescale, after the fossil-air work of J. Severinghaus and colleagues. Accumulation (top) and δ¹⁸O of the ice (second) jump at the Bølling warming (14.7 ka) and the end of the Younger Dryas (11.6 ka); methane (third, with Taylor Dome for the south) follows within decades; and the δ¹⁵N of trapped N₂ (bottom) spikes at each warming, a thermal-fractionation signal from the firn that converts the isotope record into degrees and shows the warmings took years to decades, not centuries.
+```
 
 ## Orbital pacing
 

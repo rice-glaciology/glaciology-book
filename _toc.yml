@@ -11,9 +11,6 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Chemistry and statistical mechanics
-    chapters:
-      - file: sections/math/chemistry-primer
   - caption: The physics of ice
     chapters:
       - file: sections/foundations/water-molecule

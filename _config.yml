@@ -35,6 +35,7 @@ parse:
 
 sphinx:
   config:
+    html_static_path: ["_static"]
     bibtex_reference_style: author_year
     mathjax3_config:
       tex:

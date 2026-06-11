@@ -2,6 +2,13 @@
 
 One of the most surprising facts about ice is that, in large enough quantities, it **flows under its own weight**. This is not some exotic phase of ice — it is ordinary water ice, the same material you keep in your freezer. Hit it hard and it shatters; slip on it and it bruises like concrete. And yet, when enough of it piles up, gravity drives it to creep downhill like an extraordinarily slow, stiff fluid. A continental ice sheet kilometers thick can spread outward and discharge ice to the ocean at speeds ranging from centimeters to kilometers per year.
 
+```{figure} figures/mer-de-glace-ogives.jpg
+:name: fig-mer-de-glace
+:width: 85%
+
+Flow you can see. The Mer de Glace in the Mont Blanc massif, with two tributaries merging into a single trunk. The dark arcs sweeping across the glacier are ogives, surface bands that left the icefall as straight lines and were bent into parabolas because the center moves faster than the margins, a pattern derived quantitatively in {doc}`shallow-ice`. Imagery © Google Earth / DigitalGlobe.
+```
+
 Ice flow is not just a curiosity. It is the process that controls how glaciers and ice sheets **grow, shrink, and deliver ice to the sea**, and it therefore sits at the heart of the connection between glaciers and sea level. Roughly two-thirds of the world's fresh water is locked in the Greenland and Antarctic ice sheets; if they were to melt or flow into the ocean entirely, global sea level would rise by tens of meters. Understanding how fast ice flows — and how that flow responds to a warming climate — is one of the central problems of modern glaciology.
 
 ## What controls the flow?

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ax" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- axes: x from 80 to 660 maps t/tr 0..4; y from 340 to 60 maps L1/L1eq 0..1 -->
+  <line x1="80" y1="340" x2="680" y2="340" stroke="#333" stroke-width="2" marker-end="url(#ax)"/>
+  <line x1="80" y1="340" x2="80" y2="40" stroke="#333" stroke-width="2" marker-end="url(#ax)"/>
+
+  <!-- x ticks at t/tr = 1,2,3,4 (x = 80 + 145*t) -->
+  <g stroke="#333" stroke-width="1.5">
+    <line x1="225" y1="340" x2="225" y2="347"/>
+    <line x1="370" y1="340" x2="370" y2="347"/>
+    <line x1="515" y1="340" x2="515" y2="347"/>
+    <line x1="660" y1="340" x2="660" y2="347"/>
+  </g>
+  <g fill="#333" font-size="15" text-anchor="middle">
+    <text x="80" y="365">0</text>
+    <text x="225" y="365">1</text>
+    <text x="370" y="365">2</text>
+    <text x="515" y="365">3</text>
+    <text x="660" y="365">4</text>
+    <text x="390" y="398">time since the step,  t / t&#7523;</text>
+  </g>
+
+  <!-- y ticks at 0.5 and 1.0 (y = 340 - 280*v) -->
+  <g stroke="#333" stroke-width="1.5">
+    <line x1="73" y1="200" x2="80" y2="200"/>
+    <line x1="73" y1="60" x2="80" y2="60"/>
+  </g>
+  <g fill="#333" font-size="15" text-anchor="end">
+    <text x="68" y="205">0.5</text>
+    <text x="68" y="65">1.0</text>
+  </g>
+  <text x="30" y="200" fill="#333" font-size="15" transform="rotate(-90 30 200)" text-anchor="middle">L&#8321;(t) / L&#8321;(&#8734;)</text>
+
+  <!-- equilibrium asymptote -->
+  <line x1="80" y1="60" x2="660" y2="60" stroke="#999" stroke-width="1.5" stroke-dasharray="7,5"/>
+  <text x="545" y="52" fill="#777" font-size="14">new equilibrium length</text>
+
+  <!-- exponential curve 1 - e^{-t}: points every 0.25 in t -->
+  <path d="M80,340 L116.25,278.1 L152.5,229.9 L188.75,192.4 L225,163.1 L261.25,140.3 L297.5,122.6 L333.75,108.7 L370,97.9 L406.25,89.5 L442.5,83.0 L478.75,77.9 L515,73.9 L551.25,70.8 L587.5,68.4 L623.75,66.5 L660,65.1"
+        fill="none" stroke="#2166ac" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- marker at t = tr, 63% -->
+  <line x1="225" y1="340" x2="225" y2="163.1" stroke="#b2182b" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <line x1="80" y1="163.1" x2="225" y2="163.1" stroke="#b2182b" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <circle cx="225" cy="163.1" r="5" fill="#b2182b"/>
+  <text x="235" y="150" fill="#b2182b" font-size="15">63% complete at t = t&#7523;</text>
+
+  <!-- marker at t = 2tr, 86% -->
+  <line x1="370" y1="340" x2="370" y2="97.9" stroke="#b2182b" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <circle cx="370" cy="97.9" r="5" fill="#b2182b"/>
+  <text x="380" y="92" fill="#b2182b" font-size="15">86% at t = 2t&#7523;</text>
+</svg>

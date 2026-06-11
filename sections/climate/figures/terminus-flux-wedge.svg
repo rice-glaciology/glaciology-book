@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#333"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#2166ac"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#b2182b"/>
+    </marker>
+  </defs>
+
+  <!-- bed (sloping line) -->
+  <line x1="30" y1="200" x2="690" y2="310" stroke="#6b4f2a" stroke-width="3"/>
+  <text x="640" y="340" fill="#6b4f2a" font-size="15">bed</text>
+
+  <!-- original glacier body: slab + wedge terminus to L0 -->
+  <path d="M30,120 L420,185 Q480,200 520,217 L30,200 Z" fill="#cfe3f3" stroke="#5b8db8" stroke-width="2"/>
+  <!-- advanced terminus wedge (L0 to L0+L1), dashed outline -->
+  <path d="M520,217 Q570,230 610,242 L520,235 Z" fill="#e8f1f8" stroke="#5b8db8" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- labels for surface -->
+  <text x="150" y="145" fill="#33536e" font-size="15">glacier surface</text>
+
+  <!-- flux arrow at old terminus -->
+  <line x1="430" y1="205" x2="505" y2="218" stroke="#2166ac" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <text x="350" y="240" fill="#2166ac" font-size="15">extra flux &#10216;b&#775;&#8321;&#10217;L&#8320;</text>
+
+  <!-- ablation arrows over advanced wedge -->
+  <line x1="540" y1="190" x2="546" y2="216" stroke="#b2182b" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+  <line x1="565" y1="196" x2="571" y2="222" stroke="#b2182b" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+  <line x1="590" y1="202" x2="596" y2="228" stroke="#b2182b" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+  <text x="545" y="175" fill="#b2182b" font-size="15">ablation a&#775;&#8320;</text>
+
+  <!-- distance markers along bed -->
+  <line x1="30" y1="60" x2="30" y2="210" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="520" y1="60" x2="520" y2="245" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="610" y1="60" x2="610" y2="255" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- L0 bracket -->
+  <line x1="30" y1="70" x2="520" y2="70" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="255" y="60" fill="#333" font-size="16">L&#8320;</text>
+
+  <!-- L1 bracket -->
+  <line x1="520" y1="95" x2="610" y2="95" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="552" y="85" fill="#333" font-size="16">L&#8321;</text>
+
+  <!-- x axis label -->
+  <line x1="60" y1="330" x2="160" y2="330" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="100" y="322" fill="#333" font-size="15">x</text>
+
+  <!-- terminus labels -->
+  <text x="465" y="265" fill="#555" font-size="14">old terminus</text>
+  <text x="585" y="275" fill="#555" font-size="14">new terminus</text>
+</svg>

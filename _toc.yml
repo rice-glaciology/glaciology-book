@@ -67,22 +67,22 @@ parts:
       - file: sections/observing/elevation
       - file: sections/radar/em-waves
       - file: sections/observing/laser-altimetry
-      # lab (numpy): ICESat-2 along-track height to elevation change
+      - file: sections/observing/laser-altimetry-lab
       - file: sections/observing/radar-altimetry
-      # lab (numpy): waveform retracking and basin elevation change
+      - file: sections/observing/radar-altimetry-lab
       - file: sections/observing/panchromatic-imagery
-      # lab (numpy): image cross-correlation for displacement; DEM differencing
+      - file: sections/observing/panchromatic-imagery-lab
       - file: sections/observing/insar
-      # lab (numpy): form and unwrap an interferogram, phase to velocity
+      - file: sections/observing/insar-lab
       - file: sections/radar/apres
       - file: sections/radar/apres-lab
       - file: sections/radar/radiowave-fabric
       - file: sections/observing/cryoseismicity
-      # lab (numpy): STA/LTA detection and location of icequakes
+      - file: sections/observing/cryoseismicity-lab
       - file: sections/observing/magnetotellurics
-      # lab (numpy): apparent resistivity and phase from E and B time series
+      - file: sections/observing/magnetotellurics-lab
       - file: sections/observing/gravity
-      # lab (numpy): GRACE mascon time series, trend versus seasonal cycle
+      - file: sections/observing/gravity-lab
   - caption: The wider cryosphere
     chapters:
       - file: sections/cryosphere/sea-ice

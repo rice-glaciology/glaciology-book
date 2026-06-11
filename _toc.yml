@@ -1,16 +1,20 @@
 # Table of contents
 # Docs: https://jupyterbook.org/customize/toc.html
-# Framed as a glaciology course. The diagnostic problem (velocity for a given
-# geometry) comes first, with all the material it needs; mass balance, firn,
-# and climate are held for the prognostic problem (evolution in time).
-#
-# Labs are distributed: each sits with the chapter it illustrates, diagnostic
-# first then prognostic. Lines marked "# lab:" are placeholders for notebooks
-# to be written in a later pass and run in the icepack Docker image.
+# Architecture (June 2026): icepack introduced up front so models run from
+# day one; diagnostic labs distributed through the early parts, prognostic
+# labs in the later parts. Mass balance and climate precede observing, and
+# observing is framed around the products ice-flow models consume and the
+# observations we would like to use more. Lines marked "# lab:" are
+# placeholders for notebooks still to be written.
 
 format: jb-book
 root: intro
 parts:
+  - caption: Getting started
+    chapters:
+      - file: sections/modeling/labs-intro
+      - file: sections/modeling/icepack-intro
+      - file: sections/modeling/running-icepack-docker
   - caption: The physics of ice
     chapters:
       - file: sections/foundations/water-molecule
@@ -20,28 +24,48 @@ parts:
       - file: sections/foundations/optical-properties
   - caption: Ice deformation and flow
     chapters:
+      - file: sections/ice_flow/ice-flow-intro
       - file: sections/math/tensor-algebra
       - file: sections/ice_flow/stress-and-strain
       - file: sections/ice_flow/ice-rheology
-      # lab (diagnostic, numpy): Glen's law and the creep curve
       - file: sections/ice_flow/ice-fabric
       # lab (diagnostic, specfab): fabric evolution and directional enhancement
       - file: sections/ice_flow/stress-balance
       - file: sections/ice_flow/shallow-ice
-      # lab (diagnostic, numpy): the Vialov and perfect-plastic profiles
       - file: sections/ice_flow/flow-approximations
+      - file: sections/math/finite-elements
+      - file: sections/modeling/icepack-ice-shelf
+      - file: sections/modeling/ice-shelf-inverse-lab
   - caption: The bed and basal processes
     chapters:
       - file: sections/thermomechanics/thermal-structure
       - file: sections/thermomechanics/temperature-profile-lab
       - file: sections/thermomechanics/basal-motion
-      # lab (diagnostic, numpy): hard-bed, Budd, regularized-Coulomb and till friction laws
       - file: sections/thermomechanics/hydrology
       # lab (diagnostic, numpy): channels vs cavities, effective pressure vs discharge
+      - file: sections/thermomechanics/sliding-laws-lab
       - file: sections/cryosphere/erosion
+  - caption: Mass balance and climate
+    chapters:
+      - file: sections/ice_flow/mass-balance
+      - file: sections/foundations/snow-to-ice
+      - file: sections/climate/glacier-variations
+      - file: sections/climate/glacier-response-lab
+      - file: sections/cryosphere/ice-sheets
+      - file: sections/cryosphere/instabilities
+      - file: sections/climate/paleoclimate
+      - file: sections/climate/isotope-lab
+  - caption: Prognostic modeling and climate forcing
+    chapters:
+      - file: sections/modeling/prognostic-problem
+      # lab (prognostic, icepack): SIA evolution toward the Vialov steady state
+      - file: sections/climate/climate-forcing
+      # lab (prognostic, numpy): two-stage model under stochastic ocean forcing
+      # lab (prognostic, icepack): glacial-cycle ice-sheet evolution; marine retreat on a retrograde bed
   - caption: Observing ice
     chapters:
       - file: sections/observing/elevation
+      - file: sections/radar/em-waves
       - file: sections/observing/laser-altimetry
       # lab (numpy): ICESat-2 along-track height to elevation change
       - file: sections/observing/radar-altimetry
@@ -50,8 +74,6 @@ parts:
       # lab (numpy): image cross-correlation for displacement; DEM differencing
       - file: sections/observing/insar
       # lab (numpy): form and unwrap an interferogram, phase to velocity
-      - file: sections/radar/em-waves
-      # lab (numpy): the dielectric spectrum and radar wave speed
       - file: sections/radar/apres
       - file: sections/radar/apres-lab
       - file: sections/radar/radiowave-fabric
@@ -61,27 +83,6 @@ parts:
       # lab (numpy): apparent resistivity and phase from E and B time series
       - file: sections/observing/gravity
       # lab (numpy): GRACE mascon time series, trend versus seasonal cycle
-  - caption: Computing with icepack
-    chapters:
-      - file: sections/modeling/labs-intro
-      - file: sections/math/finite-elements
-      - file: sections/modeling/icepack-intro
-      - file: sections/modeling/running-icepack-docker
-      - file: sections/modeling/icepack-ice-shelf
-      # diagnostic lab above: floating ice-shelf velocity
-  - caption: Mass balance and climate
-    chapters:
-      - file: sections/ice_flow/mass-balance
-      # lab (prognostic, icepack): SIA evolution toward the Vialov steady state
-      - file: sections/climate/glacier-variations
-      - file: sections/climate/glacier-response-lab
-      - file: sections/cryosphere/ice-sheets
-      - file: sections/cryosphere/instabilities
-      - file: sections/foundations/snow-to-ice
-      - file: sections/climate/paleoclimate
-      - file: sections/climate/isotope-lab
-      # lab (prognostic, numpy): ice-core layer thinning and Milankovitch forcing
-      # lab (prognostic, icepack): glacial-cycle ice-sheet evolution
   - caption: The wider cryosphere
     chapters:
       - file: sections/cryosphere/sea-ice
@@ -89,6 +90,7 @@ parts:
       - file: sections/cryosphere/former-glaciers
       - file: sections/cryosphere/permafrost
       # lab (diagnostic, numpy): trumpet diagram and borehole paleothermometry
+      - file: sections/cryosphere/planetary-ice
   - caption: References
     chapters:
       - file: references

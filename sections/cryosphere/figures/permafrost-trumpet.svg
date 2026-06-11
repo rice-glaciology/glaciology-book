@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ax7" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- ground surface line -->
+  <line x1="60" y1="60" x2="700" y2="60" stroke="#6b4f2a" stroke-width="3"/>
+  <text x="620" y="50" fill="#6b4f2a" font-size="14">ground surface</text>
+
+  <!-- temperature axis along top -->
+  <line x1="80" y1="42" x2="690" y2="42" stroke="#333" stroke-width="1.5" marker-end="url(#ax7)"/>
+  <g fill="#333" font-size="13" text-anchor="middle">
+    <text x="80" y="32">&#8722;25</text>
+    <text x="180" y="32">&#8722;20</text>
+    <text x="280" y="32">&#8722;15</text>
+    <text x="380" y="32">&#8722;10</text>
+    <text x="480" y="32">&#8722;5</text>
+    <text x="580" y="32">0</text>
+    <text x="660" y="32">+5 &#176;C</text>
+  </g>
+
+  <!-- depth axis -->
+  <line x1="60" y1="60" x2="60" y2="400" stroke="#333" stroke-width="1.5" marker-end="url(#ax7)"/>
+  <text x="40" y="230" fill="#333" font-size="14" transform="rotate(-90 40 230)" text-anchor="middle">depth</text>
+  <g fill="#333" font-size="12" text-anchor="end">
+    <text x="56" y="326">~300 m</text>
+  </g>
+
+  <!-- 0 C vertical line -->
+  <line x1="580" y1="42" x2="580" y2="400" stroke="#5b9bc0" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="588" y="395" fill="#5b9bc0" font-size="13">0 &#176;C</text>
+
+  <!-- mean profile (geothermal gradient) -->
+  <line x1="380" y1="60" x2="580" y2="322" stroke="#333" stroke-width="2.5"/>
+  <line x1="580" y1="322" x2="610" y2="362" stroke="#333" stroke-width="2.5"/>
+  <text x="395" y="250" fill="#333" font-size="13" transform="rotate(52 395 250)">mean profile, gradient &#915; &#8776; 1&#176;C / 30 m</text>
+
+  <!-- warm envelope (summer max) -->
+  <path d="M680,60 C600,75 540,88 517,95 C490,105 470,118 474,130 C476,150 480,170 487,191"
+        fill="none" stroke="#b2182b" stroke-width="2.5"/>
+  <!-- cold envelope (winter min) -->
+  <path d="M80,60 C170,75 250,88 296,95 C360,105 420,140 445,165 C462,180 470,186 473,191"
+        fill="none" stroke="#2166ac" stroke-width="2.5"/>
+  <text x="120" y="95" fill="#2166ac" font-size="13">winter minimum</text>
+  <text x="600" y="90" fill="#b2182b" font-size="13">summer maximum</text>
+
+  <!-- depth of zero annual amplitude -->
+  <circle cx="487" cy="191" r="5" fill="#333"/>
+  <text x="500" y="196" fill="#333" font-size="13">depth of zero annual amplitude (~15&#8211;20 m; exaggerated here)</text>
+
+  <!-- active layer: where summer max exceeds 0C, top ~18m -->
+  <rect x="580" y="60" width="100" height="18" fill="#b2182b" opacity="0.15"/>
+  <line x1="60" y1="78" x2="700" y2="78" stroke="#b2182b" stroke-width="1.2" stroke-dasharray="4,4"/>
+  <text x="615" y="73" fill="#b2182b" font-size="13">active layer</text>
+
+  <!-- permafrost body: between base of active layer and base of permafrost -->
+  <text x="150" y="220" fill="#33536e" font-size="16">permafrost (T &#8804; 0 &#176;C year-round)</text>
+
+  <!-- base of permafrost -->
+  <circle cx="580" cy="322" r="5" fill="#333"/>
+  <line x1="60" y1="322" x2="580" y2="322" stroke="#777" stroke-width="1.2" stroke-dasharray="4,4"/>
+  <text x="150" y="316" fill="#555" font-size="13">base of permafrost: geothermal warmth wins</text>
+
+  <!-- unfrozen below -->
+  <text x="280" y="375" fill="#6b5436" font-size="14">unfrozen ground</text>
+</svg>

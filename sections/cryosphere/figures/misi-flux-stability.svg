@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ax3" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#333"/>
+    </marker>
+    <marker id="arrG" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#1a7837"/>
+    </marker>
+    <marker id="arrR" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#b2182b"/>
+    </marker>
+  </defs>
+
+  <!-- ===== top panel: fluxes vs grounding-line position ===== -->
+  <line x1="70" y1="250" x2="690" y2="250" stroke="#333" stroke-width="2" marker-end="url(#ax3)"/>
+  <line x1="70" y1="250" x2="70" y2="30" stroke="#333" stroke-width="2" marker-end="url(#ax3)"/>
+  <text x="40" y="140" fill="#333" font-size="15" transform="rotate(-90 40 140)" text-anchor="middle">flux</text>
+
+  <!-- accumulation supply line a*x -->
+  <line x1="70" y1="250" x2="650" y2="120" stroke="#777" stroke-width="2.5"/>
+  <text x="585" y="110" fill="#777" font-size="15">supply  a&#183;x</text>
+
+  <!-- grounding-line flux q_g(x): mirrors bed depth below (sill at x~250, basin at x~450, sill again) -->
+  <path d="M100,235 C180,205 220,195 250,190 C310,180 360,105 450,75 C520,52 580,95 650,60"
+        fill="none" stroke="#2166ac" stroke-width="3.5"/>
+  <text x="320" y="85" fill="#2166ac" font-size="15">grounding-line flux  q&#8327;(x&#8327;)</text>
+
+  <!-- intersections: G1 stable (~x=171,y=227), G2 unstable (~x=383,y=180...) approximate visually -->
+  <!-- supply line param: y = 250 - (130/580)(x-70) -->
+  <!-- stable crossing 1 at x=180: supply y=225.3; curve ~205... adjust: place markers where curves visually cross -->
+  <circle cx="152" cy="231" r="7" fill="#1a7837"/>
+  <circle cx="378" cy="181" r="7" fill="#fff" stroke="#b2182b" stroke-width="3"/>
+  <circle cx="612" cy="128" r="7" fill="#1a7837"/>
+
+  <!-- convergence/divergence arrows along x-axis -->
+  <line x1="100" y1="268" x2="140" y2="268" stroke="#1a7837" stroke-width="2.5" marker-end="url(#arrG)"/>
+  <line x1="205" y1="268" x2="165" y2="268" stroke="#1a7837" stroke-width="2.5" marker-end="url(#arrG)"/>
+  <line x1="355" y1="268" x2="315" y2="268" stroke="#b2182b" stroke-width="2.5" marker-end="url(#arrR)"/>
+  <line x1="400" y1="268" x2="440" y2="268" stroke="#b2182b" stroke-width="2.5" marker-end="url(#arrR)"/>
+  <line x1="560" y1="268" x2="600" y2="268" stroke="#1a7837" stroke-width="2.5" marker-end="url(#arrG)"/>
+  <line x1="665" y1="268" x2="625" y2="268" stroke="#1a7837" stroke-width="2.5" marker-end="url(#arrG)"/>
+
+  <text x="120" y="215" fill="#1a7837" font-size="14">stable</text>
+  <text x="350" y="155" fill="#b2182b" font-size="14">unstable</text>
+  <text x="585" y="155" fill="#1a7837" font-size="14">stable</text>
+
+  <!-- ===== bottom panel: bed elevation, aligned x ===== -->
+  <line x1="70" y1="470" x2="690" y2="470" stroke="#333" stroke-width="2" marker-end="url(#ax3)"/>
+  <text x="395" y="505" fill="#333" font-size="15" text-anchor="middle">grounding-line position  x&#8327;  (inland &#8594; seaward)</text>
+  <text x="40" y="400" fill="#333" font-size="15" transform="rotate(-90 40 400)" text-anchor="middle">bed elevation</text>
+
+  <!-- sea level -->
+  <line x1="70" y1="330" x2="690" y2="330" stroke="#5b9bc0" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="620" y="322" fill="#5b9bc0" font-size="13">sea level</text>
+
+  <!-- bed profile: shallow sill, deep basin (aligned with high q_g), shallow outer sill -->
+  <path d="M100,355 C180,372 220,378 250,380 C310,385 360,430 450,448 C520,460 580,435 650,455"
+        fill="none" stroke="#6b4f2a" stroke-width="3.5"/>
+  <text x="180" y="410" fill="#6b4f2a" font-size="14">prograde slope</text>
+  <text x="360" y="468" fill="#6b4f2a" font-size="14">retrograde slope (deepens inland of the sill)</text>
+
+  <!-- alignment guides -->
+  <line x1="152" y1="238" x2="152" y2="470" stroke="#ccc" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="378" y1="188" x2="378" y2="470" stroke="#ccc" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="612" y1="135" x2="612" y2="470" stroke="#ccc" stroke-width="1" stroke-dasharray="3,4"/>
+</svg>

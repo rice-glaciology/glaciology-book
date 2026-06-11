@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr4" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- ============ panel 1: slow advance on the shoal ============ -->
+  <text x="20" y="30" font-size="16" fill="#333" font-weight="bold">a&#8202;)  slow advance behind a moraine shoal</text>
+  <!-- water -->
+  <rect x="20" y="120" width="680" height="50" fill="#d6e8f5"/>
+  <!-- fjord bed -->
+  <path d="M20,170 L200,168 C300,166 360,150 430,128 L470,118 L700,118 L700,170 Z" fill="#bda87e"/>
+  <!-- moraine shoal bump -->
+  <path d="M430,128 Q455,108 480,118 L470,118 Z" fill="#9c8054"/>
+  <!-- glacier -->
+  <path d="M20,60 C150,70 300,85 400,100 C430,105 450,110 458,113 L458,128 C380,132 200,140 20,140 Z" fill="#cfe3f3" stroke="#5b8db8" stroke-width="2"/>
+  <text x="120" y="105" fill="#33536e" font-size="14">glacier (grounded)</text>
+  <text x="430" y="95" fill="#9c8054" font-size="14">shoal protects the terminus</text>
+  <line x1="455" y1="140" x2="495" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arr4)"/>
+  <text x="500" y="145" fill="#333" font-size="13">advance ~ m/yr, paced by sediment supply</text>
+
+  <!-- ============ panel 2: the critical moment ============ -->
+  <text x="20" y="215" font-size="16" fill="#333" font-weight="bold">b&#8202;)  the critical moment: terminus slips off its shoal</text>
+  <rect x="20" y="305" width="680" height="50" fill="#d6e8f5"/>
+  <path d="M20,355 L200,353 C300,351 360,335 430,313 L470,303 L700,303 L700,355 Z" fill="#bda87e"/>
+  <path d="M430,313 Q455,293 480,303 L470,303 Z" fill="#9c8054"/>
+  <!-- glacier retreated slightly into deeper water -->
+  <path d="M20,250 C140,258 260,270 340,283 C365,288 380,292 388,296 L388,322 C300,326 150,330 20,330 Z" fill="#cfe3f3" stroke="#5b8db8" stroke-width="2"/>
+  <!-- warm water arrow under terminus -->
+  <line x1="455" y1="335" x2="400" y2="325" stroke="#b2182b" stroke-width="2.5" marker-end="url(#arr4)"/>
+  <text x="462" y="340" fill="#b2182b" font-size="13">seawater attacks the deepening face</text>
+
+  <!-- ============ panel 3: runaway calving retreat ============ -->
+  <text x="20" y="400" font-size="16" fill="#333" font-weight="bold">c&#8202;)  runaway retreat into the overdeepened fjord</text>
+  <rect x="20" y="490" width="680" height="50" fill="#d6e8f5"/>
+  <path d="M20,540 L200,538 C300,536 360,520 430,498 L470,488 L700,488 L700,540 Z" fill="#bda87e"/>
+  <path d="M430,498 Q455,478 480,488 L470,488 Z" fill="#9c8054"/>
+  <!-- glacier far retreated, calving face in deep water -->
+  <path d="M20,440 C90,446 160,452 210,460 C228,464 240,468 246,472 L246,508 C180,512 100,514 20,514 Z" fill="#cfe3f3" stroke="#5b8db8" stroke-width="2"/>
+  <!-- icebergs -->
+  <rect x="280" y="496" width="26" height="14" fill="#e8f1f8" stroke="#5b8db8" stroke-width="1.5" transform="rotate(8 293 503)"/>
+  <rect x="330" y="499" width="20" height="11" fill="#e8f1f8" stroke="#5b8db8" stroke-width="1.5" transform="rotate(-10 340 504)"/>
+  <rect x="372" y="497" width="16" height="9" fill="#e8f1f8" stroke="#5b8db8" stroke-width="1.5"/>
+  <line x1="300" y1="478" x2="258" y2="478" stroke="#333" stroke-width="2" marker-end="url(#arr4)"/>
+  <text x="308" y="483" fill="#333" font-size="13">calving rate grows with water depth; no stable position until the fjord head</text>
+</svg>

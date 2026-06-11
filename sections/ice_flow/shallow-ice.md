@@ -38,6 +38,16 @@ $$
 
 the single result that the shallow-ice approximation contributes to the evolution of an ice sheet. The deformational part depends very steeply on the geometry, growing as the thickness to the power $n+1$ and the surface slope to the power $n$. Because $n\approx3$, a small change in thickness or slope produces a large change in speed, and the velocity is controlled almost entirely by the ice thickness and the surface slope.
 
+```{admonition} Worked problem: from stress to surface speed
+:class: note
+
+A check that the machinery is understood, adapted from the course notes. Take a slab 100 m thick on a slope such that the basal shear stress is $\tau_b = 70$ kPa, with $A = 2\times10^{-16}\ \mathrm{Pa^{-3}\,yr^{-1}}$, $n = 3$, and a frozen bed ($u_b = 0$).
+
+Glen's law gives the shear strain rate at the bed, $\dot\epsilon_{xz} = A\tau_b^{3} \approx 0.07\ \mathrm{yr^{-1}}$, so the velocity gradient there is $\partial u/\partial z = 2\dot\epsilon_{xz} \approx 0.14\ \mathrm{yr^{-1}}$. Integrating the profile through the thickness gives the surface speed, which for a uniform slab reduces to $u_s = \tfrac{2A}{n+1}\,\tau_b^{\,3} H = \tfrac{A}{2}\,\tau_b^{3}H \approx 3.4\ \mathrm{m\,yr^{-1}}$.
+
+The same answer can be reached three ways, analytically as above, by summing $\partial u/\partial z$ over layers in a finite-difference table, or graphically as the area under a plot of strain rate against height above the bed. The lab notebook for this chapter does all three, because the finite-difference version is the seed of every numerical ice-flow model in the later chapters.
+```
+
 ## The thickness equation
 
 The depth-averaged velocity closes the equation that evolves an ice sheet. Conservation of mass, integrated through the thickness, states that the thickness changes when the flux of ice into a column does not balance the net surface and basal mass gain,

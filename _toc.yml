@@ -74,10 +74,23 @@ parts:
     chapters:
       - file: sections/ice_flow/mass-balance
       # lab (prognostic, icepack): SIA evolution toward the Vialov steady state
+      - file: sections/climate/glacier-variations
+      # lab (prognostic, numpy): 1-stage vs 3-stage response; committed retreat; red-noise length wandering
       - file: sections/foundations/snow-to-ice
       - file: sections/climate/paleoclimate
       # lab (prognostic, numpy): ice-core layer thinning and Milankovitch forcing
       # lab (prognostic, icepack): glacial-cycle ice-sheet evolution
+  - caption: The wider cryosphere
+    chapters:
+      - file: sections/cryosphere/ice-sheets
+      # lab (prognostic, numpy): Robel two-stage marine glacier; grounding line on an overdeepened bed
+      - file: sections/cryosphere/instabilities
+      - file: sections/cryosphere/sea-ice
+      # lab (diagnostic, numpy): brine volume and effective thermal properties vs temperature
+      - file: sections/cryosphere/erosion
+      - file: sections/cryosphere/former-glaciers
+      - file: sections/cryosphere/permafrost
+      # lab (diagnostic, numpy): trumpet diagram and borehole paleothermometry
   - caption: References
     chapters:
       - file: references

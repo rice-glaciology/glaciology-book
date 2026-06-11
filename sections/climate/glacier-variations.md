@@ -86,6 +86,48 @@ Set against the natural variability envelope, the observed centennial retreat of
 The kinematic model treats the glacier as a reservoir with a single thickness, and its response time is an e-folding scale, not a delay. It says nothing about how thickness anomalies propagate down-glacier, which is the business of kinematic waves, and it fails entirely for glaciers whose termini end in water, where calving opens a mass-loss channel with its own dynamics. Tidewater glaciers can advance and retreat on cycles almost decoupled from climate, the subject we take up with the flow instabilities in {doc}`../cryosphere/instabilities`.
 ```
 
-## From mountain glaciers to ice sheets
+## Beyond one stage
 
-For an ice sheet the terminus wedge of this chapter is the wrong picture. The margins of Antarctica mostly end in the ocean, mass leaves by calving and by melting at the base of floating ice shelves, and the stability question is governed by the geometry of the bed at the grounding line rather than by surface ablation at a terminus. The response-time logic survives, but the mechanism changes, and the change is consequential enough to deserve its own chapter, {doc}`../cryosphere/ice-sheets`.
+The one-stage model has a flaw that becomes visible the moment the step change switches on. Its terminus begins to move immediately, at its maximum rate, because the model passes a balance perturbation straight to the terminus with no intervening glacier. A real glacier responds in sequence. The interior thickens first, the extra thickness drives extra flux toward the terminus, and only when that flux arrives does the length begin to change in earnest. Roe and Baker {cite}`roebaker2014` turned this observation into a model by chaining three linear reservoirs, one for the interior thickness anomaly $h'$, one for the terminus flux anomaly $F'$, and one for the length anomaly $L'$,
+
+$$
+\frac{dh'}{dt}+\frac{h'}{\epsilon\tau}=\dot b', \qquad
+\frac{dF'}{dt}+\frac{F'}{\epsilon\tau}=\frac{L\,h'}{(\epsilon\tau)^{2}}, \qquad
+\frac{dL'}{dt}+\frac{L'}{\epsilon\tau}=\frac{F'}{\epsilon H},
+$$
+
+with $\tau = H/\dot a_0$ the same Jóhannesson–Raymond–Waddington timescale as before and $\epsilon = 1/\sqrt{3}$ chosen so that the chain of three stages preserves both the equilibrium response and the e-folding behavior of the one-stage model. Eliminating $h'$ and $F'$ gives a single third-order equation,
+
+$$
+\left(\frac{d}{dt}+\frac{1}{\epsilon\tau}\right)^{3} L' = \frac{L}{H}\,\frac{\dot b'}{\epsilon\,(\epsilon\tau)^{2}},
+$$
+
+whose step response is sigmoidal rather than exponential,
+
+$$
+L'(t) = L'_{\mathrm{eq}}\left[1 - e^{-t/\epsilon\tau}\left(1 + \frac{t}{\epsilon\tau} + \frac{1}{2}\left(\frac{t}{\epsilon\tau}\right)^{2}\right)\right].
+$$
+
+```{figure} figures/three-stage-response.svg
+:name: fig-three-stage-response
+:width: 80%
+
+Step responses of the one-stage and three-stage kinematic models with the same equilibrium response and timescale $\tau$. The three-stage glacier {cite}`roebaker2014` barely moves at first, while thickness and flux anomalies work their way down-glacier, and then catches up. Against flowline-model experiments this delayed onset is the realistic behavior.
+```
+
+The difference matters most for exactly the problems this chapter cares about. Because the three-stage glacier filters out high-frequency forcing more aggressively, it wanders less under interannual noise than the one-stage model predicts, and the model is simple enough that its variance, autocorrelation, and excursion statistics can all be written in closed form. Those expressions are what allow an observed retreat to be compared formally against the null hypothesis of noise-driven wandering, and they are the machinery beneath the attribution result of {cite}`roe2017` discussed above. The model is linear, so it can also be inverted, turning a length record back into an estimate of the mass-balance history that produced it.
+
+## A kinematic analog for marine-terminating glaciers
+
+For an ice sheet the terminus wedge of this chapter is the wrong picture. The margins of Antarctica mostly end in the ocean, mass leaves by calving and by basal melting of floating ice shelves, and the controlling boundary is the grounding line, where the ice goes afloat over a bed that often deepens inland. It is natural to ask whether the reservoir logic of this chapter survives the change of setting, and the answer, worked out by Robel, Roe, and Haseloff {cite}`robel2018`, is that it does, with one extra state variable and much richer consequences.
+
+Their two-stage model tracks the interior thickness $H$ and the grounding-line position $L$ of a marine-terminating glacier. Interior flux delivered toward the margin scales as $Q = \nu H^{\alpha}/L^{\gamma}$, while the flux escaping through the grounding line is set by the flotation thickness there, $Q_g = \Omega h_g^{\beta}$ with $h_g = -\lambda b(L)$ tied to the bed depth $b$ through the density ratio $\lambda = \rho_w/\rho_i$. Conservation of mass then gives
+
+$$
+\frac{dL}{dt} = \frac{1}{h_g}\left(Q - Q_g\right), \qquad
+\frac{dH}{dt} = P - \frac{Q_g}{L} - \frac{H}{h_g L}\left(Q - Q_g\right),
+$$
+
+where $P$ is the accumulation rate. Linearized about a steady state, this system has two e-folding timescales rather than one. There is a fast timescale, decades to centuries, on which the grounding line adjusts toward flux balance, and a slow timescale, millennia, on which the interior thickness relaxes, the marine analog of the $t_r$ of land-terminating glaciers. A perturbation therefore produces a quick partial response followed by a long, slow completion, and a marine glacier can sit far from equilibrium for thousands of years while looking superficially stable.
+
+The model also contains its own instability. The slow mode's stability hinges on the sign of the combination $S_T = 1 + \beta\lambda \bar b_x \bar L/\bar h_g$, which flips when the bed slope $\bar b_x$ at the grounding line is sufficiently retrograde, deepening inland. That is the marine ice-sheet instability appearing in a model with no stress balance at all, two reservoirs and a flux rule, which is a strong hint that the instability is at root a statement about mass conservation over a deepening bed. The full mechanical story, with ice shelves, buttressing, and the observational case for West Antarctica, is the subject of {doc}`../cryosphere/ice-sheets`.

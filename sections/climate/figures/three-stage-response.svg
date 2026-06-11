@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ax2" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- axes: x = 80 + 145*(t/tau), y = 340 - 280*f -->
+  <line x1="80" y1="340" x2="680" y2="340" stroke="#333" stroke-width="2" marker-end="url(#ax2)"/>
+  <line x1="80" y1="340" x2="80" y2="40" stroke="#333" stroke-width="2" marker-end="url(#ax2)"/>
+
+  <g stroke="#333" stroke-width="1.5">
+    <line x1="225" y1="340" x2="225" y2="347"/>
+    <line x1="370" y1="340" x2="370" y2="347"/>
+    <line x1="515" y1="340" x2="515" y2="347"/>
+    <line x1="660" y1="340" x2="660" y2="347"/>
+    <line x1="73" y1="200" x2="80" y2="200"/>
+    <line x1="73" y1="60" x2="80" y2="60"/>
+  </g>
+  <g fill="#333" font-size="15" text-anchor="middle">
+    <text x="80" y="365">0</text>
+    <text x="225" y="365">1</text>
+    <text x="370" y="365">2</text>
+    <text x="515" y="365">3</text>
+    <text x="660" y="365">4</text>
+    <text x="390" y="398">time since the step,  t / &#964;</text>
+  </g>
+  <g fill="#333" font-size="15" text-anchor="end">
+    <text x="68" y="205">0.5</text>
+    <text x="68" y="65">1.0</text>
+  </g>
+  <text x="30" y="200" fill="#333" font-size="15" transform="rotate(-90 30 200)" text-anchor="middle">L&#8242;(t) / L&#8242;(&#8734;)</text>
+
+  <!-- equilibrium asymptote -->
+  <line x1="80" y1="60" x2="660" y2="60" stroke="#999" stroke-width="1.5" stroke-dasharray="7,5"/>
+
+  <!-- one-stage exponential (gray-blue) -->
+  <path d="M80,340 L116.25,278.1 L152.5,229.9 L188.75,192.4 L225,163.1 L261.25,140.3 L297.5,122.6 L333.75,108.7 L370,97.9 L442.5,83.0 L515,73.9 L587.5,68.4 L660,65.1"
+        fill="none" stroke="#92c5de" stroke-width="3" stroke-linecap="round"/>
+  <text x="240" y="135" fill="#5b9bc0" font-size="15">one-stage (exponential)</text>
+
+  <!-- three-stage sigmoid (dark blue) -->
+  <path d="M80,340 L116.25,337.3 L152.5,324.0 L188.75,300.0 L225,269.7 L261.25,237.0 L297.5,205.3 L333.75,176.5 L370,151.6 L442.5,114.0 L515,90.5 L587.5,76.5 L660,68.7"
+        fill="none" stroke="#2166ac" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="345" y="225" fill="#2166ac" font-size="15">three-stage (sigmoidal)</text>
+
+  <!-- annotation of the lag at early time -->
+  <line x1="152.5" y1="324.0" x2="152.5" y2="229.9" stroke="#b2182b" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="160" y="290" fill="#b2182b" font-size="14">delayed onset: thickness and</text>
+  <text x="160" y="308" fill="#b2182b" font-size="14">flux must adjust before length</text>
+</svg>

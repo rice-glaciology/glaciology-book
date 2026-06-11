@@ -2,10 +2,6 @@
 
 An ice sheet is not only a flowing solid; it is an archive. Every year a layer of snow is buried, sealing into the ice a sample of the atmosphere, a record of the temperature at which it fell, and the dust and salt and ash carried in the air at the time. Drill a core through the ice and you read that archive downward into the past, layer by layer, to depths where the ice is hundreds of thousands of years old. This chapter sets out how the archive is read, what it has revealed about the rhythm of the ice ages, and how the growth and decay of the great ice sheets over those cycles connects back to the flow physics of the rest of the book. It belongs with the prognostic material because the past is the only long test the models have: an ice-sheet model that cannot reproduce the last glacial cycle has not earned trust in its forecast of the next century. The treatment follows the ice-core chapters of {cite}`cuffey2010`.
 
-```{note}
-This chapter is drafted from the standard ice-core and paleoclimate literature. It is intended to be reconciled with the course lecture material on paleoclimate and ice-age cycles, and the records and figures it cites can be matched to those slides.
-```
-
 ## Reading the ice
 
 The first task with any core is to assign an age to each depth. Near the surface the annual cycle of accumulation leaves visible layers, in dust, in chemistry, and in the isotopes below, and these can be counted like tree rings, giving an exact chronology for the upper tens of thousands of years in high-accumulation sites such as central Greenland. Deeper down the layers thin under their own weight, by the very flow law of {doc}`../ice_flow/shallow-ice`, until they can no longer be resolved, and the age must be found instead from a flow model that tracks how an annual layer is stretched and lowered as the ice carries it from the surface toward the bed. Independent tie points anchor these chronologies: layers of sulfate from known volcanic eruptions, spikes of the cosmogenic isotope beryllium-10 from times of weak solar activity, and the global signal of past changes in atmospheric methane, which lets cores from opposite poles be placed on a common timescale.
@@ -13,6 +9,26 @@ The first task with any core is to assign an age to each depth. Near the surface
 ## Temperature from water isotopes
 
 The central measurement is the isotopic composition of the ice itself. Water molecules built from the heavier isotopes of oxygen and hydrogen, $^{18}\mathrm{O}$ and deuterium, are slightly less volatile than ordinary water, so each time water evaporates or condenses the heavy molecules are preferentially left behind in the liquid. By the time an air mass has cooled on its journey from a warm ocean to a cold ice sheet and rained out most of its moisture, the snow that finally falls is depleted in the heavy isotopes, and the colder the journey, the greater the depletion. The isotopic ratio of the ice, written as $\delta^{18}\mathrm{O}$ or $\delta\mathrm{D}$ relative to ocean water, is therefore a thermometer: lower values mean colder conditions at the time of snowfall. The relation is calibrated against the modern spatial gradient of isotopes and temperature and against borehole temperatures, and gives temperature changes through time to a degree or so. The small second-order difference between the two isotopes, the deuterium excess, carries additional information about the temperature and humidity of the distant ocean where the moisture first evaporated.
+
+### The Rayleigh distillation model
+
+The isotope thermometer is quantitative, and the model behind it is simple enough to build in a few lines. Isotopic compositions are reported in delta notation,
+
+$$
+\delta^{18}\mathrm{O} = \left(\frac{R_{\mathrm{sample}}}{R_{\mathrm{VSMOW}}} - 1\right)\times 10^{3}\ \text{‰},
+$$
+
+where $R$ is the ratio of $^{18}\mathrm{O}$ to $^{16}\mathrm{O}$ and the standard is Vienna Standard Mean Ocean Water. At each condensation step the new condensate is enriched relative to the vapor by the fractionation factor $\alpha = R_{\mathrm{condensate}}/R_{\mathrm{vapor}}$, slightly greater than one (about 1.009 for oxygen near 0 °C) because the heavy molecule's lower vapor pressure favors the liquid.
+
+Now follow an air parcel from a warm ocean toward an ice sheet, condensing and removing moisture as it cools, with the condensate leaving immediately as precipitation. Let $f$ be the fraction of the original vapor remaining. Removing a parcel of condensate $dn$ removes heavy isotopes in the ratio $\alpha R_v$, so the vapor's ratio evolves as $d(\ln R_v) = (\alpha - 1)\,d(\ln f)$, and for constant $\alpha$ the integral is the Rayleigh distillation law
+
+$$
+\frac{R_v(f)}{R_{v,0}} = f^{\,\alpha - 1}.
+$$
+
+The remaining fraction $f$ is itself set by temperature through the saturation vapor pressure, $f = e_s(T)/e_s(T_0)$, which falls off near-exponentially as the parcel cools, by the Clausius-Clapeyron relation already met at the pressure-melting bed of {doc}`../thermomechanics/thermal-structure`. Chaining the two relations turns the distillation law into a curve of $\delta^{18}\mathrm{O}$ against condensation temperature, and the prediction is the observed one, progressively lighter snow at progressively colder sites. Cooling a parcel from a 25 °C ocean to a 0 °C coast removes most of its water and depletes the remainder by tens of per mil, and the polar plateau, at the far end of the distillation path, receives the lightest precipitation on Earth.
+
+The model also explains how the thermometer is calibrated and why the calibration must be handled with care. The modern spatial relation between mean annual $\delta^{18}\mathrm{O}$ and surface temperature across Greenland and Antarctica is strikingly linear, near $0.6$ to $0.7$‰ per °C, very much as Rayleigh distillation predicts {cite}`dansgaard1964,lorius1977`. Applying that spatial slope to a single site through time, however, assumes the whole distillation path shifts the way the modern map does, and it need not. Changes in moisture source, in seasonality of snowfall, and in the inversion strength above the ice sheet all bend the temporal slope away from the spatial one, and in central Greenland the borehole-temperature calibration of the glacial-interglacial swing showed the spatial slope underestimates the true temperature change by nearly a factor of two {cite}`jouzel1997`. The isotope record is an excellent thermometer with a calibration that is itself a piece of climate physics.
 
 ## Air from the bubbles
 

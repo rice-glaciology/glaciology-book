@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr6" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#333"/>
+    </marker>
+    <marker id="arr6b" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#2166ac"/>
+    </marker>
+  </defs>
+
+  <!-- ice body -->
+  <rect x="20" y="40" width="680" height="190" fill="#cfe3f3" opacity="0.65"/>
+  <text x="50" y="75" fill="#33536e" font-size="16">ice</text>
+  <!-- ice flow arrow -->
+  <line x1="80" y1="100" x2="220" y2="100" stroke="#2166ac" stroke-width="3.5" marker-end="url(#arr6b)"/>
+  <text x="105" y="90" fill="#2166ac" font-size="15">ice flow</text>
+
+  <!-- bedrock with a roche moutonnee bump: smooth stoss (left), steep quarried lee (right) -->
+  <path d="M20,300 L180,298 C260,290 330,250 400,235 C430,228 450,226 460,226 L460,280 L470,282 L470,300 L700,300 L700,380 L20,380 Z"
+        fill="#c9b896" stroke="#8a7350" stroke-width="2.5"/>
+  <text x="80" y="345" fill="#6b5436" font-size="16">bedrock</text>
+
+  <!-- stoss-side annotations: entrained clast + abrasion -->
+  <circle cx="300" cy="252" r="11" fill="#8a7350"/>
+  <line x1="300" y1="222" x2="300" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arr6)"/>
+  <text x="225" y="205" fill="#333" font-size="14">contact force from viscous drag,</text>
+  <text x="225" y="222" fill="#333" font-size="14">F = 6&#960;&#951;Rv&#8345; (not the ice weight)</text>
+  <text x="240" y="285" fill="#6b5436" font-size="14">abraded, striated, polished stoss face</text>
+
+  <!-- lee side: cavity, water, crack -->
+  <path d="M460,226 L460,280 L470,282 C500,290 540,296 565,298 L470,300 Z" fill="#d6e8f5"/>
+  <text x="478" y="265" fill="#5b9bc0" font-size="14">water-filled cavity, pressure P&#8337;</text>
+  <!-- crack in lee corner -->
+  <path d="M461,272 L448,290 L452,300" fill="none" stroke="#b2182b" stroke-width="2.5"/>
+  <text x="350" y="330" fill="#b2182b" font-size="14">crack grows in the lee corner when P&#8337; drops</text>
+  <text x="350" y="348" fill="#b2182b" font-size="14">and the bridging stress on the rock step rises</text>
+  <line x1="455" y1="318" x2="452" y2="292" stroke="#b2182b" stroke-width="1.5" marker-end="url(#arr6)"/>
+
+  <!-- quarried block falling -->
+  <path d="M475,310 l22,-6 l8 14 l-20 8 z" fill="#8a7350" opacity="0.85"/>
+  <text x="515" y="330" fill="#6b5436" font-size="14">quarried block, carried off as a tool</text>
+
+  <!-- normal stress concentration on stoss -->
+  <line x1="380" y1="200" x2="392" y2="232" stroke="#333" stroke-width="2" marker-end="url(#arr6)"/>
+  <line x1="412" y1="196" x2="420" y2="228" stroke="#333" stroke-width="2" marker-end="url(#arr6)"/>
+  <text x="380" y="185" fill="#333" font-size="14">normal stress concentrated on the bump</text>
+</svg>

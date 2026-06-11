@@ -22,12 +22,10 @@ $$
 
 with $S_i$ the bulk ice salinity, $S_b$ the brine salinity, $\rho_i, \rho_b$ the densities, $T_i$ the temperature in Celsius, and $m$ the liquidus slope. Fast-grown young ice traps more salt, with salinity decreasing as the ice thickens and ages, from roughly 10‰ in thin first-year ice toward 5‰ or less in multiyear ice that has flushed its brine.
 
-```{figure} figures/brine-volume.svg
-:name: fig-brine-volume
-:width: 80%
-
-Brine volume fraction against temperature for first-year ice ($S_i = 10$‰) and multiyear ice ($S_i = 5$‰), from the freezing-equilibrium relation above. The liquid fraction diverges as the ice warms toward the freezing point, which is why every physical property of sea ice becomes violently temperature-dependent in the last few degrees below melting {cite}`thomas2017`.
-```
+% TODO Illustrator figure: figures/brine-volume.svg (label fig-brine-volume, width 80%)
+% Spec: brine volume fraction vs temperature for first-year (S_i = 10 permil) and multiyear
+% (S_i = 5 permil) ice from the freezing-equilibrium relation; liquid fraction diverging toward
+% the freezing point; cite thomas2017.
 
 ## Properties ruled by the brine
 
@@ -40,7 +38,7 @@ The brine is not hypothetical; under a microscope it is the texture of the mater
 Brine inclusions in first-year Arctic sea ice under transmitted light, in vertical section {cite}`light2003`. The dark vertical tubes and pockets are liquid brine threaded along the crystal boundaries of the columnar ice; their connectivity, and with it the ice's permeability, switches on as the ice warms.
 ```
 
-Almost every bulk property of sea ice is the pure-ice value corrected by the brine volume, which makes {numref}`fig-brine-volume` the master curve of the subject. The effective latent heat of fusion is reduced, $L_i = L_0(1-\nu_b)$, since the brine fraction is already liquid; new ice can require only 60% of the energy that pure ice would to melt. The thermal conductivity is dragged down from $2.4\ \mathrm{W\,m^{-1}\,K^{-1}}$ for pure ice toward the brine value of $0.6$, so salty warm ice insulates the ocean and slows its own growth. The effective specific heat,
+Almost every bulk property of sea ice is the pure-ice value corrected by the brine volume, which makes the brine-volume curve the master curve of the subject. The effective latent heat of fusion is reduced, $L_i = L_0(1-\nu_b)$, since the brine fraction is already liquid; new ice can require only 60% of the energy that pure ice would to melt. The thermal conductivity is dragged down from $2.4\ \mathrm{W\,m^{-1}\,K^{-1}}$ for pure ice toward the brine value of $0.6$, so salty warm ice insulates the ocean and slows its own growth. The effective specific heat,
 
 $$
 c_i = c_0 + a\,T_i + \frac{b\,S_i}{T_i^{2}},

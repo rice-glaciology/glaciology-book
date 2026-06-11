@@ -8,7 +8,7 @@ A useful orientation is that the products are local. Around Puget Sound, a kilom
 
 Glaciers erode bedrock chiefly by two processes, and the division of labor between them is lopsided.
 
-**Quarrying** removes blocks. Ice flowing over a bedrock bump concentrates normal stress on the up-flow (stoss) face and opens a water-filled cavity in the lee, as sketched in {numref}`fig-quarrying-abrasion`. The rock step between them carries a deviatoric stress set by the difference between ice pressure and cavity water pressure, and cracks in the lee corner grow when that difference is large. The counterintuitive part is the role of water pressure. High, steady water pressure protects the rock; what breaks it is the drop, when the cavity drains, the bridging stress on the step spikes, and cracks jump ahead. Erosion is fastest under glaciers with fast sliding, low effective pressure, and large water-pressure fluctuations, which is to say under big temperate glaciers with lively hydrology. The hypothesis has been tested directly at the Svartisen Subglacial Laboratory beneath Engabreen in Norway, where instruments at the bed under 210 meters of ice recorded bursts of acoustic emission, cracking, accompanying each drop in water pressure {cite}`cohen2006`. Quarrying is the dominant erosional process, faster than abrasion by an order of magnitude or more, and the asymmetry it leaves behind, smooth abraded stoss faces and steep plucked lee faces, is the signature of the roche moutonnée.
+**Quarrying** removes blocks. Ice flowing over a bedrock bump concentrates normal stress on the up-flow (stoss) face and opens a water-filled cavity in the lee. The rock step between them carries a deviatoric stress set by the difference between ice pressure and cavity water pressure, and cracks in the lee corner grow when that difference is large. The counterintuitive part is the role of water pressure. High, steady water pressure protects the rock; what breaks it is the drop, when the cavity drains, the bridging stress on the step spikes, and cracks jump ahead. Erosion is fastest under glaciers with fast sliding, low effective pressure, and large water-pressure fluctuations, which is to say under big temperate glaciers with lively hydrology. The hypothesis has been tested directly at the Svartisen Subglacial Laboratory beneath Engabreen in Norway, where instruments at the bed under 210 meters of ice recorded bursts of acoustic emission, cracking, accompanying each drop in water pressure {cite}`cohen2006`. Quarrying is the dominant erosional process, faster than abrasion by an order of magnitude or more, and the asymmetry it leaves behind, smooth abraded stoss faces and steep plucked lee faces, is the signature of the roche moutonnée.
 
 **Abrasion** files the surface. Rock fragments entrained in basal ice are dragged across bedrock, carving the striations and polish that record flow direction long after the ice is gone.
 
@@ -31,12 +31,10 @@ $$
 
 with $F_c$ the contact force, $v_p$ the particle speed, $C$ the concentration of tools on the bed, and $\alpha$ a constant absorbing rock hardness {cite}`hallet1979`. Since both $F_c$ and $v_p$ grow with the sliding speed, abrasion goes roughly as the square of sliding, an energy statement, since $\mu F_c v_p C$ is the frictional work spent per unit bed area.
 
-```{figure} figures/quarrying-abrasion.svg
-:name: fig-quarrying-abrasion
-:width: 90%
-
-Erosion at a bedrock bump. Ice slides left to right over a roche moutonnée. On the stoss side, entrained clasts pressed against the bed by viscous drag abrade striations and polish. In the lee, a water-filled cavity forms, and drops in its pressure load the rock step and drive crack growth, quarrying blocks that become the next generation of abrasive tools {cite}`hallet1979,cohen2006,iverson2012`.
-```
+% TODO Illustrator figure: figures/quarrying-abrasion.svg (label fig-quarrying-abrasion, width 90%)
+% Spec: erosion at a roche moutonnee, ice sliding left to right. Stoss side, entrained clasts
+% pressed by viscous drag abrade striations/polish; lee side, water-filled cavity, pressure drops
+% load the rock step and drive crack growth (quarrying); cite hallet1979,cohen2006,iverson2012.
 
 The two processes feed each other. Quarrying supplies the tools that abrade, and abrasion smooths the bumps whose lee corners quarrying exploits. Subglacial streams then do most of the hauling, evacuating the majority of the sediment to the margin, and sliding by regelation adds a quiet chemical channel, dissolving minerals where ice melts on stoss faces and precipitating them in the lee, which is partly why glaciated bedrock shines.
 

@@ -20,12 +20,10 @@ $$
 L_1 = \frac{\langle \dot b_1 \rangle}{\dot a_0} L_0.
 $$
 
-```{figure} figures/terminus-flux-wedge.svg
-:name: fig-terminus-flux-wedge
-:width: 85%
-
-The equilibrium length response. A persistent mass-balance perturbation delivers an extra flux $\langle \dot b_1 \rangle L_0$ to the old terminus, and the glacier advances by $L_1$ until ablation at the rate $\dot a_0$ over the new wedge consumes it. Redrawn after Chapter 11 of {cite}`cuffey2010`.
-```
+% TODO Illustrator figure: figures/terminus-flux-wedge.svg (label fig-terminus-flux-wedge, width 85%)
+% Spec: equilibrium length response. Persistent balance perturbation delivers extra flux
+% <b1>L0 to the old terminus; glacier advances by L1 until ablation a0 over the new terminus
+% wedge consumes it. After C&P ch. 11.
 
 A modest perturbation produces a substantial advance. With a terminus ablation rate of $5\ \mathrm{m\,yr^{-1}}$, a balance increase of only $0.5\ \mathrm{m\,yr^{-1}}$ moves the terminus forward by a tenth of the glacier's length. The terminus is a lever arm, and small persistent changes in climate are amplified into conspicuous changes in length. This is the first reason glacier termini make such legible climate records.
 
@@ -61,12 +59,9 @@ $$
 L_1(t) = \frac{\dot b_1}{\dot a_0}\,\frac{\bar Y}{Y_t}\,L_0 \left[1 - e^{-t/t_r}\right].
 $$
 
-```{figure} figures/response-time-curve.svg
-:name: fig-response-time-curve
-:width: 80%
-
-Length adjustment after a step change in mass balance. The terminus approaches its new equilibrium exponentially, 63% of the way there after one response time $t_r = H/\dot a_0$ and 86% after two {cite}`johannesson1989`.
-```
+% TODO Illustrator figure: figures/response-time-curve.svg (label fig-response-time-curve, width 80%)
+% Spec: length vs time after a step change in balance, exponential approach to new equilibrium;
+% mark 63% at one response time t_r = H/a_0 and 86% at two; cite johannesson1989.
 
 The numbers this formula produces are the useful surprise. A glacier on Mount Rainier with $H = 100$ m and a terminus ablation rate of $10\ \mathrm{m\,yr^{-1}}$ has $t_r = 10$ years. An ice sheet with $H = 1500$ m losing $1\ \mathrm{m\,yr^{-1}}$ at its margin has $t_r = 1500$ years. Mountain glaciers remember a few decades of climate. Ice sheets remember millennia, which is why their present shape still carries the imprint of the last glacial period, a thread we pick up again in {doc}`paleoclimate`. Thick glaciers in cold, dry climates respond slowly. Thin glaciers with high terminus ablation, the maritime glaciers of Norway and New Zealand among them, respond within a decade or two.
 
@@ -108,12 +103,9 @@ $$
 L'(t) = L'_{\mathrm{eq}}\left[1 - e^{-t/\epsilon\tau}\left(1 + \frac{t}{\epsilon\tau} + \frac{1}{2}\left(\frac{t}{\epsilon\tau}\right)^{2}\right)\right].
 $$
 
-```{figure} figures/three-stage-response.svg
-:name: fig-three-stage-response
-:width: 80%
-
-Step responses of the one-stage and three-stage kinematic models with the same equilibrium response and timescale $\tau$. The three-stage glacier {cite}`roebaker2014` barely moves at first, while thickness and flux anomalies work their way down-glacier, and then catches up. Against flowline-model experiments this delayed onset is the realistic behavior.
-```
+% TODO Illustrator figure: figures/three-stage-response.svg (label fig-three-stage-response, width 80%)
+% Spec: step responses of one-stage vs three-stage kinematic models, same equilibrium response and
+% timescale tau; three-stage curve sigmoidal (delayed onset, then catches up); cite roebaker2014.
 
 The difference matters most for exactly the problems this chapter cares about. Because the three-stage glacier filters out high-frequency forcing more aggressively, it wanders less under interannual noise than the one-stage model predicts, and the model is simple enough that its variance, autocorrelation, and excursion statistics can all be written in closed form. Those expressions are what allow an observed retreat to be compared formally against the null hypothesis of noise-driven wandering, and they are the machinery beneath the attribution result of {cite}`roe2017` discussed above. The model is linear, so it can also be inverted, turning a length record back into an estimate of the mass-balance history that produced it.
 

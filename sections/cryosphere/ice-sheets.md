@@ -40,14 +40,13 @@ The streamlined hills of Seattle, Green Lake to Magnolia, are drumlins carved be
 
 Where an ice sheet ends in the ocean, the grounded ice goes afloat at the grounding line, and the flotation condition ties the ice thickness there to the bed depth, $h_g = (\rho_w/\rho_i)\,|b|$. The flux of ice through the grounding line increases very strongly with the thickness of ice there; boundary-layer analysis of the stress balance gives discharge growing like $h_g$ raised to a power near five {cite}`weertman1974,schoof2007`. Deeper bed, thicker grounding line, faster discharge. Everything follows from that chain.
 
-Consider a grounding line in steady state, discharging exactly the accumulation it is fed. If the bed slopes seaward, prograde, a small retreat moves the grounding line into shallower water, the discharge falls below the supply, and the ice readvances. The geometry is self-correcting. If the bed deepens inland, retrograde, the same small retreat puts the grounding line in deeper water, discharge rises above supply, and the imbalance drives further retreat into still deeper water. There is no stable resting place on a retrograde slope. The flux argument is summarized in {numref}`fig-misi-flux-stability`, and we have already met its kinematic skeleton in the two-stage model of {doc}`../climate/glacier-variations`, where the instability appears as a sign change in a single stability parameter {cite}`robel2018`.
+Consider a grounding line in steady state, discharging exactly the accumulation it is fed. If the bed slopes seaward, prograde, a small retreat moves the grounding line into shallower water, the discharge falls below the supply, and the ice readvances. The geometry is self-correcting. If the bed deepens inland, retrograde, the same small retreat puts the grounding line in deeper water, discharge rises above supply, and the imbalance drives further retreat into still deeper water. There is no stable resting place on a retrograde slope. This flux argument is the content of the stability diagrams of {cite}`schoof2007`, and we have already met its kinematic skeleton in the two-stage model of {doc}`../climate/glacier-variations`, where the instability appears as a sign change in a single stability parameter {cite}`robel2018`.
 
-```{figure} figures/misi-flux-stability.svg
-:name: fig-misi-flux-stability
-:width: 90%
-
-The marine ice-sheet instability as a flux balance {cite}`weertman1974,schoof2007`. Top, ice flux through the grounding line (blue) against the integrated accumulation supply (gray) as functions of grounding-line position. Bottom, the bed beneath, with an overdeepened basin between two sills. Crossings on prograde slopes are stable, since the arrows of imbalance converge. The crossing on the retrograde slope is unstable, and a grounding line perturbed off it retreats or advances away. Redrawn after the stability diagrams of {cite}`schoof2007`.
-```
+% TODO Illustrator figure: figures/misi-flux-stability.svg (label fig-misi-flux-stability, width 90%)
+% Spec: two stacked panels. Top, grounding-line flux (blue) vs integrated accumulation supply (gray)
+% as functions of grounding-line position, with imbalance arrows at each crossing. Bottom, the bed,
+% an overdeepened basin between two sills. Prograde crossings stable, retrograde crossing unstable.
+% After the stability diagrams of weertman1974, schoof2007.
 
 Retreat across a real bed is therefore episodic rather than smooth. Model reconstructions of deglaciation through overdeepened troughs show the grounding line pausing on sills for centuries and then sweeping across basins at rates of kilometers per year, a punctuated style of retreat that the geological record of the Antarctic shelf corroborates. The instability does not require a trigger to be catastrophic, only a nudge that moves the grounding line off its sill.
 

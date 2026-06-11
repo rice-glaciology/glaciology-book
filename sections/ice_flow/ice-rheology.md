@@ -40,12 +40,9 @@ $$
 
 where $\boldsymbol{\tau}$ is the deviatoric stress, $\tau_E$ the effective stress, $A$ the rate factor, and $n$ Glen's exponent. For the stresses found in glaciers and ice sheets, roughly 0.05 to 0.2 megapascals, the data are consistent with $n$ close to 3. This value is the signature of dislocation creep, in which the density of mobile dislocations itself rises with stress, so that the strain rate increases faster than linearly.
 
-```{figure} figures/glen-law-curves.svg
-:name: fig-glen-law-curves
-:width: 80%
-
-Strain rate against deviatoric stress for a Newtonian fluid ($n=1$), Glen's law ($n=3$), and the perfectly plastic limit ($n\to\infty$), with all curves normalized to pass through the same point at a yield-like stress $\tau_0 \approx 100$ kPa. Ice sits between the extremes, stiff at low stress and increasingly fluid at high stress, and the plastic limit is a useful caricature exploited by the perfect-plasticity profile of {doc}`mass-balance` {cite}`glen1955,cuffey2010`.
-```
+% TODO Illustrator figure: figures/glen-law-curves.svg (label fig-glen-law-curves, width 80%)
+% Spec: strain rate vs deviatoric stress for n=1 (Newtonian), n=3 (Glen), and the perfectly
+% plastic limit, all normalized through the same point at tau_0 ~ 100 kPa; cite glen1955,cuffey2010.
 
 The evidence for the law reaches well beyond the laboratory. The closure rate of tunnels bored beneath glaciers, the spreading of floating ice shelves, and the progressive tilt of boreholes all probe natural ice at natural stresses, and all are consistent with a stress exponent near 3 {cite}`nye1953,cuffey2010`. Calibrating against field measurements remains delicate even so, because stress, temperature, and fabric are hard to separate cleanly in any single observation.
 

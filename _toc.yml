@@ -11,11 +11,9 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Mathematical and chemical background
+  - caption: Chemistry and statistical mechanics
     chapters:
       - file: sections/math/chemistry-primer
-      - file: sections/math/tensor-algebra
-      - file: sections/math/finite-elements
   - caption: The physics of ice
     chapters:
       - file: sections/foundations/water-molecule
@@ -25,6 +23,7 @@ parts:
       - file: sections/foundations/optical-properties
   - caption: Ice deformation and flow
     chapters:
+      - file: sections/math/tensor-algebra
       - file: sections/ice_flow/stress-and-strain
       - file: sections/ice_flow/ice-rheology
       # lab (diagnostic, numpy): Glen's law and the creep curve
@@ -37,11 +36,12 @@ parts:
   - caption: The bed and basal processes
     chapters:
       - file: sections/thermomechanics/thermal-structure
-      # lab (diagnostic, numpy): the temperature profile and basal thermal state
+      - file: sections/thermomechanics/temperature-profile-lab
       - file: sections/thermomechanics/basal-motion
       # lab (diagnostic, numpy): hard-bed, Budd, regularized-Coulomb and till friction laws
       - file: sections/thermomechanics/hydrology
       # lab (diagnostic, numpy): channels vs cavities, effective pressure vs discharge
+      - file: sections/cryosphere/erosion
   - caption: Observing ice
     chapters:
       - file: sections/observing/elevation
@@ -67,6 +67,7 @@ parts:
   - caption: Computing with icepack
     chapters:
       - file: sections/modeling/labs-intro
+      - file: sections/math/finite-elements
       - file: sections/modeling/icepack-intro
       - file: sections/modeling/running-icepack-docker
       - file: sections/modeling/icepack-ice-shelf
@@ -76,19 +77,18 @@ parts:
       - file: sections/ice_flow/mass-balance
       # lab (prognostic, icepack): SIA evolution toward the Vialov steady state
       - file: sections/climate/glacier-variations
-      # lab (prognostic, numpy): 1-stage vs 3-stage response; committed retreat; red-noise length wandering
+      - file: sections/climate/glacier-response-lab
+      - file: sections/cryosphere/ice-sheets
+      - file: sections/cryosphere/instabilities
       - file: sections/foundations/snow-to-ice
       - file: sections/climate/paleoclimate
+      - file: sections/climate/isotope-lab
       # lab (prognostic, numpy): ice-core layer thinning and Milankovitch forcing
       # lab (prognostic, icepack): glacial-cycle ice-sheet evolution
   - caption: The wider cryosphere
     chapters:
-      - file: sections/cryosphere/ice-sheets
-      # lab (prognostic, numpy): Robel two-stage marine glacier; grounding line on an overdeepened bed
-      - file: sections/cryosphere/instabilities
       - file: sections/cryosphere/sea-ice
       # lab (diagnostic, numpy): brine volume and effective thermal properties vs temperature
-      - file: sections/cryosphere/erosion
       - file: sections/cryosphere/former-glaciers
       - file: sections/cryosphere/permafrost
       # lab (diagnostic, numpy): trumpet diagram and borehole paleothermometry

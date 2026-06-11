@@ -34,7 +34,13 @@ $$
 \frac{\partial \tau_{xz}}{\partial z}=\rho g\,\frac{\partial s}{\partial x}.
 $$
 
-Integrating from $z$ to the surface, where $\tau_{xz}=0$, gives $\tau_{xz}=-\rho g(s-z)\,\partial s/\partial x$, and inserting this into Glen's law and integrating once more in $z$ gives the velocity profile of {doc}`shallow-ice`. The momentum balance is purely local: the velocity at a point depends only on the thickness and surface slope there, and no stress is transmitted horizontally.
+Integrating from $z$ to the surface, where $\tau_{xz}=0$, gives $\tau_{xz}=-\rho g(s-z)\,\partial s/\partial x$, and inserting this into Glen's law and integrating once more in $z$ gives the velocity profile of {doc}`shallow-ice`. The momentum balance is purely local, so the velocity at a point depends only on the thickness and surface slope there, and no stress is transmitted horizontally.
+
+```{admonition} Where on a real ice sheet these assumptions hold
+:class: note
+
+The maps of Greenland and Antarctica sort themselves by exactly this approximation. Over the slow interior, where ice is frozen to a hard bed or sliding weakly, deformation is vertical shear and the SIA is excellent; this is most of East Antarctica and the Greenland summit region. The approximation fails where its neglected stresses do the work. Ice streams like those of the Siple Coast slide as plugs over weak marine till, with the driving stress carried not by the bed but by lateral drag at their crevassed shear margins, more than half of it in the measured cases {cite}`echelmeyer1994`, and their locations follow the sedimentary basins beneath them {cite}`studinger2001`. Ice shelves have no basal drag at all. Divides, grounding lines, and steep bedrock relief violate the smallness assumptions in their own ways. The geography of the approximations, slow shear-dominated interior, membrane-stress streams and shelves, is the geography of the two modern ice sheets surveyed in {doc}`../cryosphere/ice-sheets`, and the practical resolution is the hybrid and higher-order models below.
+```
 
 ## The shallow-shelf approximation
 

@@ -1,6 +1,6 @@
-# A chemistry primer
+# Chemistry and statistical mechanics
 
-The first part of this book builds glacier physics from the molecule up, and that construction leans on a handful of ideas from chemistry, the shapes of electron orbitals, the polarity of bonds, the energetics of thermally activated processes, and the equilibrium between phases. This chapter collects them in one place, in the same spirit as the mathematical chapters beside it. A reader comfortable with introductory chemistry can skim it and move on; a reader who last saw orbitals long ago should find everything here that the ice chapters assume. The chemical physics of ice itself is treated comprehensively in {cite}`fletcher1970` and {cite}`petrenko1999`.
+The first part of this book builds glacier physics from the molecule up, and that construction leans on a handful of ideas from chemistry and statistical mechanics, the shapes of electron orbitals, the polarity of bonds, the statistics of thermal fluctuations, and the equilibrium between phases. This chapter collects them in one place. A reader comfortable with introductory chemistry and a little statistical thermodynamics can skim it and move on; a reader who last saw orbitals long ago should find everything here that the ice chapters assume. The chemical physics of ice itself is treated comprehensively in {cite}`fletcher1970` and {cite}`petrenko1999`, and the statistical mechanics sketched below is developed properly in {cite}`eastman2015`.
 
 ## Orbitals and the shape of a molecule
 
@@ -14,21 +14,35 @@ Atoms do not share electrons evenly. Electronegativity measures how strongly an 
 
 That grip is the hydrogen bond. A hydrogen nucleus, bonded to one oxygen and stripped of most of its electron cloud by it, is attracted to the lone pair of a neighboring molecule's oxygen. The resulting bond is about a tenth as strong as the covalent O–H bond, roughly 20 kJ/mol against nearly 500, strong enough to organize molecules into a tetrahedral network and weak enough to break and re-form readily. Nearly every anomaly of water and ice, the open low-density crystal, the high melting point for so light a molecule, the proton disorder behind the point defects of {doc}`../foundations/point-defects`, is hydrogen bonding expressing itself, and the details are taken up in {doc}`../foundations/water-molecule`.
 
-## Boltzmann, activation energy, and Arrhenius
+## Statistical mechanics: from microstates to temperature
 
-Much of glacier physics is the statistics of jostling molecules, and one formula carries most of it. At temperature $T$, the probability that a molecule finds itself with energy $E$ above the typical thermal energy is proportional to the Boltzmann factor
+Much of glacier physics is the statistics of jostling molecules, and the machinery for that statistics deserves more than a formula pulled from the air. The starting point of statistical mechanics is a counting argument {cite}`eastman2015`. A macroscopic state, a block of ice with a given energy, corresponds to an astronomical number $W$ of microstates, distinct molecular arrangements consistent with what we can measure. The entropy is the logarithm of that count,
+
+$$
+S = k_B \ln W,
+$$
+
+with $k_B$ Boltzmann's constant, and an isolated system evolves toward the macrostate with the most microstates simply because that is overwhelmingly where the dice land. Temperature then has a precise statistical meaning, as the rate at which a system's entropy buys energy, $1/T = \partial S/\partial E$. Two bodies in contact exchange energy until that exchange no longer creates entropy, which is what equal temperature means.
+
+For a small system exchanging energy with a large reservoir at temperature $T$, the counting yields the most important distribution in this book. The probability of finding the system in a particular microstate of energy $E$ is proportional to the Boltzmann factor,
 
 $$
 p \propto e^{-E/k_B T},
 $$
 
-where $k_B$ is Boltzmann's constant. Processes that require a rare, energetic fluctuation, breaking a bond, hopping into a vacancy, rotating a molecule against its neighbors, therefore proceed at rates that depend exponentially on temperature. Writing the required energy per mole as the activation energy $Q$ gives the Arrhenius law for the rate of any thermally activated process,
+and the normalization, the sum of Boltzmann factors over all microstates, is the partition function $Z = \sum_i e^{-E_i/k_B T}$, from which every equilibrium property follows by differentiation. The free energy $F = -k_B T \ln Z$ packages the competition that decides phase equilibrium, since minimizing $F$ means trading energy against entropy, and that trade is exactly what the phase diagram of the next section expresses.
+
+Ice repays the statistical view almost immediately. The hydrogen atoms in the lattice of {doc}`../foundations/ice-structure` have many distinct arrangements obeying the local bonding rules, so ice retains a residual entropy even at absolute zero. Pauling counted the arrangements, $W \approx (3/2)^{N}$ for $N$ molecules, and his predicted residual entropy matched the calorimetric measurements, one of the early triumphs of the counting view of entropy and the cleanest evidence for the proton disorder behind the point defects of {doc}`../foundations/point-defects` {cite}`pauling1935`.
+
+### Activation energy and the Arrhenius law
+
+The Boltzmann factor also sets the pace of every slow process in ice. Processes that require a rare, energetic fluctuation, breaking a bond, hopping into a vacancy, rotating a molecule against its neighbors, proceed at rates proportional to the probability of borrowing the necessary energy from thermal fluctuations. Writing the required energy per mole as the activation energy $Q$ gives the Arrhenius law for the rate of any thermally activated process,
 
 $$
 \mathrm{rate} \propto e^{-Q/RT},
 $$
 
-with $R$ the gas constant. The exponential is brutal. For an activation energy typical of deformation in ice, the rate roughly doubles for every five degrees of warming near the melting point, which is why the rate factor $A$ in Glen's flow law, derived from the defect physics in {doc}`../foundations/point-defects` and used everywhere from {doc}`../ice_flow/ice-rheology` onward, makes ice at the melting point deform orders of magnitude faster than the cold ice of the polar plateaus. Whenever a chapter says "thermally activated," it means this equation.
+with $R$ the gas constant. The exponential is brutal. For an activation energy typical of deformation in ice, the rate roughly doubles for every five degrees of warming near the melting point, which is why the rate factor $A$ in Glen's flow law, derived from the defect physics in {doc}`../foundations/point-defects` and used everywhere from {doc}`../ice_flow/ice-rheology` onward, makes ice at the melting point deform orders of magnitude faster than the cold ice of the polar plateaus. Whenever a chapter says "thermally activated," it means this equation, and behind it, the Boltzmann counting above.
 
 ## Phases in equilibrium
 
@@ -46,4 +60,4 @@ Latent heat itself deserves its moment. Melting ice absorbs 334 kJ/kg without wa
 
 ## What to carry forward
 
-Four ideas, then, underwrite the molecular chapters that follow. The tetrahedral sp³ geometry of the water molecule sets the architecture of the ice crystal. The polarity of the O–H bond gives the hydrogen bond, which holds the crystal together and leaves it disordered. The Boltzmann factor makes every rate in ice exponentially temperature-dependent through the Arrhenius law. And phase equilibrium, through Clausius-Clapeyron, ties melting and evaporation to pressure and temperature. None of this is specific to glaciology, and all of it is load-bearing.
+Five ideas, then, underwrite the molecular chapters that follow. The tetrahedral sp³ geometry of the water molecule sets the architecture of the ice crystal. The polarity of the O–H bond gives the hydrogen bond, which holds the crystal together and leaves it disordered. Entropy counts microstates, which is why disordered ice has residual entropy and why free energy, not energy alone, picks the winning phase. The Boltzmann factor makes every rate in ice exponentially temperature-dependent through the Arrhenius law. And phase equilibrium, through Clausius-Clapeyron, ties melting and evaporation to pressure and temperature. None of this is specific to glaciology, and all of it is load-bearing.

@@ -1,33 +1,54 @@
-# Ice flow, accumulation and ablation
+# Ice flow, accumulation, and ablation
 
-A glacier is a budget. Ice is added in some places and removed in others, and flow carries ice between them. Whether the glacier grows or shrinks depends on whether that budget balances.
+A glacier is a budget. Ice is added in some places and removed in others, and flow carries ice between them. Whether the glacier grows or shrinks depends on whether that budget balances. This chapter sets out the budget, the conservation law that expresses it, and the steady ice-sheet shape that a given climate produces, which is the first and cleanest connection between climate and ice flow. The treatment follows Chapter 8 of {cite}`cuffey2010`.
 
 ## Accumulation and ablation
 
-**Accumulation** is everything that adds mass: mostly snowfall, but also refreezing of meltwater and, on ice shelves, freezing at the base. **Ablation** is everything that removes it: surface and basal melt, sublimation, and — for marine-terminating glaciers — iceberg **calving**. The net of the two, expressed as a rate of ice-equivalent thickness change, is the **surface mass balance** $\dot a$ (positive where accumulation wins, negative where ablation wins).
+Accumulation is everything that adds mass to the ice. It is mostly snowfall, but it also includes the refreezing of meltwater and, beneath ice shelves, freezing of ocean water onto the base. Ablation is everything that removes mass: surface and basal melt, sublimation, and, for glaciers that end in the ocean, the calving of icebergs. The net of the two, expressed as a rate of ice-equivalent thickness change, is the surface mass balance $\dot a$, positive where accumulation wins and negative where ablation wins.
 
-On a typical mountain glacier or ice sheet, $\dot a$ is positive at high elevation (the *accumulation zone*) and negative at low elevation (the *ablation zone*). The line separating them, where $\dot a = 0$, is the **equilibrium line**. Without flow, the accumulation zone would grow ever thicker and the ablation zone would vanish. Flow prevents this by continuously transporting ice from where it is gained to where it is lost.
+On a typical mountain glacier or ice sheet the balance is positive at high elevation, in the accumulation zone, and negative at low elevation, in the ablation zone. The line between them, where $\dot a=0$, is the equilibrium line, and its altitude is one of the most sensitive recorders of climate a glacier has. Without flow the accumulation zone would thicken without limit while the ablation zone wasted away. Flow prevents this by carrying ice continuously from where it is gained to where it is lost, and the speed at which it must do so to hold the glacier in balance is set by the budget.
 
 ## Conservation of mass
 
-Make this precise by conserving mass in a vertical column of ice. Let $H(\bx, t)$ be the ice thickness and let
+To make the budget precise, conserve mass in a vertical column of ice. Let $H(\mathbf{x},t)$ be the ice thickness and let
 
 $$
-\mathbf{q} = \bar{\bu}\, H
+\mathbf{q} = \bar{u}\,H
 $$
 
-be the **ice flux**, the depth-integrated horizontal flow, where $\bar{\bu}$ is the depth-averaged horizontal velocity. Balancing the rate of change of thickness against the divergence of flux and the local mass source gives the **depth-integrated mass-conservation equation**,
+be the ice flux, the depth-integrated horizontal flow, with $\bar{u}$ the depth-averaged horizontal velocity of {doc}`shallow-ice`. Balancing the rate of change of thickness against the divergence of this flux and the local mass source gives the depth-integrated mass-conservation equation,
 
 $$
 \frac{\partial H}{\partial t} = \dot a - \nabla\!\cdot\!\mathbf{q}
-            = \dot a - \nabla\!\cdot\!\left(\bar{\bu}\, H\right).
+            = \dot a - \nabla\!\cdot\!\left(\bar{u}\,H\right).
 $$
 
-Read this physically: the thickness at a point changes because mass is added or removed locally ($\dot a$) and because flow carries mass toward or away from the point ($-\nabla\!\cdot\!\mathbf{q}$). Where the flux *converges* ($\nabla\!\cdot\!\mathbf{q} < 0$) ice piles up; where it *diverges*, ice thins.
+Read physically, the thickness at a point changes for two reasons: mass is added or removed locally through $\dot a$, and flow carries mass toward or away from the point through the flux divergence. Where the flux converges the ice piles up, and where it diverges the ice thins. A glacier is in steady state when the thickness holds fixed everywhere, so that $\nabla\!\cdot\!(\bar u H)=\dot a$, and flow exactly redistributes the mass that accumulation and ablation add and remove. Real ice sheets are rarely in perfect balance, and the pattern of $\partial H/\partial t$, now measured directly by satellite altimetry, is among the most important diagnostics of an ice sheet's health.
 
-```{admonition} Steady state
-:class: note
-A glacier is in **steady state** when $\partial H/\partial t = 0$ everywhere, so that $\nabla\!\cdot\!(\bar{\bu} H) = \dot a$: flow exactly redistributes the mass that accumulation and ablation add and remove. Real ice sheets are rarely in perfect steady state, and the sign and pattern of $\partial H/\partial t$ — measurable from satellite altimetry — is one of the most important diagnostics of ice-sheet health.
-```
+This single equation is why ice flow matters for sea level. To predict how an ice sheet's thickness, and therefore its contribution to the ocean, evolves, the depth-averaged velocity $\bar u$ is needed, and supplying it is what the rheology and the momentum balance of the earlier chapters are for.
 
-This single equation is why ice flow matters for sea level. To predict how an ice sheet's thickness — and therefore its contribution to the ocean — evolves, we need $\bar{\bu}$. Everything that follows is, in one way or another, about how to find it. The remaining ingredient is a physical relationship between the forces in the ice and the velocity they produce, which is the subject of the next two chapters. See {cite}`cuffey2010`, Chapter 8, for a fuller discussion.
+## The shape of an ice sheet in balance
+
+The conservation law and the flow law together fix the shape an ice sheet settles into under a given climate, and the result is worth deriving because it shows exactly how the accumulation rate controls the ice. Take an ice sheet on a flat bed, with no sliding, spreading symmetrically from a central divide at $x=0$ to a margin at $x=L$, fed by a uniform balance rate $\dot b$. In steady state the thickness is fixed, so the conservation equation reduces to a statement that the flux grows linearly away from the divide,
+
+$$
+\frac{\partial}{\partial x}\!\left(\bar u H\right)=\dot b
+\quad\Longrightarrow\quad
+\bar u H = \dot b\,x .
+$$
+
+With the bed flat the surface equals the thickness, and the shallow-ice depth-averaged velocity of {doc}`shallow-ice` gives the flux
+
+$$
+\bar u H = \frac{2A(\rho_i g)^n}{n+2}\,H^{\,n+2}\left(-\frac{\partial H}{\partial x}\right)^{n}.
+$$
+
+Setting the two expressions for the flux equal, taking the $n$th root, recognizing the left side as the derivative of a power of $H$, and integrating inward from the margin where $H(L)=0$, gives the Vialov profile {cite}`vialov1958`,
+
+$$
+H(x)=\left[\frac{2(n+2)^{1/n}}{(2A)^{1/n}\rho_i g}\right]^{\!\frac{n}{2(n+1)}}\dot b^{\,\frac{1}{2(n+1)}}\,L^{1/2}
+\left[1-\left(\frac{x}{L}\right)^{\!\frac{n+1}{n}}\right]^{\!\frac{n}{2(n+1)}},
+\qquad 0<x<L .
+$$
+
+The shape is the smooth dome seen in any cross-section of Greenland or East Antarctica, steep at the margin and nearly flat at the divide. Its lesson is in the exponents. The central thickness grows as $L^{1/2}$, so a wider ice sheet is thicker in proportion to the square root of its span, but only as $\dot b^{\,1/2(n+1)}$, an extremely weak dependence on the climate that feeds it. With $n=3$ the thickness scales as the snowfall to the one-eighth power, so doubling the accumulation thickens the ice sheet by under ten percent. An ice sheet's height is set by how far it spreads, not by how much it snows. This is the simplest prognostic statement the book can make, a steady balance between a climate forcing and an ice flow, and it is the seed of the time-dependent coupling between climate and ice-sheet evolution taken up in the chapters that follow.

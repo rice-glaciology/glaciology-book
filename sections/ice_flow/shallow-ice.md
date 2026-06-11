@@ -1,6 +1,6 @@
 # The shallow-ice approximation
 
-The full Stokes equations of {doc}`stress-balance` are exact but expensive. The way glaciology has made progress for decades is to exploit a simple geometric fact: ice sheets are thin. An ice sheet may be three kilometres thick and three thousand kilometres across, an aspect ratio of about $\varepsilon\sim10^{-3}$. Scaling the Stokes equations with this small parameter and discarding the smallest terms produces a hierarchy of cheaper, approximate models. The first and simplest is the shallow-ice approximation, and this chapter derives it and the velocity profile it predicts. The full hierarchy is the subject of {doc}`flow-approximations`, and the analytical ice-sheet shapes that the shallow-ice approximation makes possible are derived in {doc}`analytical-solutions`. The development follows {cite}`hutter1983` and {cite}`cuffey2010`.
+The full Stokes equations of {doc}`stress-balance` are exact but expensive. The way glaciology has made progress for decades is to exploit a simple geometric fact: ice sheets are thin. An ice sheet may be three kilometres thick and three thousand kilometres across, an aspect ratio of about $\varepsilon\sim10^{-3}$. Scaling the Stokes equations with this small parameter and discarding the smallest terms produces a hierarchy of cheaper, approximate models. The first and simplest is the shallow-ice approximation, and this chapter derives it, the velocity profile it predicts, and the perfect-plastic ice-sheet shape that follows in its rheological limit. The full hierarchy is the subject of {doc}`flow-approximations`. The development follows {cite}`hutter1983` and {cite}`cuffey2010`.
 
 ## The scaling idea
 
@@ -46,7 +46,33 @@ $$
 \frac{\partial H}{\partial t} + \frac{\partial}{\partial x}\!\left(\bar u\,H\right) = \dot b,
 $$
 
-where the balance function $\dot b=a-m$ is the net rate of accumulation minus melt, the subject of {doc}`mass-balance`. Substituting the shallow-ice expression for $\bar u$ turns this into a single nonlinear diffusion equation for the surface, cheap enough to integrate over whole glacial cycles, which is why the shallow-ice approximation underlies most paleo-ice-sheet models. Its steady solutions, the classic analytical ice-sheet profiles, are derived in {doc}`analytical-solutions`.
+where the balance function $\dot b=a-m$ is the net rate of accumulation minus melt, the subject of {doc}`mass-balance`. Substituting the shallow-ice expression for $\bar u$ turns this into a single nonlinear diffusion equation for the surface, cheap enough to integrate over whole glacial cycles, which is why the shallow-ice approximation underlies most paleo-ice-sheet models. Its steady solution forced by a uniform accumulation rate, the Vialov profile, ties the shape of an ice sheet to the climate that feeds it, and is derived alongside the mass balance in {doc}`mass-balance`. One steady shape, however, needs no climate at all, and it follows directly from the rheology.
+
+## The perfect-plastic limit
+
+Glen's law has a revealing limit. As the exponent $n$ grows the ice deforms more and more abruptly once the stress reaches a critical value and barely at all below it, and in the limit $n\to\infty$, with $A^{-1/n}\to\tau_i$, the flow law becomes that of a perfectly plastic solid with a yield stress $\tau_i$. This is the oldest idealization of an ice sheet {cite}`nye1952`. If the bed everywhere supports exactly the yield stress, the shallow-ice driving stress equals $\tau_i$,
+
+$$
+-\rho_i g\,H\,\frac{\partial s}{\partial x}=\tau_i .
+$$
+
+On a flat bed, where $s=H$, the product $H\,\partial H/\partial x$ is half the derivative of $H^2$, so
+
+$$
+\frac{\partial}{\partial x}\!\left(H^{2}\right)=-\frac{2\tau_i}{\rho_i g},
+\qquad\text{equivalently}\qquad
+\left|\nabla\!\left(H^{2}\right)\right|=\frac{2\tau_i}{\rho_i g}.
+$$
+
+The square of the thickness falls off linearly from the divide, so integrating inward from a margin at $x=L$, where $H=0$, gives
+
+$$
+H(x)=H_0^{1/2}\,(L-x)^{1/2},
+\qquad
+H_0=\frac{2\tau_i}{\rho_i g}\approx 20\ \mathrm{m}.
+$$
+
+This parabolic profile is the shape behind the rule of thumb that an ice sheet a thousand kilometres in span stands a few thousand metres high. Because $H^2$ has a constant gradient, the surface is exactly the shape of a heap of dry sand poured onto a table, which is why a pile of sugar in the outline of Antarctica reproduces the real surface so well. The shape depends only on the yield stress and the span, not on the accumulation, which makes it a quick estimate of the thickness of a former ice sheet whose extent is known from its moraines but whose climate is not. Its one flaw is the cusp at the divide, where the slope is infinite; the viscous Vialov profile rounds it off.
 
 ## When the approximation holds
 

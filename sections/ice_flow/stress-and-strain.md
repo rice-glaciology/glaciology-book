@@ -1,6 +1,6 @@
 # Stress and strain in ice
 
-To describe how ice deforms we need the language of continuum mechanics. Ice is of course made of molecules, but on the scales of glacier flow we treat it as a continuous medium whose state at each point is described by smooth fields: a velocity, a stress, a temperature. This chapter sets out the two tensor fields that the flow law connects, the stress that measures internal force and the strain rate that measures deformation, and the deviatoric stress that links them. The treatment follows Chapter 3 of {cite}`cuffey2010` and {cite}`greve2009`.
+To describe how ice deforms we need the language of continuum mechanics. Ice is of course made of molecules, but on the scales of glacier flow we treat it as a continuous medium whose state at each point is described by smooth fields: a velocity, a stress, a temperature. This chapter sets out the two tensor fields that the flow law connects, the stress that measures internal force and the strain rate that measures deformation, and the deviatoric stress that links them. The index notation, the symmetric and deviatoric splits, and the eigenvalues and invariants used throughout are collected in {doc}`../math/tensor-algebra`, to which a reader unfamiliar with tensors should turn first. The treatment follows Chapter 3 of {cite}`cuffey2010` and {cite}`greve2009`.
 
 ## Traction and the stress tensor
 

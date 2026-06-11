@@ -12,4 +12,6 @@ A single ApRES measurement is a depth profile of complex returns. The science co
 
 This is the measurement behind much of what is now known about how ice-shelf basal melt varies in time. Because ApRES instruments can be left to run autonomously through a polar winter, they turn a single radar site into a continuous record of strain and melt, which is difficult to obtain any other way.
 
+Put concretely, a single instrument drawing roughly the power of a car battery over months sits on the snow surface and detects motion of a millimetre or less in a reflector 800 metres below, week after week through a polar winter with no one present. The ice column above the reflector, with all its own slow deformation, is part of what the instrument is measuring and accounting for. The number that comes out at the end is how fast the ocean ate into the bottom of the shelf while the instrument sat in the dark.
+
 The next page is a lab that processes real ApRES data with an open processing library to recover a basal melt-rate time series.

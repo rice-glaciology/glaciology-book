@@ -1,4 +1,4 @@
-# Basal motion: sliding and friction laws
+# Basal sliding and friction laws
 
 The velocity measured at the surface of a glacier is the sum of two contributions. One is the internal deformation of the ice column governed by the flow law of {doc}`../ice_flow/ice-rheology`. The other is basal motion, the bodily movement of the ice over or with the material at its bed. In the slow interior of an ice sheet, deformation dominates. In the ice streams and outlet glaciers that discharge most of the ice reaching the ocean, basal motion dominates, and it is the largest single source of uncertainty in projections of ice-sheet change. The borehole measurements of Ryser and colleagues in west Greenland, for instance, found basal motion contributing the majority of a surface speed of about 75 metres per year. This chapter develops the laws used to represent that motion. The classical material is in Chapter 7 of {cite}`cuffey2010`; the modern hierarchy of friction laws follows the synthesis of {cite}`hewitt_karthaus`.
 

@@ -132,7 +132,7 @@ timescales relevant for sea-level projections.
 % lab (stochastic, icepack): two-stage Robel model driven by white-noise ocean forcing;
 % estimate natural grounding-line variability; compare fast and slow eigenmode trajectories
 
-## The missing function
+## The surface mass balance function
 
 Everything in {doc}`../modeling/prognostic-problem` is waiting on one piece of
 information: the surface mass balance $\dot a(x,t)$ as a function of position and time.
@@ -196,7 +196,7 @@ For small mountain glaciers a simple linear scaling with the local elevation ano
 captures the main effect. For large ice sheets the orographic field must come from an
 atmospheric model explicitly resolving the barrier.
 
-## Melt the cheap way
+## Temperature-index melt models
 
 Ablation is harder, and two strategies, one cheap and one honest, have divided the field.
 
@@ -266,7 +266,7 @@ temperature.
 
 % lab (prognostic, icepack): PDD forcing of a flowline glacier; elevation feedback; step and ramp scenarios
 
-## Melt the honest way
+## Energy-balance melt models
 
 The positive-degree-day approach earns its keep in large-scale and long-timescale
 applications, but it is an approximation, and there are surfaces where it fails
@@ -353,7 +353,7 @@ at each time step. The match between model and the paleoclimate record discussed
 
 % lab (prognostic, icepack): ELA step and ramp on a flowline; committed retreat; compare t_r = H/a0
 
-## The ocean is climate too
+## Ocean forcing
 
 Climate forcing of the large ice sheets arrives not only from above but also from below.
 The margins of Antarctica and the fast-flowing outlet glaciers of Greenland terminate in

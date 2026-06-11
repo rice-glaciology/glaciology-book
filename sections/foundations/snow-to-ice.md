@@ -1,4 +1,4 @@
-# From snow to ice: firn
+# Firn
 
 Every parcel of ice this book has deformed, slid, and melted arrived at the surface as snow, and the transformation from one to the other takes years to millennia, played out in a surface layer called firn. The way it happens controls several things glaciologists care about, including how surface elevation relates to mass, how radar and altimeter measurements should be interpreted, and when the climate archive of {doc}`../climate/paleoclimate` is sealed into the ice. The process is described in Chapter 2 of {cite}`cuffey2010`.
 

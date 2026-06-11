@@ -1,4 +1,4 @@
-# Reading former glaciers from the landscape
+# Glacial geomorphology
 
 Most of the ice this book studies is gone. The Laurentide, Cordilleran, and Fennoscandian ice sheets melted thousands of years before anyone could measure them, yet we speak confidently about their extent, thickness, flow directions, and even the temperature of their beds. This chapter explains where that confidence comes from. Every erosional and depositional process of {doc}`erosion` leaves a form, and each form is an instrument reading from a vanished glacier. Glacial geomorphology is, in effect, the observational glaciology of {doc}`../observing/elevation` pointed backward in time.
 

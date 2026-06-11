@@ -1,4 +1,4 @@
-# Climate of the past: ice cores and the ice ages
+# Ice cores and the ice ages
 
 An ice sheet is not only a flowing solid; it is an archive. Every year a layer of snow is buried, sealing into the ice a sample of the atmosphere, a record of the temperature at which it fell, and the dust and salt and ash carried in the air at the time. Drill a core through the ice and you read that archive downward into the past, layer by layer, to depths where the ice is hundreds of thousands of years old. This chapter sets out how the archive is read, what it has revealed about the rhythm of the ice ages, and how the growth and decay of the great ice sheets over those cycles connects back to the flow physics of the rest of the book. It belongs with the prognostic material because the past is the only long test the models have: an ice-sheet model that cannot reproduce the last glacial cycle has not earned trust in its forecast of the next century. The treatment follows the ice-core chapters of {cite}`cuffey2010`.
 

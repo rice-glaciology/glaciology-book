@@ -1,4 +1,4 @@
-# Ice rheology: Glen's flow law
+# Ice rheology
 
 A rheology, or constitutive law, relates the stress applied to a material to the deformation that results. For ice it is the equation that closes the system: combined with conservation of momentum, it determines the velocity field. The law in standard use comes from the laboratory creep experiments of {cite}`glen1955,glen1958`, and the physical basis for it is set out in Chapter 3 of {cite}`cuffey2010`. This chapter develops the law, the microphysics behind it, and the parameter values and caveats a modeler needs.
 

@@ -18,7 +18,7 @@ The simplest prognostic model is therefore a two-step loop: transport the thickn
 
 % lab (prognostic, icepack): SIA forward loop — step H, re-solve diagnostic velocity, watch Vialov emerge
 
-## The thickness equation is a nonlinear diffusion
+## The thickness equation as a nonlinear diffusion
 
 Before writing a single line of code it is worth understanding what kind of equation the thickness evolution is, because its character determines how it must be solved numerically.
 
@@ -156,7 +156,7 @@ Whatever initialization strategy is used, the model inherits a **committed respo
 
 % lab (prognostic, icepack): spin-up experiment — run from flat sheet to Vialov; compare to observed central thickness
 
-## A worked example: stepping toward Vialov
+## A worked example
 
 Before turning to verification in the abstract, it is useful to see exactly what numbers emerge from the simplest possible prognostic experiment. Consider a 1-D synthetic domain: a 100 km flowline on a flat bed, driven by a uniform accumulation rate of $\dot a = 0.3\ \mathrm{m\ yr}^{-1}$, starting from a flat slab of $H = 10\ \mathrm{m}$. The analytic target is the Vialov profile, a dome with central thickness
 
@@ -174,7 +174,7 @@ This same experiment, run at $\Delta x = 100\ \mathrm{m}$, would require roughly
 
 % lab (prognostic, icepack): 100 km Vialov spin-up; plot volume tendency decay and compare final profile to analytic
 
-## Verification against things we know
+## Verification
 
 A prognostic model is not trustworthy until it has been tested against cases with known answers. Glaciology offers a short but demanding list.
 
@@ -186,7 +186,7 @@ A prognostic model is not trustworthy until it has been tested against cases wit
 
 % lab (prognostic, icepack): MISI hysteresis on a synthetic retrograde bed; compare grounding-line advance and retreat
 
-## A model is only as good as its forcing
+## The role of the forcing
 
 Once the numerical loop is verified, the model is ready to be forced. The mass balance $\dot a(\mathbf{x}, t)$ appears in the thickness equation at every time step, and the projection it produces reflects the quality of that forcing as much as anything about the ice dynamics. A systematic bias in the modeled ablation at the margin, an incorrect accumulation trend, a misrepresented ocean warming at the grounding line — any of these errors accumulate step by step and produce a projection that drifts away from reality even if the ice dynamics are perfect.
 

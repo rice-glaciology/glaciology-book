@@ -91,6 +91,7 @@ parts:
       - file: sections/cryosphere/permafrost
       # lab (diagnostic, numpy): trumpet diagram and borehole paleothermometry
       - file: sections/cryosphere/planetary-ice
+      - file: sections/climate/sea-level
   - caption: References
     chapters:
       - file: references

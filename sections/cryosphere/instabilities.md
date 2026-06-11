@@ -1,4 +1,4 @@
-# Flow instabilities: surges and the tidewater cycle
+# Surges and the tidewater cycle
 
 The kinematic theory of {doc}`../climate/glacier-variations` rests on a quiet assumption, that a glacier's length changes only because its mass balance changes. Most glaciers honor it. This chapter is about the ones that do not, glaciers whose termini advance and retreat by kilometers with little or no prompting from climate, because the instability lives inside the glacier itself. There are two great families. Surge-type glaciers oscillate because of a switch at the bed. Tidewater glaciers cycle because of a conversation between ice, sediment, and seawater at the terminus. Both matter to anyone reading glacier records for climate, because both produce dramatic length changes that mean nothing about the weather, and both are treated in Chapter 12 of {cite}`cuffey2010`.
 

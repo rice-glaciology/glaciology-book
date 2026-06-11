@@ -31,6 +31,15 @@ Brine volume fraction against temperature for first-year ice ($S_i = 10$‰) and
 
 ## Properties ruled by the brine
 
+The brine is not hypothetical; under a microscope it is the texture of the material.
+
+```{figure} figures/brine-inclusions-light.png
+:name: fig-brine-inclusions
+:width: 50%
+
+Brine inclusions in first-year Arctic sea ice under transmitted light, in vertical section {cite}`light2003`. The dark vertical tubes and pockets are liquid brine threaded along the crystal boundaries of the columnar ice; their connectivity, and with it the ice's permeability, switches on as the ice warms.
+```
+
 Almost every bulk property of sea ice is the pure-ice value corrected by the brine volume, which makes {numref}`fig-brine-volume` the master curve of the subject. The effective latent heat of fusion is reduced, $L_i = L_0(1-\nu_b)$, since the brine fraction is already liquid; new ice can require only 60% of the energy that pure ice would to melt. The thermal conductivity is dragged down from $2.4\ \mathrm{W\,m^{-1}\,K^{-1}}$ for pure ice toward the brine value of $0.6$, so salty warm ice insulates the ocean and slows its own growth. The effective specific heat,
 
 $$
@@ -39,8 +48,24 @@ $$
 
 includes the latent heat of the internal melting and freezing that any temperature change forces in the brine pockets, and near the melting point it exceeds the pure-ice value by up to two orders of magnitude. Mechanical strength collapses as the brine volume grows, which is the practical limit on travel over spring ice. The thermal physics here is the heat equation of {doc}`../thermomechanics/thermal-structure` again, with coefficients that depend savagely on temperature.
 
+The brine also drains. Gravity drainage and flushing expel salt as the ice ages, so bulk salinity falls with thickness and age, rapidly in the first half metre of growth and slowly thereafter, which is why multiyear ice is fresher, stronger, and a poorer conductor than the first-year ice that now dominates the Arctic.
+
+```{figure} figures/sea-ice-salinity-thickness.jpeg
+:name: fig-salinity-thickness
+:width: 80%
+
+Bulk salinity against ice thickness for cold first-year sea ice, compiled from four field datasets (legend), with piecewise fits. Thin new ice starts near 15‰ and desalinates quickly to the slowly declining trend beyond about half a metre, the drainage history that the brine-volume curve inherits.
+```
+
 ## Motion, deformation, and decline
 
 Sea ice moves. Driven by wind and ocean stress, the Arctic pack circulates at kilometers per day, clockwise around the Beaufort Gyre and across the pole in the Transpolar Drift, exporting roughly a tenth of the basin's ice through Fram Strait each year. Where floes diverge they open leads, windows of dark ocean that lose heat furiously in winter and absorb sunlight in summer. Where they converge they raft and ridge, stacking ice into keels tens of meters deep. The thickness of the pack is therefore as much a record of deformation as of freezing.
 
-The modern decline of Arctic sea ice runs through this entire chapter. September extent has fallen by roughly 13% per decade over the satellite record, submarine sonar shows the mean draft thinner by more than a meter since the 1960s, and the old multiyear ice has largely been replaced by first-year ice, which is saltier, weaker, and more easily melted. The amplifier is the ice–albedo feedback. Sea ice reflects 60 to 90% of incoming sunlight while open water reflects under 10%, so a little melting exposes dark ocean, which absorbs more heat, which melts more ice. Melt ponds push the summer ice albedo down toward 0.45 even before the ice is gone. The feedback operates on the same radiative physics introduced in {doc}`../foundations/optical-properties`, and it is the leading reason the Arctic warms at twice the global rate. Sea ice extent and thickness are monitored by the passive microwave, laser, and radar altimetry methods of {doc}`../observing/elevation`, which is where the observational thread of this chapter continues.
+The modern decline of Arctic sea ice runs through this entire chapter. September extent has fallen by roughly 13% per decade over the satellite record, submarine sonar shows the mean draft thinner by more than a meter since the 1960s, and the old multiyear ice has largely been replaced by first-year ice, which is saltier, weaker, and more easily melted.
+
+```{figure} figures/arctic-thinning-scicex.png
+:name: fig-scicex-thinning
+:width: 80%
+
+The submarine evidence {cite}`rothrock1999`. Change in mean ice draft, in metres, between sonar surveys of the 1960s–70s and the 1990s SCICEX cruises, by region. Every region thinned, the central basins by more than a metre, an early and unambiguous measurement of the pack's decline.
+``` The amplifier is the ice–albedo feedback. Sea ice reflects 60 to 90% of incoming sunlight while open water reflects under 10%, so a little melting exposes dark ocean, which absorbs more heat, which melts more ice. Melt ponds push the summer ice albedo down toward 0.45 even before the ice is gone. The feedback operates on the same radiative physics introduced in {doc}`../foundations/optical-properties`, and it is the leading reason the Arctic warms at twice the global rate. Sea ice extent and thickness are monitored by the passive microwave, laser, and radar altimetry methods of {doc}`../observing/elevation`, which is where the observational thread of this chapter continues.

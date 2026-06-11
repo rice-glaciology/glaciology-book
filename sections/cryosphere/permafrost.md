@@ -17,6 +17,13 @@ Everything about the architecture of permafrost reads off {numref}`fig-permafros
 
 The upper hundred meters of a permafrost borehole is also a recording thermometer. A change in surface temperature diffuses downward slowly, so today's profile carries the smoothed history of past surface temperatures, and boreholes across northern Alaska show a systematic curvature in their upper 100 to 150 m recording roughly a century of warming, registered in the ground before instrumental records existed in the Arctic {cite}`lachenbruch1986`. The same borehole paleothermometry, applied through an ice sheet, returns in {doc}`../climate/paleoclimate`.
 
+```{figure} figures/alaska-permafrost-warming.jpeg
+:name: fig-alaska-permafrost
+:width: 60%
+
+The recording thermometer read out {cite}`lachenbruch1986`. Temperature profiles from four boreholes across northern Alaska (inset map), with permafrost bases from 284 to about 600 m. Each profile bends warm in its upper 100–150 m, away from the straight geothermal gradient below, the diffused signature of about a century of surface warming.
+```
+
 ## Ground ice and the landforms it builds
 
 What distinguishes permafrost terrain from merely cold ground is ice in the pore space and beyond it, in lenses, wedges, and massive bodies that can outweigh the soil hosting them. The landforms of the periglacial world are the visible work of this ice. Thermal-contraction cracking of winter ground, infilled each spring by meltwater that refreezes, ratchets ice wedges wider year by year and tiles the tundra with polygonal patterned ground. Pingos, the conspicuous ice-cored hills of the Mackenzie Delta and Siberia, grow where a drained or infilled lake lets permafrost reinvade its talik from all sides, pressurizing the trapped pore water until it intrudes upward and freezes, jacking the surface into a dome. Rock glaciers, the lobate ice-rock mixtures creeping down mountain slopes at centimeters to a couple of meters per year, are the periglacial expression of the same ice creep treated in {doc}`../ice_flow/ice-rheology`, with debris along for the ride. And where ice-rich permafrost thaws, the ground settles unevenly into the pits, hollows, and lake-pocked chaos called thermokarst.

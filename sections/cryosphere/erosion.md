@@ -10,7 +10,14 @@ Glaciers erode bedrock chiefly by two processes, and the division of labor betwe
 
 **Quarrying** removes blocks. Ice flowing over a bedrock bump concentrates normal stress on the up-flow (stoss) face and opens a water-filled cavity in the lee, as sketched in {numref}`fig-quarrying-abrasion`. The rock step between them carries a deviatoric stress set by the difference between ice pressure and cavity water pressure, and cracks in the lee corner grow when that difference is large. The counterintuitive part is the role of water pressure. High, steady water pressure protects the rock; what breaks it is the drop, when the cavity drains, the bridging stress on the step spikes, and cracks jump ahead. Erosion is fastest under glaciers with fast sliding, low effective pressure, and large water-pressure fluctuations, which is to say under big temperate glaciers with lively hydrology. The hypothesis has been tested directly at the Svartisen Subglacial Laboratory beneath Engabreen in Norway, where instruments at the bed under 210 meters of ice recorded bursts of acoustic emission, cracking, accompanying each drop in water pressure {cite}`cohen2006`. Quarrying is the dominant erosional process, faster than abrasion by an order of magnitude or more, and the asymmetry it leaves behind, smooth abraded stoss faces and steep plucked lee faces, is the signature of the roche moutonnée.
 
-**Abrasion** files the surface. Rock fragments entrained in basal ice are dragged across bedrock, carving the striations and polish that record flow direction long after the ice is gone. The force pressing a clast against the bed is not the weight of the overlying ice. A clast in regelating, creeping ice feels a contact force set by the viscous drag of ice moving past it, of order the Stokes drag
+**Abrasion** files the surface. Rock fragments entrained in basal ice are dragged across bedrock, carving the striations and polish that record flow direction long after the ice is gone.
+
+```{figure} figures/cross-cutting-striations.jpeg
+:name: fig-striations
+:width: 60%
+
+Glacially polished bedrock with two cross-cutting sets of striations, compass for scale. The earlier set survived the episode that carved the later one, which is the field's quiet testimony that abrasion is slow, removing only millimetres of rock per century even under sliding ice.
+``` The force pressing a clast against the bed is not the weight of the overlying ice. A clast in regelating, creeping ice feels a contact force set by the viscous drag of ice moving past it, of order the Stokes drag
 
 $$
 F = 6\pi\,\eta\,R\,v_n,

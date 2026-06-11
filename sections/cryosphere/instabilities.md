@@ -29,6 +29,16 @@ The advancing phase is paced not by ice dynamics but by earthmoving. Subglacial 
 
 The retreat is the fast half of the cycle. A modest perturbation, perhaps a few warm summers, backs the terminus off its shoal into the deeper basin behind, water the glacier itself overdeepened during earlier advances. Calving rate increases sharply with water depth, so retreat begets deeper water and deeper water begets faster retreat, a positive feedback with the same logical shape as the marine ice-sheet instability of {doc}`ice-sheets`, scaled to a fjord. There is no stable terminus position in the overdeepening, and the retreat runs until the glacier finds shallow water again at the head of the fjord {cite}`meier1987,pfeffer2007`.
 
+The calving that drives the fast half of the cycle is worth watching once at full violence. The clip below shows a calving event at Helheim Glacier in southeast Greenland, kilometre-scale blocks rotating out of a face hundreds of metres tall.
+
+```{raw} html
+<video controls width="85%" preload="metadata" style="max-width: 700px;">
+  <source src="https://github.com/rice-glaciology/glaciology-book/releases/download/media-v1/helheim-calving.mov" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>Calving at Helheim Glacier, southeast Greenland.</em></p>
+```
+
 Columbia Glacier is the canonical witness. Mapped on its shoal at Heather Island by the Harriman Expedition in 1899, it was still there in 1969, then slipped off around 1980 and has since retreated more than twenty kilometers up its fjord, at times among the fastest-flowing glaciers on Earth. That single glacier accounted for nearly half of the ice loss from the entire western Chugach range over the period {cite}`berthier2010`, while immediate neighbors, lacking the tidewater configuration, barely changed. Glacier Bay tells the same story at larger scale, a hundred kilometers of retreat since 1794, and its sediment-choked inlets show the recovery phase already in preparation, shoals on which some future advance will ride. The cycle turns on timescales of centuries, only loosely synchronized with climate.
 
 ```{admonition} Reading length records, with care

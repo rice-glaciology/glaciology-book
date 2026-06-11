@@ -55,6 +55,22 @@ Retreat across a real bed is therefore episodic rather than smooth. Model recons
 
 The flux diagram leaves out the floating ice, and the floating ice is where the modern story is being decided. An ice shelf transmits resistance upstream wherever it runs aground on pinning points or drags along fjord walls, and this buttressing reduces the discharge through the grounding line below its unbuttressed value. Removing the shelf removes the restraint. The Larsen B Ice Shelf disintegrated over a few weeks in March 2002, shattered by meltwater-driven hydrofracture, in which water filling surface crevasses pressurizes them beyond the depth where dry crevasses would arrest. The glaciers feeding the lost shelf promptly accelerated several-fold {cite}`scambos2004`, a controlled experiment, performed by nature, on what buttressing had been doing.
 
+```{figure} figures/larsen-b-speedup-wuite.png
+:name: fig-larsen-b-speedup
+:width: 95%
+
+The experiment's result {cite}`wuite2015`. Velocity of the Larsen B embayment glaciers before the collapse (left, 1995 InSAR), a decade after (middle, 2008–2012 feature tracking), and the fractional increase (right), with tributaries that lost their shelf flowing up to three times faster. The 1995 grounding line is drawn for reference.
+```
+
+The same restraint, removed at a single glacier, shows up as a step change in speed. Jakobshavn Isbræ in West Greenland lost its floating tongue between 2000 and 2003 and roughly doubled its discharge, and its speed has breathed seasonally around the faster state ever since.
+
+```{figure} figures/jakobshavn-speed-timeseries.jpeg
+:name: fig-jakobshavn-speed
+:width: 95%
+
+Two decades of speed at flux gates along Jakobshavn Isbræ (M6 nearest the terminus), from satellite feature tracking by I. Joughin and colleagues. The acceleration after the floating tongue broke up in 2000–2003, the strong seasonal cycle, and the continued creep upward through 2012 are all visible at a glance.
+```
+
 In the Amundsen Sea sector of West Antarctica the restraint is being removed from below. Relatively warm Circumpolar Deep Water crosses the continental shelf and melts the undersides of the Pine Island and Thwaites ice shelves at rates of tens of meters per year, thinning them and unpinning them from their seabed ridges. The grounding lines of both glaciers have retreated tens of kilometers in the satellite era, and beneath Thwaites the bed deepens inland for hundreds of kilometers. Model studies of Thwaites find no nearby stable position once retreat passes the current grounding zone, and conclude that the early stage of a marine ice-sheet collapse may already be under way {cite}`joughin2014,parizek2013`. The timescale, centuries, belongs to the slow mode of the marine response, which is precisely why a process with so much inertia can be both quiet and committed at the same time.
 
 How to judge significance is part of the science here. A tabular iceberg calving from a shelf front may be spectacular and dynamically trivial, while a modest thinning concentrated at a pinning point can matter enormously. The question to ask of any change at the margin is what it does to the buttressing, and through the buttressing, to the flux through the grounding line.

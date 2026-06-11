@@ -18,6 +18,17 @@ RUN source firedrake/bin/activate && \
     pip install ipykernel jupyterlab && \
     python -m ipykernel install --user --name=firedrake --display-name "Firedrake (icepack)"
 
+# Time stepping for the phase-change material (Irksome) and the dependencies
+# of the observing-part labs, so every notebook in the book runs in this one
+# kernel: netCDF/HDF readers (radar altimetry, GRACE, ICESat-2), obspy
+# (cryoseismicity), rasterio + scikit-image (imagery, InSAR), earthaccess +
+# icepyx + asf_search + hyp3_sdk (programmatic data download), geopandas +
+# pyproj (basin masks, polar projections).
+RUN source firedrake/bin/activate && \
+    pip install irksome && \
+    pip install netCDF4 h5py xarray rasterio scikit-image obspy \
+                earthaccess icepyx asf_search hyp3_sdk geopandas pyproj
+
 WORKDIR /home/firedrake/work
 EXPOSE 8888
 CMD source /home/firedrake/firedrake/bin/activate && \

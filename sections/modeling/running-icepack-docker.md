@@ -58,3 +58,14 @@ print("icepack:", icepack.__version__)
 ```
 
 If that imports without error, you are ready for the next chapter. Anything you save under `/home/firedrake/work` (the mounted folder) persists on your computer after the container stops.
+
+## One kernel for every lab
+
+The image is built so that every notebook in this book runs in this single kernel, not just the icepack chapters. The modeling labs need Firedrake and icepack; the observing-part labs additionally use obspy for seismic data, rasterio and scikit-image for imagery and interferograms, netCDF4, h5py, and xarray for altimetry and gravity files, and earthaccess, icepyx, asf_search, and hyp3_sdk for programmatic data access, all of which are installed in the container. Two practical notes apply to the observing labs. Their download cells need network access from inside the container and, for the NASA archives, a free Earthdata login, which the access libraries will prompt for on first use; and the cells marked as not executed at build are sized so that what they fetch fits comfortably in the mounted work folder, with each lab's text stating the expected volumes before any download begins. A quick way to verify the full stack is to run the import block below in a fresh notebook.
+
+```python
+import firedrake, icepack, irksome
+import netCDF4, h5py, xarray, rasterio, skimage, obspy
+import earthaccess, icepyx, asf_search, hyp3_sdk, geopandas, pyproj
+print("all lab dependencies import cleanly")
+```

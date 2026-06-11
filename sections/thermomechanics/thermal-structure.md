@@ -1,6 +1,6 @@
-# The thermal structure of glaciers
+# Heat flow and the basal thermal state
 
-The temperature of ice is not a passing detail. Through the rate factor of {doc}`../ice_flow/ice-rheology`, temperature controls how readily ice deforms, and through the pressure-melting point it controls whether the bed is frozen or thawed and therefore whether the ice can slide. Predicting how a glacier flows requires knowing its temperature, and the temperature in turn depends on the flow. The thermal structure of glaciers is treated in Chapter 9 of {cite}`cuffey2010`.
+The molecular chapters established how a single temperature controls the softness of ice, through the Arrhenius rate factor derived in {doc}`../foundations/point-defects`. This chapter works at the opposite scale. It follows heat through the whole thickness of a glacier to answer the question that governs basal processes: is the bed frozen to the rock beneath it, or is it at the melting point and lubricated by water? A frozen bed holds the ice fast and forces it to move by internal deformation alone. A thawed bed lets it slide, and sliding is what makes ice streams fast. The thermal state of the bed is therefore the boundary condition that the next chapter, {doc}`basal-motion`, builds upon, and reaching it means accounting for the macroscopic flow of heat. The thermal structure of glaciers is treated in Chapter 9 of {cite}`cuffey2010`.
 
 ## The heat budget
 
@@ -13,6 +13,8 @@ $$
 $$
 
 where $\rho$ is density, $c$ is the specific heat capacity, $k$ is the thermal conductivity, and $\Phi$ is the rate of heating by internal deformation. The term with $\bu$ is the advection of heat by the flow, and the divergence term is conduction.
+
+This is a prognostic equation. The time derivative on the left says that the temperature field is not a fixed property of a glacier but something that evolves, carried along and reshaped by the very flow it helps to drive. Strictly, then, heat flow belongs with the prognostic materials of the later part of the book, alongside the thickness evolution it parallels, and a full model steps temperature and geometry forward together. We introduce it here, ahead of that machinery, for one reason: its quasi-steady consequence at the bed. The basal thermal state changes slowly compared with the flow above it, so for the diagnostic question of whether the bed slides it is enough to ask where the temperature profile reaches the melting point. We solve that reduced, near-steady problem now, and return to the full time evolution, coupled to climate and mass balance, with the prognostic modeling.
 
 ## Where the coefficients come from
 
@@ -29,3 +31,5 @@ The melting point of ice is not fixed. It decreases as pressure increases, by ab
 ## Coupling to the flow
 
 Because the rate factor rises steeply with temperature, the thermal structure and the flow are coupled. Warm ice flows faster, faster flow generates more heat, and that heat can warm the ice further and raise the rate of flow again. This feedback, known as thermomechanical coupling, can localize fast flow into streams and can produce slow oscillations in some idealized models. It is also the reason that any serious ice-sheet model must solve for temperature alongside velocity. In the modeling labs we add this coupling to icepack by making the fluidity a function of a computed temperature field rather than a fixed constant. Greve and Blatter give a thorough mathematical treatment {cite}`greve2009`.
+
+The single most consequential output of this heat flow is the temperature at the bed. Where the basal temperature reaches the pressure-melting point, the geothermal and frictional heat that can no longer raise the temperature instead melts ice, and the resulting water lubricates the interface. That is the threshold at which deformation gives way to sliding, and it is where the next chapter begins.

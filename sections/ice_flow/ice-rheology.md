@@ -44,7 +44,7 @@ The exponent is not universal. At the very low stresses of slow ice-sheet interi
 
 ## The rate factor and its controls
 
-The rate factor $A$ varies by more than two orders of magnitude across the temperatures found in ice sheets, so its dependence on temperature is as important as the flow law itself. The variation follows an Arrhenius relation,
+The rate factor $A$ varies by more than two orders of magnitude across the temperatures found in ice sheets, so its dependence on temperature is as important as the flow law itself. The variation follows an Arrhenius relation, derived from the defect rate processes of the lattice in {doc}`../foundations/point-defects`,
 
 $$
 A(T)=A_0\exp\!\left(-\frac{Q}{R\,T'}\right),

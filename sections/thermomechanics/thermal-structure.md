@@ -22,7 +22,34 @@ The two material properties in this equation, the specific heat and the thermal 
 
 What the flow actually feels is the combination of the two, the thermal diffusivity $\kappa_T = k/\rho c$, which measures how fast a temperature signal spreads by conduction and is about $1.1\times10^{-6}\ \mathrm{m^2\,s^{-1}}$ for cold ice. The distance a signal diffuses grows only as the square root of time, so over a single year conduction reaches just a few meters into the ice. This is why the seasonal swing of surface temperature is erased within the upper ten to twenty meters, why the temperature at that depth records the mean annual climate, and why advection by the flow, not conduction, carries cold surface ice deep into the interior of a fast-moving ice sheet. The smallness of the diffusivity is the reason the advection term in the heat equation so often dominates.
 
-## Temperature profiles and the bed
+## Three profiles you can write down
+
+Before turning to numbers and maps, it is worth knowing the three analytical solutions of the heat equation that explain most of what boreholes measure. Each is a different two-term balance, and together they bracket the real profiles.
+
+**The seasonal wave.** Near the surface, advection is negligible and the heat equation reduces to pure diffusion, $\partial T/\partial t = \kappa_T\,\partial^2 T/\partial z^2$. Force the surface with an annual oscillation of amplitude $\Delta T$ and frequency $\omega$ and the solution is a damped, lagged wave,
+
+$$
+T(z,t) = T_0 - \Delta T\, e^{-\alpha z}\cos(\omega t - \alpha z),
+\qquad \alpha = \sqrt{\frac{\omega}{2\kappa_T}},
+$$
+
+penetrating to a depth $z_* = \sqrt{\kappa_T P/\pi}$ for a forcing of period $P$, about 0.2 m for the daily cycle and 3 m for the annual one. This is the quantitative version of the statement made earlier that the seasons are erased within the upper ten to twenty meters, and the phase lag $\alpha z$ means midwinter cold arrives at depth months late. The permafrost trumpet diagram of {doc}`../cryosphere/permafrost` is this same solution drawn in soil.
+
+**The conductive profile.** In ice that is thick, slow, and old enough to ignore advection, the steady balance is conduction alone, and with the geothermal flux $G$ entering the base the profile is linear, $T = T_s + G(H-z)/k$. The bed then reaches the melting point at a critical thickness
+
+$$
+H_c = \frac{k\,(T_m - T_s)}{G},
+$$
+
+about 1750 m for a surface 50 °C below melting and $G = 60\ \mathrm{mW\,m^{-2}}$. Conduction alone, with no help from friction or strain heating, is enough to thaw the base of sufficiently thick ice, and for thicker ice the excess heat goes to basal melting rather than warming.
+
+**The Robin divide solution.** Beneath an ice divide the flow is straight down, with vertical velocity $w \approx -az/H$ for accumulation rate $a$, and the steady balance of downward advection against conduction, $w\,\partial T/\partial z = \kappa_T\,\partial^2 T/\partial z^2$, integrates to an error-function profile {cite}`robin1955`. Its character is set by a single dimensionless group, the Peclet number
+
+$$
+Pe = \frac{aH}{\kappa_T},
+$$
+
+the ratio of advective to conductive heat transport. High accumulation (large $Pe$) flushes cold surface ice downward, holding the upper column isothermal at the surface temperature and compressing all the geothermal warming into a thin basal layer; low accumulation lets the profile relax toward the conductive line. The kink seen partway down many interior boreholes, where mid-depth ice is colder than the ice above and below it, is the signature of the third process, horizontal advection of ice from the colder, higher interior, and needs the full equation rather than any of these reduced balances.
 
 In a slow-moving ice sheet far from the margin, the temperature is lowest at the surface, set by the cold air, and generally increases with depth as the geothermal flux warms the ice from below and deformation adds heat near the bed. Whether the base reaches the melting point depends on the surface temperature, the ice thickness, the geothermal flux, and the rate of deformational heating. This question matters because a frozen bed holds the ice fast, while a bed at the melting point allows sliding and the fast flow that comes with it.
 
@@ -49,4 +76,10 @@ A time-lapse of Paulabreen, a polythermal tidewater glacier in Svalbard that sur
 
 ## The thermal state of the bed
 
-The single most consequential output of this heat flow is the temperature at the bed. Where the basal temperature reaches the pressure-melting point, the geothermal and frictional heat that can no longer raise the temperature instead melts ice, and the resulting water lubricates the interface. That is the threshold at which deformation gives way to sliding, and it is where the next chapter begins.
+The single most consequential output of this heat flow is the temperature at the bed. The bookkeeping there is a boundary condition rather than a differential equation. At a frozen bed, the geothermal flux simply continues into the ice, $G = -k\,\partial T/\partial z$. Once the bed reaches the melting point, frictional heating from sliding joins the budget and the surplus goes into melt,
+
+$$
+G + \tau_b u_b - mL = -k\,\frac{\partial T}{\partial z},
+$$
+
+where $\tau_b u_b$ is the rate of frictional work at the bed, $m$ the basal melt rate (negative for freeze-on), and $L$ the latent heat of fusion. The frictional term makes the condition two-faced. Sliding produces heat, heat produces water, and water promotes sliding, the same feedback loop that drives the thermally regulated surges above and, scaled up to the Laurentide ice sheet, the binge-purge oscillation proposed to explain the Heinrich iceberg discharges in the ice-age record of {doc}`../climate/paleoclimate` {cite}`macayeal1993`. Where the basal temperature reaches the pressure-melting point, the heat that can no longer raise the temperature instead melts ice, and the resulting water lubricates the interface. That is the threshold at which deformation gives way to sliding, and it is where the next chapter begins.

@@ -30,7 +30,15 @@ Together with incompressibility, $\nabla\!\cdot\!\mathbf{u}=0$, and Glen's law r
 
 ## Boundary conditions
 
-The equations are solved subject to conditions on the surfaces of the ice. The upper surface is free, in contact only with the atmosphere, so the traction there vanishes. At the bed the condition depends on the situation. Where the ice is frozen to the bed the velocity is zero; where it slides, the basal shear traction is related to the sliding velocity through a friction law, the subject of {doc}`../thermomechanics/basal-motion`. At a calving front or the vertical face of an ice shelf the traction balances the pressure of the water and the atmosphere outside. Beneath a floating shelf the traction balances the pressure of the ocean. These conditions are not incidental; the buttressing that an ice shelf provides, and the way a grounding line responds to thinning, are encoded entirely in them.
+The equations are solved subject to conditions on the surfaces of the ice, and the conditions come in two kinds. **Dynamic** conditions constrain the traction. The upper surface is free, in contact only with the atmosphere, so the traction there vanishes. At the bed the condition depends on the situation. Where the ice is frozen to the bed the velocity is zero; where it slides, the basal shear traction is related to the sliding velocity through a friction law, the subject of {doc}`../thermomechanics/basal-motion`. At a calving front or the vertical face of an ice shelf the traction balances the pressure of the water and the atmosphere outside. Beneath a floating shelf the traction balances the pressure of the ocean. These conditions are not incidental; the buttressing that an ice shelf provides, and the way a grounding line responds to thinning, are encoded entirely in them.
+
+**Kinematic** conditions constrain the motion of the boundaries themselves. The upper surface $z=s(x,y,t)$ is a material surface fed by snowfall, so a parcel on it stays on it except as mass is added or removed. Requiring $D(z-s)/Dt$ to equal the accumulation gives the surface evolution equation,
+
+$$
+\frac{\partial s}{\partial t}+u\,\frac{\partial s}{\partial x}+v\,\frac{\partial s}{\partial y}=w+a,
+$$
+
+with $a$ the surface mass balance, and its counterpart at the bed, $u\,b_x+v\,b_y=w$ for a rigid bed without melting or freezing. The surface condition is where time enters the problem. The Stokes balance itself is instantaneous, the diagnostic problem of the introduction, and it is this kinematic condition, depth-integrated into the thickness equation of {doc}`shallow-ice`, that carries the geometry forward in time and makes the prognostic problem.
 
 ## The driving stress
 

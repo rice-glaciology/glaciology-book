@@ -40,7 +40,22 @@ $$
 
 where $\boldsymbol{\tau}$ is the deviatoric stress, $\tau_E$ the effective stress, $A$ the rate factor, and $n$ Glen's exponent. For the stresses found in glaciers and ice sheets, roughly 0.05 to 0.2 megapascals, the data are consistent with $n$ close to 3. This value is the signature of dislocation creep, in which the density of mobile dislocations itself rises with stress, so that the strain rate increases faster than linearly.
 
-The exponent is not universal. At the very low stresses of slow ice-sheet interiors, below about 0.1 megapascals, experiments suggest the exponent falls toward 1 or 2 as grain-size-sensitive mechanisms, grain-boundary sliding and diffusional flow, take over from dislocation creep {cite}`goldsby2001`. At higher stresses some recent analyses favor $n$ closer to 4. The honest position is that a single power law is an approximation to a composite of mechanisms, each dominant in a different range of stress, temperature, and grain size, and that $n=3$ is a serviceable average across the conditions of most glacier flow rather than a fundamental constant. Because the strain rate depends so steeply on stress, the nonlinearity is responsible for much of the character of ice flow, including the tendency of fast flow to concentrate into narrow streams: a region carrying twice the deviatoric stress of its surroundings deforms about eight times faster.
+```{figure} figures/glen-law-curves.svg
+:name: fig-glen-law-curves
+:width: 80%
+
+Strain rate against deviatoric stress for a Newtonian fluid ($n=1$), Glen's law ($n=3$), and the perfectly plastic limit ($n\to\infty$), with all curves normalized to pass through the same point at a yield-like stress $\tau_0 \approx 100$ kPa. Ice sits between the extremes, stiff at low stress and increasingly fluid at high stress, and the plastic limit is a useful caricature exploited by the perfect-plasticity profile of {doc}`mass-balance` {cite}`glen1955,cuffey2010`.
+```
+
+The evidence for the law reaches well beyond the laboratory. The closure rate of tunnels bored beneath glaciers, the spreading of floating ice shelves, and the progressive tilt of boreholes all probe natural ice at natural stresses, and all are consistent with a stress exponent near 3 {cite}`nye1953,cuffey2010`. Calibrating against field measurements remains delicate even so, because stress, temperature, and fabric are hard to separate cleanly in any single observation.
+
+The exponent is not universal. At the very low stresses of slow ice-sheet interiors, below about 0.1 megapascals, experiments suggest the exponent falls toward 1 or 2 as grain-size-sensitive mechanisms, grain-boundary sliding and diffusional flow, take over from dislocation creep {cite}`goldsby2001`. Goldsby and Kohlstedt made the composite nature explicit, writing the total strain rate as a sum and series combination of the contributing mechanisms,
+
+$$
+\dot\varepsilon \;=\; \dot\varepsilon_{\mathrm{diff}} \;+\; \left(\dot\varepsilon_{\mathrm{basal}}^{-1} + \dot\varepsilon_{\mathrm{gbs}}^{-1}\right)^{-1} \;+\; \dot\varepsilon_{\mathrm{disl}},
+$$
+
+with each term a power law $\dot\varepsilon_{(\cdot)} = A_{(\cdot)}\tau^{n_{(\cdot)}}$ of its own exponent, diffusional flow at $n=1$, grain-boundary sliding near $n=1.8$, basal slip near $n=2.4$, and dislocation creep near $n=4$. Basal glide and grain-boundary sliding appear in series because each must wait on the other, and whichever is slower sets the pace. At higher stresses some recent analyses favor $n$ closer to 4. The honest position is that a single power law is an approximation to a composite of mechanisms, each dominant in a different range of stress, temperature, and grain size, and that $n=3$ is a serviceable average across the conditions of most glacier flow rather than a fundamental constant. Because the strain rate depends so steeply on stress, the nonlinearity is responsible for much of the character of ice flow, including the tendency of fast flow to concentrate into narrow streams: a region carrying twice the deviatoric stress of its surroundings deforms about eight times faster.
 
 ## The rate factor and its controls
 
@@ -65,6 +80,10 @@ $$
 $$
 
 Because $n>1$, the viscosity falls as the strain rate rises, so ice is shear thinning and softens where it already flows fast. This form has a practical difficulty: as the strain rate approaches zero, the viscosity diverges. Numerical models avoid the singularity by adding a small critical strain rate $\dot\varepsilon_0$ under the root, replacing $\dot\varepsilon_E$ with $\sqrt{\dot\varepsilon_E^2+\dot\varepsilon_0^2}$, which caps the viscosity in nearly stagnant ice without affecting the answer where the ice is deforming appreciably. This regularized viscosity is exactly what icepack assembles and inserts into the momentum balance.
+
+## Elasticity and the Maxwell time
+
+Glen's law treats ice as a fluid, and the treatment is right only on long enough timescales. Loaded suddenly, ice responds elastically, with a Young's modulus near 10 GPa and a Poisson ratio near 0.3, the stiffness probed by the seismic waves of {doc}`../observing/cryoseismicity`. The crossover between the two behaviors is the Maxwell time, the ratio of viscosity to elastic modulus, $t_M \sim \eta/E$, which for ice at glacial stresses is on the order of a day. Stresses that fluctuate faster than that, ocean tides flexing an ice shelf, a calving impact, a passing seismic wave, are answered elastically; stresses held longer are relaxed by creep. A Maxwell viscoelastic model, an elastic spring and a Glen-law dashpot in series, spans the two limits and is the standard tool for tidal flexure studies at grounding zones, where the daily bending of the ice is used to map exactly where the ice goes afloat. For the slow flow that occupies the rest of this book, the elastic transient is over before it matters, and the fluid description stands.
 
 ## What the law leaves out
 

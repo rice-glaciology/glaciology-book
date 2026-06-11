@@ -2,6 +2,18 @@
 
 To describe how ice deforms we need the language of continuum mechanics. Ice is of course made of molecules, but on the scales of glacier flow we treat it as a continuous medium whose state at each point is described by smooth fields: a velocity, a stress, a temperature. This chapter sets out the two tensor fields that the flow law connects, the stress that measures internal force and the strain rate that measures deformation, and the deviatoric stress that links them. The index notation, the symmetric and deviatoric splits, and the eigenvalues and invariants used throughout are collected in {doc}`../math/tensor-algebra`, to which a reader unfamiliar with tensors should turn first. The treatment follows Chapter 3 of {cite}`cuffey2010` and {cite}`greve2009`.
 
+## Following the ice: two descriptions of motion
+
+Before the tensors, a choice has to be made about coordinates, and it is worth making consciously because glaciology uses both options daily. An **Eulerian** description watches fixed points in space and records the fields that stream past them, $T(\mathbf{x},t)$, $\mathbf{u}(\mathbf{x},t)$. A **Lagrangian** description follows material parcels, labeling each by its initial position and tracking it along its trajectory. A weather station bolted to rock is an Eulerian instrument; a stake drilled into the moving ice, resurveyed year after year, is a Lagrangian one. The models in this book are written in Eulerian form, while much of what we measure, stake networks, ice cores, the layers tracked by radar, is Lagrangian, and translating between the two is a constant low-level activity of the subject.
+
+The translation is the **material derivative**. The rate of change experienced by a parcel moving with velocity $\mathbf{u}$ through an Eulerian field $T$ is, by the chain rule,
+
+$$
+\frac{DT}{Dt}=\frac{\partial T}{\partial t}+\mathbf{u}\cdot\nabla T,
+$$
+
+a local term, the change at a fixed point, plus an advective term, the change from being carried to somewhere different. A skier descending in the evening feels both at once. The air everywhere is cooling as the sun sets, the local term, while the descent carries them into warmer air at lower elevation, the advective term, and the temperature history they experience is the sum. Every conservation law in the chapters ahead, momentum in this part and heat in {doc}`../thermomechanics/thermal-structure`, is a statement about $D/Dt$ of something, and the advective term is what couples those budgets to the flow itself.
+
 ## Traction and the stress tensor
 
 Imagine cutting through the ice with a small plane whose orientation is given by a unit normal $\mathbf{n}$. The material on one side exerts a force on the material on the other, and dividing that force by the area of the cut gives the traction $\mathbf{t}$, a vector with units of stress. The traction depends on the orientation of the cut, so a full description of the internal force state at a point requires knowing $\mathbf{t}$ for every possible $\mathbf{n}$.

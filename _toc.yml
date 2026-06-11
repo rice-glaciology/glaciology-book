@@ -11,6 +11,8 @@ parts:
     chapters:
       - file: sections/foundations/water-molecule
       - file: sections/foundations/ice-structure
+      - file: sections/foundations/lattice-dynamics
+      - file: sections/foundations/point-defects
   - caption: Ice deformation and flow
     chapters:
       - file: sections/ice_flow/stress-and-strain

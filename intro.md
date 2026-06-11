@@ -6,14 +6,11 @@ The book is aimed at advanced undergraduates and beginning graduate students who
 
 ## How the book is organized
 
-The first part develops the core ideas of **ice flow** from the ground up:
+The order of the chapters follows a single pedagogical choice: the book is built around the distinction between the diagnostic and the prognostic problems of ice flow. The diagnostic problem is to find the velocity of a glacier whose shape is known at one instant. The prognostic problem is to evolve that shape forward in time. The first needs the physics of how ice resists stress; the second adds the physics of how ice gains and loses mass. We teach them in that order, and the structure of the book reflects it.
 
-- why ice flows at all, and why it matters for sea level;
-- how glaciers gain and lose mass, and how flow ties the two together;
-- the language of **stress and strain** needed to describe a deforming continuum;
-- the **rheology** of ice — Glen's flow law — that closes the system.
+The opening chapters assemble everything the diagnostic problem requires, working from the molecule outward. We begin with the **physics of ice** itself: the water molecule and its bonding, the open crystal that results, the lattice vibrations that carry heat, and the point defects hidden in the proton disorder. This is more chemistry than a flow modeler strictly needs, but it pays off, because the deformation of ice turns out to be a defect-mediated process and Glen's flow law is most honestly understood from the bottom up. From there we develop **deformation and flow**: the language of stress and strain, the **rheology** that closes the system, the momentum balance, and the hierarchy of approximations that follow from it. Two further ingredients complete the diagnostic picture, the **thermal structure** that sets how soft the ice is and the **bed** that sets how freely it slides, followed by the **observations** that supply a real geometry to model. Only then do we turn to computation with **icepack**, a Python package for glacier and ice-sheet flow modeling built on the finite element library [Firedrake](https://www.firedrakeproject.org/) {cite}`shapero2021`, and solve the diagnostic problem on real ice.
 
-The second part turns that theory into computation with **icepack**, a Python package for glacier and ice-sheet flow modeling built on the finite element library [Firedrake](https://www.firedrakeproject.org/) {cite}`shapero2021`. We explain the modeling approach, give you a reproducible environment, and work through a complete example.
+The later chapters take up the prognostic problem. Here we introduce **mass balance**, the accumulation and ablation that force changes in thickness, and only here do we treat **firn**, the slow transformation of snow into ice. Firn is deliberately held back rather than placed with the physics of ice at the front. It belongs to the surface and to climate: it records past atmospheres in ice cores, it complicates the conversion of satellite elevation change into mass change, and it is a piece of the prognostic story rather than something the diagnostic solve needs. Grouping it with mass balance and climate keeps the front of the book focused on the single question of what makes ice flow, and lets the connections to past and future climate come together in one place once the machinery to model them is in hand.
 
 ## Running the code
 

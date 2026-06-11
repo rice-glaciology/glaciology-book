@@ -22,7 +22,7 @@ A tidewater glacier ends in the sea, grounded, with a calving face. Its instabil
 :name: fig-tidewater-cycle
 :width: 88%
 
-The tidewater glacier cycle. (a) A glacier advances slowly down its fjord behind a protective moraine shoal built by its own subglacial streams, at a pace set by sediment supply. (b) A small retreat off the shoal exposes the terminus to deep water. (c) Calving increases with water depth, and retreat through the overdeepened basin is self-sustaining until the terminus regains shallow water at the fjord head. After the course notes of K. Christianson and Chapter 12 of {cite}`cuffey2010`.
+The tidewater glacier cycle. (a) A glacier advances slowly down its fjord behind a protective moraine shoal built by its own subglacial streams, at a pace set by sediment supply. (b) A small retreat off the shoal exposes the terminus to deep water. (c) Calving increases with water depth, and retreat through the overdeepened basin is self-sustaining until the terminus regains shallow water at the fjord head. After Chapter 12 of {cite}`cuffey2010`.
 ```
 
 The advancing phase is paced not by ice dynamics but by earthmoving. Subglacial streams deliver sediment to the terminus, building a moraine shoal that shields the ice from deep water and from the warm seawater that would otherwise melt and undercut it. The glacier advances down the fjord at meters per year, the rate at which the shoal can be pushed forward. At Taku Glacier near Juneau, the one major Alaskan tidewater glacier recently in its advancing phase, soundings show the terminus excavating one to four meters of sediment per year as it plows forward over an inlet that was navigable fjord a century ago {cite}`motyka2006`.

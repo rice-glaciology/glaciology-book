@@ -67,7 +67,31 @@ The last deglaciation at annual resolution in the GISP2 core, on a layer-counted
 
 The pacing of the ice ages comes from the slow wobbles of the Earth's orbit, the idea associated with Milankovitch and confirmed when the spectral fingerprint of those wobbles was found in marine sediment records {cite}`hays1976`. Three cycles modulate the sunlight reaching high northern latitudes in summer: the eccentricity of the orbit, varying over about a hundred thousand years; the tilt of the spin axis, or obliquity, over forty-one thousand years; and the precession of the seasons around the orbit, over twenty-three and nineteen thousand years. When northern summers are cool the winter's snow survives to build ice sheets, and when they are warm the ice melts back, so the orbital control of summer insolation sets the timing of glaciation. A common objection to the orbital theory is that ice volume itself correlates poorly with insolation, lagging it by thousands of years. Roe pointed out that the objection dissolves once the hypothesis is stated correctly {cite}`roe2006`. Summer insolation should control the *rate* at which ice sheets gain or lose mass, not the amount of ice standing at any moment, and indeed the time derivative of global ice volume tracks June insolation at 65°N in antiphase with essentially no lag. The mass-balance logic is the one this book has been using all along, with ablation a strongly nonlinear function of summer temperature, and in this form the Milankovitch hypothesis passes its test cleanly. Roe's analysis also found the orbital shortwave forcing over the ice sheets to be several times larger than the radiative forcing from the accompanying carbon dioxide changes, placing CO$_2$ in a supporting role for the orbital-band variability, however dominant it is for the modern, far larger perturbation.
 
+```{figure} figures/specmap-ice-volume-insolation.png
+:name: fig-specmap-insolation
+:width: 95%
+
+The objection. Global ice volume from the SPECMAP marine-isotope stack (black) against June insolation at 65°N, inverted (green), both in standard-deviation units. Even after shifting the ice record by its best-fit 6 kyr lag the correlation is weak, the 100 kyr cycles that dominate the ice are feeble in the forcing, and the precession that dominates the forcing is muted in the ice.
+```
+
+```{figure} figures/ice-volume-rate-insolation.png
+:name: fig-dvdt-insolation
+:width: 95%
+
+The resolution {cite}`roe2006`. Replot the *rate of change* of ice volume (black) against the same inverted insolation (green) and the two track with essentially no lag, with terminations coinciding with insolation maxima. The orbits pace the mass balance, not the standing stock.
+```
+
 The connection is still not simple. Before about a million years ago the cycles followed the forty-one-thousand-year beat of obliquity, and only after the mid-Pleistocene transition did they lengthen into the hundred-thousand-year sawtooth, even though the insolation forcing at that period is feeble, a couple of watts per square meter arriving with the wrong phase to drive the response directly {cite}`imbrie1993`. Imbrie and colleagues argued that the hundred-thousand-year cycle is instead the signature of the ice sheets themselves. Once the Laurentide grew past a critical size it stopped responding as a linear "Milankovitch slave"; its sluggish, fifteen-thousand-year response time let it integrate the faster forcing, and its eventual collapse came through internal vulnerabilities, including the instability of marine-based margins on isostatically depressed beds, the same grounding-line physics as {doc}`../cryosphere/ice-sheets` applied to the deglaciation. The carbon cycle joins the amplifier here too. Glacial CO$_2$ ran about 80 ppm below interglacial values, lagging the orbits but leading the ice volume, and simple ice-volume models fit the record markedly better once CO$_2$ is included {cite}`pisias1986`. The hundred-thousand-year problem remains a problem, but its modern form is about the nonlinear dynamics of ice sheets and carbon, not about whether the orbits keep time.
+
+The forcing itself is worth watching. The animation below sweeps through the last 400,000 years of orbital configurations and the insolation patterns they produce, the input signal whose fingerprints the records above carry.
+
+```{raw} html
+<video controls width="85%" preload="metadata" style="max-width: 700px;">
+  <source src="https://github.com/rice-glaciology/glaciology-book/releases/download/media-v1/insolation-cycles.m4v" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>Insolation variations over the last 400,000 years.</em></p>
+```
 
 ## Ice-sheet evolution over the cycles
 

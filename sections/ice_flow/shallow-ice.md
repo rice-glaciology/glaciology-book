@@ -57,7 +57,7 @@ the single result that the shallow-ice approximation contributes to the evolutio
 ```{admonition} Worked problem: from stress to surface speed
 :class: note
 
-A check that the machinery is understood, adapted from the course notes. Take a slab 100 m thick on a slope such that the basal shear stress is $\tau_b = 70$ kPa, with $A = 2\times10^{-16}\ \mathrm{Pa^{-3}\,yr^{-1}}$, $n = 3$, and a frozen bed ($u_b = 0$).
+A check that the machinery is understood. Take a slab 100 m thick on a slope such that the basal shear stress is $\tau_b = 70$ kPa, with $A = 2\times10^{-16}\ \mathrm{Pa^{-3}\,yr^{-1}}$, $n = 3$, and a frozen bed ($u_b = 0$).
 
 Glen's law gives the shear strain rate at the bed, $\dot\epsilon_{xz} = A\tau_b^{3} \approx 0.07\ \mathrm{yr^{-1}}$, so the velocity gradient there is $\partial u/\partial z = 2\dot\epsilon_{xz} \approx 0.14\ \mathrm{yr^{-1}}$. Integrating the profile through the thickness gives the surface speed, which for a uniform slab reduces to $u_s = \tfrac{2A}{n+1}\,\tau_b^{\,3} H = \tfrac{A}{2}\,\tau_b^{3}H \approx 3.4\ \mathrm{m\,yr^{-1}}$.
 

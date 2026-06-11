@@ -10,9 +10,23 @@ Greenland and Antarctica differ in ways that trace back to the rock beneath them
 
 Antarctica is two ice sheets wearing one name. East Antarctica rests on ancient cratonic crust, mostly above sea level, and behaves like a vast, slow, cold version of Greenland. West Antarctica occupies young, thin, rifted crust, and its bed lies mostly below sea level, in places more than two kilometers below, with deep basins that slope downward toward the interior. That single fact, the inland-deepening marine bed, organizes the modern concern about the region's future, and it was recognized as a structural vulnerability long before satellites could watch it being tested {cite}`mercer1978`.
 
+```{figure} figures/ice-sheet-bed-topography.png
+:name: fig-ice-sheet-beds
+:width: 95%
+
+The rock beneath the ice. Bed elevation for Greenland and Antarctica from radar-sounding compilations (BedMachine and Bedmap), blue below sea level and green-brown above. Greenland's interior depression and the deep marine basins of West Antarctica, sloping inland from the Amundsen coast, are the two facts of this section drawn on a map.
+```
+
 ## How an ice sheet moves its mass
 
 The interior of an ice sheet creeps by the internal deformation of {doc}`../ice_flow/shallow-ice`, at meters per year. Almost all of the discharge, however, funnels through narrow corridors of fast flow, the ice streams and outlet glaciers, moving hundreds to thousands of meters per year. The velocity maps of {doc}`../observing/insar` show them as bright rivers of ice draining a nearly stagnant interior.
+
+```{figure} figures/ice-sheet-velocity-maps.png
+:name: fig-ice-sheet-velocity
+:width: 95%
+
+Surface speed of both ice sheets on a logarithmic scale, from satellite radar interferometry and feature tracking (the NASA MEaSUREs compilations of Rignot, Joughin, and colleagues). The interior creeps at meters per year while the red filaments, ice streams and outlet glaciers moving a thousand times faster, carry nearly all of the discharge to the margins.
+```
 
 What makes an ice stream is the bed. Where the substrate is hard crystalline rock, the driving stress is consumed by vertical shear within the ice and the flow stays slow. Where the bed is a wet, weak marine sediment, the till fails at small stress, as described in {doc}`../thermomechanics/basal-motion`, the ice slides as a plug, and resistance must be found elsewhere. On the Siple Coast ice streams the bed supplies so little drag that more than half of the driving stress is carried by the lateral shear margins, bands of intense crevassing a few kilometers wide separating ice moving at hundreds of meters per year from ice moving at almost nothing {cite}`echelmeyer1994`. The mapped coincidence of fast flow with sedimentary basins makes the geological control plain {cite}`studinger2001`. Substrate even reaches into the deep past of the glacial cycles. Clark and Pollard proposed that the early Pleistocene Laurentide ice sheet flowed over a soft regolith that kept it thin and quick to melt, and that erosion of the regolith down to hard bedrock allowed thicker, longer-lived ice sheets, switching the world from 41,000-year to 100,000-year glacial cycles {cite}`clark1998`.
 

@@ -17,9 +17,11 @@ parts:
       - file: sections/foundations/ice-structure
       - file: sections/foundations/lattice-dynamics
       - file: sections/foundations/point-defects
+      - file: sections/foundations/optical-properties
   - caption: Mathematical background
     chapters:
       - file: sections/math/tensor-algebra
+      - file: sections/math/finite-elements
   - caption: Ice deformation and flow
     chapters:
       - file: sections/ice_flow/stress-and-strain
@@ -42,11 +44,25 @@ parts:
   - caption: Observing ice
     chapters:
       - file: sections/observing/elevation
+      - file: sections/observing/laser-altimetry
+      # lab (numpy): ICESat-2 along-track height to elevation change
+      - file: sections/observing/radar-altimetry
+      # lab (numpy): waveform retracking and basin elevation change
+      - file: sections/observing/panchromatic-imagery
+      # lab (numpy): image cross-correlation for displacement; DEM differencing
+      - file: sections/observing/insar
+      # lab (numpy): form and unwrap an interferogram, phase to velocity
       - file: sections/radar/em-waves
       # lab (numpy): the dielectric spectrum and radar wave speed
       - file: sections/radar/apres
       - file: sections/radar/apres-lab
       - file: sections/radar/radiowave-fabric
+      - file: sections/observing/cryoseismicity
+      # lab (numpy): STA/LTA detection and location of icequakes
+      - file: sections/observing/magnetotellurics
+      # lab (numpy): apparent resistivity and phase from E and B time series
+      - file: sections/observing/gravity
+      # lab (numpy): GRACE mascon time series, trend versus seasonal cycle
   - caption: Computing with icepack
     chapters:
       - file: sections/modeling/labs-intro

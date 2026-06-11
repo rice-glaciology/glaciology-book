@@ -92,7 +92,7 @@ The clip below shows what the sharp end of that hydrograph looks like from the p
 
 ```{raw} html
 <video controls width="85%" preload="metadata" style="max-width: 700px;">
-  <source src="https://github.com/rice-glaciology/glaciology-book/releases/download/media-v1/outburst-flood-usgs.mp4" type="video/mp4">
+  <source src="../../_static/videos/outburst-flood-usgs.mp4" type="video/mp4">
   Your browser does not support embedded video.
 </video>
 <p><em>A glacial outburst flood. Video courtesy of the U.S. Geological Survey.</em></p>

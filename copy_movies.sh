@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Copies course videos into the book. Embedded videos go to _static/videos/
-# (shipped with the HTML build); unidentified ones go to _video_review/ at the
-# book root (NOT shipped) — watch them, rename, and promote the keepers.
-# Run once:  bash copy_movies.sh
+# and are then compressed to web-friendly .mp4 (see ffmpeg loop in the repo
+# notes) and committed; unidentified ones go to _video_review/ at the book
+# root (NOT shipped) — watch them, rename, and promote the keepers.
+# Run once:  bash copy_movies.sh   (re-running restores originals, so the
+# ffmpeg compression pass must be repeated afterward)
 set -euo pipefail
 
 SRC="$HOME/Downloads/glaciology-course-uw"

@@ -33,7 +33,7 @@ The calving that drives the fast half of the cycle is worth watching once at ful
 
 ```{raw} html
 <video controls width="85%" preload="metadata" style="max-width: 700px;">
-  <source src="https://github.com/rice-glaciology/glaciology-book/releases/download/media-v1/helheim-calving.mov" type="video/mp4">
+  <source src="../../_static/videos/helheim-calving.mp4" type="video/mp4">
   Your browser does not support embedded video.
 </video>
 <p><em>Calving at Helheim Glacier, southeast Greenland.</em></p>

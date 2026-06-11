@@ -87,7 +87,7 @@ The forcing itself is worth watching. The animation below sweeps through the las
 
 ```{raw} html
 <video controls width="85%" preload="metadata" style="max-width: 700px;">
-  <source src="https://github.com/rice-glaciology/glaciology-book/releases/download/media-v1/insolation-cycles.m4v" type="video/mp4">
+  <source src="../../_static/videos/insolation-cycles.mp4" type="video/mp4">
   Your browser does not support embedded video.
 </video>
 <p><em>Insolation variations over the last 400,000 years.</em></p>

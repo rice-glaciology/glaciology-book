@@ -9,7 +9,5 @@ __pycache__/
 # OS
 .DS_Store
 
-# Course videos: too large for the repo. Embedded clips are served from the
-# GitHub release "media-v1" (see copy_movies.sh); local copies stay untracked.
-_static/videos/
+# Unreviewed course videos (not part of the book build)
 _video_review/

@@ -94,7 +94,7 @@ The surge cycle is easier to believe once you have watched one. The clip below s
 
 ```{raw} html
 <video controls width="85%" preload="metadata" style="max-width: 700px;">
-  <source src="https://github.com/rice-glaciology/glaciology-book/releases/download/media-v1/paulabreen-surge.m4v" type="video/mp4">
+  <source src="../../_static/videos/paulabreen-surge.mp4" type="video/mp4">
   Your browser does not support embedded video.
 </video>
 <p><em>The 2003–2005 surge of Paulabreen, Svalbard.</em></p>

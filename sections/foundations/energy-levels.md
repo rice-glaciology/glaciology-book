@@ -24,16 +24,16 @@ The magnitudes are the point. For an electron confined to $L = 3$ Å, the size o
 
 ## The hydrogen atom
 
-An electron bound to a proton is confined not by walls but by the Coulomb attraction $-e^2/4\pi\epsilon_0 r$, and the size of the atom is set by a competition that the box formula makes quantitative. Confining the electron within a radius $L$ costs a kinetic energy of order $h^2/8mL^2$, which grows as the atom shrinks, while the Coulomb attraction supplies an energy of order $-e^2/4\pi\epsilon_0 L$, which deepens as the atom shrinks but only as $1/L$. The total has a minimum at a finite radius, and evaluating the competition gives a size of order an angstrom and a binding energy of order an electron volt. The atom does not collapse, despite the classical prediction, because compressing the electron wave raises its kinetic energy faster than the Coulomb term can pay for it.
+An electron bound to a proton is confined by the Coulomb attraction $-e^2/4\pi\epsilon_0 r$. Confining the electron within a radius $L$ costs a kinetic energy of order $h^2/8mL^2$, which grows as the atom shrinks, while the Coulomb attraction supplies an energy of order $-e^2/4\pi\epsilon_0 L$, which deepens as the atom shrinks but only as $1/L$. The total has a minimum at a finite radius, and evaluating the sum of the competting processes gives a size of order an angstrom and a binding energy of order an electron volt. The atom does not collapse because compressing the electron wave raises its kinetic energy faster than the Coulomb term can pay for it.
 
-The exact treatment of the same problem gives the energy levels
+This gives rise to the energy levels for a hyrdrogen atom:
 
 $$
 E_n = -\frac{m e^4}{8\,\epsilon_0^2 h^2}\,\frac{1}{n^2} = -\frac{13.6\ \mathrm{eV}}{n^2},
 \qquad n = 1, 2, 3, \ldots
 $$
 
-and a ground-state radius, the Bohr radius, $a_0 = \epsilon_0 h^2/\pi m e^2 = 0.529$ Å. These two numbers calibrate atomic physics. The ionization energy of hydrogen is 13.6 eV; the ionization energy of the water molecule, 12.6 eV ({doc}`water-molecule`), is of the same order because the same physics binds its outer electrons. Atomic sizes of an angstrom, bond energies of electron volts, and the $10^{15}$ Hz frequencies of ultraviolet spectra are all expressions of the constants in the Bohr formula.
+and a ground-state radius, the Bohr radius, $a_0 = \epsilon_0 h^2/\pi m e^2 = 0.529$ Å. The ionization energy of hydrogen is 13.6 eV; the ionization energy of the water molecule, 12.6 eV ({doc}`water-molecule`), is of the same order because the same physics binds its outer electrons. Atomic sizes of an angstrom, bond energies of electron volts, and the $10^{15}$ Hz frequencies of ultraviolet spectra are all expressions of the constants in the Bohr formula.
 
 The hydrogen-atom levels also carry a degeneracy that becomes the periodic table. The level $E_n$ comprises $n^2$ distinct standing-wave patterns, one pattern for $n=1$, four for $n=2$, and so on. With two electrons permitted per pattern, as the next section explains, the first shell holds two electrons and the second holds eight, which are the capacities that fixed the formula H₂O in {doc}`composition`.
 

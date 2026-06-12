@@ -1,12 +1,12 @@
 # Preface
 
-This part of the book builds the physics of glaciers upward from a single molecule, and the construction is worth a moment of orientation before it begins. Water is the most familiar substance on Earth and one of the most anomalous, and the two facts are connected, since a planet shaped by so strange a material trains its inhabitants to mistake the strangeness for normality. The chapters that follow dissect the molecule, assemble the crystal, and set the lattice vibrating, and at each stage the unusual behavior catalogued below will be traced to its molecular origin. This preface states what needs explaining, and then supplies the small kit of statistical ideas, thermal energy, degrees of freedom, and equipartition, that the first chapter reaches for immediately.
+Water is the most familiar substance on Earth and one of the most anomalous. The chapters that follow breakdown the water molecule, and assemble the crystal. At each stage some of the unusual behavior we identify below will be traced to its molecular origin.
 
 ## The anomalies of water
 
-Nearly every physical property of water is an outlier among small molecules, and the anomalies are not curiosities but the working conditions of glaciology.
+Nearly every physical property of water is an outlier among small molecules:
 
-The solid floats on its own liquid. Ice at 917 kg m⁻³ is about nine percent less dense than the water it freezes from, a reversal of the usual order of phases shared by only a handful of substances. Every consequence is structural for this book, since floating ice is why lakes and oceans freeze from the top down and remain liquid beneath, why ice shelves and sea ice exist at all, and why pressure favors melting at the bed of a thick ice sheet. The liquid compounds the strangeness by reaching its maximum density near 4 °C, so that cold lakes stratify with their warmest water at the bottom.
+Solid ice is less dense than water at temperatures (and ice phases) we experience on earth. Ice at 917 kg m⁻³ is about nine percent less dense than the water it freezes from, a reversal of the usual order of phases shared by only a handful of substances. The relative density of solid ice and liquid water allows lakes and oceans to freeze from the top down and support life in the liquid beneath, why ice shelves and sea ice exist at all, and why pressure favors melting at the bed of a thick ice sheet. The liquid compounds the strangeness by reaching its maximum density near 4 °C, so that cold lakes stratify with their warmest water at the bottom.
 
 The melting and boiling points are far too high for the molecule's weight. Water's heavier chemical relatives set a clean trend, with H₂Te melting near −49 °C, H₂Se near −66 °C, and H₂S near −86 °C, and extrapolating that trend to water's mass predicts melting near −100 °C. The real molecule misses the prediction by a hundred degrees, and among molecules of comparable mass, methane melting at −182 °C, ammonia at −78 °C, water is the only one that is solid anywhere on Earth's surface. A planet at our distance from the Sun has abundant ice only because this anomaly exists.
 

@@ -1,4 +1,4 @@
-# The chemical building blocks
+# Chemical building blocks
 
 This chapter describes the background chemistry that the rest of the book draws on, the structure of the atom, the isotopes of hydrogen and oxygen, the types and strengths of chemical bonds, and the impurities and trapped gases present in natural ice. A reader with a recent chemistry background may pass over this material.
 

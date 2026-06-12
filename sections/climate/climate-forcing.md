@@ -56,76 +56,7 @@ not a thin terminus wedge but a grounding line, and the dynamics feeding that gr
 line are themselves a slow process with their own timescale. The kinematic machine of
 {doc}`glacier-variations` can still be run, but it needs a second stage.
 
-The reduced model that has become the workhorse for this problem was developed by Robel,
-Roe, and Haseloff {cite}`robel2018`. It tracks two state variables: the mean interior
-thickness $H$ of the grounded ice sheet and the grounding-line position $L$. Interior
-flux delivered to the margin scales as $Q \propto H^\alpha / L^\gamma$, while the flux
-escaping through the grounding line is set by the flotation thickness $h_g = -\lambda b(L)$
-at the bed depth $b(L)$, with $\lambda = \rho_w/\rho_i \approx 1.1$ the ocean-to-ice
-density ratio. The ice flux through the grounding line scales steeply with the thickness
-there, approximately as $Q_g \propto h_g^\beta$ with $\beta \approx 5$; that strong
-sensitivity is derived from the shallow-shelf stress balance and discussed in detail in
-{doc}`../cryosphere/ice-sheets`. Conservation of mass for the two reservoirs then gives
-
-$$
-\frac{dH}{dt} = \dot a - \frac{Q_g}{L},
-$$
-
-$$
-\frac{dL}{dt} = \frac{1}{h_g}\left(Q - Q_g\right),
-$$
-
-where $\dot a$ is the area-mean accumulation rate. The first equation is simply the
-statement that the interior thickens when accumulation exceeds the flux drained through
-the grounding zone, and the second says the grounding line advances or retreats depending
-on whether interior flux overshoots or undershoots the grounding-zone loss.
-
-Linearized about a steady state, this two-by-two system has two eigenvalues, two
-e-folding timescales. The fast one, of order decades to centuries, describes the
-grounding line adjusting toward flux balance for a given interior thickness. The slow one,
-of order millennia, describes the interior volume relaxing, the marine analog of the
-$\tau = H/\dot a_0$ of land-terminating glaciers. Together they mean that a perturbation
-drives a quick partial response and a long, drawn-out completion; a marine ice sheet can
-sit far from its equilibrium for centuries while looking superficially quiet.
-
-The same linearization produces a single stability parameter,
-
-$$
-S_T = 1 + \beta\,\lambda\,\bar b_x\,\frac{\bar L}{\bar h_g},
-$$
-
-where $\bar b_x$ is the bed slope at the grounding line. When $S_T > 0$, the system is
-stable; the grounding line is self-correcting. When $S_T < 0$, it is not: a small retreat
-into deeper water increases the flotation thickness $h_g$, which increases $Q_g$, which
-draws more ice out of the interior, which retreats the grounding line further still. That
-sign change is the marine ice-sheet instability appearing in a model with no stress balance,
-only two mass reservoirs and a flux rule, which is a strong argument that the instability
-is at its core a statement about mass conservation over a bed that deepens inland. The full
-mechanical story, with ice shelves, buttressing, and the observational case for Thwaites
-and Pine Island, is in {doc}`../cryosphere/ice-sheets`. What matters here is that the
-two-stage model makes the instability a calculable property of the mean state: a known
-bed topography and accumulation rate either produce $S_T < 0$ or they do not.
-
-The stochastic-forcing consequence is just as important as the instability criterion.
-The two-stage system is a resonant filter. When ocean thermal forcing arrives as a broad
-spectrum of variability, the filter amplifies it preferentially at the slow eigenfrequency,
-producing grounding-line fluctuations that are large, slow, and persistent — exactly the
-signals that look like committed retreat when viewed over a decade of satellite observations.
-The model shows that a marine ice sheet in a genuinely stationary climate can sustain
-kilometer-scale grounding-line excursions on multi-centennial cycles driven by nothing
-more than the background variance in ocean temperature. A quiet decade proves nothing.
-This is the marine-terminating extension of the Hasselmann argument from the opening
-section, and it is the reason that attributing observed grounding-line change to forcing
-rather than natural variability requires the same null-hypothesis discipline that
-{cite}`roe2017` applied to mountain glaciers.
-
-The machinery connecting this section to the one-stage models of {doc}`glacier-variations`
-is explicit: both are linear reservoirs with a flux sensitivity at the boundary, both
-produce red-noise output from white-noise forcing, and both have a response time set
-by the ratio of a stored volume to a boundary flux. The two-stage model is simply that
-same machinery pointed at the geometry of West Antarctica, with the extra stage needed
-because the grounding line and the interior are dynamically semi-independent on the
-timescales relevant for sea-level projections.
+That second stage is the two-stage model of Robel, Roe, and Haseloff {cite}`robel2018`, which tracks the mean interior thickness and the grounding-line position as coupled reservoirs, fed by the interior flux and drained by the steeply thickness-dependent flux across the grounding line. The model is derived in full, fluxes first, in {doc}`reduced-models`, after the prognostic lab has shown the behavior it explains. Three of its results matter for this chapter's argument. The linearized system has a fast grounding-zone timescale of decades to centuries and a slow interior timescale of millennia, so a marine ice stream responds to forcing quickly in part and completely only after a very long time. Its steady states are stable or unstable according to the sign of a single number set by the bed slope at the grounding line, which makes the marine ice-sheet instability of {doc}`../cryosphere/ice-sheets` a calculable property of the mean state. And driven by the broadband variability of ocean temperature, the system acts as the marine extension of the Hasselmann argument above, integrating noise into grounding-line excursions that are large, slow, and persistent, so that a decade of observed retreat cannot by itself distinguish forcing from natural variability.
 
 % lab (stochastic, icepack): two-stage Robel model driven by white-noise ocean forcing;
 % estimate natural grounding-line variability; compare fast and slow eigenmode trajectories

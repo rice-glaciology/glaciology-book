@@ -63,8 +63,10 @@ parts:
       - file: sections/modeling/prognostic-problem
       # lab (prognostic, icepack): SIA evolution toward the Vialov steady state
       - file: sections/climate/climate-forcing
-      # lab (prognostic, numpy): two-stage model under stochastic ocean forcing
-      # lab (prognostic, icepack): glacial-cycle ice-sheet evolution; marine retreat on a retrograde bed
+      - file: sections/modeling/ice-stream-vaf-lab
+      - file: sections/climate/reduced-models
+      # lab (stochastic, numpy): two-stage model under stochastic ocean forcing
+      # lab (prognostic, icepack): glacial-cycle ice-sheet evolution
   - caption: Observing ice
     chapters:
       - file: sections/observing/elevation

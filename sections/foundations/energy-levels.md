@@ -20,6 +20,13 @@ $$
 
 Two features of this result hold for confined quantum systems generally. The energy can take only discrete values, with the spacing between levels set by $h^2/8mL^2$, so that discreteness is a property of any confined wave. And the lowest state is not at rest; the $n=1$ level retains the energy $h^2/8mL^2$, the zero-point energy met in the {doc}`preface`, because a wave of infinite wavelength cannot fit between the walls. The state with quantum number $n$ has $n-1$ interior nodes, points where the wave vanishes, and the energy rises with the number of nodes, a pattern that recurs in the orbitals below.
 
+```{figure} figures/particle-in-a-box-levels.png
+:name: fig-particle-in-a-box
+:width: 75%
+
+The first four energy levels of a particle confined to a segment of length $L$, with the probability distribution $|\psi_n|^2$ drawn at the height of its level. The energies grow as $n^2$, the number of nodes grows with $n$, and the lowest level sits above the floor of the box by the zero-point energy $E_1 = h^2/8mL^2$.
+```
+
 The magnitudes are the point. For an electron confined to $L = 3$ Å, the size of a water molecule, the ground-state energy is about 4 eV, which is the scale of chemical bond energies; the electron-volt scale of chemistry follows directly from the values of $h$, the electron mass, and molecular dimensions. The $1/mL^2$ dependence shows that level spacings shrink as the confining region grows and as the particle mass increases. A proton confined to the same region has levels closer together by a factor of 1836, and a macroscopic body has levels spaced so finely that its energy is continuous for all practical purposes. This single scaling rule locates the boundary between quantum and classical behavior throughout the book.
 
 ## The hydrogen atom
@@ -56,6 +63,13 @@ $$
 
 The levels are uniformly spaced by $h\nu$, and the ground state retains the zero-point energy $\tfrac{1}{2}h\nu$. For the vibration of two bonded atoms, $\mu$ is the reduced mass $m_1 m_2/(m_1+m_2)$, which for O–H is 0.948 u, close to the proton mass because the oxygen barely moves. The measured O–H stretching frequency, about 3660 cm⁻¹, then implies a force constant $k = \mu\,(2\pi c\tilde\nu)^2 \approx 750$ N m⁻¹, an estimate of the stiffness of the covalent bond. Two consequences of the formula run through the book. The frequency, and with it the zero-point energy, falls as the square root of the mass increases, which is the origin of the isotope effects developed in {doc}`water-molecule`; and vibrational quanta of this size correspond to characteristic temperatures $h\nu/k_B$ of thousands of kelvin, which is why molecular vibrations are frozen out at terrestrial temperatures.
 
+```{figure} figures/oscillator-levels-isotope.png
+:name: fig-oscillator-isotope
+:width: 95%
+
+The harmonic oscillator and the isotope effect. (a) Energy levels $(v+\tfrac{1}{2})h\nu$ and probability distributions in a parabolic potential well; the levels are uniformly spaced and the ground state retains the zero-point energy $\tfrac{1}{2}h\nu$. (b) The same well holding two masses. Substituting D for H in the O–H oscillator lowers every level by the factor $\sqrt{\mu_{\mathrm{OH}}/\mu_{\mathrm{OD}}} \approx 1/1.37$, and the difference $\Delta E_0$ between the two zero-point energies drives the isotopic fractionation developed in {doc}`water-molecule`.
+```
+
 Rotational levels complete the ladder. A molecule with moment of inertia $I$ rotating freely has the energy levels
 
 $$
@@ -69,6 +83,13 @@ Radiation couples to all of these levels through the photon energy $h\nu$, and a
 ## Classical and quantum degrees of freedom
 
 Whether a degree of freedom behaves classically is determined by the ratio of its level spacing to $k_B T$, which at the melting point is about 1/40 eV. When the spacing is small compared with $k_B T$, the levels are effectively continuous, the motion is classical, and equipartition applies; the rotations of the free molecule, with quanta of order $10^{-3}$ eV, are in this regime, and could accordingly be counted classically in the $4R$ heat capacity of the {doc}`preface`. When the spacing is large compared with $k_B T$, excitation is suppressed by the Boltzmann factor and the degree of freedom contributes nothing to the heat capacity; the molecular vibrations, with quanta of five to twenty times $k_B T$, are in this regime, which is why they are absent from the $4R$ count. Electronic excitation is suppressed more strongly still, so that the molecules of a glacier are all in their electronic ground states. This last point has a useful consequence, since it means the interaction between molecules can be described by a single potential-energy function, the one mapped in the next two chapters. The same comparison of $h\nu$ with $k_B T$, applied mode by mode to the vibrations of the crystal, yields the heat capacity of ice in {doc}`lattice-dynamics`.
+
+```{figure} figures/molecular-energy-ladder.png
+:name: fig-energy-ladder
+:width: 65%
+
+The energy levels of the water molecule against the thermal energy $k_B T$ at the melting point. Rotational quanta lie below $k_B T$ and behave classically; vibrational and electronic excitations lie far above it and are frozen out. Radar photons, orders of magnitude below every rung, pass through ice without exciting any transition.
+```
 
 A quantum particle also has a finite probability of penetrating a potential barrier higher than its own energy. Inside the barrier the wave does not oscillate but decays, with a decay constant
 

@@ -24,7 +24,7 @@ The magnitudes are the point. For an electron confined to $L = 3$ Å, the size o
 
 ## The hydrogen atom
 
-An electron bound to a proton is confined by the Coulomb attraction $-e^2/4\pi\epsilon_0 r$. Confining the electron within a radius $L$ costs a kinetic energy of order $h^2/8mL^2$, which grows as the atom shrinks, while the Coulomb attraction supplies an energy of order $-e^2/4\pi\epsilon_0 L$, which deepens as the atom shrinks but only as $1/L$. The total has a minimum at a finite radius, and evaluating the sum of the competing processes gives a size of order an angstrom and a binding energy of order an electron volt. The atom does not collapse because compressing the electron wave raises its kinetic energy faster than the Coulomb term can pay for it.
+An electron bound to a proton is confined by the Coulomb attraction $-e^2/4\pi\epsilon_0 r$. Confining the electron within a radius $L$ costs a kinetic energy of order $h^2/8mL^2$, which grows as the atom shrinks, while the Coulomb attraction supplies an energy of order $-e^2/4\pi\epsilon_0 L$, which increases as the atom shrinks but only as $1/L$. The total has a minimum at a finite radius, and evaluating the sum of the competing processes gives a size of order an angstrom and a binding energy of order an electron volt. The atom does not collapse because compressing the electron wave raises its kinetic energy faster than the Coulomb term can pay for it.
 
 This gives rise to the energy levels for a hydrogen atom:
 

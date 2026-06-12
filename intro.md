@@ -1,6 +1,6 @@
 # Introduction to Glaciology and Ice-Flow Modeling
 
-Welcome to the Rice Glaciology group's open textbook. It introduces the physics of glaciers and ice sheets and shows how to turn that physics into working numerical models with [icepack](https://icepack.github.io/).
+Welcome to the Rice Glaciology group's open textbook. Here, we introduce the physics of glaciers and ice sheets and shows how to encdoe that physics into working numerical models using the open source finite element model package [icepack](https://icepack.github.io/).
 
 The book is aimed at advanced undergraduates and beginning graduate students who have seen some calculus and a little physics, but who are new to glaciology. We build up the ideas in small steps and keep the mathematics tied to physical intuition. Throughout, the standard reference is *The Physics of Glaciers* {cite}`cuffey2010`; we point to specific chapters there for readers who want to go deeper.
 

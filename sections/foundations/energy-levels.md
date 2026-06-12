@@ -52,7 +52,9 @@ Covalent bonding has the same wave-mechanical origin. When two atoms approach, a
 
 ## Electronic, vibrational, and rotational energies
 
-A molecule possesses internal energy levels of three kinds, with characteristic magnitudes separated by roughly two orders of magnitude at each step {cite}`herzberg1945`. Electronic excitations, rearrangements of the electron distribution itself, cost several electron volts, as the hydrogen-atom scale would suggest, and lie in the ultraviolet. This section develops the general results for the other two kinds, vibration and rotation; their application to the measured spectrum of the water molecule is made in {doc}`water-molecule`.
+Molecules also possess internal energy levels including elctronic excitation, vibration and rotation {cite}`herzberg1945`. 
+
+Electron excitations are associated with the electron distribution around the moleucule. For water these levels cost several electron volts, as the hydrogen-atom scale would suggest, and lie in the ultraviolet part of the light spectrum. This section develops the general results for the other two kinds, vibration and rotation; their application to the measured spectrum of the water molecule is made in {doc}`water-molecule`.
 
 Vibrational levels are described by the harmonic oscillator, the second exactly solvable problem the book needs. Near the bottom of any potential well the potential is approximately parabolic, $V \approx \tfrac{1}{2}k x^2$ with $k$ the curvature or force constant, and a mass $\mu$ oscillating in such a well has the energy levels
 

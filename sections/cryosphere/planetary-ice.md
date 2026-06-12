@@ -54,7 +54,7 @@ At the other extreme, comets carry amorphous ice — water molecules quenched fr
 
 The polymorphism connects back to the fundamental picture developed in {doc}`../foundations/lattice-dynamics` and {doc}`../foundations/ice-structure`: the hydrogen bond network is flexible enough to accommodate many different packing arrangements depending on the pressure and temperature of formation, each with its own density, conductivity, and stiffness. Ice is not one material; it is a family.
 
-## Coda
+## Summary
 
 This book opened with the peculiar geometry of the water molecule and the hydrogen bond it forms, and every chapter since has been an elaboration on what follows from that. The phase diagram, the crystal lattice, the dislocation creep that Glen's law parametrizes, the thermal structure that sets basal conditions, the radar wave that reads internal stratigraphy, the isotopic signal that speaks of ancient temperature — all of it threads back to H₂O at whatever pressure and temperature a particular world provides. The diagnostic problem (what is the current state of the ice) and the prognostic problem (where is it going) are the same whether the ice is the West Antarctic Ice Sheet, the north polar cap of Mars, or the shell of Europa. The tools are transferable; only the boundary conditions change.
 

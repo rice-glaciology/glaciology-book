@@ -56,7 +56,7 @@ $$
 
 where $H$ is the thickness and $\nabla s$ is the surface slope. The driving stress points down the surface slope and grows with both thickness and steepness. For typical ice-sheet values, a thickness of a kilometer or two and a surface slope of a few parts per thousand, it is of order 50 to 150 kilopascals, and this narrow range is one of the most robust facts in glaciology, since thicker ice tends to sit on gentler slopes and thinner ice on steeper ones.
 
-A point that often surprises newcomers is that the driving stress depends on the slope of the upper surface, not the bed. Ice flows in the direction the surface tilts, even where the bed slopes the other way, which is why the direction of ice-sheet flow can be read to first order from a map of surface elevation alone.
+Ice flows in the direction the surface tilts, even where the bed slopes the other way, which is why the direction of ice-sheet flow can be read to first order from a map of surface elevation alone.
 
 ## The force budget
 

@@ -41,7 +41,7 @@ print(f"{len(profiles)} acquisitions from {profiles[0].timestamp} to {profiles[-
 
 ## Strain and melt between repeat profiles
 
-The science is in the comparison of profiles taken at different times. `strain_melt_between_profiles` aligns a pair of profiles, first coarsely and then to sub-wavelength precision using the phase, fits the vertical strain implied by the motion of the internal reflectors, and attributes the residual motion of the bed to melting or freezing. It returns the time separation, the vertical strain rate, and the basal melt rate, along with diagnostic arrays.
+`strain_melt_between_profiles` aligns a pair of profiles, first coarsely and then to sub-wavelength precision using the phase, fits the vertical strain implied by the motion of the internal reflectors, and attributes the residual motion of the bed to melting or freezing. It returns the time separation, the vertical strain rate, and the basal melt rate, along with diagnostic arrays.
 
 ```python
 results = []

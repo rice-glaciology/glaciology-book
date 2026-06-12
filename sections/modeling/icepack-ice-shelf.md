@@ -44,7 +44,7 @@ T = firedrake.Constant(255.0)        # temperature (K)
 A = icepack.rate_factor(T)           # fluidity in Glen's law
 ```
 
-## The model and the solve
+## Model setup and solution
 
 Now we pick the **ice shelf** flow model and create a solver. The only boundary condition we impose on the velocity is at the inflow (`dirichlet_ids=[1]`), where ice enters at the prescribed speed; the other edges are left free, which lets ice spread and accelerate. The **diagnostic solve** then finds the velocity field that balances the membrane (stretching) stresses against the gravitational driving stress — internally, by minimizing icepack's action functional.
 
@@ -59,7 +59,7 @@ u = solver.diagnostic_solve(
 )
 ```
 
-## Looking at the result
+## Results
 
 ```python
 import matplotlib.pyplot as plt

@@ -2,9 +2,9 @@
 
 The fjords of Norway, the U-shaped valleys of the Alps, and the hills of Seattle were all cut by the processes in {doc}`../thermomechanics/basal-motion`, run for long enough. A sliding glacier is the most effective agent of erosion on Earth, and this chapter asks how the sliding actually removes rock, what sets the pace, and what the accumulated work does to landscapes and, through the bed, back to the ice. Chapter 13 of {cite}`cuffey2010` and the review by {cite}`hallet1996` anchor the quantitative material.
 
-A useful orientation is that the products are local. Around Puget Sound, a kilometer of Cordilleran ice covered the Seattle area as recently as 15,000 years ago, and the drumlins it streamlined are the hills the city is built on. East of the Cascades, the Channeled Scablands record catastrophic outburst floods from ice-dammed Glacial Lake Missoula, the same jökulhlaup physics treated in {doc}`../thermomechanics/hydrology` at a continental scale. Soils, aquifers, and the very shape of the region's waterways are glacial products that people live on without noticing.
+Around Puget Sound, a kilometer of Cordilleran ice covered the Seattle area as recently as 15,000 years ago, and the drumlins it streamlined are the hills the city is built on. East of the Cascades, the Channeled Scablands record catastrophic outburst floods from ice-dammed Glacial Lake Missoula, the same jökulhlaup physics treated in {doc}`../thermomechanics/hydrology` at a continental scale. Soils, aquifers, and the very shape of the region's waterways are glacial products that people live on without noticing.
 
-## Two ways to take rock apart
+## Abrasion and quarrying
 
 Glaciers erode bedrock chiefly by two processes, and the division of labor between them is lopsided.
 
@@ -36,7 +36,7 @@ Glacially polished bedrock with two cross-cutting sets of striations, compass fo
 % pressed by viscous drag abrade striations/polish; lee side, water-filled cavity, pressure drops
 % load the rock step and drive crack growth (quarrying); cite hallet1979,cohen2006,iverson2012.
 
-The two processes feed each other. Quarrying supplies the tools that abrade, and abrasion smooths the bumps whose lee corners quarrying exploits. Subglacial streams then do most of the hauling, evacuating the majority of the sediment to the margin, and sliding by regelation adds a quiet chemical channel, dissolving minerals where ice melts on stoss faces and precipitating them in the lee, which is partly why glaciated bedrock shines.
+Quarrying supplies the tools that abrade, and abrasion smooths the bumps whose lee corners quarrying exploits. Subglacial streams then do most of the hauling, evacuating the majority of the sediment to the margin, and sliding by regelation adds a quiet chemical channel, dissolving minerals where ice melts on stoss faces and precipitating them in the lee, which is partly why glaciated bedrock shines.
 
 ## Rates and controls
 

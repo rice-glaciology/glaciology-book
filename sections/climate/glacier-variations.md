@@ -25,9 +25,9 @@ $$
 % <b1>L0 to the old terminus; glacier advances by L1 until ablation a0 over the new terminus
 % wedge consumes it. After C&P ch. 11.
 
-A modest perturbation produces a substantial advance. With a terminus ablation rate of $5\ \mathrm{m\,yr^{-1}}$, a balance increase of only $0.5\ \mathrm{m\,yr^{-1}}$ moves the terminus forward by a tenth of the glacier's length. The terminus is a lever arm, and small persistent changes in climate are amplified into conspicuous changes in length. This is the first reason glacier termini make such legible climate records.
+With a terminus ablation rate of $5\ \mathrm{m\,yr^{-1}}$, a balance increase of only $0.5\ \mathrm{m\,yr^{-1}}$ moves the terminus forward by a tenth of the glacier's length. The terminus is a lever arm, and small persistent changes in climate are amplified into conspicuous changes in length. This is the first reason glacier termini make such legible climate records.
 
-Geometry sets the gain of the lever. If the glacier drains a wide accumulation basin into a narrow tongue, the same balance perturbation collected over the broad upper glacier must be disposed of along a slim terminus, and the advance grows by the ratio of the mean width $\bar Y$ to the terminus width $Y_t$,
+If the glacier drains a wide accumulation basin into a narrow tongue, the same balance perturbation collected over the broad upper glacier must be disposed of along a slim terminus, and the advance grows by the ratio of the mean width $\bar Y$ to the terminus width $Y_t$,
 
 $$
 L_1 = \frac{\langle \dot b_1 \rangle}{\dot a_0}\,\frac{\bar Y}{Y_t}\, L_0.
@@ -63,7 +63,7 @@ $$
 % Spec: length vs time after a step change in balance, exponential approach to new equilibrium;
 % mark 63% at one response time t_r = H/a_0 and 86% at two; cite johannesson1989.
 
-The numbers this formula produces are the useful surprise. A glacier on Mount Rainier with $H = 100$ m and a terminus ablation rate of $10\ \mathrm{m\,yr^{-1}}$ has $t_r = 10$ years. An ice sheet with $H = 1500$ m losing $1\ \mathrm{m\,yr^{-1}}$ at its margin has $t_r = 1500$ years. Mountain glaciers remember a few decades of climate. Ice sheets remember millennia, which is why their present shape still carries the imprint of the last glacial period, a thread we pick up again in {doc}`paleoclimate`. Thick glaciers in cold, dry climates respond slowly. Thin glaciers with high terminus ablation, the maritime glaciers of Norway and New Zealand among them, respond within a decade or two.
+A glacier on Mount Rainier with $H = 100$ m and a terminus ablation rate of $10\ \mathrm{m\,yr^{-1}}$ has $t_r = 10$ years. An ice sheet with $H = 1500$ m losing $1\ \mathrm{m\,yr^{-1}}$ at its margin has $t_r = 1500$ years. Mountain glaciers remember a few decades of climate. Ice sheets remember millennia, which is why their present shape still carries the imprint of the last glacial period, a thread we pick up again in {doc}`paleoclimate`. Thick glaciers in cold, dry climates respond slowly. Thin glaciers with high terminus ablation, the maritime glaciers of Norway and New Zealand among them, respond within a decade or two.
 
 ## Glaciers as filters of climate
 
@@ -81,7 +81,7 @@ Set against the natural variability envelope, the observed centennial retreat of
 The kinematic model treats the glacier as a reservoir with a single thickness, and its response time is an e-folding scale, not a delay. It says nothing about how thickness anomalies propagate down-glacier, which is the business of kinematic waves, and it fails entirely for glaciers whose termini end in water, where calving opens a mass-loss channel with its own dynamics. Tidewater glaciers can advance and retreat on cycles almost decoupled from climate, the subject we take up with the flow instabilities in {doc}`../cryosphere/instabilities`.
 ```
 
-## Beyond one stage
+## The three-stage model
 
 The one-stage model has a flaw that becomes visible the moment the step change switches on. Its terminus begins to move immediately, at its maximum rate, because the model passes a balance perturbation straight to the terminus with no intervening glacier. A real glacier responds in sequence. The interior thickens first, the extra thickness drives extra flux toward the terminus, and only when that flux arrives does the length begin to change in earnest. Roe and Baker {cite}`roebaker2014` turned this observation into a model by chaining three linear reservoirs, one for the interior thickness anomaly $h'$, one for the terminus flux anomaly $F'$, and one for the length anomaly $L'$,
 
@@ -107,7 +107,7 @@ $$
 % Spec: step responses of one-stage vs three-stage kinematic models, same equilibrium response and
 % timescale tau; three-stage curve sigmoidal (delayed onset, then catches up); cite roebaker2014.
 
-The difference matters most for exactly the problems this chapter cares about. Because the three-stage glacier filters out high-frequency forcing more aggressively, it wanders less under interannual noise than the one-stage model predicts, and the model is simple enough that its variance, autocorrelation, and excursion statistics can all be written in closed form. Those expressions are what allow an observed retreat to be compared formally against the null hypothesis of noise-driven wandering, and they are the machinery beneath the attribution result of {cite}`roe2017` discussed above. The model is linear, so it can also be inverted, turning a length record back into an estimate of the mass-balance history that produced it.
+Because the three-stage glacier filters out high-frequency forcing more aggressively, it wanders less under interannual noise than the one-stage model predicts, and the model is simple enough that its variance, autocorrelation, and excursion statistics can all be written in closed form. Those expressions are what allow an observed retreat to be compared formally against the null hypothesis of noise-driven wandering, and they are the machinery beneath the attribution result of {cite}`roe2017` discussed above. The model is linear, so it can also be inverted, turning a length record back into an estimate of the mass-balance history that produced it.
 
 ## A kinematic analog for marine-terminating glaciers
 

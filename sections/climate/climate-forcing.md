@@ -2,8 +2,7 @@
 
 ## Ice sheets are climate
 
-Before asking how climate forces glaciers, it is worth pausing on a prior question: what
-kind of object are we actually studying? The popular framing — climate changes, glaciers
+The popular framing — climate changes, glaciers
 respond — makes ice sound passive, a thermometer hanging in the atmosphere. The reality
 is more interesting. On timescales beyond a few thousand years, ice sheets are not the
 thermometer; they are part of the temperature. They reflect sunlight, elevate their own
@@ -14,9 +13,8 @@ the recorder of past climate — the subject of {doc}`paleoclimate` — and the 
 dynamical component of the climate system itself, carrying its own memory, its own
 instabilities, and its own committed trajectories that no weather forecast could reveal.
 
-That memory is worth making precise, because it shapes everything that follows.
 The one-stage kinematic model of {doc}`glacier-variations` gives the cleanest
-statement of it. A glacier of length $L$ in a perturbed climate obeys
+statement of that memory. A glacier of length $L$ in a perturbed climate obeys
 
 $$
 \frac{dL'}{dt} = -\frac{L'}{\tau} + F'(t),

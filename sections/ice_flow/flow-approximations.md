@@ -2,7 +2,7 @@
 
 The shallow-ice approximation is the simplest of a family of ice-flow models, and each member of the family is defined by which terms of the Stokes momentum balance it keeps. This chapter derives the momentum balance at each level, starting from the full equations and working down to the cheapest depth-integrated model, so that the assumptions behind each are explicit. Throughout, $x$ and $y$ are horizontal, $z$ points up, the surface is at $z=s$ and the bed at $z=b$, the thickness is $H=s-b$, and the velocity is $\mathbf{u}=(u,v,w)$.
 
-## The starting point: the Stokes equations
+## The Stokes equations
 
 From {doc}`stress-balance`, slow ice flow obeys the Stokes momentum balance, $\nabla\!\cdot\!\boldsymbol{\sigma}+\rho\mathbf{g}=0$, with $\boldsymbol{\sigma}=\boldsymbol{\tau}-p\mathbf{I}$. Written out, the horizontal ($x$) and vertical components are
 
@@ -16,7 +16,7 @@ $$
 
 with a matching $y$ equation, the incompressibility condition $\nabla\!\cdot\!\mathbf{u}=0$, and Glen's law relating $\boldsymbol{\tau}$ to the strain rate. This is the **full Stokes** system. It keeps every term and is the most accurate and most expensive model, needed near grounding lines, ice divides, and steep terrain.
 
-## The shallow approximations begin with hydrostatic pressure
+## The hydrostatic approximation
 
 Ice sheets are thin, with an aspect ratio $\varepsilon = [H]/[L]\ll 1$. Scaling the equations with $\varepsilon$ shows that in the vertical balance the deviatoric terms are small, so to leading order the vertical momentum balance reduces to the hydrostatic relation $\partial p/\partial z = -\rho g$. Integrating downward from the stress-free surface gives the cryostatic pressure
 
@@ -76,7 +76,7 @@ $$
 
 with the matching $y$ equation {cite}`pattyn2003`. This is three-dimensional and resolves the depth-varying stress state far more faithfully than the depth-integrated models, at correspondingly higher cost, and is appropriate in grounding zones and other places where the flow is complicated. The asymptotic theory that places all of these models on a single ladder is given by {cite}`schoof2010`.
 
-## The ladder at a glance
+## Summary of the hierarchy
 
 | Model | Horizontal balance retained | Dropped | Best for |
 |---|---|---|---|

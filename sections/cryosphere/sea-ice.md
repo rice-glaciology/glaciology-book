@@ -2,13 +2,13 @@
 
 Everything to this point in the book has been freshwater ice, the distilled precipitate of the atmosphere; the ice in this chapter grows instead from a salty, turbulent ocean, and the salt rewrites nearly every property the earlier chapters derived. The ice that floats on the polar oceans is a different material, a composite of pure ice, liquid brine, and gas whose properties change drastically with temperature, and it covers an area comparable to a continent in each hemisphere, growing and shrinking by tens of millions of square kilometers with the seasons. Sea ice makes up about two thirds of the cryosphere's surface area while holding a tenth of a percent of its ice volume, and that disproportion is exactly why it matters to climate. A thin, vast, bright lid on a dark ocean is the most leveraged piece of ice on the planet. The standard reference for this material is the sea ice literature gathered in {cite}`thomas2017`, and the thermodynamic framework descends from {cite}`maykut1971`.
 
-## Why the ocean freezes differently
+## Freezing of seawater
 
 A freshwater lake freezes promptly once autumn arrives, and the reason is a quirk of the water molecule we met in {doc}`../foundations/water-molecule`. Fresh water is densest at 4 °C, so once the surface cools past that point it floats on the warmer water below, the convection shuts down, and only a thin surface layer needs to reach the freezing point before ice forms.
 
 Dissolved salt removes the density maximum. For salinities above 24.7‰, seawater gets denser all the way down to its freezing point, near −1.8 °C at a salinity of 32‰, so cooling surface water keeps sinking and the ocean must typically chill its upper 100 to 150 meters to the freezing point before ice can persist. Sea ice therefore forms late, and it forms in the open, turbulent ocean rather than on a still pond. Freezing begins as frazil, small needles and platelets nucleating throughout the stirred surface layer and floating up as slush. In calm water the slush congeals into a thin elastic sheet called nilas; in waves it forms pancakes, rounded cakes with raised rims that eventually weld together. Once a solid cover exists, further growth is congelation at the bottom of the ice, paced by how fast heat can be conducted up through the ice to the cold air.
 
-## A crystal, a film of brine, and the skeletal layer
+## Crystal growth and brine entrapment
 
 Salt does not fit in the ice lattice of {doc}`../foundations/ice-structure`, so the growing interface rejects it. The rejected salt accumulates in a thin boundary layer ahead of the interface, and because salt diffuses far more slowly than heat, a zone of constitutional supercooling develops just below the growing ice. A flat interface is unstable in that situation. Any protrusion reaches into more supercooled water and grows faster, so the interface organizes itself into parallel blades of pure ice, the skeletal layer, with brine concentrated in the grooves between them. As growth continues, ice bridges trap the grooves into vertical strings of brine inclusions. Freshwater ice has no skeletal layer; the salt makes the microstructure.
 
@@ -27,7 +27,7 @@ with $S_i$ the bulk ice salinity, $S_b$ the brine salinity, $\rho_i, \rho_b$ the
 % (S_i = 5 permil) ice from the freezing-equilibrium relation; liquid fraction diverging toward
 % the freezing point; cite thomas2017.
 
-## Properties ruled by the brine
+## Brine-controlled properties
 
 The brine is not hypothetical; under a microscope it is the texture of the material.
 
@@ -46,7 +46,7 @@ $$
 
 includes the latent heat of the internal melting and freezing that any temperature change forces in the brine pockets, and near the melting point it exceeds the pure-ice value by up to two orders of magnitude. Mechanical strength collapses as the brine volume grows, which is the practical limit on travel over spring ice. The thermal physics here is the heat equation of {doc}`../thermomechanics/thermal-structure` again, with coefficients that depend savagely on temperature.
 
-The brine also drains. Gravity drainage and flushing expel salt as the ice ages, so bulk salinity falls with thickness and age, rapidly in the first half metre of growth and slowly thereafter, which is why multiyear ice is fresher, stronger, and a poorer conductor than the first-year ice that now dominates the Arctic.
+Gravity drainage and flushing expel salt as the ice ages, so bulk salinity falls with thickness and age, rapidly in the first half metre of growth and slowly thereafter, which is why multiyear ice is fresher, stronger, and a poorer conductor than the first-year ice that now dominates the Arctic.
 
 ```{figure} figures/sea-ice-salinity-thickness.jpeg
 :name: fig-salinity-thickness
@@ -59,7 +59,7 @@ Bulk salinity against ice thickness for cold first-year sea ice, compiled from f
 
 Glacier ice creeps at meters per year; the sea-ice pack travels at the pace of the weather driving it. Pushed by wind and ocean stress, the Arctic pack circulates at kilometers per day, clockwise around the Beaufort Gyre and across the pole in the Transpolar Drift, exporting roughly a tenth of the basin's ice through Fram Strait each year. Where floes diverge they open leads, windows of dark ocean that lose heat furiously in winter and absorb sunlight in summer. Where they converge they raft and ridge, stacking ice into keels tens of meters deep. The thickness of the pack is therefore as much a record of deformation as of freezing.
 
-The modern decline of Arctic sea ice runs through this entire chapter. September extent has fallen by roughly 13% per decade over the satellite record, submarine sonar shows the mean draft thinner by more than a meter since the 1960s, and the old multiyear ice has largely been replaced by first-year ice, which is saltier, weaker, and more easily melted. The amplifier is the ice–albedo feedback. Sea ice reflects 60 to 90% of incoming sunlight while open water reflects under 10%, so a little melting exposes dark ocean, which absorbs more heat, which melts more ice. Melt ponds push the summer ice albedo down toward 0.45 even before the ice is gone. The feedback operates on the same radiative physics introduced in {doc}`../foundations/optical-properties`, and it is the leading reason the Arctic warms at twice the global rate. Sea ice extent and thickness are monitored by the passive microwave, laser, and radar altimetry methods of {doc}`../observing/elevation`, which is where the observational thread of this chapter continues.
+September extent has fallen by roughly 13% per decade over the satellite record, submarine sonar shows the mean draft thinner by more than a meter since the 1960s, and the old multiyear ice has largely been replaced by first-year ice, which is saltier, weaker, and more easily melted. The amplifier is the ice–albedo feedback. Sea ice reflects 60 to 90% of incoming sunlight while open water reflects under 10%, so a little melting exposes dark ocean, which absorbs more heat, which melts more ice. Melt ponds push the summer ice albedo down toward 0.45 even before the ice is gone. The feedback operates on the same radiative physics introduced in {doc}`../foundations/optical-properties`, and it is the leading reason the Arctic warms at twice the global rate. Sea ice extent and thickness are monitored by the passive microwave, laser, and radar altimetry methods of {doc}`../observing/elevation`, which is where the observational thread of this chapter continues.
 
 ```{figure} figures/arctic-thinning-scicex.png
 :name: fig-scicex-thinning

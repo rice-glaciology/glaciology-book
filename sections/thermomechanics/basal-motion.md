@@ -74,7 +74,7 @@ At low speed, $u_b\ll\lambda N^n$, this reduces to a Weertman-like power law $\t
 
 ## Soft-bed sliding
 
-Not every fast glacier rests on hard rock. Several of the large Antarctic ice streams sit on a layer of weak, water-saturated sediment called till, produced by glacial erosion of the bed. Laboratory shear tests on till samples show that it behaves not as a viscous fluid but as a plastic material with a yield strength {cite}`iverson1998`,
+Several of the large Antarctic ice streams sit on a layer of weak, water-saturated sediment called till, produced by glacial erosion of the bed. Laboratory shear tests on till samples show that it behaves not as a viscous fluid but as a plastic material with a yield strength {cite}`iverson1998`,
 
 $$
 \tau_f = \mu\,\sigma_e, \qquad \sigma_e = p - p_w,

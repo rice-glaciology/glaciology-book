@@ -2,11 +2,11 @@
 
 The full Stokes equations of {doc}`stress-balance` are exact but expensive. The way glaciology has made progress for decades is to exploit a simple geometric fact: ice sheets are thin. An ice sheet may be three kilometres thick and three thousand kilometres across, an aspect ratio of about $\varepsilon\sim10^{-3}$. Scaling the Stokes equations with this small parameter and discarding the smallest terms produces a hierarchy of cheaper, approximate models. The first and simplest is the shallow-ice approximation, and this chapter derives it, the velocity profile it predicts, and the perfect-plastic ice-sheet shape that follows in its rheological limit. The full hierarchy is the subject of {doc}`flow-approximations`. The development follows {cite}`hutter1983` and {cite}`cuffey2010`.
 
-## The scaling idea
+## Scaling analysis
 
 Let $[H]$ be a typical thickness and $[L]$ a typical horizontal length, with $\varepsilon=[H]/[L]\ll1$. When the Stokes equations are written in dimensionless form, each stress term carries a power of $\varepsilon$. Some terms are of order one, some of order $\varepsilon$, some of order $\varepsilon^2$. An approximation is a decision about how many powers of $\varepsilon$ to keep. Keeping only the leading order gives the shallow-ice approximation; keeping more terms gives the higher-order models of the next chapter. This single idea organizes the entire family of ice-flow models {cite}`schoof2010`.
 
-## What the approximation keeps
+## The reduced stress balance
 
 At leading order two simplifications follow from the thin geometry. In the vertical, the deviatoric terms are negligible and the vertical momentum balance reduces to the hydrostatic relation, so the pressure is cryostatic,
 
@@ -76,7 +76,7 @@ where the balance function $\dot b=a-m$ is the net rate of accumulation minus me
 
 ## The perfect-plastic limit
 
-Glen's law has a revealing limit. As the exponent $n$ grows the ice deforms more and more abruptly once the stress reaches a critical value and barely at all below it, and in the limit $n\to\infty$, with $A^{-1/n}\to\tau_i$, the flow law becomes that of a perfectly plastic solid with a yield stress $\tau_i$. This is the oldest idealization of an ice sheet {cite}`nye1952`. If the bed everywhere supports exactly the yield stress, the shallow-ice driving stress equals $\tau_i$,
+As the exponent $n$ grows the ice deforms more and more abruptly once the stress reaches a critical value and barely at all below it, and in the limit $n\to\infty$, with $A^{-1/n}\to\tau_i$, the flow law becomes that of a perfectly plastic solid with a yield stress $\tau_i$. This is the oldest idealization of an ice sheet {cite}`nye1952`. If the bed everywhere supports exactly the yield stress, the shallow-ice driving stress equals $\tau_i$,
 
 $$
 -\rho_i g\,H\,\frac{\partial s}{\partial x}=\tau_i .

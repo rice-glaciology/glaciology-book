@@ -11,7 +11,7 @@ Flow you can see. The Mer de Glace in the Mont Blanc massif, with two tributarie
 
 The creep of ice is the process that controls how glaciers and ice sheets **grow, shrink, and deliver ice to the sea**, and it therefore sits at the heart of the connection between glaciers and sea level. Roughly two-thirds of the world's fresh water is locked in the Greenland and Antarctic ice sheets; if they were to melt or flow into the ocean entirely, global sea level would rise by tens of meters. Understanding how fast ice flows — and how that flow responds to a warming climate — is one of the central problems of modern glaciology.
 
-## What controls the flow?
+## Controls on ice flow
 
 At the largest scale, the story is simple: gravity pulls ice downhill, and the ice resists through internal deformation and through friction at its base. The interplay of these effects sets the speed. To make this quantitative we need four ingredients, and the next chapters introduce them in turn:
 

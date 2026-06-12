@@ -24,7 +24,7 @@ A back-lit snow-pit wall at Siple Dome, West Antarctica, with depth markers in c
 
 The depth at which ice forms depends on temperature and accumulation rate. In the cold, dry interior of East Antarctica the firn column can be more than a hundred metres thick and the ice can take thousands of years to form, while on a warm temperate glacier with abundant melt the transition happens within a few metres and a single season.
 
-Where meltwater enters the story, it reorganizes it. The accumulation area of a glacier or ice sheet divides into facies by how much melt the snow sees, from the dry-snow zone where none occurs, through the percolation and wet-snow zones where meltwater refreezes in the cold firn as lenses and pipes, to the superimposed-ice zone where refrozen melt forms solid ice at the surface itself.
+The accumulation area of a glacier or ice sheet divides into facies by how much melt the snow sees, from the dry-snow zone where none occurs, through the percolation and wet-snow zones where meltwater refreezes in the cold firn as lenses and pipes, to the superimposed-ice zone where refrozen melt forms solid ice at the surface itself.
 
 ```{figure} figures/benson-facies-zones.jpeg
 :name: fig-benson-facies
@@ -33,7 +33,7 @@ Where meltwater enters the story, it reorganizes it. The accumulation area of a 
 The classical division of the accumulation area into facies, after Benson and Müller. Each zone marks a different route from snow to ice, dry densification on the left grading into refreezing-dominated transformation near the equilibrium line. From {cite}`paterson1994`.
 ```
 
-## Why firn matters
+## Implications for ice cores and remote sensing
 
 Pore close-off is the moment the atmosphere is sealed into the ice. The air trapped in the bubbles is a sample of the atmosphere at the time of close-off, which is what makes ice cores an archive of past greenhouse gas concentrations. Because the gas is trapped tens of metres below the surface, it is younger than the ice that surrounds it, and accounting for that age difference is a standard part of interpreting an ice core.
 

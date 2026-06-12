@@ -1,6 +1,6 @@
 # Ice flow, accumulation, and ablation
 
-A glacier is a budget. Ice is added in some places and removed in others, and flow carries ice between them. Whether the glacier grows or shrinks depends on whether that budget balances. This chapter sets out the budget, the conservation law that expresses it, and the steady ice-sheet shape that a given climate produces, which is the first and cleanest connection between climate and ice flow. The treatment follows Chapter 8 of {cite}`cuffey2010`.
+Ice is added in some places and removed in others, and flow carries ice between them. Whether the glacier grows or shrinks depends on whether that budget balances. This chapter sets out the budget, the conservation law that expresses it, and the steady ice-sheet shape that a given climate produces, which is the first and cleanest connection between climate and ice flow. The treatment follows Chapter 8 of {cite}`cuffey2010`.
 
 ## Accumulation and ablation
 
@@ -39,7 +39,7 @@ $$
 
 Read physically, the thickness at a point changes for two reasons: mass is added or removed locally through $\dot a$, and flow carries mass toward or away from the point through the flux divergence. Where the flux converges the ice piles up, and where it diverges the ice thins. A glacier is in steady state when the thickness holds fixed everywhere, so that $\nabla\!\cdot\!(\bar u H)=\dot a$, and flow exactly redistributes the mass that accumulation and ablation add and remove. Real ice sheets are rarely in perfect balance, and the pattern of $\partial H/\partial t$, now measured directly by satellite altimetry, is among the most important diagnostics of an ice sheet's health.
 
-This single equation is why ice flow matters for sea level. To predict how an ice sheet's thickness, and therefore its contribution to the ocean, evolves, the depth-averaged velocity $\bar u$ is needed, and supplying it is what the rheology and the momentum balance of the earlier chapters are for.
+To predict how an ice sheet's thickness, and therefore its contribution to the ocean, evolves, the depth-averaged velocity $\bar u$ is needed, and supplying it is what the rheology and the momentum balance of the earlier chapters are for.
 
 ## The shape of an ice sheet in balance
 

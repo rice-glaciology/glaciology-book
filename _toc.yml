@@ -17,6 +17,9 @@ parts:
       - file: sections/modeling/running-icepack-docker
   - caption: The physics of ice
     chapters:
+      - file: sections/foundations/preface
+      - file: sections/foundations/composition
+      - file: sections/foundations/energy-levels
       - file: sections/foundations/water-molecule
       - file: sections/foundations/ice-structure
       - file: sections/foundations/lattice-dynamics

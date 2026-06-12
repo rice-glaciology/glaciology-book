@@ -2,7 +2,7 @@
 
 The chapters on shallow ice, mass balance, glacier response times, ice sheets, and paleoclimate have all treated the geometry of an ice body as something either fixed or changing in one lumped, averaged sense. Even the full Vialov derivation of {doc}`../ice_flow/mass-balance` asked for the shape a climate *produces*, not for the shape that will *emerge* as a climate changes. That is a diagnostic question, and it has a one-time answer. The prognostic question is different. Given the ice today, given the climate it will experience, what shape will it have tomorrow, next century, next glacial cycle? That is a movie, not a photograph, and making the movie is what this part of the book is about.
 
-## From diagnosis to prognosis
+## The prognostic loop
 
 The diagnostic problem is a snapshot. Given the ice thickness $H(\mathbf{x})$ and bed elevation $b(\mathbf{x})$ everywhere, solve for the velocity $\bar{u}(\mathbf{x})$. The shallow-ice expression from {doc}`../ice_flow/shallow-ice` gives the answer analytically; icepack's variational solvers give it for more complex flow models. The velocity is a function of the current geometry alone, and once it is found the calculation is complete.
 
@@ -60,7 +60,7 @@ The diffusivity $D \propto H^{n+2}|\nabla s|^{n-1}$ is not constant — it depen
 
 With $n = 3$, the diffusivity scales as $H^5$ and $|\nabla s|^2$. These are steep exponents. Where the ice is thick the equation diffuses rapidly and bumps in the surface spread outward; where the ice is thin, especially at the margins where $H \to 0$, $D \to 0$ and the equation loses its diffusive character entirely. Near divides where $|\nabla s| \to 0$ the diffusivity vanishes for the same reason. Both limits create numerical difficulties. At the margin, the ice front can become numerically smeared unless the thickness is constrained to stay non-negative. At the divide, $D = 0$ means no diffusion acts, yet the slope is genuinely zero and the ice still has to be able to flow outward. Both problems have well-understood remedies, discussed in {cite}`bueler2009` and {cite}`greve2009`.
 
-The diffusion analogy carries physical intuition worth keeping. If accumulation piles up a ridge in the surface, the diffusion term will spread it laterally; a hollow will fill. The rate at which this happens scales nonlinearly with the ridge height and slope. An ice sheet with its broad flat interior and steep margins is not, thermally speaking, in a diffusive equilibrium; it is the shape that a *strongly nonlinear* diffusion reaches under a climate forcing, as the Vialov derivation made precise.
+If accumulation piles up a ridge in the surface, the diffusion term will spread it laterally; a hollow will fill. The rate at which this happens scales nonlinearly with the ridge height and slope. An ice sheet with its broad flat interior and steep margins is not, thermally speaking, in a diffusive equilibrium; it is the shape that a *strongly nonlinear* diffusion reaches under a climate forcing, as the Vialov derivation made precise.
 
 ## Time stepping
 
@@ -140,7 +140,7 @@ Together these three constraints mean that direct prognostic ice-sheet experimen
 
 ## Initialization and spin-up
 
-The prognostic loop can only run if it starts somewhere. Choosing the initial condition is not merely a technical detail; it shapes what the model can honestly claim to predict.
+Choosing the initial condition is not merely a technical detail; it shapes what the model can honestly claim to predict.
 
 The conceptually cleanest initialization is **spin-up to steady state**. The procedure is straightforward to describe: hold the climate forcing fixed, start from a simple initial shape — a thin sheet of ice, or even bare bedrock — and run the model forward until the ice thickness field has stopped changing to within some tolerance. In practice the tolerance is stated as a volume tendency: spin-up is judged complete when the total volume rate of change $\partial V/\partial t$ falls below some fraction of the net surface mass balance, typically a few tenths of a percent. At that point the ice sheet is in approximate equilibrium with the forcing. The Vialov profile of {doc}`../ice_flow/mass-balance` is the analytic version of this; what a spin-up produces numerically for a real three-dimensional domain with real bed topography and a non-uniform accumulation field is the ice-sheet equivalent.
 

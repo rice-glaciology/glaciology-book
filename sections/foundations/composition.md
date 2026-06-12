@@ -1,6 +1,6 @@
-# The chemical composition of ice
+# The chemical building blocks
 
-Ice is composed of water molecules, and a description of its physics must begin with the atoms from which the molecule is built. This chapter collects the background chemistry that the rest of the book draws on, the structure of the atom, the isotopes of hydrogen and oxygen, the types and strengths of chemical bonds, and the impurities and trapped gases present in natural ice. A reader with a recent chemistry background may pass over this material; a reader for whom it is distant should find here everything the later chapters take for granted.
+This chapter describes the background chemistry that the rest of the book draws on, the structure of the atom, the isotopes of hydrogen and oxygen, the types and strengths of chemical bonds, and the impurities and trapped gases present in natural ice. A reader with a recent chemistry background may pass over this material.
 
 ## Atoms and elements
 

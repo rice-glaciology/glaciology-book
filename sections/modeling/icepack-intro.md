@@ -21,6 +21,4 @@ In this book we focus on the diagnostic problem, which is the natural first mode
 
 ## The flow models
 
-icepack provides several depth-averaged flow models. The simplest is the **ice shelf**, floating ice with no basal drag, where flow is resisted only by horizontal stretching (membrane stresses). Adding basal friction gives the **ice stream** model (the shallow-stream/shelfy-stream approximation of {cite}`macayeal1989`), appropriate for fast-flowing grounded ice. A **hybrid** model adds vertical shearing for thicker, slower interior ice. We start with the ice shelf because it isolates the membrane physics with the fewest moving parts.
-
-The next chapter sets up the computing environment, and the one after works through a complete ice-shelf model.
+icepack provides several depth-averaged flow models. The simplest is the **ice shelf**, floating ice with no basal drag, where flow is resisted only by horizontal stretching (membrane stresses). Adding basal friction gives the **ice stream** model (the shallow-stream/shelfy-stream approximation of {cite}`macayeal1989`), appropriate for fast-flowing grounded ice. A **hybrid** model adds vertical shearing for thicker, slower interior ice. We start with the ice shelf because it isolates the physics with the fewest moving parts.

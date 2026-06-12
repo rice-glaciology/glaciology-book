@@ -1,5 +1,6 @@
 # Preface
 
+<<<<<<< HEAD
 The opening chapters of this book develop the physics of glacier ice, beginning with the water molecule and proceeding through the structure, vibrations, and defects of the ice crystal. Water is a familiar substance but an unusual one, and many of the properties that matter most in glaciology are anomalies when water is compared with chemically similar compounds. This preface collects the principal anomalies, each of which is explained in a later chapter, and then states the small number of statistical-mechanical ideas that the following chapters use. Fuller treatments of both subjects are given by {cite}`fletcher1970` and {cite}`petrenko1999`.
 
 ## The anomalies of water
@@ -9,6 +10,17 @@ Ice is less dense than the liquid from which it forms. The density of ice at 0 �
 The melting and boiling points of water are anomalously high. In the series H₂Te, H₂Se, H₂S the melting point falls with decreasing molecular weight, from −49 °C through −66 °C to −86 °C, and extrapolation of the series to the molecular weight of water suggests a melting point near −100 °C. The observed value is 0 °C. Among molecules of comparable mass (methane melts at −182 °C, ammonia at −78 °C) water is the only one that is solid at the temperatures of the Earth's surface, and the existence of abundant ice on this planet depends on the anomaly.
 
 The thermal properties are similarly extreme. The heat capacity of liquid water, about 75 J mol⁻¹ K⁻¹ or nine times the gas constant, is larger than that of any other common liquid; the latent heat of fusion is 334 kJ kg⁻¹, and the latent heat of sublimation is nearly an order of magnitude larger again. These quantities moderate climate, dominate the energy balance of a melting glacier surface, and make latent heat the largest term in most of the budgets written later in the book.
+=======
+Water is the most familiar substance on Earth and one of the most anomalous. The chapters that follow breakdown the water molecule, and assemble the crystal. At each stage some of the unusual behavior we identify below will be traced to its molecular origin.
+
+## The anomalies of water
+
+Nearly every physical property of water is an outlier among small molecules:
+
+Solid ice is less dense than water at temperatures (and ice phases) we experience on earth. Ice at 917 kg m⁻³ is about nine percent less dense than the water it freezes from, a reversal of the usual order of phases shared by only a handful of substances. The relative density of solid ice and liquid water allows lakes and oceans to freeze from the top down and support life in the liquid beneath, why ice shelves and sea ice exist at all, and why pressure favors melting at the bed of a thick ice sheet. The liquid compounds the strangeness by reaching its maximum density near 4 °C, so that cold lakes stratify with their warmest water at the bottom.
+
+The melting and boiling points are high relative to other molecule's with similar molecular weights. Water's chemical relatives melt at much lower temperatures: H₂Te, melts near −49 °C, H₂Se near −66 °C, H₂S near −86 °C, methane melts at −182 °C, and ammonia at −78 °C. Extrapolating that trend based on Oxygent's mass, would predict a melting rate near −100 °C, much colder than the true melting point ~0 °C. Among molecules of comparable mass, water is the only one that is solid anywhere on Earth's surface.
+>>>>>>> 4d3f0affb53f53e2ff5b3479eba7b2d0860727b0
 
 Several further anomalies are treated in their own chapters. Water expands on freezing with enough force to fracture rock, which accounts for a large share of glacial erosion. The liquid can be supercooled by tens of degrees before freezing spontaneously, which is why clouds of liquid droplets and ice crystals coexist and why snow forms as it does. Both the liquid and the solid have unusually large dielectric constants, about 80 for water and about 100 for ice at low frequency, which underlie the solvent action of water, the electrical properties of ice treated in the defect chapters, and the radar methods of the observing chapters.
 

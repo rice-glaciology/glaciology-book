@@ -1,6 +1,6 @@
 # The water molecule
 
-To properly understand the behavior of a complex system, an ice sheet or glacier, we must first appreciate the structure and the physical and chemical properties of the elementary units from which it is composed. In the study of ice, this means we must begin with a careful study of the water molecule. Water, H₂O, contains two hydrogen atoms and one oxygen atom, and ice is among the simplest molecular solids; its unusual behavior, the lower density of the solid phase compared to the liquid, the mechanical and electrical anisotropy of the crystal, the high melting point, all follow from the structure of the molecule. This chapter reviews it in some detail, following the account of {cite}`fletcher1970`, before the next chapter assembles many molecules into the crystal. For more detail on the physical properties of the water molecule, the reader is referred to the works of {cite}`coulson1961`, {cite}`herzberg1945,herzberg1966`, {cite}`pauling1960`, and {cite}`slater1963`. Together with the background assembled in {doc}`composition` and {doc}`energy-levels`, this chapter contains all the chemistry the book assumes, so a reader who last saw orbitals long ago should find everything here that the later chapters lean on.
+To properly understand the behavior of a complex system, an ice sheet or glacier, we must first appreciate the structure and the physical and chemical properties of the elementary units from which it is composed. 
 
 ## Shape and size
 

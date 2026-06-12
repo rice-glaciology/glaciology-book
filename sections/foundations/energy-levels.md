@@ -1,6 +1,6 @@
 # Energy levels in atoms and molecules
 
-The bond energies and shell capacities quoted in the previous chapter are the result of quantum-mechanical theory. This chapter develops several quantum-mechanical results: the origin of discrete energy levels, the hydrogen atom and the shell structure that follows from it, the harmonic oscillator and rigid rotor that describe molecular vibration and rotation, and the comparison of level spacing with $k_B T$. The standard results are quoted without formal solution of the wave equation, but each is derived or verified and applied directly to the water molecule.
+The bond energies and shell structure we described in the previous chapter are the result of quantum-mechanical theory. This chapter develops several quantum-mechanical results: the origin of discrete energy levels, the hydrogen atom and the shell structure that follows from it, the harmonic oscillator and rigid rotor that describe molecular vibration and rotation, and the comparison of level spacing with $k_B T$. The standard results are quoted without formal solution of the wave equation, but each is derived or verified and applied directly to the water molecule.
 
 ## Standing waves and discrete energies
 

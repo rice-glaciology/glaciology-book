@@ -2,7 +2,7 @@
 
 Welcome to the Rice Glaciology group's open textbook. Here, we introduce the physics of glaciers and ice sheets, demonstrate how the physics of ice is encoded in numerical ice flow models like [icepack](https://icepack.github.io/), and walk through several examples of observations of the crosphere that are actively shaping our understanding of Earth's ice sheets.
 
-The book is aimed at advanced undergraduates and beginning graduate students who have taken some calculus and physics, but who are new to glaciology. We build up the ideas in small steps and try to introduce mathematics and physics using notebooks intended to gamify some of the learning. Much of the material that we present borrows from standard references like *The Physics of Glaciers* {cite}`cuffey2010`, and *Physics of ice* {cite}'Petrenko'; we point to specific chapters in these texts and other references for readers who want to dive deeper.
+The book is aimed at advanced undergraduates and beginning graduate students who have taken some calculus and physics, but who are new to glaciology. We build up the ideas incrementally and try to introduce mathematics and physics using notebooks intended to gamify learning. Much of the material that we present borrows from standard references like *The Physics of Glaciers* {cite}`cuffey2010`, and *Physics of ice* {cite}'Petrenko'; we point to specific chapters in these texts and other references for readers who want to dive deeper.
 
 ## The first observers
 

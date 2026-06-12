@@ -24,9 +24,9 @@ The magnitudes are the point. For an electron confined to $L = 3$ Å, the size o
 
 ## The hydrogen atom
 
-An electron bound to a proton is confined by the Coulomb attraction $-e^2/4\pi\epsilon_0 r$. Confining the electron within a radius $L$ costs a kinetic energy of order $h^2/8mL^2$, which grows as the atom shrinks, while the Coulomb attraction supplies an energy of order $-e^2/4\pi\epsilon_0 L$, which deepens as the atom shrinks but only as $1/L$. The total has a minimum at a finite radius, and evaluating the sum of the competting processes gives a size of order an angstrom and a binding energy of order an electron volt. The atom does not collapse because compressing the electron wave raises its kinetic energy faster than the Coulomb term can pay for it.
+An electron bound to a proton is confined by the Coulomb attraction $-e^2/4\pi\epsilon_0 r$. Confining the electron within a radius $L$ costs a kinetic energy of order $h^2/8mL^2$, which grows as the atom shrinks, while the Coulomb attraction supplies an energy of order $-e^2/4\pi\epsilon_0 L$, which deepens as the atom shrinks but only as $1/L$. The total has a minimum at a finite radius, and evaluating the sum of the competing processes gives a size of order an angstrom and a binding energy of order an electron volt. The atom does not collapse because compressing the electron wave raises its kinetic energy faster than the Coulomb term can pay for it.
 
-This gives rise to the energy levels for a hyrdrogen atom:
+This gives rise to the energy levels for a hydrogen atom:
 
 $$
 E_n = -\frac{m e^4}{8\,\epsilon_0^2 h^2}\,\frac{1}{n^2} = -\frac{13.6\ \mathrm{eV}}{n^2},
@@ -45,7 +45,7 @@ Covalent bonding has the same wave-mechanical origin. When two atoms approach, a
 
 ## Electronic, vibrational, and rotational energies
 
-A molecule possesses internal energy levels of three kinds, with characteristic magnitudes separated by roughly two orders of magnitude at each step {cite}`herzberg1945`. Electronic excitations, rearrangements of the electron distribution itself, cost several electron volts, as the hydrogen-atom scale would suggest; the lowest in water lies near 7 eV, in the far ultraviolet, so that pure water and clear ice transmit visible light almost without loss. The faint blue of thick ice has a different origin, discussed in {doc}`optical-properties`.
+A molecule possesses internal energy levels of three kinds, with characteristic magnitudes separated by roughly two orders of magnitude at each step {cite}`herzberg1945`. Electronic excitations, rearrangements of the electron distribution itself, cost several electron volts, as the hydrogen-atom scale would suggest, and lie in the ultraviolet. This section develops the general results for the other two kinds, vibration and rotation; their application to the measured spectrum of the water molecule is made in {doc}`water-molecule`.
 
 Vibrational levels are described by the harmonic oscillator, the second exactly solvable problem the book needs. Near the bottom of any potential well the potential is approximately parabolic, $V \approx \tfrac{1}{2}k x^2$ with $k$ the curvature or force constant, and a mass $\mu$ oscillating in such a well has the energy levels
 
@@ -54,7 +54,7 @@ E_v = \left(v + \tfrac{1}{2}\right) h\nu, \qquad
 \nu = \frac{1}{2\pi}\sqrt{\frac{k}{\mu}}, \qquad v = 0, 1, 2, \ldots
 $$
 
-The levels are uniformly spaced by $h\nu$, and the ground state retains the zero-point energy $\tfrac{1}{2}h\nu$. For the vibration of two bonded atoms, $\mu$ is the reduced mass $m_1 m_2/(m_1+m_2)$, which for O–H is 0.948 u, close to the proton mass because the oxygen barely moves. The measured O–H stretching frequency of 3657 cm⁻¹ then implies a force constant $k = \mu\,(2\pi c\tilde\nu)^2 \approx 750$ N m⁻¹, and this number is the stiffness of the covalent bond, the quantity that reappears as the high-frequency elastic response of the crystal. Summing $\tfrac{1}{2}h\nu$ over the molecule's three normal modes, the bend at 1595 cm⁻¹ and the two stretches at 3657 and 3756 cm⁻¹, gives a zero-point energy of 54 kJ mol⁻¹, the figure quoted in {doc}`water-molecule`; a water molecule at absolute zero retains vibrational energy comparable to several hydrogen bonds. The vibrational quanta of 0.20 to 0.47 eV correspond to characteristic temperatures $h\nu/k_B$ of 2,300 to 5,400 K, the numbers quoted in the {doc}`preface`, and these modes, with the lattice vibrations descended from them, are responsible for the strong infrared absorption of ice and of water vapor.
+The levels are uniformly spaced by $h\nu$, and the ground state retains the zero-point energy $\tfrac{1}{2}h\nu$. For the vibration of two bonded atoms, $\mu$ is the reduced mass $m_1 m_2/(m_1+m_2)$, which for O–H is 0.948 u, close to the proton mass because the oxygen barely moves. The measured O–H stretching frequency, about 3660 cm⁻¹, then implies a force constant $k = \mu\,(2\pi c\tilde\nu)^2 \approx 750$ N m⁻¹, an estimate of the stiffness of the covalent bond. Two consequences of the formula run through the book. The frequency, and with it the zero-point energy, falls as the square root of the mass increases, which is the origin of the isotope effects developed in {doc}`water-molecule`; and vibrational quanta of this size correspond to characteristic temperatures $h\nu/k_B$ of thousands of kelvin, which is why molecular vibrations are frozen out at terrestrial temperatures.
 
 Rotational levels complete the ladder. A molecule with moment of inertia $I$ rotating freely has the energy levels
 
@@ -62,7 +62,7 @@ $$
 E_J = B\,J(J+1), \qquad B = \frac{\hbar^2}{2I}, \qquad J = 0, 1, 2, \ldots
 $$
 
-Water is light and compact, so its moments of inertia are small and its rotational constants large for a polyatomic molecule; about its three principal axes the constants are 27.9, 14.5, and 9.3 cm⁻¹. Thermal energy at the melting point, $k_B T = 190$ cm⁻¹ in the same units, spans many of these levels, so the vapor molecule tumbles freely through rotational states with quanta of order $10^{-3}$ eV, in the far infrared and microwave. In the crystal, free rotation is suppressed by the four hydrogen bonds and is replaced by hindered rocking motions, the librations near 650 cm⁻¹ taken up in {doc}`lattice-dynamics`.
+Because molecules are small, their moments of inertia are small and their rotational quanta, of order $10^{-3}$ eV for a light molecule like water, are the finest of the three families, lying in the far infrared and microwave. Thermal energy at the melting point, 190 cm⁻¹ in spectroscopic units, spans many of these levels, so a vapor molecule tumbles freely among its rotational states. In the crystal, free rotation is suppressed by the four hydrogen bonds and is replaced by hindered rocking motions, the librations taken up in {doc}`lattice-dynamics`; the measured rotational constants of the water molecule are given with its spectrum in {doc}`water-molecule`.
 
 Radiation couples to all of these levels through the photon energy $h\nu$, and absorption requires a transition of matching energy, which is why every substance has a characteristic absorption spectrum. At radio frequencies the photon energy lies several orders of magnitude below even the rotational quanta, so cold ice presents no transition to absorb radar energy and is transparent to depths of kilometers, the property on which the radar methods of the observing chapters depend. The weak absorption that remains is due not to quantum transitions but to the slow reorientation of molecular dipoles by way of the lattice defects of {doc}`point-defects`, and its dependence on temperature and impurity content is what radar attenuation measures.
 
@@ -96,26 +96,6 @@ The lowest energy of a particle of mass $m$ confined to a region of size $L$ is 
 **(b)** The proton is $1836$ times heavier, so $E_1 \approx 4.2\ \mathrm{eV}/1836 \approx 2.3$ meV, about a tenth of $k_B T$. Confinement at the scale of the molecule costs a proton less than thermal energy, so the nuclei move nearly classically on the potential-energy surface that the electrons establish; quantum mechanics is essential for the electrons and marginal for the nuclei.
 
 **(c)** Solving $E_1 = 0.45$ eV for $L$ with the proton mass gives $L \approx 0.02$ nm. The covalent bond confines its proton to a region roughly a tenth the size of the molecule, which is why the vibrational quanta are large enough to freeze out despite the proton's mass.
-```
-
-```{admonition} Exercise — the isotope shift
-:class: tip
-In the gas-phase HDO molecule the O–H stretching frequency is 3707 cm⁻¹ and the O–D stretching frequency is 2727 cm⁻¹.
-
-**(a)** Using $\nu \propto \mu^{-1/2}$ with the appropriate reduced masses ($m_\mathrm{H} = 1.008$ u, $m_\mathrm{D} = 2.014$ u, $m_\mathrm{O} = 15.999$ u), predict the ratio of the two frequencies and compare with the measured value.
-
-**(b)** Compute the difference in zero-point energy between the O–H and O–D stretches, in cm⁻¹ and in kJ mol⁻¹ (1 cm⁻¹ = 11.96 J mol⁻¹).
-
-**(c)** Explain in one or two sentences how a difference of this kind becomes a paleothermometer.
-```
-
-```{admonition} Solution
-:class: dropdown
-**(a)** $\mu_{\mathrm{OH}} = (1.008)(15.999)/17.007 = 0.948$ u and $\mu_{\mathrm{OD}} = (2.014)(15.999)/18.013 = 1.789$ u, so the predicted ratio is $\sqrt{1.789/0.948} = 1.374$. The measured ratio is $3707/2727 = 1.359$, within about one percent; the small discrepancy reflects anharmonicity of the real bond, which the parabolic approximation neglects.
-
-**(b)** $\Delta E_0 = \tfrac{1}{2}(3707 - 2727) = 490$ cm⁻¹ $\approx 5.9$ kJ mol⁻¹, between two and three times $RT$ at the melting point.
-
-**(c)** Because the heavy isotopologue sits lower in its potential well, its effective binding in the condensed phase differs slightly from that of the light molecule, and the difference shifts again when the molecule passes between vapor and condensed phases. The resulting vapor-pressure difference, a fraction of a percent per condensation step, is compounded by repeated distillation as moisture moves poleward, and the isotopic depletion of polar snow becomes a record of condensation temperature ({doc}`../climate/paleoclimate`).
 ```
 
 In summary, energies come in discrete levels because confined waves admit only discrete patterns; the hydrogen atom sets the angstrom and electron-volt scales of atomic physics and supplies, through its degeneracies and the exclusion principle, the shell capacities of chemistry; the harmonic oscillator and rigid rotor describe molecular vibration and rotation and give quantitative meaning to the zero-point energy and the isotope shift; and the comparison of level spacing with $k_B T$ separates the classical degrees of freedom from the frozen ones. The next chapter applies these results to the water molecule itself.

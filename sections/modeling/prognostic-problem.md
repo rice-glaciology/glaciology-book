@@ -1,6 +1,6 @@
 # The prognostic problem
 
-The chapters on shallow ice, mass balance, glacier response times, ice sheets, and paleoclimate have all treated the geometry of an ice body as something either fixed or changing in one lumped, averaged sense. Even the full Vialov derivation of {doc}`../ice_flow/mass-balance` asked for the shape a climate *produces*, not for the shape that will *emerge* as a climate changes. That is a diagnostic question, and it has a one-time answer. The prognostic question is different. Given the ice today, given the climate it will experience, what shape will it have tomorrow, next century, next glacial cycle? That is a movie, not a photograph, and making the movie is what this part of the book is about.
+The chapters on shallow ice, mass balance, glacier response times, ice sheets, and paleoclimate have all treated the geometry of an ice body as something either fixed or changing in one lumped, averaged sense. Even the full Vialov derivation of {doc}`../ice_flow/mass-balance` asked for the shape a climate *produces*, not for the shape that will *emerge* as a climate changes. That is a diagnostic question, and it has a one-time answer. The prognostic question is different. Given the ice today, given the climate it will experience, what shape will it have tomorrow, next century, next glacial cycle? That is a movie, not a photograph, and making the movie is what this chapter is about.
 
 ## The prognostic loop
 

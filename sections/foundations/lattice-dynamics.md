@@ -1,6 +1,36 @@
 # Lattice vibrations and thermal properties
 
-The previous chapter treated the ice crystal as a fixed arrangement of oxygen atoms with protons distributed over the bonds between them. That static picture is enough to explain why ice is open and floats and why it has a single soft direction, but it leaves out the motion. At any temperature above absolute zero the molecules are never still. They oscillate about their lattice sites, the lighter protons swinging through larger excursions than the heavier oxygens, and the collective patterns of this motion are the lattice vibrations of the crystal. These vibrations are not a side issue. They carry the thermal energy that sets the heat capacity, they transport heat down a temperature gradient and so fix the thermal conductivity, and through the point defects they help create they govern the rate at which ice deforms. This chapter develops the vibrational spectrum and the thermal properties that follow from it, drawing on Chapter 6 of {cite}`fletcher1970` and the modern account in {cite}`petrenko1999`. It is also the right place to make temperature itself precise, along with the freezing point where every glacier story ends, because both ideas are statements about the statistics of exactly these vibrations.
+The previous chapter treated the ice crystal as a fixed arrangement of oxygen atoms with protons distributed over the bonds between them. That static picture is enough to explain why ice is open and floats and why it has a single soft direction, but it leaves out the motion. At any temperature above absolute zero the molecules are never still. They oscillate about their lattice sites, the lighter protons swinging through larger excursions than the heavier oxygens, and the collective patterns of this motion are the lattice vibrations of the crystal. These vibrations are not a side issue. They carry the thermal energy that sets the heat capacity, they transport heat down a temperature gradient and so fix the thermal conductivity, and through the point defects they help create they govern the rate at which ice deforms. This chapter develops the vibrational spectrum and the thermal properties that follow from it, drawing on Chapter 6 of {cite}`fletcher1970` and the modern account in {cite}`petrenko1999`. It is also the right place to make temperature itself precise, along with the freezing point, because both ideas are statements about the statistics of exactly these vibrations. The chapter therefore opens with the mathematics that makes such statistics trustworthy, the behavior of very large numbers.
+
+## Probability and very large numbers
+
+Statistical mechanics rests on a mathematical property of large numbers, and it is worth establishing that property before relying on it. The quantities of interest in a glacier are averages over molecules, and any macroscopic piece of ice contains an enormous number of them, of order $10^{23}$ and upward. The claim to be demonstrated is that for numbers of this size the fluctuations about an average are negligible, so that statistical averages may be treated as exact.
+
+A concrete case arises at once in this chapter. The Boltzmann factor computed below implies that near the melting point any given hydrogen bond has a probability of roughly $p = 10^{-4}$ of being broken at a given instant. One gram of ice contains $N \approx 6.7\times10^{22}$ hydrogen bonds, two per molecule. How many of them are broken at any moment? The number of distinct ways of choosing $m$ broken bonds from among $N$ is $N!/m!(N-m)!$, and each such configuration occurs with probability $p^m(1-p)^{N-m}$, so the probability of finding exactly $m$ broken bonds is
+
+$$
+p(m) = \frac{N!}{m!\,(N-m)!}\;p^m\,(1-p)^{N-m},
+$$
+
+the binomial distribution. Its mean and width follow from the independence of the bonds. A single bond contributes 1 with probability $p$ and 0 otherwise, so its mean is $p$ and its variance is $\langle x^2\rangle - \langle x\rangle^2 = p - p^2 = p(1-p)$; for independent contributions both means and variances add, giving
+
+$$
+\langle m \rangle = Np, \qquad \sigma^2 = Np(1-p), \qquad
+\frac{\sigma}{\langle m \rangle} = \sqrt{\frac{1-p}{Np}} \approx \frac{1}{\sqrt{Np}}.
+$$
+
+The mean grows in proportion to $N$ while the width grows only as $\sqrt{N}$, so the *relative* fluctuation falls as the population grows. For the gram of ice, $\langle m \rangle \approx 6.7\times10^{18}$ bonds are broken at any instant, with a standard deviation of $\sigma \approx 2.6\times10^{9}$, and the broken-bond count is therefore fixed to about four parts in $10^{10}$. Every property that depends on this population, the creep rate, the dielectric relaxation, the diffusion of molecules through the lattice, is correspondingly sharp. No measurement resolves fluctuations of one part in a billion, which is why ice, an object governed entirely by molecular statistics, behaves in the laboratory and in the field as a material with definite properties.
+
+The same arithmetic disposes of the extreme cases. The probability that a gram of ice momentarily contains no broken bonds at all is $(1-p)^N = e^{N\ln(1-p)} \approx e^{-Np} = e^{-6.7\times10^{18}}$. For comparison, the age of the universe is of order $10^{17}$ seconds and the visible universe contains of order $10^{80}$ atoms; a probability of $e^{-10^{18}}$ is zero for every physical purpose. Perfect crystalline order does not occur in macroscopic ice, and neither does any other macroscopic fluctuation away from the average.
+
+These conclusions are not special to the binomial distribution. The central limit theorem states that a sum $S = \sum_{i=1}^{N} x_i$ of independent quantities drawn from any distribution with mean $\mu_x$ and standard deviation $\sigma_x$ approaches, for large $N$, the Gaussian distribution
+
+$$
+p(S) = \frac{1}{\sigma\sqrt{2\pi}}\,e^{-(S-\mu)^2/2\sigma^2},
+\qquad \mu = N\mu_x, \quad \sigma = \sqrt{N}\,\sigma_x,
+$$
+
+so that the relative width falls as $1/\sqrt{N}$ whatever the underlying distribution. The energy of a block of ice, the polarization of a dielectric, and the strain accumulated from many molecular rearrangements are all sums of this kind, and all are sharp in the same degree. This is the license for everything in the rest of the chapter. When the next section identifies the most probable division of energy between two systems, that division is not merely the most probable but, for macroscopic systems, the only one ever observed.
 
 ## The statistical definition of temperature
 
@@ -18,7 +48,7 @@ Energy in a vibrating lattice comes in discrete quanta, so picture two tiny bloc
 |---|---|---|---|---|---|---|---|
 | $W_A \cdot W_B$ | 28 | 63 | 90 | **100** | 90 | 63 | 28 |
 
-Every one of the 462 microstates is equally likely; nothing prefers the even split. Yet the even split owns more microstates than any other, and if the blocks were real, with $10^{23}$ oscillators rather than three, the peak of this table would sharpen into a needle of relative width $\sim 1/\sqrt{N}$. Energy spreads out, and ice in a warm room ends up at the room's temperature, not because any force pushes it there but because the alternatives are statistically invisible.
+Every one of the 462 microstates is equally likely; nothing prefers the even split. Yet the even split owns more microstates than any other, and if the blocks were real, with $10^{23}$ oscillators rather than three, the peak of this table would sharpen into a needle of relative width $\sim 1/\sqrt{N}$, the scaling established in the preceding section. Energy spreads out, and ice in a warm room ends up at the room's temperature, not because any force pushes it there but because the alternatives are statistically invisible.
 
 The table also says *when* the spreading stops. The most probable split is the one where moving a quantum from block A to block B no longer increases the product $W_A W_B$, that is, where it no longer increases $\ln W_A + \ln W_B$. In the language of entropy, energy flows until
 

@@ -18,11 +18,11 @@ At the largest scale, the story is simple: gravity pulls ice downhill, and the i
 1. **Mass balance** — how ice is added (snowfall) and removed (melt, calving), and how flow connects the two so that an ice sheet can be in or out of balance ({doc}`mass-balance`).
 2. **Stress and strain** — the language for describing the forces inside a deforming continuum and the deformation they produce ({doc}`stress-and-strain`).
 3. **Rheology** — the constitutive law, *Glen's flow law*, that tells us how fast ice deforms under a given stress ({doc}`ice-rheology`).
-4. **A flow model** — combining force balance with rheology to predict velocity. In the second part of the book we build such a model numerically with icepack.
+4. **A flow model** — combining force balance with rheology to predict velocity. In the chapters ahead we build such a model numerically with icepack.
 
 ```{admonition} A note on scales
 :class: tip
 Glacier flow spans an enormous range of scales — from the deformation of individual ice crystals (millimeters) to the discharge of entire drainage basins (thousands of kilometers). Most of this book works at the *continuum* scale, treating ice as a deforming fluid whose local behavior is captured by a constitutive law. That is the scale at which ice-sheet models operate.
 ```
 
-For a thorough treatment of everything in this part, see {cite}`cuffey2010`; {cite}`greve2009` gives a more mathematical companion.
+For a thorough treatment of everything in these chapters, see {cite}`cuffey2010`; {cite}`greve2009` gives a more mathematical companion.

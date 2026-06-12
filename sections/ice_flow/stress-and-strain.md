@@ -12,7 +12,7 @@ $$
 \frac{DT}{Dt}=\frac{\partial T}{\partial t}+\mathbf{u}\cdot\nabla T,
 $$
 
-a local term, the change at a fixed point, plus an advective term, the change from being carried to somewhere different. A skier descending in the evening feels both at once. The air everywhere is cooling as the sun sets, the local term, while the descent carries them into warmer air at lower elevation, the advective term, and the temperature history they experience is the sum. Every conservation law in the chapters ahead, momentum in this part and heat in {doc}`../thermomechanics/thermal-structure`, is a statement about $D/Dt$ of something, and the advective term is what couples those budgets to the flow itself.
+a local term, the change at a fixed point, plus an advective term, the change from being carried to somewhere different. A skier descending in the evening feels both at once. The air everywhere is cooling as the sun sets, the local term, while the descent carries them into warmer air at lower elevation, the advective term, and the temperature history they experience is the sum. Every conservation law in the chapters ahead, momentum in these chapters and heat in {doc}`../thermomechanics/thermal-structure`, is a statement about $D/Dt$ of something, and the advective term is what couples those budgets to the flow itself.
 
 ## Traction and the stress tensor
 

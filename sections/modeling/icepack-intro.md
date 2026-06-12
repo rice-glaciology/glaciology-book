@@ -1,6 +1,6 @@
 # Modeling ice flow with icepack
 
-The previous part gave us the physics of ice flow: conservation of mass, the kinematics of stress and strain, and Glen's flow law. To turn that physics into a prediction of how a real glacier moves, we have to solve the **momentum balance** — the statement that the divergence of stress balances the driving force of gravity — together with the flow law, on a real domain. Outside of a few idealized geometries this can only be done numerically. [icepack](https://icepack.github.io/) is a Python package built for exactly this purpose {cite}`shapero2021`.
+The chapters ahead develop the physics of ice flow, conservation of mass, the kinematics of stress and strain, and Glen's flow law. To turn that physics into a prediction of how a real glacier moves, we have to solve the **momentum balance** — the statement that the divergence of stress balances the driving force of gravity — together with the flow law, on a real domain. Outside of a few idealized geometries this can only be done numerically. [icepack](https://icepack.github.io/) is a Python package built for exactly this purpose {cite}`shapero2021`.
 
 ## Overview
 

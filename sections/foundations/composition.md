@@ -6,7 +6,7 @@ This chapter describes the background chemistry that the rest of the book draws 
 
 An atom consists of a small, dense, positively charged nucleus surrounded by electrons. The nucleus contains protons, each carrying one unit of positive charge, and electrically neutral neutrons of nearly the same mass. The number of protons, the atomic number, determines the number of electrons in the neutral atom and hence its chemical behavior. Ice is built from hydrogen, atomic number 1, the simplest and most abundant element in the universe, and oxygen, atomic number 8, the third most abundant in the universe and the most abundant in the Earth's crust. The electrons account for less than 0.03 percent of the mass of a water molecule, so the mass of ice is almost entirely comprised in the nuclei, while its chemical and mechanical behavior is determined by the electrons.
 
-Quantities of atoms are counted in moles. One mole is $6.022\times10^{23}$ particles, the number chosen so that one mole of a substance has a mass in grams equal to its molecular weight; one mole of water is 18 g. The size of this number is the reason the statistical methods of the preface succeed, since any measurable quantity of ice contains so many molecules that average behavior is, for all practical purposes, exact.
+Quantities of atoms are counted in moles. One mole is $6.022\times10^{23}$ particles, the number chosen so that one mole of a substance has a mass in grams equal to its molecular weight; one mole of water is 18 g.
 
 ## Valence and the formula of water
 

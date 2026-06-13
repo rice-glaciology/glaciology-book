@@ -4,7 +4,7 @@ Ice is added in some places and removed in others, and flow carries ice between 
 
 ## Accumulation and ablation
 
-Accumulation is everything that adds mass to the ice. It is mostly snowfall, but it also includes the refreezing of meltwater and, beneath ice shelves, freezing of ocean water onto the base. Ablation is everything that removes mass: surface and basal melt, sublimation, and, for glaciers that end in the ocean, the calving of icebergs. The net of the two, expressed as a rate of ice-equivalent thickness change, is the surface mass balance $\dot a$, positive where accumulation wins and negative where ablation wins.
+Accumulation is everything that adds mass to the ice. It is mostly snowfall, but it also includes the refreezing of meltwater and, beneath ice shelves, freezing of ocean water onto the base. Ablation is everything that removes mass: surface and basal melt, sublimation, and, for glaciers that end in the ocean, the calving of icebergs. The net of the two, expressed as a rate of ice-equivalent thickness change, is the surface mass balance $\dot a$, positive where accumulation exceeds ablation and negative where ablation exceeds accumulation.
 
 ```{figure} figures/penitentes-atacama.jpeg
 :name: fig-penitentes

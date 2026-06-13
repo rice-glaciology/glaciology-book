@@ -10,7 +10,7 @@ surface into thinner and colder air, drive the freshwater fluxes that pace the o
 overturning circulation, and lock up enough water to shift sea level by a hundred meters
 and thereby change the shape of every coastline on Earth. An ice sheet is both
 the recorder of past climate — the subject of {doc}`paleoclimate` — and the slowest
-dynamical component of the climate system itself, carrying its own memory, its own
+dynamical component of the climate system itself, carrying its own integrated history, its own
 instabilities, and its own committed trajectories that no weather forecast could reveal.
 
 The one-stage kinematic model of {doc}`glacier-variations` gives the cleanest
@@ -43,7 +43,7 @@ For mountain glaciers with $\tau$ of decades this means a few kilometers of excu
 climatically innocent. For the great ice sheets, where $\tau$ can reach millennia, the
 implied natural variability is vast — and the ocean-forced marine glaciers, as we will see
 below, produce an even slower and larger integration effect. The present shape of the West
-Antarctic ice sheet still carries the memory of conditions at the Last Glacial Maximum.
+Antarctic ice sheet still reflects conditions at the Last Glacial Maximum.
 Reading a glacier's terminus position and inferring climate from it requires knowing the
 filter, and most of this book is about building and using that filter correctly.
 
@@ -199,24 +199,18 @@ temperature.
 
 The positive-degree-day approach earns its keep in large-scale and long-timescale
 applications, but it is an approximation, and there are surfaces where it fails
-qualitatively. A full accounting requires the surface energy balance. The net energy
-available at the surface for melting is
-
-$$
-Q_M = (1 - \alpha) S_\downarrow + L_\downarrow - \varepsilon \sigma T_s^4 + H_S + H_L + Q_G,
-$$
-
-where $(1-\alpha)S_\downarrow$ is the absorbed shortwave, $L_\downarrow - \varepsilon\sigma T_s^4$
-is the net longwave, $H_S$ and $H_L$ are the turbulent fluxes of sensible and latent heat,
-and $Q_G$ is the conductive flux from the interior of the ice. When $Q_M > 0$ and the
-surface is at $0\,^\circ\mathrm{C}$, the energy goes entirely into melting. The latent
-heat terms dominate the variability in many maritime settings, where warm, humid air
-delivers large turbulent fluxes even under cloud cover that suppresses the shortwave
-contribution. The latent heat of melting, $334\ \mathrm{kJ\,kg^{-1}}$, and the much
-larger latent heat of sublimation, $2830\ \mathrm{kJ\,kg^{-1}}$ (set by the hydrogen-bond
-structure discussed in {doc}`../foundations/lattice-dynamics`), mean that ablation by
-sublimation costs nearly ten times as much energy per kilogram as melting: the surface
-loses mass far more slowly for the same energy input.
+qualitatively. A full accounting requires the surface energy balance, the budget
+$Q_M = (1-\alpha)S_\downarrow + L_\downarrow - \varepsilon\sigma T_s^4 + H_S + H_L + Q_C$
+developed in {doc}`../thermomechanics/surface-energy-balance`, whose terms are the
+radiative, turbulent, and conductive fluxes meeting at the surface and whose positive
+residual at a melting surface is the melt. The reason temperature-index methods work at
+all is that most of these terms covary with air temperature; the reason they sometimes
+fail is that not all of them do. The latent-heat flux is the usual culprit, dominating
+the variability in maritime settings where warm, humid air drives melt under cloud that
+suppresses the shortwave, and reversing its sign on cold, dry, sunny surfaces where the
+much larger latent heat of sublimation, $2830\ \mathrm{kJ\,kg^{-1}}$ against
+$334\ \mathrm{kJ\,kg^{-1}}$ for melting, lets ablation proceed by sublimation at nearly a
+tenth the mass loss per unit energy.
 
 This is exactly why temperature-index methods fail on high-altitude, cold, dry glacier
 surfaces dominated by sublimation. The penitentes of the high Andes and the Atacama

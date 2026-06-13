@@ -54,7 +54,7 @@ so the three principal stretching rates always sum to zero, and any extension in
 
 ## Deviatoric stress
 
-Because ice cannot change volume, a uniform pressure cannot deform it; it can only resist compression elastically. What drives flow is the part of the stress that tries to change shape. Removing the isotropic pressure from the full stress leaves the deviatoric stress,
+Because ice cannot change volume, a uniform pressure cannot deform it; it can only resist compression elastically. What drives flow is the part of the stress that acts to change shape. Removing the isotropic pressure from the full stress leaves the deviatoric stress,
 
 $$
 \tau_{ij}=\sigma_{ij}+p\,\delta_{ij}=\sigma_{ij}-\tfrac13\,\mathrm{tr}(\boldsymbol{\sigma})\,\delta_{ij},

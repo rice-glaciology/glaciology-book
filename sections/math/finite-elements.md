@@ -28,7 +28,7 @@ This is the weak, or variational, form. Two things have been gained. The solutio
 
 ## The action principle for ice
 
-For ice flow the weak form has an especially clean origin. Glaciers, being slow viscous flows, arrange themselves so as to minimize a functional, the rate at which energy is dissipated by viscous deformation minus the rate at which gravity does work. This action functional, for Glen's law with exponent $n$, takes the schematic form
+For ice flow the weak form has an especially clean origin. Glaciers, being slow viscous flows, settle into the velocity field that minimizes a functional, the rate at which energy is dissipated by viscous deformation minus the rate at which gravity does work. This action functional, for Glen's law with exponent $n$, takes the schematic form
 
 $$
 J(\mathbf{u}) = \int_\Omega \left[\frac{2A^{-1/n}}{1+1/n}\,\dot\varepsilon_E^{\,1+1/n} - \rho_i\,\mathbf{g}\cdot\mathbf{u}\right]\mathrm{d}V

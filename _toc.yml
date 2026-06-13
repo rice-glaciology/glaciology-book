@@ -48,6 +48,14 @@ parts:
       # lab (diagnostic, numpy): channels vs cavities, effective pressure vs discharge
       - file: sections/thermomechanics/sliding-laws-lab
       - file: sections/cryosphere/erosion
+      - file: sections/thermomechanics/frozen-ground
+      # lab (diagnostic, numpy): trumpet diagram and borehole paleothermometry
+      - file: sections/cryosphere/former-glaciers
+  - caption: The surface and surface processes
+    chapters:
+      - file: sections/thermomechanics/surface-energy-balance
+      - file: sections/foundations/snow-to-ice
+      - file: sections/thermomechanics/surface-hydrology
   - caption: Mass balance, climate, and prognostic modeling
     chapters:
       - file: sections/ice_flow/mass-balance
@@ -60,7 +68,6 @@ parts:
       # lab (prognostic, icepack): glacial-cycle ice-sheet evolution
       - file: sections/cryosphere/ice-sheets
       - file: sections/cryosphere/instabilities
-      - file: sections/foundations/snow-to-ice
       - file: sections/climate/paleoclimate
       - file: sections/climate/isotope-lab
   - caption: Observing ice
@@ -88,9 +95,6 @@ parts:
     chapters:
       - file: sections/cryosphere/sea-ice
       # lab (diagnostic, numpy): brine volume and effective thermal properties vs temperature
-      - file: sections/cryosphere/former-glaciers
-      - file: sections/cryosphere/permafrost
-      # lab (diagnostic, numpy): trumpet diagram and borehole paleothermometry
       - file: sections/cryosphere/planetary-ice
       - file: sections/climate/sea-level
   - caption: References

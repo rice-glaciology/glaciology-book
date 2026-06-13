@@ -48,25 +48,23 @@ parts:
       # lab (diagnostic, numpy): channels vs cavities, effective pressure vs discharge
       - file: sections/thermomechanics/sliding-laws-lab
       - file: sections/cryosphere/erosion
-  - caption: Mass balance and climate
+  - caption: Mass balance, climate, and prognostic modeling
     chapters:
       - file: sections/ice_flow/mass-balance
-      - file: sections/foundations/snow-to-ice
       - file: sections/climate/glacier-variations
       - file: sections/climate/glacier-response-lab
-      - file: sections/cryosphere/ice-sheets
-      - file: sections/cryosphere/instabilities
-      - file: sections/climate/paleoclimate
-      - file: sections/climate/isotope-lab
-  - caption: Prognostic modeling and climate forcing
-    chapters:
       - file: sections/modeling/prognostic-problem
       # lab (prognostic, icepack): SIA evolution toward the Vialov steady state
       - file: sections/climate/climate-forcing
       - file: sections/modeling/ice-stream-vaf-lab
       - file: sections/climate/reduced-models
-      # lab (stochastic, numpy): two-stage model under stochastic ocean forcing
+      - file: sections/climate/two-stage-lab
       # lab (prognostic, icepack): glacial-cycle ice-sheet evolution
+      - file: sections/cryosphere/ice-sheets
+      - file: sections/cryosphere/instabilities
+      - file: sections/foundations/snow-to-ice
+      - file: sections/climate/paleoclimate
+      - file: sections/climate/isotope-lab
   - caption: Observing ice
     chapters:
       - file: sections/observing/elevation

@@ -57,8 +57,6 @@ parts:
       # lab (prognostic, icepack): SIA evolution toward the Vialov steady state
       - file: sections/climate/climate-forcing
       - file: sections/modeling/ice-stream-vaf-lab
-      - file: sections/climate/reduced-models
-      - file: sections/climate/two-stage-lab
       # lab (prognostic, icepack): glacial-cycle ice-sheet evolution
       - file: sections/cryosphere/ice-sheets
       - file: sections/cryosphere/instabilities

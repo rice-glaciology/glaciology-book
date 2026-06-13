@@ -18,7 +18,28 @@ Below the visible, the atoms begin to contribute. The lattice and molecular vibr
 
 The largest response of all comes from the permanent dipole of the water molecule. In a slowly varying field the molecules reorient to point their dipoles along it, and because water's dipole is large and the molecules are densely packed, the resulting polarization is enormous: the static permittivity of ice is about $100$, far larger than the optical value. But this alignment is slow. A molecule cannot turn without breaking its bonding rules with its neighbours, so it can reorient only as a Bjerrum defect passes through, at the pace of defect migration set out in {doc}`point-defects`. The characteristic time for this is of order $10^{-4}$ seconds, so once the field oscillates faster than a few kilohertz the dipoles can no longer follow it. The permittivity then drops, through the Debye relaxation, from its static value near $100$ to a high-frequency value of about $3.2$, and it is in this relaxation, in the kilohertz range, that ice absorbs electromagnetic energy most strongly. The relaxation time lengthens as the ice cools and shortens with the impurity content, so the dielectric loss of ice carries a record of its temperature and chemistry.
 
+This temperature dependence is where the absorption spectrum of ice moves. The visible window and the infrared bands shift only slightly with temperature, but the radio-band absorption is the high-frequency tail of the Debye relaxation, proportional to $1/\tau$, and the relaxation time obeys an Arrhenius law with an activation energy near 0.6 eV, the energy of creating and moving the orientational defects that permit reorientation. Cooling the ice from the melting point to $-60$ °C therefore lengthens $\tau$ by a factor of a thousand and lowers the radar-band absorption by the same factor, about an order of magnitude for every twenty degrees.
+
+```{figure} figures/ice-attenuation-temperature.png
+:name: fig-ice-attenuation-temperature
+:width: 85%
+
+Radio-band absorption of pure ice at four temperatures, computed from the Debye relaxation with an Arrhenius relaxation time ($\tau = 2.2\times10^{-5}$ s at 0 °C, activation energy 0.58 eV; parameters after {cite}`petrenko1999`). Each curve falls off beyond its relaxation knee, which sweeps to longer wavelengths as the ice cools, and saturates at a frequency-flat plateau across the radar sounding band, whose height drops by roughly an order of magnitude per twenty degrees of cooling. The right axis gives the attenuation in the radar community's units. Impurities add a conduction term that raises the cold-ice floor above the pure-ice values shown, which is how the impurity content of {doc}`composition` enters radar attenuation alongside temperature.
+```
+
+The steepness of this dependence is what makes radar attenuation a thermometer. A radar pulse that reaches the bed of an ice sheet and returns has sampled the integrated dielectric loss of the whole column, and because warm basal ice absorbs tens of times more strongly than the cold ice above it, the returned power constrains the temperature structure and, through the impurity term, the chemistry; {doc}`../radar/em-waves` and the radar chapters that follow it put this to work.
+
 ## The permittivity spectrum and the two windows
+
+```{figure} figures/ice-absorption-spectrum.png
+:name: fig-ice-absorption-spectrum
+:width: 90%
+
+The absorption coefficient of pure ice Ih from the ultraviolet to the radio, drawn through representative values from the compilation of {cite}`warren2008` and accurate to order of magnitude; the right axis gives the corresponding penetration depth $1/\alpha$. Electronic absorption walls off the ultraviolet, the O–H stretch, bend, libration, and lattice-mode bands make ice opaque across the infrared, and between and beyond them lie the two low-loss windows this chapter identifies, the visible minimum near 0.4 µm, where the penetration depth approaches a kilometer and transmitted light turns blue, and the radar window, through which radio-echo sounding reaches the bed.
+
+% TODO data: replace schematic curve with the exact Warren & Brandt (2008) table —
+% download IOP_2008_ASCIItable.dat into _dev/ and rerun _dev/make-ice-absorption-figure.py
+```
 
 Assembling these contributions gives the permittivity of ice as a staircase descending with frequency. It begins near $100$ at low frequency, where dipoles, atoms, and electrons all respond; falls through the Debye relaxation in the kilohertz range as the dipoles drop out, to a plateau of about $3.2$ that it holds through the radio and microwave range; steps down again across the infrared as the vibrations drop out; and settles at about $1.72$ in the visible, where only the electrons remain, before reaching unity in the ultraviolet. Two flat, low-loss stretches stand out. The radio and microwave plateau at $3.2$, with refractive index $1.78$, is the radar window through which radio waves travel kilometres into cold ice, the basis of radio-echo sounding and phase-sensitive radar. The visible plateau at $1.72$ is the optical window through which we see ice and through which laser altimeters range to its surface. The absorbing infrared band between them is the price of the vibrations. Every electromagnetic observing method works in one window or the other, and its physics is set by the value of the permittivity there.
 

@@ -2,7 +2,7 @@
 
 In 1905 a survey party photographed Lillian Glacier in the Olympic Mountains as a healthy body of ice filling its cirque. A photograph from the same vantage in 2010 shows bare rock and a few snow patches. Between the two images lies a century of climate, filtered through the dynamics of a small mountain glacier. This chapter builds the simplest theory that connects the two photographs. It asks how far a glacier's terminus moves when its mass balance changes, and how long the move takes. The answers come from the mass balance ideas of {doc}`../ice_flow/mass-balance` applied to a glacier that is allowed to change its length, and they are developed in Chapter 11 of {cite}`cuffey2010`.
 
-The theory in this chapter is deliberately kinematic. We will not solve the stress balance at all. Everything follows from conservation of mass and a little geometry, which is why the results are so portable, and the price of that simplicity is that the dynamics of the flow appear only through a single number, the thickness of the ice.
+The theory in this chapter is deliberately kinematic. We will not solve the stress balance at all. Everything follows from conservation of mass and a little geometry, which is why the results are so portable, and the price of that simplicity is that the dynamics of the flow appear only through a single number, the thickness of the ice. The same reservoir reasoning extends a long way. After the land-terminating glacier we chain reservoirs into the three-stage model of Roe and Baker, and then carry the logic to the ocean, where the two-stage model of Robel, Roe, and Haseloff describes a marine ice stream and produces the marine ice-sheet instability from nothing more than mass conservation and a flux rule. These reduced models are the efficient lens through which the prognostic experiments and the instability chapters that follow are best understood.
 
 ## The equilibrium response
 
@@ -83,10 +83,99 @@ The kinematic model treats the glacier as a reservoir with a single thickness, a
 
 ## The three-stage model
 
-The one-stage model has a flaw that becomes visible the moment the step change switches on. Its terminus begins to move immediately, at its maximum rate, because the model passes a balance perturbation straight to the terminus with no intervening glacier. A real glacier responds in sequence. The interior thickens first, the extra thickness drives extra flux toward the terminus, and only when that flux arrives does the length begin to change in earnest. Roe and Baker {cite}`roebaker2014` turned this observation into a model by chaining three linear reservoirs, an interior thickness anomaly, a terminus flux anomaly, and a length anomaly, each draining on a fraction of the same timescale $\tau$. The model is derived with the book's other reduced models in {doc}`reduced-models`. Its step response is sigmoidal rather than exponential, nearly motionless while the flux anomaly is in transit and then catching up to the same equilibrium response the one-stage model predicts, and because the chain filters high-frequency forcing more aggressively, its variance, autocorrelation, and excursion statistics can all be written in closed form. Those expressions are the machinery beneath the attribution result of {cite}`roe2017` discussed above, and because the model is linear it can also be inverted, turning a length record back into an estimate of the mass-balance history that produced it.
+The one-stage model has a flaw that becomes visible the moment the step change switches on. Its terminus begins to move immediately, at its maximum rate, because the model passes a balance perturbation straight to the terminus with no intervening glacier. A real glacier responds in sequence. The interior thickens first, the extra thickness drives extra flux toward the terminus, and only when that flux arrives does the length begin to change in earnest. Roe and Baker {cite}`roebaker2014` represented this sequence as three linear reservoirs in series, an interior thickness anomaly $h'$ fed by the balance anomaly $\dot b'$, a terminus flux anomaly $F'$ fed by the available thickness, and a length anomaly $L'$ fed by the flux,
 
-## A kinematic analog for marine-terminating glaciers
+$$
+\frac{dh'}{dt}+\frac{h'}{\epsilon\tau}=\dot b', \qquad
+\frac{dF'}{dt}+\frac{F'}{\epsilon\tau}=\frac{L\,h'}{(\epsilon\tau)^{2}}, \qquad
+\frac{dL'}{dt}+\frac{L'}{\epsilon\tau}=\frac{F'}{\epsilon H},
+$$
 
-For an ice sheet the terminus wedge of this chapter is the wrong picture. The margins of Antarctica mostly end in the ocean, mass leaves by calving and by basal melting of floating ice shelves, and the controlling boundary is the grounding line, where the ice goes afloat over a bed that often deepens inland. It is natural to ask whether the reservoir logic of this chapter survives the change of setting, and the answer, worked out by Robel, Roe, and Haseloff {cite}`robel2018`, is that it does, with one extra state variable and much richer consequences.
+with $\epsilon = 1/\sqrt{3}$ chosen so that the chain preserves both the equilibrium response and the e-folding behavior of the one-stage model. Each equation is the same mass bookkeeping as the one-stage reservoir, linearized; the left sides drain each reservoir on the timescale $\epsilon\tau$, and the right sides are the fluxes passed down the chain. Eliminating $h'$ and $F'$ gives a single third-order equation,
 
-The two-stage model that results, the interior thickness and the grounding-line position treated as coupled reservoirs joined by an interior flux and a grounding-line flux, is derived in {doc}`reduced-models`, together with its pair of widely separated response timescales and the bed-slope criterion that contains the marine ice-sheet instability. What carries over from this chapter unchanged is the reservoir logic itself. What is new is that the boundary flux depends on where the boundary sits, and that single dependence is where the instability lives; the full mechanical story, with ice shelves, buttressing, and the observational case for West Antarctica, is the subject of {doc}`../cryosphere/ice-sheets`.
+$$
+\left(\frac{d}{dt}+\frac{1}{\epsilon\tau}\right)^{3} L' = \frac{L}{H}\,\frac{\dot b'}{\epsilon\,(\epsilon\tau)^{2}},
+$$
+
+whose response to a step change in balance is sigmoidal rather than exponential,
+
+$$
+L'(t) = L'_{\mathrm{eq}}\left[1 - e^{-t/\epsilon\tau}\left(1 + \frac{t}{\epsilon\tau} + \frac{1}{2}\left(\frac{t}{\epsilon\tau}\right)^{2}\right)\right].
+$$
+
+% TODO Illustrator figure: figures/three-stage-response.svg (label fig-three-stage-response, width 80%)
+% Spec: step responses of one-stage vs three-stage kinematic models, same equilibrium response and
+% timescale tau; three-stage curve sigmoidal (delayed onset, then catches up); cite roebaker2014.
+
+The terminus barely moves for the first fraction of a response time, while the flux anomaly is still in transit, and then catches up to the same equilibrium the one-stage model predicts. Because the three-stage glacier filters high-frequency forcing more aggressively than a single reservoir, its variance, autocorrelation, and excursion statistics under interannual noise can all be written in closed form, and those expressions are the machinery beneath the formal attribution of observed glacier retreat to climate change {cite}`roe2017` discussed above. The model is linear, so it can also be run backward, turning a length record into an estimate of the mass-balance history that produced it. The lab accompanying this chapter builds both the one-stage and the three-stage filters and forces them with steps, noise, and ramps.
+
+## Marine-terminating glaciers: interior and grounding-zone fluxes
+
+For an ice sheet the terminus wedge is the wrong picture. The margins of Antarctica mostly end in the ocean, mass leaves by calving and by basal melting of floating ice shelves, and the controlling boundary is the grounding line, where the ice goes afloat over a bed that often deepens inland. The reservoir logic of this chapter survives the change of setting, worked out by Robel, Roe, and Haseloff {cite}`robel2018`, with one extra state variable and much richer consequences. The construction rests on two kinds of flux, which are worth setting out before the reservoirs are coupled.
+
+The *interior flux* $Q$ is the rate at which ice is delivered from the accumulation zone toward the margin. Its dependence on geometry follows from the flow physics of the earlier chapters. For an interior deforming by shear, the shallow-ice flux of {doc}`../ice_flow/shallow-ice` scales as $H^{n+2}|\nabla s|^{n}$, and with the surface slope of a reservoir of thickness $H$ and length $L$ scaling as $H/L$, the delivered flux takes the form
+
+$$
+Q = \nu\,\frac{H^{\alpha}}{L^{\gamma}},
+$$
+
+with $\alpha = 2n+2$ and $\gamma = n$ for deformation-dominated flow, and smaller exponents when sliding dominates; the constant $\nu$ absorbs the rate factor and the geometry. The interior flux increases steeply with thickness and decreases with length, so a thickening interior pushes more ice toward the margin and a lengthening one, at fixed thickness, pushes less.
+
+The *grounding-zone flux* $Q_g$ is the rate at which ice is exported across the grounding line. Flotation ties the thickness there to the bed, since ice of density $\rho_i$ floats in water of density $\rho_w$ when its thickness falls below $-\lambda b$, where $b(x)$ is the bed elevation, negative below sea level, and $\lambda = \rho_w/\rho_i \approx 1.1$. The grounding-line thickness is therefore not free but pinned to the local bed,
+
+$$
+h_g = -\lambda\, b(L),
+$$
+
+and the boundary-layer analysis of the shallow-shelf equations, due to Schoof {cite}`schoof2007` and presented with the ice-sheet material in {doc}`../cryosphere/ice-sheets`, shows that the flux across the grounding line is controlled almost entirely by this one number,
+
+$$
+Q_g = \Omega\, h_g^{\beta},
+\qquad \beta = \frac{m+n+3}{m+1} \approx 4.75
+$$
+
+for Glen exponent $n=3$ and Weertman friction exponent $m=1/3$. The prefactor $\Omega$ collects the rate factor, the friction coefficient, and the buttressing supplied by an ice shelf, and it is the handle through which the ocean grips the system; shelf thinning or grounding-zone melt acts on the ice sheet by raising $\Omega$. The exponent is the important number. With $\beta \approx 5$, a ten percent increase in grounding-line thickness nearly doubles the export, so small migrations of the grounding line across a sloping bed produce large changes in discharge. A steady state is a geometry in which these fluxes balance the surface input; with accumulation rate $P$ over a reservoir of length $L$, steadiness requires $P\,L = Q = Q_g$, two conditions that on a given bed select the equilibrium thickness $\bar H$ and grounding-line position $\bar L$.
+
+## The two-stage model for marine ice streams
+
+With the fluxes in hand the marine model needs two state variables, the mean interior thickness $H$ and the grounding-line position $L$, with $x$ measured seaward from the divide. The derivation is mass conservation applied twice {cite}`robel2018`. Applied to the whole reservoir, of volume $V \approx HL$ per unit width, conservation reads
+
+$$
+\frac{dV}{dt} = P\,L - Q_g,
+$$
+
+since snowfall supplies $PL$ and the only export is across the grounding line. Applied to the grounding zone alone, conservation determines how the grounding line moves; advancing it by $dL$ requires filling a column of thickness $h_g$ with ice, and the ice available is the difference between what the interior delivers and what the grounding line exports, so
+
+$$
+\frac{dL}{dt} = \frac{Q - Q_g}{h_g}.
+$$
+
+Expanding $dV/dt = H\,dL/dt + L\,dH/dt$ and combining the two statements gives the interior equation,
+
+$$
+\frac{dH}{dt} = P - \frac{Q_g}{L} - \frac{H}{h_g L}\left(Q - Q_g\right),
+$$
+
+in which the first two terms are accumulation against export and the third is the geometric correction for the moving boundary. These two equations are the two-stage model, and at a steady state they reduce exactly to the flux balance $PL = Q = Q_g$. Linearized about that steady state, the system has two eigenvalues and therefore two e-folding timescales, and they are far apart. The fast mode, decades to a few centuries, is the grounding zone adjusting toward flux balance at nearly fixed interior thickness; it is fast because the grounding zone is thin, so modest flux imbalances move it quickly. The slow mode, of order millennia, is the interior thickness relaxing, the marine analog of $t_r = H/\dot a_0$, slow because the interior is thick and the balance fluxes small. A perturbed marine ice stream therefore shows a quick partial response followed by a long completion, and it can sit far from equilibrium for centuries while appearing superficially quiet.
+
+## Sensitivity to climate forcing
+
+The reduced model's value is that the sensitivity of the steady state can be written down rather than mapped numerically. Climate forcing enters through two parameters, the accumulation rate $P$ for the atmosphere and the grounding-zone coefficient $\Omega$ for the ocean, since melt at the grounding zone and the thinning of a buttressing shelf both act by raising $\Omega$. Differentiating the steady-state balance $\Omega\, h_g(L)^{\beta} = P\,L$ logarithmically gives the response of the grounding line to small changes in either,
+
+$$
+\frac{\delta \bar L}{\bar L} = \frac{1}{\Sigma}\left(\frac{\delta P}{P} - \frac{\delta \Omega}{\Omega}\right),
+\qquad
+\Sigma \equiv \beta\,\frac{\bar L\, h_g'(\bar L)}{\bar h_g} - 1,
+$$
+
+where $h_g'(L) = -\lambda\, b_x(L)$ is the rate at which the flotation thickness grows as the grounding line advances, set entirely by the bed slope $b_x = db/dx$. The dimensionless number $\Sigma$ controls everything. On a strongly prograde bed, one that deepens seaward so that $b_x < 0$ and $h_g' > 0$, $\Sigma$ is large and positive, the gain $1/\Sigma$ is small, and the grounding line is stiff against forcing, since any advance is punished by the steeply rising export $\Omega h_g^\beta$. The same number governs stability. The slow mode of the linearized system decays at a rate proportional to $\Sigma$, so steady states with $\Sigma > 0$ are stable and steady states with $\Sigma < 0$ are not.
+
+The stochastic counterpart of this sensitivity matters as much as the deterministic one. Driven by the broadband natural variability of ocean temperature, the two-stage system is the marine version of the red-noise filter described above for mountain glaciers; it integrates the forcing, amplifies it at the slow eigenfrequency, and produces grounding-line excursions that are large, slow, and persistent {cite}`hasselmann1976`. A marine ice stream in a statistically steady climate can sustain kilometer-scale grounding-line fluctuations on multi-centennial timescales from noise alone, which is why a decade of observed retreat, by itself, cannot distinguish forced change from natural variability, and why formal attribution requires the noise statistics these models supply.
+
+## Reverse bed slopes and the approach to instability
+
+The asymptotic behavior of the gain $1/\Sigma$ as the bed slope is varied is the cleanest route into the book's instability discussion. Hold the climate fixed and flatten the bed at the grounding line, so that $h_g' \to h_g/(\beta L)$ from above and $\Sigma \to 0^+$. Three things happen together. The sensitivity $1/\Sigma$ of the steady state diverges, so ever-smaller changes in ocean or atmosphere produce ever-larger equilibrium migrations. The slow eigenvalue, proportional to $\Sigma$, goes to zero, so the system takes arbitrarily long to settle, the critical slowing that in observed systems precedes a bifurcation. And the steady state's basin of attraction shrinks, so finite fluctuations of the kind the stochastic forcing supplies become capable of dislodging the system entirely.
+
+When the slope reverses, $b_x > 0$ at the grounding line, the bed deepening inland, the flotation thickness *increases* as the grounding line retreats, $h_g' < 0$, and $\Sigma$ is negative for any $\beta > 0$. No stable steady state exists on such a slope. A retreat into deeper water raises $h_g$, which raises the export $\Omega h_g^\beta$ by more than it raises the supply, which draws the interior down and retreats the grounding line further, and the feedback closes on itself without any new physics. This is the marine ice-sheet instability, obtained here from two mass reservoirs and a flux rule, with no stress balance anywhere in the argument, which is the strongest available evidence that the instability is at root a statement about mass conservation over a bed that deepens inland. A grounding line perturbed off the end of a retrograde reach does not stop until it finds the next prograde slope, the origin of the hysteresis and the discrete stable positions explored, with the full mechanical story, buttressing, and the observational case for the Amundsen Sea glaciers, in {doc}`../cryosphere/ice-sheets`, and of the oscillatory variants in {doc}`../cryosphere/instabilities`. The lab accompanying this chapter exhibits the asymmetry directly, the two-stage model relaxing to a new steady state when forced on a prograde bed and running away when forced on a retrograde one, and the full stress-balance version of the same experiment is carried out in icepack in {doc}`../modeling/ice-stream-vaf-lab`.
+
+These reduced models earn their place in the book because they convert the prognostic problem's most expensive questions, how sensitive, how fast, how close to the edge, into algebra. The full models of {doc}`../modeling/prognostic-problem` remain the instruments of projection, but the one-, two-, and three-stage systems are how the projections are understood, attributed, and stress-tested, and they are the lens through which {doc}`../cryosphere/ice-sheets` and {doc}`../cryosphere/instabilities` are best read.

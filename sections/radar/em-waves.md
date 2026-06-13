@@ -16,6 +16,30 @@ $$
 v=\frac{c}{n},\qquad n=\sqrt{\epsilon_r'},
 $$
 
+```{admonition} Derivation
+:class: dropdown
+
+Start from the wave equation above. Using the vector identity $\nabla\times\nabla\times\mathbf E = \nabla(\nabla\!\cdot\!\mathbf E) - \nabla^2\mathbf E$ and noting that in a uniform charge-free dielectric $\nabla\!\cdot\!\mathbf E = 0$, the equation reduces to the standard form
+
+$$
+\nabla^2\mathbf E = \frac{\mu_r\,\epsilon_r}{c^2}\,\frac{\partial^2\mathbf E}{\partial t^2}.
+$$
+
+A wave equation $\nabla^2 E = (1/v^2)\,\partial^2 E/\partial t^2$ has plane-wave solutions $E = E_0\,e^{\mathrm i(kx-\omega t)}$ that propagate at speed $v = \omega/k$. Substituting such a solution gives $-k^2 = -(\mu_r\epsilon_r/c^2)\,\omega^2$, so the phase speed is
+
+$$
+v = \frac{\omega}{k} = \frac{c}{\sqrt{\mu_r\,\epsilon_r}}.
+$$
+
+For a non-magnetic, low-loss medium, $\mu_r\approx 1$ and the loss is small, so $\epsilon_r \approx \epsilon_r'$, its real part. Then
+
+$$
+v = \frac{c}{\sqrt{\epsilon_r'}} \equiv \frac{c}{n},\qquad n \equiv \sqrt{\epsilon_r'},
+$$
+
+which both defines the refractive index $n$ and gives the printed wave speed. The wave travels slower than in vacuum by exactly the factor $n$, the physical content of the refractive index.
+```
+
 where $n$ is the refractive index and $\epsilon_r'$ is the real part of the permittivity at the frequency of the wave. The imaginary part, written $\epsilon_r''$, measures absorption, the conversion of wave energy into heat. The permittivity is not a single number but a function of frequency, because the different parts of the molecule and the lattice can follow a slow field but not a fast one. Reading that function from low frequency to high is reading off, in order, which physical response is still able to keep up.
 
 ## The two windows

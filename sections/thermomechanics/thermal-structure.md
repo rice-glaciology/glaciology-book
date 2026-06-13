@@ -14,6 +14,29 @@ $$
 
 where $\rho$ is density, $c$ is the specific heat capacity, $k$ is the thermal conductivity, and $\Phi$ is the rate of heating by internal deformation. The term with $\bu$ is the advection of heat by the flow, and the divergence term is conduction.
 
+```{admonition} Derivation
+:class: dropdown
+The equation expresses conservation of internal energy for a parcel of ice. Take a fixed control volume and let $e = \rho c\,T$ be the internal energy per unit volume, measured from a reference temperature. Its rate of change is set by the divergence of the energy flux plus any internal sources,
+
+$$
+\frac{\partial e}{\partial t} = -\nabla\!\cdot\!\bj_{\mathrm{adv}} - \nabla\!\cdot\!\bj_{\mathrm{cond}} + \Phi .
+$$
+
+The advective flux is the energy carried bodily by the moving ice, $\bj_{\mathrm{adv}} = \rho c\,T\,\bu$. The conductive flux follows Fourier's law, $\bj_{\mathrm{cond}} = -k\,\nabla T$, heat running down the temperature gradient. The source $\Phi$ is the rate at which deformational work is dissipated as heat per unit volume. Inserting these,
+
+$$
+\rho c\,\frac{\partial T}{\partial t} = -\nabla\!\cdot\!(\rho c\,T\,\bu) + \nabla\!\cdot\!(k\,\nabla T) + \Phi .
+$$
+
+Expanding the advective divergence, $\nabla\!\cdot\!(\rho c\,T\,\bu) = \rho c\,\bu\cdot\nabla T + \rho c\,T\,\nabla\!\cdot\!\bu$, and using the incompressibility of ice, $\nabla\!\cdot\!\bu = 0$, the second piece vanishes. Moving the advective term to the left,
+
+$$
+\rho c\left(\frac{\partial T}{\partial t} + \bu\cdot\nabla T\right) = \nabla\!\cdot\!(k\,\nabla T) + \Phi ,
+$$
+
+which is the printed equation. The grouped left-hand side is the material derivative $\rho c\,DT/Dt$, the rate of temperature change following a parcel as it moves with the flow.
+```
+
 This is a prognostic equation. The time derivative on the left says that the temperature field is not a fixed property of a glacier but something that evolves, carried along and reshaped by the very flow it helps to drive. Strictly, then, heat flow belongs with the prognostic chapters later in the book, alongside the thickness evolution it parallels, and a full model steps temperature and geometry forward together. We introduce it here, ahead of that machinery, for one reason: its quasi-steady consequence at the bed. The basal thermal state changes slowly compared with the flow above it, so for the diagnostic question of whether the bed slides it is enough to ask where the temperature profile reaches the melting point. We solve that reduced, near-steady problem now, and return to the full time evolution, coupled to climate and mass balance, with the prognostic modeling.
 
 ## Thermal properties of ice
@@ -33,7 +56,42 @@ T(z,t) = T_0 - \Delta T\, e^{-\alpha z}\cos(\omega t - \alpha z),
 \qquad \alpha = \sqrt{\frac{\omega}{2\kappa_T}},
 $$
 
-penetrating to a depth $z_* = \sqrt{\kappa_T P/\pi}$ for a forcing of period $P$, about 0.2 m for the daily cycle and 3 m for the annual one. This is the quantitative version of the statement made earlier that the seasons are erased within the upper ten to twenty meters, and the phase lag $\alpha z$ means midwinter cold arrives at depth months late. The permafrost trumpet diagram of {doc}`frozen-ground` is this same solution drawn in soil.
+penetrating to a depth $z_* = \sqrt{\kappa_T P/\pi}$ for a forcing of period $P$, about 0.2 m for the daily cycle and 3 m for the annual one.
+
+```{admonition} Derivation
+:class: dropdown
+With advection and heating dropped, the heat equation reduces to one-dimensional diffusion,
+
+$$
+\frac{\partial T}{\partial t} = \kappa_T\,\frac{\partial^2 T}{\partial z^2},
+\qquad \kappa_T = \frac{k}{\rho c},
+$$
+
+with $z$ measured downward from the surface. The surface is forced periodically, $T(0,t) = T_0 - \Delta T\cos(\omega t)$, and the disturbance must decay with depth, $T\to T_0$ as $z\to\infty$. Seek a solution of complex-exponential form $T = T_0 + \mathrm{Re}\,[B\,e^{i\omega t}e^{-qz}]$ with $q$ to be found. Substituting into the diffusion equation gives the dispersion relation
+
+$$
+i\omega = \kappa_T\,q^2,
+\qquad q = \sqrt{\frac{i\omega}{\kappa_T}} = \sqrt{\frac{\omega}{2\kappa_T}}\,(1+i),
+$$
+
+using $\sqrt{i} = (1+i)/\sqrt 2$ and taking the root with positive real part so the solution decays downward. Write $\alpha = \sqrt{\omega/2\kappa_T}$, so $q = \alpha(1+i)$. The boundary condition at $z=0$ fixes $B = -\Delta T$. Then
+
+$$
+T = T_0 + \mathrm{Re}\!\left[-\Delta T\,e^{-\alpha z}\,e^{i(\omega t - \alpha z)}\right]
+= T_0 - \Delta T\,e^{-\alpha z}\cos(\omega t - \alpha z),
+$$
+
+the printed damped, phase-lagged wave. The amplitude falls by the factor $e^{-\alpha z}$, and the phase lags by $\alpha z$. The penetration depth is the e-folding scale of that decay, $z_* = 1/\alpha$. Substituting $\alpha = \sqrt{\omega/2\kappa_T}$ with $\omega = 2\pi/P$,
+
+$$
+z_* = \frac{1}{\alpha} = \sqrt{\frac{2\kappa_T}{\omega}}
+= \sqrt{\frac{2\kappa_T P}{2\pi}} = \sqrt{\frac{\kappa_T P}{\pi}},
+$$
+
+the printed penetration depth.
+```
+
+This is the quantitative version of the statement made earlier that the seasons are erased within the upper ten to twenty meters, and the phase lag $\alpha z$ means midwinter cold arrives at depth months late. The permafrost trumpet diagram of {doc}`frozen-ground` is this same solution drawn in soil.
 
 ```{figure} figures/seasonal-wave-periods.png
 :name: fig-seasonal-wave-periods
@@ -48,7 +106,38 @@ $$
 H_c = \frac{k\,(T_m - T_s)}{G},
 $$
 
-about 1750 m for a surface 50 °C below melting and $G = 60\ \mathrm{mW\,m^{-2}}$. Conduction alone, with no help from friction or strain heating, is enough to thaw the base of sufficiently thick ice, and for thicker ice the excess heat goes to basal melting rather than warming.
+about 1750 m for a surface 50 °C below melting and $G = 60\ \mathrm{mW\,m^{-2}}$.
+
+```{admonition} Derivation
+:class: dropdown
+In steady state with no advection and no internal heating, the heat equation reduces to $\partial^2 T/\partial z^2 = 0$, so the temperature is linear in depth. With $z$ measured upward from the bed at $z=0$ to the surface at $z=H$, the geothermal flux enters the base. Fourier's law writes the upward conductive flux as $-k\,\partial T/\partial z$; balancing it against the geothermal flux supplied from below requires a constant gradient
+
+$$
+\frac{\partial T}{\partial z} = -\frac{G}{k},
+$$
+
+cold at the surface and warming downward. Integrating from the surface, where $T = T_s$, downward,
+
+$$
+T(z) = T_s + \frac{G}{k}\,(H - z),
+$$
+
+the printed linear profile. The bed is warmest. It first reaches the pressure-melting point $T_m$ when $T(0) = T_m$, that is
+
+$$
+T_m = T_s + \frac{G H_c}{k},
+$$
+
+and solving for the thickness gives
+
+$$
+H_c = \frac{k\,(T_m - T_s)}{G},
+$$
+
+the printed critical thickness. Thicker ice cannot raise the basal temperature above $T_m$; the surplus geothermal heat goes into melting instead.
+```
+
+Conduction alone, with no help from friction or strain heating, is enough to thaw the base of sufficiently thick ice, and for thicker ice the excess heat goes to basal melting rather than warming.
 
 **The Robin divide solution.** Beneath an ice divide the flow is straight down, with vertical velocity $w \approx -az/H$ for accumulation rate $a$, and the steady balance of downward advection against conduction, $w\,\partial T/\partial z = \kappa_T\,\partial^2 T/\partial z^2$, integrates to an error-function profile {cite}`robin1955`. Its character is set by a single dimensionless group, the Peclet number
 
@@ -108,4 +197,19 @@ $$
 G + \tau_b u_b - mL = -k\,\frac{\partial T}{\partial z},
 $$
 
-where $\tau_b u_b$ is the rate of frictional work at the bed, $m$ the basal melt rate (negative for freeze-on), and $L$ the latent heat of fusion. The frictional term makes the condition two-faced. Sliding produces heat, heat produces water, and water promotes sliding, the same feedback loop that drives the thermally regulated surges above and, scaled up to the Laurentide ice sheet, the binge-purge oscillation proposed to explain the Heinrich iceberg discharges in the ice-age record of {doc}`../climate/paleoclimate` {cite}`macayeal1993`. Where the basal temperature reaches the pressure-melting point, the heat that can no longer raise the temperature instead melts ice, and the resulting water lubricates the interface. That is the threshold at which deformation gives way to sliding, and it is where the next chapter begins.
+where $\tau_b u_b$ is the rate of frictional work at the bed, $m$ the basal melt rate (negative for freeze-on), and $L$ the latent heat of fusion.
+
+```{admonition} Derivation
+:class: dropdown
+The condition is an energy balance for a thin layer straddling the ice-bed interface, which stores negligible heat once the bed is at the melting point. Account for every energy flux into that layer per unit area. From below, the geothermal flux $G$ enters. At the interface, sliding at speed $u_b$ against a basal shear stress $\tau_b$ dissipates work at the rate $\tau_b u_b$, all of it converted to heat. Out of the layer, conduction carries heat up into the ice at the rate $-k\,\partial T/\partial z$ (with $z$ upward), and melting consumes energy at the rate $mL$, the latent heat needed to turn ice into water at the melt rate $m$.
+
+Setting the net input to zero, since the layer cannot store heat at fixed temperature,
+
+$$
+G + \tau_b u_b - mL = -k\,\frac{\partial T}{\partial z},
+$$
+
+the printed condition. When the right-hand side is fixed by the temperature field above, this determines the melt rate: any geothermal and frictional heat that the ice cannot conduct away must go into melt. A negative $m$ represents freeze-on, the layer giving up latent heat to supply an upward conductive flux larger than the geothermal and frictional sources.
+```
+
+The frictional term makes the condition two-faced. Sliding produces heat, heat produces water, and water promotes sliding, the same feedback loop that drives the thermally regulated surges above and, scaled up to the Laurentide ice sheet, the binge-purge oscillation proposed to explain the Heinrich iceberg discharges in the ice-age record of {doc}`../climate/paleoclimate` {cite}`macayeal1993`. Where the basal temperature reaches the pressure-melting point, the heat that can no longer raise the temperature instead melts ice, and the resulting water lubricates the interface. That is the threshold at which deformation gives way to sliding, and it is where the next chapter begins.

@@ -34,6 +34,19 @@ $$
 A_{ij} = \underbrace{\tfrac12\left(A_{ij}+A_{ji}\right)}_{\text{symmetric}} + \underbrace{\tfrac12\left(A_{ij}-A_{ji}\right)}_{\text{antisymmetric}} ,
 $$
 
+```{admonition} Derivation
+:class: dropdown
+Write the proposed parts as $S_{ij}=\tfrac12(A_{ij}+A_{ji})$ and $W_{ij}=\tfrac12(A_{ij}-A_{ji})$. Their sum is
+
+$$
+S_{ij}+W_{ij}=\tfrac12(A_{ij}+A_{ji})+\tfrac12(A_{ij}-A_{ji})=\tfrac12\,(2A_{ij})=A_{ij},
+$$
+
+so the decomposition reproduces $A_{ij}$. The first part is symmetric, since exchanging the indices gives $S_{ji}=\tfrac12(A_{ji}+A_{ij})=S_{ij}$, and the second is antisymmetric, since $W_{ji}=\tfrac12(A_{ji}-A_{ij})=-W_{ij}$.
+
+Uniqueness follows from the splitting being forced. Suppose $A_{ij}=S'_{ij}+W'_{ij}$ for any symmetric $S'$ and antisymmetric $W'$. Transposing gives $A_{ji}=S'_{ij}-W'_{ij}$. Adding the two equations yields $S'_{ij}=\tfrac12(A_{ij}+A_{ji})=S_{ij}$, and subtracting yields $W'_{ij}=\tfrac12(A_{ij}-A_{ji})=W_{ij}$. The two parts are therefore the only ones that work.
+```
+
 and this innocuous-looking identity carries real physics. Applied to the velocity gradient $\partial u_i/\partial x_j$, the symmetric part is the strain-rate tensor, which measures the rate of stretching and shearing, and the antisymmetric part is the spin tensor, which measures the rate of rigid rotation. Only the symmetric part deforms the material, so only it enters the flow law, a separation made physical in {doc}`../ice_flow/stress-and-strain`. The stress tensor, by contrast, is symmetric from the outset, a consequence of the balance of angular momentum, so it has only six independent components rather than nine.
 
 ## Trace and the deviatoric split
@@ -43,6 +56,17 @@ The trace of a tensor is the sum of its diagonal components, $\mathrm{tr}(\bolds
 $$
 \sigma_{ij} = \underbrace{\tfrac13\,\sigma_{kk}\,\delta_{ij}}_{\text{isotropic}} + \underbrace{\left(\sigma_{ij}-\tfrac13\,\sigma_{kk}\,\delta_{ij}\right)}_{\text{deviatoric}} .
 $$
+
+```{admonition} Derivation
+:class: dropdown
+The identity is established by adding and subtracting the same term, $\sigma_{ij}=\tfrac13\sigma_{kk}\delta_{ij}+(\sigma_{ij}-\tfrac13\sigma_{kk}\delta_{ij})$, so it holds for any tensor. What gives it content is that the remainder is trace free. Take the trace of the deviatoric part by setting $j=i$ and summing,
+
+$$
+\sigma_{ii}-\tfrac13\,\sigma_{kk}\,\delta_{ii}=\sigma_{ii}-\tfrac13\,\sigma_{kk}\,(3)=\sigma_{ii}-\sigma_{kk}=0,
+$$
+
+where $\delta_{ii}=3$ because the index runs over the three diagonal entries and $\sigma_{ii}$ and $\sigma_{kk}$ are the same scalar under different dummy labels. The first part carries the entire trace, $\mathrm{tr}(\tfrac13\sigma_{kk}\delta_{ij})=\tfrac13\sigma_{kk}\delta_{ii}=\sigma_{kk}$, and the second carries none.
+```
 
 For the stress tensor the isotropic part is the pressure, $p=-\tfrac13\sigma_{kk}$, and the trace-free remainder is the deviatoric stress $\tau_{ij}$. The physical point, central to {doc}`../ice_flow/stress-and-strain` and {doc}`../ice_flow/ice-rheology`, is that ice is very nearly incompressible, so the pressure cannot change its shape and does no work in deformation. It is the deviatoric stress alone that drives flow, which is why the flow law relates strain rate to $\tau_{ij}$ and not to the full stress.
 

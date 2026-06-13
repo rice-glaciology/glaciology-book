@@ -49,11 +49,53 @@ $$
 n_\pm \propto \exp\!\left(-\frac{H_f}{2kT}\right),
 $$
 
+```{admonition} Derivation
+:class: dropdown
+Defects form in pairs, a creation reaction $0 \rightleftharpoons (+) + (-)$ in which a perfect region produces one positive and one negative orientational defect. At equilibrium the chemical potentials balance, which for dilute, independent defects is the law of mass action: the product of the two concentrations is fixed by the Boltzmann factor of the energy to make a pair,
+
+$$
+n_+ \, n_- \propto \exp\!\left(-\frac{H_f}{kT}\right),
+$$
+
+where $H_f$ is the formation enthalpy of the pair. The exponential is the equilibrium constant; raising the temperature multiplies the available pairs. With the two species created in equal numbers, $n_+ = n_- \equiv n_\pm$, so $n_\pm^2$ equals the right-hand side. Taking the square root,
+
+$$
+n_\pm \propto \exp\!\left(-\frac{H_f}{2kT}\right),
+$$
+
+which is why each concentration carries half the formation enthalpy in its exponent rather than the whole of it.
+```
+
 since the law of mass action makes $n^2$, not $n$, proportional to $\exp(-H_f/kT)$. Once present, each defect migrates by jumping over its own barrier $H_m$ at the activated rate above. The rate at which the proton configuration is reordered, and therefore the rate at which dislocations glide and the ice deforms, is the product of how many defects there are and how fast each moves,
 
 $$
 \dot\varepsilon \;\propto\; n_\pm\,\nu \;\propto\; \exp\!\left(-\frac{H_f/2 + H_m}{kT}\right) \;=\; A_0\,\exp\!\left(-\frac{Q}{RT}\right),
 $$
+
+```{admonition} Derivation
+:class: dropdown
+The strain rate is proportional to the rate at which the proton configuration is reordered, which is the number of mobile defects present times the rate at which each one jumps. The first factor is the equilibrium pair concentration derived just above,
+
+$$
+n_\pm \propto \exp\!\left(-\frac{H_f}{2kT}\right),
+$$
+
+and the second is the Arrhenius jump rate of a single defect over its migration barrier $H_m$,
+
+$$
+\nu \propto \exp\!\left(-\frac{H_m}{kT}\right).
+$$
+
+Multiplying the two, the exponents add,
+
+$$
+\dot\varepsilon \propto n_\pm\,\nu \propto
+\exp\!\left(-\frac{H_f}{2kT}\right)\exp\!\left(-\frac{H_m}{kT}\right)
+= \exp\!\left(-\frac{H_f/2 + H_m}{kT}\right).
+$$
+
+Converting the per-defect energies to molar quantities ($k \to R$, with the activation energy per mole $Q$) and collecting the temperature-independent prefactors into $A_0$ gives the standard Arrhenius form $\dot\varepsilon = A_0\exp(-Q/RT)$.
+```
 
 where the last form is written per mole, with $R$ the gas constant, and the activation energy is
 

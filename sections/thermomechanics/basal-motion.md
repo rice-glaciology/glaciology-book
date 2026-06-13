@@ -24,13 +24,39 @@ $$
 u_v \approx \frac{a A}{2^n}\,\frac{\tau_b^{\,n}}{\nu^{2n}},
 $$
 
-where $a$ is the height of a representative bump, $\nu=a/l$ is the bed roughness, the ratio of bump height to bump spacing, and $A$ and $n$ are the flow-law parameters. Because creep depends on a high power of stress, this mechanism is effective at passing the large bumps. The second mechanism is regelation. The ice presses harder on the upstream face of a bump than on the downstream face, and since the melting point falls with pressure the upstream face is slightly colder. Ice melts on the high-pressure side, the meltwater flows around the bump, and it refreezes on the low-pressure side, releasing latent heat that conducts back through the bump. Balancing the conductive and latent heat fluxes gives
+where $a$ is the height of a representative bump, $\nu=a/l$ is the bed roughness, the ratio of bump height to bump spacing, and $A$ and $n$ are the flow-law parameters. Because creep depends on a high power of stress, this mechanism is effective at passing the large bumps.
+
+```{admonition} Derivation
+:class: dropdown
+This is a dimensional scaling estimate after {cite}`weertman1957`, not an exact solution of the creep problem. The basal shear stress $\tau_b$ acts over the bed and is concentrated onto the bumps, which occupy a fraction of order $\nu^2 = (a/l)^2$ of the area, so the local deviatoric stress driving creep around an obstacle scales as $\sigma \sim \tau_b/\nu^2$. Glen's flow law gives a strain rate $\dot\varepsilon \sim A\,\sigma^n \sim A\,(\tau_b/\nu^2)^n$. The ice must deform over the length scale of the bump, height $a$, to flow past it, so the sliding velocity that this strain rate produces is of order $u_v \sim a\,\dot\varepsilon$. Collecting the factors,
+
+$$
+u_v \sim a\,A\left(\frac{\tau_b}{\nu^2}\right)^{\!n} = a\,A\,\frac{\tau_b^{\,n}}{\nu^{2n}},
+$$
+
+which matches the printed scaling up to the order-unity geometric constant $2^{-n}$ that a fuller treatment of the stress concentration supplies. The key dependences are $u_v \propto a$ (larger bumps are passed faster by creep) and the high power $\tau_b^{\,n}$.
+```
+
+The second mechanism is regelation. The ice presses harder on the upstream face of a bump than on the downstream face, and since the melting point falls with pressure the upstream face is slightly colder. Ice melts on the high-pressure side, the meltwater flows around the bump, and it refreezes on the low-pressure side, releasing latent heat that conducts back through the bump. Balancing the conductive and latent heat fluxes gives
 
 $$
 u_R \approx \frac{k\,\Gamma}{\rho_i L\,a}\,\frac{\tau_b}{\nu^{2}},
 $$
 
 where $k$ is the thermal conductivity, $L$ the latent heat, and $\Gamma$ the slope of the pressure-melting relation. Because heat conduction through a small bump is quick, regelation is effective at passing the small bumps.
+
+```{admonition} Derivation
+:class: dropdown
+This is again a scaling estimate, balancing the latent heat released by refreezing against the heat conducted back through the obstacle. The stress concentrated on a bump, $\sigma \sim \tau_b/\nu^2$, raises the pressure on its upstream face and lowers it on the lee face, a pressure difference $\Delta p \sim \tau_b/\nu^2$ across the obstacle. Through the Clausius-Clapeyron slope $\Gamma = \mathrm{d}T_m/\mathrm{d}p$, this sets a temperature difference $\Delta T \sim \Gamma\,\tau_b/\nu^2$ between the two faces.
+
+That temperature difference drives a conductive heat flux through the bump. Over a bump of height $a$ the temperature gradient between the two faces is of order $\Delta T/a$, so the heat conducted from the warm lee side back to the cold stoss side is $\sim k\,\Delta T/a$ per unit area. This heat melts ice on the upstream face at a rate set by the latent heat $\rho_i L$ per unit volume, and the melt-refreeze cycle advances the ice past the bump at a regelation speed
+
+$$
+u_R \sim \frac{k\,\Delta T}{\rho_i L\,a} \sim \frac{k\,\Gamma}{\rho_i L\,a}\,\frac{\tau_b}{\nu^2},
+$$
+
+the printed scaling. The contrast with creep is in the bump size: $u_R \propto 1/a$, so regelation passes the small bumps fastest, because conduction through a small obstacle is quick, while creep passes the large ones.
+```
 
 The two mechanisms have opposite dependence on bump size, $u_v\propto a$ and $u_R\propto 1/a$, so there is a controlling obstacle size at which they are equally effective and the total resistance is greatest, with $a\propto u_b^{-(n-1)/(n+1)}$. Combining the two mechanisms at that worst-case size eliminates $a$ and yields the Weertman sliding law,
 
@@ -40,7 +66,48 @@ $$
 R=\left(\frac{\rho_i L}{2 k\,\Gamma A}\right)^{1/(n+1)} .
 $$
 
-For $n=3$ the exponent is $2/(n+1)=1/2$, so the hard-bed law takes the familiar power-law form $\tau_b=C\,u_b^{m}$ with $m\approx 1/2$, the stress rising with the square root of the sliding speed. The roughness enters through $\nu^2$, which is why a smoother bed slides faster for the same stress.
+For $n=3$ the exponent is $2/(n+1)=1/2$, so the hard-bed law takes the familiar power-law form $\tau_b=C\,u_b^{m}$ with $m\approx 1/2$, the stress rising with the square root of the sliding speed.
+
+```{admonition} Derivation
+:class: dropdown
+The two mechanisms act in series on bumps of a given size and add as velocities, $u_b \approx u_v + u_R$, with the scalings
+
+$$
+u_v \sim a\,A\,\frac{\tau_b^{\,n}}{\nu^{2n}},
+\qquad
+u_R \sim \frac{k\,\Gamma}{\rho_i L\,a}\,\frac{\tau_b}{\nu^{2}} .
+$$
+
+Weertman's argument is that the bed resists most through the obstacle size at which the two contributions are equal, because larger bumps are passed easily by creep and smaller ones by regelation, leaving the intermediate, controlling size to carry the resistance. Set $u_v = u_R$ to find that size. Equating,
+
+$$
+a\,A\,\frac{\tau_b^{\,n}}{\nu^{2n}} \sim \frac{k\,\Gamma}{\rho_i L\,a}\,\frac{\tau_b}{\nu^{2}}
+\;\Rightarrow\;
+a^2 \sim \frac{k\,\Gamma}{\rho_i L\,A}\,\frac{\nu^{2n-2}}{\tau_b^{\,n-1}} ,
+$$
+
+so the controlling size shrinks with sliding stress, $a \propto \tau_b^{-(n-1)/2}$, equivalently $a\propto u_b^{-(n-1)/(n+1)}$ once $\tau_b(u_b)$ is found below.
+
+At that size the sliding speed equals either contribution, so use $u_b \sim u_R \sim u_v$. Multiply the two scalings to eliminate $a$, since $a$ enters $u_v$ as $a^{+1}$ and $u_R$ as $a^{-1}$,
+
+$$
+u_b^2 \sim u_v\,u_R
+\sim \left(a\,A\,\frac{\tau_b^{\,n}}{\nu^{2n}}\right)\!\left(\frac{k\,\Gamma}{\rho_i L\,a}\,\frac{\tau_b}{\nu^{2}}\right)
+= \frac{A\,k\,\Gamma}{\rho_i L}\,\frac{\tau_b^{\,n+1}}{\nu^{2n+2}} ,
+$$
+
+the bump height cancelling exactly. Solving for $\tau_b$,
+
+$$
+\tau_b^{\,n+1} \sim \frac{\rho_i L}{A\,k\,\Gamma}\,\nu^{2n+2}\,u_b^2
+\;\Rightarrow\;
+\tau_b \sim \nu^2\left(\frac{\rho_i L}{A\,k\,\Gamma}\right)^{1/(n+1)} u_b^{\,2/(n+1)} .
+$$
+
+Collecting the constant into $R = \left(\rho_i L/2k\Gamma A\right)^{1/(n+1)}$, where the factor of two carries the geometric constants suppressed in the scalings, gives the printed Weertman law $\tau_b = \nu^2 R\,u_b^{\,2/(n+1)}$.
+```
+
+The roughness enters through $\nu^2$, which is why a smoother bed slides faster for the same stress.
 
 ## Sliding with cavitation
 
@@ -56,7 +123,22 @@ $$
 \tau_b \le \mu N,
 $$
 
-the Iken bound, where $\mu$ is a coefficient set by the steepest bedrock slope. The sliding relation therefore rises with speed at first, in the Weertman manner, and then falls back toward the Coulomb ceiling $\mu N$ once cavities dominate, which makes the underlying $u_b(\tau_b)$ relation double valued. Laboratory ring-shear experiments that drag ice over a sinusoidal bed reproduce this rise and fall {cite}`hewitt_karthaus`.
+the Iken bound, where $\mu$ is a coefficient set by the steepest bedrock slope.
+
+```{admonition} Derivation
+:class: dropdown
+This bound is a geometric limit on how much traction a cavitated hard bed can supply, derived by {cite}`iken1981`; it is not fitted but follows from a force balance once cavities have drowned all but the steepest faces. Consider the limiting state in which the only ice-rock contact remaining is on the steepest up-glacier-facing bedrock slopes, inclined at the maximum angle whose tangent is $\mu$. Across the cavities the ice exerts only the water pressure $p_w$; on the contact faces it exerts a normal stress $\sigma_n$.
+
+Resolve the force balance on the bed. The vertical balance requires the contact faces plus the cavity water to support the ice overburden $p_i$, while the horizontal drag the bed can return is the down-glacier component of the normal stress on the contact faces. For a face at angle $\theta$ to the horizontal, the ratio of the horizontal (resisting) to the vertical (supporting) component of the contact stress is $\tan\theta$. The drag is largest when the supporting contact is concentrated on the steepest available faces, $\tan\theta = \mu$. Writing the net supporting load as the effective pressure $N = p_i - p_w$, the maximum horizontal traction is
+
+$$
+\tau_b \le \mu\,(p_i - p_w) = \mu N .
+$$
+
+Once the sliding speed is high enough that cavities reach this configuration, the bed cannot supply more shear stress regardless of how fast the ice slides, because there is no steeper face to push against. The coefficient $\mu$ is therefore a property of the bedrock geometry, the tangent of the steepest slope, not a fitted friction coefficient.
+```
+
+The sliding relation therefore rises with speed at first, in the Weertman manner, and then falls back toward the Coulomb ceiling $\mu N$ once cavities dominate, which makes the underlying $u_b(\tau_b)$ relation double valued. Laboratory ring-shear experiments that drag ice over a sinusoidal bed reproduce this rise and fall {cite}`hewitt_karthaus`.
 
 Two friction laws are in common use that capture this behaviour while remaining single valued in $\tau_b(u_b)$. The first keeps the resistance growing with speed without bound, arguing that there is always some larger bump to take up the stress. This is the generalized Weertman, or Budd, law {cite}`budd1979`,
 
@@ -64,13 +146,49 @@ $$
 \tau_b = C\,u_b^{\,p}\,N^{\,q},
 $$
 
-which adds an effective-pressure dependence to the power law and so makes the bed weaker when the water pressure is high. The second enforces the Iken ceiling, letting the stress rise monotonically toward $\mu N$. This is the regularized Coulomb law {cite}`schoof2005,gagliardini2007,tsai2015`,
+which adds an effective-pressure dependence to the power law and so makes the bed weaker when the water pressure is high.
+
+```{admonition} Derivation
+:class: dropdown
+This is a phenomenological generalization rather than a derived result. {cite}`budd1979` took the Weertman power law $\tau_b = C\,u_b^{\,p}$ and appended a factor $N^{\,q}$ to encode the empirical observation that sliding accelerates as the effective pressure falls toward flotation, the behaviour seen in the borehole records of Iken and others. The exponents $p$ and $q$ and the coefficient $C$ are fitted, not predicted; common choices set $p = 1/n$ to recover the Weertman exponent and take $q$ positive so that the bed weakens as $N\to 0$. The form has no built-in ceiling on stress, which is its defining contrast with the regularized Coulomb law below: it assumes there is always a larger obstacle to take up additional stress, so $\tau_b$ grows without bound as the speed rises.
+```
+
+The second enforces the Iken ceiling, letting the stress rise monotonically toward $\mu N$. This is the regularized Coulomb law {cite}`schoof2005,gagliardini2007,tsai2015`,
 
 $$
 \tau_b = \mu N\left(\frac{u_b}{u_b+\lambda N^{\,n}}\right)^{1/n}.
 $$
 
-At low speed, $u_b\ll\lambda N^n$, this reduces to a Weertman-like power law $\tau_b\approx\mu(\lambda^{-1}u_b)^{1/n}$ that is nearly independent of $N$, while at high speed, $u_b\gg\lambda N^n$, it saturates at the Coulomb value $\mu N$. The single parameter $\lambda$ sets the transition. This form has become standard for modelling fast flow near grounding lines, because the Coulomb ceiling is exactly what allows a grounding line to thin and accelerate without the bed supplying ever-larger resistance.
+At low speed, $u_b\ll\lambda N^n$, this reduces to a Weertman-like power law $\tau_b\approx\mu(\lambda^{-1}u_b)^{1/n}$ that is nearly independent of $N$, while at high speed, $u_b\gg\lambda N^n$, it saturates at the Coulomb value $\mu N$. The single parameter $\lambda$ sets the transition.
+
+```{admonition} Derivation
+:class: dropdown
+The form itself is a phenomenological interpolation, constructed by {cite}`schoof2005,gagliardini2007,tsai2015` to join the two known limits, a Weertman power law at low speed and the Iken Coulomb ceiling at high speed, in a single expression that is smooth and single-valued. It is not derived from the bed mechanics; rather, it is the simplest function with the required asymptotics, and the two limits can be read off directly.
+
+Take the printed law
+
+$$
+\tau_b = \mu N\left(\frac{u_b}{u_b+\lambda N^{\,n}}\right)^{1/n} .
+$$
+
+At low speed, $u_b \ll \lambda N^n$, the denominator is dominated by $\lambda N^n$, so
+
+$$
+\tau_b \approx \mu N\left(\frac{u_b}{\lambda N^{\,n}}\right)^{1/n}
+= \mu N\,\frac{u_b^{\,1/n}}{\lambda^{1/n} N}
+= \mu\left(\frac{u_b}{\lambda}\right)^{1/n},
+$$
+
+the effective pressure cancelling to leave a Weertman-like power law with exponent $1/n$, nearly independent of $N$. At high speed, $u_b \gg \lambda N^n$, the ratio inside the bracket tends to one, so
+
+$$
+\tau_b \to \mu N,
+$$
+
+the Iken Coulomb ceiling. The crossover occurs where $u_b \sim \lambda N^n$, so $\lambda$ alone fixes the transition speed.
+```
+
+This form has become standard for modelling fast flow near grounding lines, because the Coulomb ceiling is exactly what allows a grounding line to thin and accelerate without the bed supplying ever-larger resistance.
 
 ## Soft-bed sliding
 
@@ -80,7 +198,20 @@ $$
 \tau_f = \mu\,\sigma_e, \qquad \sigma_e = p - p_w,
 $$
 
-a Coulomb friction law with a coefficient $\mu\approx 0.4$ acting on the effective stress $\sigma_e$, which is again the overburden minus the pore-water pressure. The decisive observation is that once the till yields, the stress it supports is almost independent of the rate of shearing. The till is, to a good approximation, perfectly plastic, so the basal shear stress is simply
+a Coulomb friction law with a coefficient $\mu\approx 0.4$ acting on the effective stress $\sigma_e$, which is again the overburden minus the pore-water pressure.
+
+```{admonition} Derivation
+:class: dropdown
+This is the Mohr-Coulomb failure criterion of soil mechanics, measured rather than derived. In a granular material the shear strength along a failure plane is set by the frictional contact between grains, which carry only the part of the normal load not borne by the pore water. That load is the effective stress $\sigma_e = p - p_w$, the total overburden $p$ minus the pore-water pressure $p_w$, since water pressure pushes the grains apart and unburdens the contacts. The shear strength is proportional to the load actually pressing the grains together,
+
+$$
+\tau_f = c + \mu\,\sigma_e ,
+$$
+
+with $\mu = \tan\varphi$ the internal-friction coefficient ($\varphi$ the friction angle) and $c$ a cohesion. For the nearly cohesionless subglacial tills tested by {cite}`iverson1998`, $c\approx 0$ and $\mu\approx 0.4$, giving the printed $\tau_f = \mu\,\sigma_e$. The value of $\mu$ is a laboratory result for the specific sediment, not a quantity predicted from first principles. The decisive experimental finding is that $\tau_f$ depends on $\sigma_e$ but barely on the rate of shearing, so the till is to good approximation perfectly plastic.
+```
+
+The decisive observation is that once the till yields, the stress it supports is almost independent of the rate of shearing. The till is, to a good approximation, perfectly plastic, so the basal shear stress is simply
 
 $$
 \tau_b = \mu N,

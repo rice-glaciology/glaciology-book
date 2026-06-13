@@ -12,6 +12,18 @@ $$
 \frac{DT}{Dt}=\frac{\partial T}{\partial t}+\mathbf{u}\cdot\nabla T,
 $$
 
+```{admonition} Derivation
+:class: dropdown
+A parcel moving with the flow occupies position $\mathbf{x}(t)$, with $\mathrm{d}\mathbf{x}/\mathrm{d}t=\mathbf{u}$. The temperature it experiences is the field evaluated along its path, $T(\mathbf{x}(t),t)$. Differentiate with respect to $t$ by the chain rule, treating $T$ as a function of the four variables $(x_1,x_2,x_3,t)$,
+
+$$
+\frac{DT}{Dt}=\frac{\partial T}{\partial t}+\sum_{i}\frac{\partial T}{\partial x_i}\,\frac{\mathrm{d}x_i}{\mathrm{d}t}
+=\frac{\partial T}{\partial t}+\frac{\partial T}{\partial x_i}\,u_i .
+$$
+
+The sum on $i$ is the dot product $\mathbf{u}\cdot\nabla T$, since $\partial T/\partial x_i$ are the components of $\nabla T$ and $u_i$ the components of $\mathbf{u}$. The first term is the change at a fixed point and the second the change from being carried to a place where the field differs.
+```
+
 a local term, the change at a fixed point, plus an advective term, the change from being carried to somewhere different. A skier descending in the evening feels both at once. The air everywhere is cooling as the sun sets, the local term, while the descent carries them into warmer air at lower elevation, the advective term, and the temperature history they experience is the sum. Every conservation law in the chapters ahead, momentum in these chapters and heat in {doc}`../thermomechanics/thermal-structure`, is a statement about $D/Dt$ of something, and the advective term is what couples those budgets to the flow itself.
 
 ## Traction and the stress tensor
@@ -23,6 +35,25 @@ Cauchy showed that this apparently infinite amount of information is contained i
 $$
 \mathbf{t}=\boldsymbol{\sigma}\,\mathbf{n}, \qquad t_i=\sigma_{ij}n_j,
 $$
+
+```{admonition} Derivation
+:class: dropdown
+Consider a small tetrahedron at a point, with three faces lying in the coordinate planes and a fourth, slanted face of area $A$ and outward unit normal $\mathbf{n}$. The three coordinate faces have outward normals along $-\mathbf{e}_1,-\mathbf{e}_2,-\mathbf{e}_3$, and their areas are the projections of the slanted face, $A_j=n_j A$, since $n_j$ is the cosine between $\mathbf{n}$ and the $j$ axis.
+
+Let $\mathbf{t}^{(\mathbf{n})}$ be the traction on the slanted face and $\mathbf{t}^{(-\mathbf{e}_j)}$ the traction on the coordinate face with normal $-\mathbf{e}_j$. By Newton's third law $\mathbf{t}^{(-\mathbf{e}_j)}=-\mathbf{t}^{(\mathbf{e}_j)}$. Balancing forces on the tetrahedron,
+
+$$
+\mathbf{t}^{(\mathbf{n})}A+\sum_j \mathbf{t}^{(-\mathbf{e}_j)}A_j+\rho\,\mathbf{b}\,V=0 ,
+$$
+
+where the last term collects body forces and inertia over the volume $V$. Now shrink the tetrahedron about the point. The face areas scale as the square of its linear size $\ell$ while the volume scales as $\ell^3$, so the body-force term vanishes relative to the surface terms as $\ell\to0$. Dividing by $A$ and using $A_j/A=n_j$ leaves
+
+$$
+\mathbf{t}^{(\mathbf{n})}=\sum_j \mathbf{t}^{(\mathbf{e}_j)}\,n_j .
+$$
+
+Define $\sigma_{ij}$ as the $i$ component of the traction on the face whose normal is $\mathbf{e}_j$, that is $t^{(\mathbf{e}_j)}_i=\sigma_{ij}$. Then $t_i=\sigma_{ij}n_j$, which is the stated relation.
+```
 
 where $\boldsymbol{\sigma}$ is the Cauchy stress tensor and the summation convention is used. The component $\sigma_{ij}$ is the $i$ component of traction on a face whose outward normal points in the $j$ direction. The three diagonal components are normal stresses, acting perpendicular to their faces, and the six off-diagonal components are shear stresses, acting in the plane of their faces.
 
@@ -69,6 +100,29 @@ A constitutive law must give the same prediction regardless of how the coordinat
 $$
 \tau_E=\sqrt{\tfrac12\,\tau_{ij}\tau_{ij}}, \qquad \dot\varepsilon_E=\sqrt{\tfrac12\,\dot\varepsilon_{ij}\dot\varepsilon_{ij}},
 $$
+
+```{admonition} Derivation
+:class: dropdown
+The contraction $\tau_{ij}\tau_{ij}$ is a sum of squares over all nine components and so is invariant under rotation, like any full contraction of a tensor with itself. For a trace-free symmetric tensor it equals twice the negative of the second principal invariant, which is why it is the natural quantity to build a scalar measure from. The factor $\tfrac12$ is a convention fixed so that the effective stress reduces to the familiar value in simple cases.
+
+Take uniaxial deviatoric stress with principal values $(\tau,-\tfrac12\tau,-\tfrac12\tau)$, the deviatoric part of a pull along one axis. Then
+
+$$
+\tau_{ij}\tau_{ij}=\tau^2+\tfrac14\tau^2+\tfrac14\tau^2=\tfrac32\,\tau^2,
+\qquad
+\tau_E=\sqrt{\tfrac12\cdot\tfrac32\,\tau^2}=\sqrt{\tfrac34}\,\tau ,
+$$
+
+while for a single shear stress with $\tau_{xz}=\tau_{zx}=\tau$ and all else zero,
+
+$$
+\tau_{ij}\tau_{ij}=\tau^2+\tau^2=2\tau^2,
+\qquad
+\tau_E=\sqrt{\tfrac12\cdot 2\tau^2}=\tau ,
+$$
+
+so the convention makes $\tau_E$ coincide with the applied shear stress in simple shear. The strain-rate measure $\dot\varepsilon_E$ is defined by the identical contraction.
+```
 
 scalar measures of the overall magnitude of shape-changing stress and deformation. These are exactly the quantities that appear in Glen's flow law, which states that the strain-rate tensor is aligned with the deviatoric-stress tensor with a magnitude set by $\tau_E$.
 

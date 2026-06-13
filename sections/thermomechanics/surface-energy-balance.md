@@ -16,7 +16,28 @@ $$
 \dot m = \frac{Q_M}{\rho_w L_f},
 $$
 
-with $L_f = 334\ \mathrm{kJ\,kg^{-1}}$ the latent heat of fusion. This is the exact surface analogue of the basal statement that once the bed reaches the melting point the surplus heat melts ice rather than warming it. The whole of surface melting is contained in deciding when $Q_M > 0$ at a surface held at the melting point, and the rest of this chapter is the anatomy of the terms that decide it.
+with $L_f = 334\ \mathrm{kJ\,kg^{-1}}$ the latent heat of fusion.
+
+```{admonition} Derivation
+:class: dropdown
+Once the surface has reached the melting point its temperature is pinned at $0\,^\circ\mathrm{C}$, so any net energy input $Q_M$ (in watts per square metre) can no longer raise the temperature and must instead change phase. Melting a mass $\mathrm{d}M$ of ice per unit area requires the latent heat $L_f\,\mathrm{d}M$. Equating the energy supplied per unit area per unit time to the latent heat consumed,
+
+$$
+Q_M = L_f\,\frac{\mathrm{d}M}{\mathrm{d}t} .
+$$
+
+Expressing the result as a melt rate in terms of water-equivalent depth, $\dot m$, the mass melted per unit area per unit time is $\rho_w\,\dot m$, so $\mathrm{d}M/\mathrm{d}t = \rho_w\,\dot m$. Substituting,
+
+$$
+Q_M = \rho_w L_f\,\dot m
+\;\Rightarrow\;
+\dot m = \frac{Q_M}{\rho_w L_f},
+$$
+
+the printed melt rate. The expression holds only when $Q_M > 0$ at a surface already at the melting point; if $Q_M < 0$ the surface cools below $0\,^\circ\mathrm{C}$ and no melt occurs.
+```
+
+This is the exact surface analogue of the basal statement that once the bed reaches the melting point the surplus heat melts ice rather than warming it. The whole of surface melting is contained in deciding when $Q_M > 0$ at a surface held at the melting point, and the rest of this chapter is the anatomy of the terms that decide it.
 
 ## The radiative fluxes
 
@@ -34,6 +55,6 @@ The albedo deserves separate treatment because it both controls melt and is cont
 
 ## What the budget produces
 
-The output of the surface energy balance is a melt rate, and that meltwater has only a few fates, each taken up in the chapters that follow. Where the underlying firn is cold, the meltwater percolates and refreezes, releasing its latent heat back into the firn and building the ice lenses and layers that distinguish the facies of {doc}`../foundations/snow-to-ice`; refreezing returns the energy to the glacier and removes none of its mass. Where the firn is already at the melting point or absent, the water runs off, gathering into the supraglacial streams, lakes, and moulins of {doc}`surface-hydrology` and eventually reaching the bed or the ocean. The partition between these fates, refreezing versus runoff, is itself part of the surface mass balance and is one of the harder quantities to model.
+The output of the surface energy balance is a melt rate, and that meltwater has only a few fates, each taken up in the chapters that follow. Where the underlying firn is cold, the meltwater percolates and refreezes within it, the metamorphism developed in {doc}`../foundations/snow-processes`, which returns the latent heat to the glacier and removes none of its mass. Where the firn is already at the melting point or absent, the water runs off, gathering into the supraglacial streams, lakes, and moulins of {doc}`surface-hydrology` and eventually reaching the bed or the ocean. The partition between these fates, refreezing versus runoff, is itself part of the surface mass balance and is one of the harder quantities to model.
 
 For the prognostic forcing of {doc}`../climate/climate-forcing`, the full budget developed here is reduced to a parameterization. The positive-degree-day model replaces the whole balance with a single empirical factor multiplying the temperature, which works because most of the terms covary with air temperature, while the energy-balance model retains the individual fluxes where that approximation fails, on maritime glaciers dominated by turbulent exchange and on surfaces where the albedo feedback is decisive. Both are how the physics of this chapter enters a model that must run for centuries; the chapter itself is the account of where the melt comes from, the surface boundary condition that closes the heat flow begun at the bed in {doc}`thermal-structure`.

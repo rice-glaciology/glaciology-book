@@ -18,7 +18,22 @@ $$
 E_n = \frac{p_n^2}{2m} = \frac{n^2 h^2}{8 m L^2}.
 $$
 
-Two features of this result hold for confined quantum systems generally. The energy can take only discrete values, with the spacing between levels set by $h^2/8mL^2$, so that discreteness is a property of any confined wave. And the lowest state is not at rest; the $n=1$ level retains the energy $h^2/8mL^2$, the zero-point energy met in the {doc}`preface`, because a wave of infinite wavelength cannot fit between the walls. The state with quantum number $n$ has $n-1$ interior nodes, points where the wave vanishes, and the energy rises with the number of nodes, a pattern that recurs in the orbitals below.
+```{admonition} Derivation
+:class: dropdown
+The energy is purely kinetic, since the particle is free between the walls, so $E_n = p_n^2/2m$ with $p_n$ the momentum that the de Broglie relation assigns to the standing wave. The boundary condition that the wave vanish at both walls admits only an integer number of half-wavelengths in the segment, $L = n(\lambda_n/2)$, which is the printed quantization $\lambda_n = 2L/n$. The de Broglie relation $\lambda = h/p$ then fixes the momentum,
+
+$$
+p_n = \frac{h}{\lambda_n} = \frac{nh}{2L}.
+$$
+
+Substituting into $E_n = p_n^2/2m$ gives
+
+$$
+E_n = \frac{1}{2m}\left(\frac{nh}{2L}\right)^2 = \frac{n^2 h^2}{8mL^2}.
+$$
+```
+
+Two features of this result hold for confined quantum systems generally. The energy can take only discrete values, with the spacing between levels set by $h^2/8mL^2$, so that discreteness is a property of any confined wave. And the lowest state is not at rest; the $n=1$ level retains the energy $h^2/8mL^2$, the zero-point energy, because a wave of infinite wavelength cannot fit between the walls. The state with quantum number $n$ has $n-1$ interior nodes, points where the wave vanishes, and the energy rises with the number of nodes, a pattern that recurs in the orbitals below.
 
 ```{figure} figures/particle-in-a-box-levels.png
 :name: fig-particle-in-a-box
@@ -39,6 +54,37 @@ $$
 E_n = -\frac{m e^4}{8\,\epsilon_0^2 h^2}\,\frac{1}{n^2} = -\frac{13.6\ \mathrm{eV}}{n^2},
 \qquad n = 1, 2, 3, \ldots
 $$
+
+```{admonition} Derivation
+:class: dropdown
+The Bohr model recovers the formula from the balance of the Coulomb force against the centripetal requirement of a circular orbit, together with quantization of angular momentum. For an electron of mass $m$ and charge $-e$ orbiting a proton at radius $r$ with speed $v$, the Coulomb attraction supplies the centripetal force,
+
+$$
+\frac{e^2}{4\pi\epsilon_0 r^2} = \frac{m v^2}{r},
+\qquad\text{so}\qquad m v^2 = \frac{e^2}{4\pi\epsilon_0 r}.
+$$
+
+The standing-wave condition on the electron, that the circumference hold an integer number of de Broglie wavelengths $2\pi r = n\lambda = nh/mv$, is the quantization of angular momentum $mvr = n\hbar = nh/2\pi$. Solving this for $v$ and inserting it in the force balance gives the allowed radii,
+
+$$
+r_n = \frac{\epsilon_0 h^2}{\pi m e^2}\,n^2,
+$$
+
+whose $n=1$ value is the Bohr radius $a_0$. The total energy is the kinetic plus the Coulomb potential energy; from the force balance the kinetic term is $\tfrac12 m v^2 = e^2/8\pi\epsilon_0 r$, exactly half the magnitude of the potential term $-e^2/4\pi\epsilon_0 r$, so
+
+$$
+E_n = \frac{1}{2}mv^2 - \frac{e^2}{4\pi\epsilon_0 r_n}
+= -\frac{e^2}{8\pi\epsilon_0 r_n}.
+$$
+
+Substituting $r_n$ collapses the constants to
+
+$$
+E_n = -\frac{m e^4}{8\,\epsilon_0^2 h^2}\,\frac{1}{n^2},
+$$
+
+and evaluating the prefactor gives $13.6$ eV. The full wave-mechanical solution reproduces the identical energies, with the integer $n$ reinterpreted as the principal quantum number.
+```
 
 and a ground-state radius, the Bohr radius, $a_0 = \epsilon_0 h^2/\pi m e^2 = 0.529$ Å. The ionization energy of hydrogen is 13.6 eV; the ionization energy of the water molecule, 12.6 eV ({doc}`water-molecule`), is of the same order because the same physics binds its outer electrons. Atomic sizes of an angstrom, bond energies of electron volts, and the $10^{15}$ Hz frequencies of ultraviolet spectra are all expressions of the constants in the Bohr formula.
 
@@ -63,6 +109,17 @@ E_v = \left(v + \tfrac{1}{2}\right) h\nu, \qquad
 \nu = \frac{1}{2\pi}\sqrt{\frac{k}{\mu}}, \qquad v = 0, 1, 2, \ldots
 $$
 
+```{admonition} Derivation
+:class: dropdown
+The classical frequency follows from the equation of motion alone, and the level structure is the standard result for the quantized oscillator, quoted here without solving the wave equation. A mass $\mu$ in the parabolic potential $V = \tfrac12 k x^2$ obeys $\mu\ddot x = -kx$, the equation of simple harmonic motion, whose solution oscillates at angular frequency $\omega = \sqrt{k/\mu}$ and hence at frequency
+
+$$
+\nu = \frac{\omega}{2\pi} = \frac{1}{2\pi}\sqrt{\frac{k}{\mu}}.
+$$
+
+Solving the Schrödinger equation for this potential, which the book quotes rather than carries out, gives equally spaced levels $E_v = (v+\tfrac12)h\nu$. The uniform spacing $h\nu$ and the displaced floor $\tfrac12 h\nu$ are both consistent with the uncertainty principle: a wave confined near the minimum cannot have both vanishing position spread and vanishing momentum, so the lowest state retains a finite zero-point energy rather than sitting at the bottom of the well.
+```
+
 The levels are uniformly spaced by $h\nu$, and the ground state retains the zero-point energy $\tfrac{1}{2}h\nu$. For the vibration of two bonded atoms, $\mu$ is the reduced mass $m_1 m_2/(m_1+m_2)$, which for O–H is 0.948 u, close to the proton mass because the oxygen barely moves. The measured O–H stretching frequency, about 3660 cm⁻¹, then implies a force constant $k = \mu\,(2\pi c\tilde\nu)^2 \approx 750$ N m⁻¹, an estimate of the stiffness of the covalent bond. Two consequences of the formula run through the book. The frequency, and with it the zero-point energy, falls as the square root of the mass increases, which is the origin of the isotope effects developed in {doc}`water-molecule`; and vibrational quanta of this size correspond to characteristic temperatures $h\nu/k_B$ of thousands of kelvin, which is why molecular vibrations are frozen out at terrestrial temperatures.
 
 ```{figure} figures/oscillator-levels-isotope.png
@@ -78,9 +135,27 @@ $$
 E_J = B\,J(J+1), \qquad B = \frac{\hbar^2}{2I}, \qquad J = 0, 1, 2, \ldots
 $$
 
+```{admonition} Derivation
+:class: dropdown
+A freely rotating rigid body has only kinetic energy, which in terms of the angular momentum $\ell$ and the moment of inertia $I$ about the rotation axis is
+
+$$
+E = \frac{1}{2}I\omega^2 = \frac{\ell^2}{2I},
+$$
+
+since $\ell = I\omega$. Quantum mechanics quantizes the squared angular momentum of a rigid rotor as $\ell^2 = J(J+1)\hbar^2$ with $J$ a non-negative integer, the result quoted here rather than derived from the angular wave equation. Substituting gives
+
+$$
+E_J = \frac{J(J+1)\hbar^2}{2I} = B\,J(J+1),
+\qquad B \equiv \frac{\hbar^2}{2I}.
+$$
+
+The factor $J(J+1)$ rather than $J^2$ is the one feature that does not survive the classical limit; the rotational constant $B$ is fixed entirely by the moment of inertia.
+```
+
 Because molecules are small, their moments of inertia are small and their rotational quanta, of order $10^{-3}$ eV for a light molecule like water, are the finest of the three families, lying in the far infrared and microwave. Thermal energy at the melting point, 190 cm⁻¹ in spectroscopic units, spans many of these levels, so a vapor molecule tumbles freely among its rotational states. In the crystal, free rotation is suppressed by the four hydrogen bonds and is replaced by hindered rocking motions, the librations taken up in {doc}`lattice-dynamics`; the measured rotational constants of the water molecule are given with its spectrum in {doc}`water-molecule`.
 
-The Boltzmann factor of the {doc}`preface` determines how these levels are populated at equilibrium. The fraction of molecules in an excited state lies below the ground-state fraction by $e^{-\Delta E/k_B T}$, weighted by the number of states at each energy, and at the melting point the three families sit in three different regimes. Rotational levels, spaced by much less than $k_B T$, are populated in large numbers, and because the number of states at each $J$ grows as $2J+1$, the most populated level is not the lowest but $J \approx 2$. Vibrational levels are sparsely occupied; the Boltzmann factor at 273 K is about $2\times10^{-4}$ for the bending quantum and a few parts in $10^9$ for a stretch, so fewer than one molecule in a thousand is vibrationally excited at any instant. For the lowest electronic excitation the factor is $e^{-298} \approx 10^{-129}$, indistinguishable from zero, which restates in numbers the conclusion of the next section, that glacier ice remains entirely in its electronic ground state.
+The Boltzmann factor introduced in {doc}`composition` determines how these levels are populated at equilibrium. The fraction of molecules in an excited state lies below the ground-state fraction by $e^{-\Delta E/k_B T}$, weighted by the number of states at each energy, and at the melting point the three families sit in three different regimes. Rotational levels, spaced by much less than $k_B T$, are populated in large numbers, and because the number of states at each $J$ grows as $2J+1$, the most populated level is not the lowest but $J \approx 2$. Vibrational levels are sparsely occupied; the Boltzmann factor at 273 K is about $2\times10^{-4}$ for the bending quantum and a few parts in $10^9$ for a stretch, so fewer than one molecule in a thousand is vibrationally excited at any instant. For the lowest electronic excitation the factor is $e^{-298} \approx 10^{-129}$, indistinguishable from zero, which restates in numbers the conclusion of the next section, that glacier ice remains entirely in its electronic ground state.
 
 Radiation couples to these levels through the photon energy $h\nu$, and absorption requires a transition of matching energy, which is why every substance has a characteristic absorption spectrum. Matching energy is necessary but not sufficient. The electric field of the wave can do work on the molecule only if the transition changes the molecule's electric dipole moment, so a vibrational mode absorbs only when the motion modulates the dipole, and a molecule shows a pure rotational spectrum only when it carries a permanent dipole to rotate. All three of water's vibrations modulate its dipole strongly, and the permanent moment of 1.84 debye ({doc}`water-molecule`) makes its rotational spectrum intense, whereas the symmetric molecules N₂ and O₂, which make up ninety-nine percent of the atmosphere, have neither and are transparent across the infrared. The infrared opacity of the atmosphere, and with it the greenhouse effect, is run by its trace polar molecules, water first among them. For the idealized oscillator and rotor the rules are stricter still, one quantum at a time, $\Delta v = \pm 1$ and $\Delta J = \pm 1$, so a vapor-phase vibrational transition carries a comb of rotational lines on either side of its center, the fine structure that gives atmospheric absorption bands their texture.
 
@@ -92,7 +167,7 @@ At the opposite end of the spectrum the photon energy can be too small for any t
 
 ## Classical and quantum degrees of freedom
 
-Whether a degree of freedom behaves classically is determined by the ratio of its level spacing to $k_B T$, which at the melting point is about 1/40 eV. When the spacing is small compared with $k_B T$, the levels are effectively continuous, the motion is classical, and equipartition applies; the rotations of the free molecule, with quanta of order $10^{-3}$ eV, are in this regime, and could accordingly be counted classically in the $4R$ heat capacity of the {doc}`preface`. When the spacing is large compared with $k_B T$, excitation is suppressed by the Boltzmann factor and the degree of freedom contributes nothing to the heat capacity; the molecular vibrations, with quanta of five to twenty times $k_B T$, are in this regime, which is why they are absent from the $4R$ count. Electronic excitation is suppressed more strongly still, so that the molecules of a glacier are all in their electronic ground states. This last point has a useful consequence, since it means the interaction between molecules can be described by a single potential-energy function, the one mapped in the next two chapters. The same comparison of $h\nu$ with $k_B T$, applied mode by mode to the vibrations of the crystal, yields the heat capacity of ice in {doc}`lattice-dynamics`.
+Whether a degree of freedom behaves classically is determined by the ratio of its level spacing to $k_B T$, which at the melting point is about 1/40 eV. When the spacing is small compared with $k_B T$, the levels are effectively continuous, the motion is classical, and equipartition applies; the rotations of the free molecule, with quanta of order $10^{-3}$ eV, are in this regime, and could accordingly be counted classically in the $4R$ heat capacity of {doc}`water-molecule`. When the spacing is large compared with $k_B T$, excitation is suppressed by the Boltzmann factor and the degree of freedom contributes nothing to the heat capacity; the molecular vibrations, with quanta of five to twenty times $k_B T$, are in this regime, which is why they are absent from the $4R$ count. Electronic excitation is suppressed more strongly still, so that the molecules of a glacier are all in their electronic ground states. This last point has a useful consequence, since it means the interaction between molecules can be described by a single potential-energy function, the one mapped in the next two chapters. The same comparison of $h\nu$ with $k_B T$, applied mode by mode to the vibrations of the crystal, yields the heat capacity of ice in {doc}`lattice-dynamics`.
 
 ```{figure} figures/molecular-energy-ladder.png
 :name: fig-energy-ladder
@@ -106,6 +181,25 @@ A quantum particle also has a finite probability of penetrating a potential barr
 $$
 \kappa = \frac{\sqrt{2m(V - E)}}{\hbar},
 $$
+
+```{admonition} Derivation
+:class: dropdown
+In a region where the potential $V$ exceeds the particle energy $E$, the time-independent Schrödinger equation reads
+
+$$
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V\psi = E\psi,
+\qquad\text{or}\qquad
+\frac{d^2\psi}{dx^2} = \frac{2m(V-E)}{\hbar^2}\,\psi.
+$$
+
+Because $V - E > 0$, the coefficient on the right is positive, so the equation has the form $\psi'' = \kappa^2\psi$ with
+
+$$
+\kappa^2 = \frac{2m(V-E)}{\hbar^2}.
+$$
+
+Its solutions are real exponentials $e^{\pm\kappa x}$ rather than the oscillating $e^{\pm ikx}$ of a classically allowed region. The physically admissible branch decays into the barrier as $e^{-\kappa x}$, so the amplitude falls by $e^{-\kappa a}$ across a barrier of width $a$ and the transmission probability, set by the squared amplitude, falls as $e^{-2\kappa a}$. Taking the square root of $\kappa^2$ gives the printed decay constant.
+```
 
 so that the transmission probability through a barrier of width $a$ falls off as $e^{-2\kappa a}$, exponentially in the width and in the square root of the particle mass. This is tunneling, and the mass dependence makes it most important for light particles; electrons tunnel readily, protons measurably, deuterons less so. For a proton facing a barrier a few tenths of an electron volt high and a few tenths of an angstrom wide, dimensions typical of proton exchange along a hydrogen bond, the exponent $2\kappa a$ is of order ten, so tunneling is rare for any single attempt but not negligible against the $10^{13}$ attempts per second that lattice vibrations supply. Proton tunneling has accordingly been invoked in the motion of protons along and between hydrogen bonds in ice, and the question recurs with the defect processes of {doc}`point-defects`.
 

@@ -24,6 +24,40 @@ $$
 +\int_\Omega \mathbf{w}\cdot\rho_i\mathbf{g}\,\mathrm{d}V = 0 .
 $$
 
+```{admonition} Derivation
+:class: dropdown
+Only the stress term in the weighted residual is integrated by parts; the gravity term is unchanged. Write the stress term in index notation, with the divergence $(\nabla\!\cdot\!\boldsymbol{\sigma})_i=\partial\sigma_{ij}/\partial x_j$,
+
+$$
+\int_\Omega w_i\,\frac{\partial\sigma_{ij}}{\partial x_j}\,\mathrm{d}V .
+$$
+
+Apply the product rule to move the derivative off the stress and onto the test function,
+
+$$
+w_i\,\frac{\partial\sigma_{ij}}{\partial x_j}
+=\frac{\partial}{\partial x_j}\!\left(w_i\,\sigma_{ij}\right)-\frac{\partial w_i}{\partial x_j}\,\sigma_{ij} .
+$$
+
+Integrate over $\Omega$. The first term on the right is a divergence, so the divergence theorem converts it to a surface integral over $\partial\Omega$ with outward normal $n_j$,
+
+$$
+\int_\Omega \frac{\partial}{\partial x_j}\!\left(w_i\,\sigma_{ij}\right)\mathrm{d}V
+=\int_{\partial\Omega} w_i\,\sigma_{ij}\,n_j\,\mathrm{d}S
+=\int_{\partial\Omega}\mathbf{w}\cdot\boldsymbol{\sigma}\mathbf{n}\,\mathrm{d}S .
+$$
+
+The second term is the contraction $\partial w_i/\partial x_j\,\sigma_{ij}=\nabla\mathbf{w}:\boldsymbol{\sigma}$. Collecting,
+
+$$
+\int_\Omega w_i\,\frac{\partial\sigma_{ij}}{\partial x_j}\,\mathrm{d}V
+=\int_{\partial\Omega}\mathbf{w}\cdot\boldsymbol{\sigma}\mathbf{n}\,\mathrm{d}S
+-\int_\Omega \nabla\mathbf{w}:\boldsymbol{\sigma}\,\mathrm{d}V .
+$$
+
+Substituting this for the stress term in the weighted residual, and keeping the gravity term as it stood, gives the stated weak form. The volume integral of the stress now contains only first derivatives of $\mathbf{w}$ and $\mathbf{u}$, and the boundary integral exposes the traction $\boldsymbol{\sigma}\mathbf{n}$.
+```
+
 This is the weak, or variational, form. Two things have been gained. The solution now needs only one derivative rather than two, so the piecewise-polynomial approximations introduced below are admissible. And the boundary integral has made the natural boundary conditions explicit: the term $\boldsymbol{\sigma}\mathbf{n}$ is the traction on the ice surface, so a stress-free upper surface, the water pressure at a calving front, and the ocean pressure beneath a shelf all enter here, simply by substituting the known traction. The conditions that prescribe the velocity itself, such as no slip on a frozen bed or a given inflow, are imposed differently, as described below.
 
 ## The action principle for ice
@@ -34,6 +68,30 @@ $$
 J(\mathbf{u}) = \int_\Omega \left[\frac{2A^{-1/n}}{1+1/n}\,\dot\varepsilon_E^{\,1+1/n} - \rho_i\,\mathbf{g}\cdot\mathbf{u}\right]\mathrm{d}V
 + (\text{boundary terms}),
 $$
+
+```{admonition} Derivation
+:class: dropdown
+The functional is built so that requiring it to be stationary reproduces the weak form, and the viscous term is constructed to recover Glen's law. The gravity term is plainly the negative of the rate at which gravity does work, $-\rho_i\mathbf{g}\cdot\mathbf{u}$. The viscous term is a dissipation potential whose derivative with respect to the strain rate returns the deviatoric stress.
+
+Check the viscous term. Its integrand depends on the velocity only through $\dot\varepsilon_E$, and the first variation needs $\partial/\partial\dot\varepsilon_{ij}$ of it. Differentiating $\dot\varepsilon_E=\sqrt{\tfrac12\dot\varepsilon_{kl}\dot\varepsilon_{kl}}$ gives $\partial\dot\varepsilon_E/\partial\dot\varepsilon_{ij}=\dot\varepsilon_{ij}/(2\dot\varepsilon_E)$. Hence
+
+$$
+\frac{\partial}{\partial\dot\varepsilon_{ij}}\!\left[\frac{2A^{-1/n}}{1+1/n}\,\dot\varepsilon_E^{\,1+1/n}\right]
+=2A^{-1/n}\,\dot\varepsilon_E^{\,1/n}\cdot\frac{\dot\varepsilon_{ij}}{2\dot\varepsilon_E}
+=A^{-1/n}\,\dot\varepsilon_E^{\,(1-n)/n}\,\dot\varepsilon_{ij}
+=2\eta\,\dot\varepsilon_{ij}=\tau_{ij},
+$$
+
+using the viscosity $\eta=\tfrac12 A^{-1/n}\dot\varepsilon_E^{(1-n)/n}$ of {doc}`../ice_flow/ice-rheology`. The integrand thus has the stress as its strain-rate derivative, which is what makes it the right dissipation potential.
+
+Now take the first variation of $J$ in a direction $\mathbf{w}$. By the chain rule, with $\delta\dot\varepsilon_{ij}=\tfrac12(\partial w_i/\partial x_j+\partial w_j/\partial x_i)$ and $\tau_{ij}$ symmetric,
+
+$$
+\delta J=\int_\Omega\left[\tau_{ij}\,\frac{\partial w_i}{\partial x_j}-\rho_i\mathbf{g}\cdot\mathbf{w}\right]\mathrm{d}V+(\text{boundary}).
+$$
+
+For the deviatoric stress, $\tau_{ij}\,\partial w_i/\partial x_j=\nabla\mathbf{w}:\boldsymbol{\sigma}$ once the pressure is included to enforce incompressibility. Setting $\delta J=0$ for every admissible $\mathbf{w}$ is exactly the weak form derived above. Because the integrand is convex in $\dot\varepsilon_E$ for $n\ge1$, the stationary point is the unique minimizer. The detailed treatment is in {cite}`shapero2021`.
+```
 
 with $\dot\varepsilon_E$ the effective strain rate of {doc}`tensor-algebra`. The true velocity is the one that makes this functional stationary, and setting its first variation to zero recovers exactly the weak form above. Because the functional is convex, the minimizer is unique, and the problem is well posed. This variational viewpoint is the one icepack adopts: a flow model is specified by writing down its action functional, and the basal friction law of {doc}`../thermomechanics/basal-motion` enters as a boundary contribution to it.
 

@@ -12,12 +12,46 @@ $$
 p(m) = \frac{N!}{m!\,(N-m)!}\;p^m\,(1-p)^{N-m},
 $$
 
+```{admonition} Derivation
+:class: dropdown
+Treat the $N$ bonds as independent, each broken with probability $p$ and intact with probability $1-p$. One particular configuration with a specified set of $m$ broken bonds and $N-m$ intact ones occurs, by independence, with probability $p^m(1-p)^{N-m}$. The bonds are indistinguishable as to which are broken, so every assignment that breaks some $m$ of them yields the same probability, and the number of such assignments is the number of ways to choose $m$ bonds out of $N$,
+
+$$
+\binom{N}{m} = \frac{N!}{m!\,(N-m)!}.
+$$
+
+The probability of finding exactly $m$ broken bonds, regardless of which, is the product of the count and the per-configuration probability, which is the printed expression.
+```
+
 the binomial distribution. Its mean and width follow from the independence of the bonds. A single bond contributes 1 with probability $p$ and 0 otherwise, so its mean is $p$ and its variance is $\langle x^2\rangle - \langle x\rangle^2 = p - p^2 = p(1-p)$; for independent contributions both means and variances add, giving
 
 $$
 \langle m \rangle = Np, \qquad \sigma^2 = Np(1-p), \qquad
 \frac{\sigma}{\langle m \rangle} = \sqrt{\frac{1-p}{Np}} \approx \frac{1}{\sqrt{Np}}.
 $$
+
+```{admonition} Derivation
+:class: dropdown
+Write $m = \sum_{i=1}^{N} x_i$, where $x_i$ is 1 if bond $i$ is broken and 0 otherwise. A single such indicator has mean $\langle x_i\rangle = p\cdot 1 + (1-p)\cdot 0 = p$ and, since $x_i^2 = x_i$, variance $\langle x_i^2\rangle - \langle x_i\rangle^2 = p - p^2 = p(1-p)$. Means add for any sum of random variables, so
+
+$$
+\langle m\rangle = \sum_{i=1}^N \langle x_i\rangle = Np.
+$$
+
+Variances add for *independent* variables, which the bonds are taken to be, so
+
+$$
+\sigma^2 = \sum_{i=1}^N p(1-p) = Np(1-p).
+$$
+
+The relative fluctuation is then
+
+$$
+\frac{\sigma}{\langle m\rangle} = \frac{\sqrt{Np(1-p)}}{Np} = \sqrt{\frac{1-p}{Np}},
+$$
+
+which for small $p$ reduces to $1/\sqrt{Np}$.
+```
 
 The mean grows in proportion to $N$ while the width grows only as $\sqrt{N}$, so the *relative* fluctuation falls as the population grows. For the gram of ice, $\langle m \rangle \approx 6.7\times10^{18}$ bonds are broken at any instant, with a standard deviation of $\sigma \approx 2.6\times10^{9}$, and the broken-bond count is therefore fixed to about four parts in $10^{10}$. Every property that depends on this population, the creep rate, the dielectric relaxation, the diffusion of molecules through the lattice, is correspondingly sharp. No measurement resolves fluctuations of one part in a billion, which is why ice, an object governed entirely by molecular statistics, behaves in the laboratory and in the field as a material with definite properties.
 
@@ -64,6 +98,28 @@ $$
 p \propto e^{-E/k_B T}.
 $$
 
+```{admonition} Derivation
+:class: dropdown
+This collects the steps sketched in the surrounding text. A small system in a definite microstate of energy $E$ leaves the reservoir with energy $E_{tot}-E$, and by the equal-a-priori-probability postulate the joint probability is proportional to the number of reservoir microstates, $W_R(E_{tot}-E)$. Writing that count through the entropy, $W_R = e^{S_R/k_B}$,
+
+$$
+p \propto W_R(E_{tot}-E) = \exp\!\left[\frac{S_R(E_{tot}-E)}{k_B}\right].
+$$
+
+Because the system is small, $E \ll E_{tot}$, expand $S_R$ to first order in $E$,
+
+$$
+S_R(E_{tot}-E) \approx S_R(E_{tot}) - E\left.\frac{\partial S_R}{\partial E}\right|_{E_{tot}}
+= S_R(E_{tot}) - \frac{E}{T},
+$$
+
+using the definition $1/T = \partial S/\partial E$. The leading term $S_R(E_{tot})$ is a constant independent of the system's state and is absorbed into the normalization, leaving
+
+$$
+p \propto \exp\!\left(-\frac{E}{k_B T}\right).
+$$
+```
+
 Nothing here is specific to the system; the exponential is purely the price the reservoir's count pays to lend out energy $E$. The normalization, the sum of Boltzmann factors over all microstates, is the partition function $Z = \sum_i e^{-E_i/k_B T}$, from which every equilibrium property follows by differentiation {cite}`gibbs1902`. The free energy $F = -k_B T \ln Z$ packages the competition that decides phase equilibrium, since minimizing $F$ means trading energy against entropy, and that trade is exactly what the freezing point at the end of this chapter expresses.
 
 At 0 °C the thermal energy $RT$ is about 2.3 kJ/mol, while a hydrogen bond costs roughly 20 kJ/mol to break, so the Boltzmann factor for borrowing a bond's worth of energy is $e^{-20/2.3} \approx 10^{-4}$. That looks prohibitive until you recall that molecules attempt the move at vibrational frequencies near $10^{13}$ Hz, so any given bond still breaks millions of times per second. Ice near the melting point is solid because the great majority of bonds are intact at any instant, and the rare fluctuations that break them are what let it creep, diffuse, and trade molecules with the vapor. The Arrhenius law that turns this exponential into the rate of every slow process in ice is developed with the point defects of {doc}`point-defects`, and it is why the rate factor in Glen's flow law of {doc}`../ice_flow/ice-rheology` makes ice at the melting point deform orders of magnitude faster than the cold ice of the polar plateaus.
@@ -102,6 +158,17 @@ $$
 k = \tfrac13\,C_V\,\bar v\,\Lambda,
 $$
 
+```{admonition} Derivation
+:class: dropdown
+This is the elementary kinetic-theory estimate, carried over from the transport of a gas to the phonon gas, with the factor of one-third arising from averaging over directions. Consider a plane normal to a temperature gradient $dT/dx$. Phonons crossing it last scattered, on average, one mean free path $\Lambda$ away, so a phonon arriving from the warmer side carries an excess energy $\sim c\,\Lambda\,(dT/dx)$ relative to one arriving from the colder side, where $c$ is the heat capacity carried by one phonon. The net energy flux is the carrier density times speed times this energy difference. Collecting the per-volume heat capacity $C_V$ and the carrier speed $\bar v$, and averaging the velocity component normal to the plane over all directions, which contributes the factor $\tfrac13$ in three dimensions, gives the flux
+
+$$
+q = -\tfrac13\,C_V\,\bar v\,\Lambda\,\frac{dT}{dx}.
+$$
+
+Comparison with Fourier's law $q = -k\,dT/dx$ identifies the conductivity as $k = \tfrac13 C_V \bar v \Lambda$. The expression is an order-of-magnitude estimate; $\Lambda$ near the melting point is inferred by inverting it against the measured $k$.
+```
+
 where $C_V$ is the heat capacity per unit volume, $\bar v$ is the mean phonon speed, close to the speed of sound in ice, and $\Lambda$ is the mean free path between scattering events. Near the melting point the mean free path inferred this way is only about $15\ \mathrm{angstroms}$, a few molecular spacings, so the phonons scatter almost as soon as they are launched. What limits the mean free path at the temperatures of glacier ice is phonon-phonon scattering through the anharmonicity of the bonds, specifically the umklapp processes in which two phonons combine to produce a third whose wave vector has been folded back into the Brillouin zone. Because the number of phonons available for umklapp scattering grows in proportion to temperature while the heat capacity is nearly constant in this range, the conductivity falls roughly as the inverse of the absolute temperature. Cold ice therefore conducts heat better than warm ice, the opposite of the trend for the heat capacity, and near the melting point the conductivity is about $2.1\ \mathrm{W\,m^{-1}\,K^{-1}}$, rising as the ice cools. The conductivity is also weakly anisotropic, larger by a few percent along the c-axis than across it, a faint mechanical echo of the crystal symmetry. This coefficient $k$ closes the conduction term in the heat equation, and its inverse temperature dependence means that the cold upper layers of an ice sheet are also its most conductive.
 
 ## The freezing point
@@ -120,6 +187,37 @@ The slope of a coexistence line follows from the Clausius-Clapeyron relation,
 $$
 \frac{dP}{dT} = \frac{L}{T\,\Delta v},
 $$
+
+```{admonition} Derivation
+:class: dropdown
+Two phases coexist where their molar (or specific) Gibbs free energies are equal, $g_1(T,P) = g_2(T,P)$. Moving along the coexistence line by $dT$ and $dP$, equality must be preserved, so the changes in the two free energies match,
+
+$$
+dg_1 = dg_2.
+$$
+
+For a single component the Gibbs free energy obeys $dg = -s\,dT + v\,dP$, with $s$ the entropy and $v$ the volume per unit mass. Writing this for each phase and equating,
+
+$$
+-s_1\,dT + v_1\,dP = -s_2\,dT + v_2\,dP,
+$$
+
+and collecting terms,
+
+$$
+(v_2 - v_1)\,dP = (s_2 - s_1)\,dT
+\qquad\Rightarrow\qquad
+\frac{dP}{dT} = \frac{\Delta s}{\Delta v}.
+$$
+
+The transition is isothermal and reversible, so the entropy change is the latent heat divided by the temperature, $\Delta s = L/T$. Substituting gives
+
+$$
+\frac{dP}{dT} = \frac{L}{T\,\Delta v}.
+$$
+
+For melting, $\Delta v < 0$ in water makes the slope negative, the backward tilt of the melting line.
+```
 
 where $L$ is the latent heat of the transition and $\Delta v$ the volume change per unit mass. Two of its consequences run through this book. Along the melting line, ice is anomalous, since melting *shrinks* water ($\Delta v < 0$), the slope is negative and pressure lowers the melting point, the fact that puts the bed of a thick ice sheet at its pressure-melting point in {doc}`../thermomechanics/thermal-structure` and makes the homologous temperature, measured relative to that local melting point, the natural argument of the flow law in {doc}`../ice_flow/ice-rheology`. Along the vapor curve, the saturation vapor pressure falls near-exponentially as air cools, which is why cooling air sheds moisture, why snow falls at all, and why the Rayleigh distillation of {doc}`../climate/paleoclimate` turns the isotopic composition of snow into a thermometer.
 

@@ -16,6 +16,19 @@ $$
 \dot\varepsilon_p = \rho_d\, b\, v,
 $$
 
+```{admonition} Derivation
+:class: dropdown
+This is the Orowan relation, a kinematic accounting of how dislocation motion adds up to bulk strain. Consider a single dislocation sweeping across a glide plane of area $L^2$ in a block of volume $L^3$. When it traverses the whole plane it offsets the two halves of the crystal by one Burgers vector $b$, producing a shear displacement $b$ over a height $L$, hence a shear strain $b/L$. If instead the dislocation advances only a distance $\mathrm{d}x$, it has swept the fraction $\mathrm{d}x/L$ of the plane and produced the proportional strain $\mathrm{d}\gamma=(b/L)(\mathrm{d}x/L)$.
+
+Now sum over many dislocations. With $N$ mobile dislocation lines threading the block, each of length $L$, the line length per unit volume is $\rho_d=NL/L^3=N/L^2$. Differentiating the strain in time, each line moving at speed $v=\mathrm{d}x/\mathrm{d}t$,
+
+$$
+\dot\gamma=\frac{N\,b}{L^2}\,\frac{1}{L}\,\frac{\mathrm{d}x}{\mathrm{d}t}\cdot L=\frac{N}{L^2}\,b\,v=\rho_d\,b\,v ,
+$$
+
+where the geometric factors of $L$ combine so that the result depends only on the mobile density, the Burgers vector, and the glide speed. The same relation holds for the tensor strain rate up to a geometric orientation factor of order unity.
+```
+
 where $\rho_d$ is the density of mobile dislocations, $b$ the magnitude of the Burgers vector, and $v$ the speed at which they glide. As the crystal deforms the dislocations multiply, so that $\rho_d$ grows with strain, and the glide velocity itself rises with the resolved stress roughly as a power law. Combining the two dependences yields a strain rate that grows faster than linearly with stress, which is the microscopic root of the power-law form of Glen's relation {cite}`fletcher1970`.
 
 Ice shows almost no work hardening: once a single crystal yields it continues to flow at a low and nearly constant stress, rather than stiffening as deformation proceeds. The reason is that dislocations in ice do not obstruct one another the way they do in a metal. When their density grows too high they climb out of their glide planes, a motion fed by the self-diffusion of molecules through vacancies described in {doc}`../foundations/point-defects`, and annihilate in pairs, holding the mobile density roughly steady and allowing creep to reach a steady rate.
@@ -51,6 +64,25 @@ $$
 \dot\varepsilon_{ij}=A\,\tau_E^{\,n-1}\,\tau_{ij}, \qquad \dot\varepsilon_E=A\,\tau_E^{\,n},
 $$
 
+```{admonition} Derivation
+:class: dropdown
+Glen's law is empirical. Its scalar content, that the minimum creep rate grows as a power of the applied stress, was read from the laboratory experiments of {cite}`glen1955,glen1958`, and the exponent and rate factor are fitted rather than derived. The microphysical argument above motivates the power-law form but does not fix $n$ from first principles. What can be reasoned is the tensor structure, given the scalar law.
+
+A constitutive law must be unchanged by rotation of the axes, so it can connect the strain-rate and deviatoric-stress tensors only through invariants. The simplest law that is isotropic, makes the strain rate vanish when the stress does, and reduces to the observed scalar relation is to take $\dot\varepsilon_{ij}$ proportional to $\tau_{ij}$ with a coefficient depending only on the effective stress,
+
+$$
+\dot\varepsilon_{ij}=\lambda(\tau_E)\,\tau_{ij}.
+$$
+
+Contract each side with itself and use the definitions $\dot\varepsilon_E=\sqrt{\tfrac12\dot\varepsilon_{ij}\dot\varepsilon_{ij}}$ and $\tau_E=\sqrt{\tfrac12\tau_{ij}\tau_{ij}}$ to get $\dot\varepsilon_E=\lambda(\tau_E)\,\tau_E$. The empirical scalar law $\dot\varepsilon_E=A\,\tau_E^{\,n}$ then fixes the coefficient, $\lambda=A\,\tau_E^{\,n-1}$, which gives
+
+$$
+\dot\varepsilon_{ij}=A\,\tau_E^{\,n-1}\,\tau_{ij}.
+$$
+
+Contracting this tensor form back with itself recovers $\dot\varepsilon_E=A\,\tau_E^{\,n}$, so the two statements are consistent. The proportionality of the two tensors is the content of the law that ice deforms in the direction the deviatoric stress pushes it.
+```
+
 where $\boldsymbol{\tau}$ is the deviatoric stress, $\tau_E$ the effective stress, $A$ the rate factor, and $n$ Glen's exponent. For the stresses found in glaciers and ice sheets, roughly 0.05 to 0.2 megapascals, the data are consistent with $n$ close to 3. This value is the signature of dislocation creep, in which the density of mobile dislocations itself rises with stress, so that the strain rate increases faster than linearly.
 
 % TODO Illustrator figure: figures/glen-law-curves.svg (label fig-glen-law-curves, width 80%)
@@ -65,6 +97,19 @@ $$
 \dot\varepsilon \;=\; \dot\varepsilon_{\mathrm{diff}} \;+\; \left(\dot\varepsilon_{\mathrm{basal}}^{-1} + \dot\varepsilon_{\mathrm{gbs}}^{-1}\right)^{-1} \;+\; \dot\varepsilon_{\mathrm{disl}},
 $$
 
+```{admonition} Derivation
+:class: dropdown
+The composite law is the experimental synthesis of {cite}`goldsby2001`, who fitted the rate factors and exponents of each mechanism to creep data spanning a wide range of stress, temperature, and grain size. The algebra here is not derived from first principles but follows from how independent and dependent deformation mechanisms combine, a standard construction in the deformation-mechanism literature.
+
+Mechanisms that operate independently and each accommodate the full imposed strain act in parallel, so their strain rates add at a common stress. Diffusional flow and dislocation creep enter this way, as the separate additive terms. Mechanisms that must operate together, each unable to proceed without the other, act in series, so it is their stresses that add at a common strain rate; equivalently, the slower one limits the pair. Basal slip and grain-boundary sliding are coupled in this way, since slip must accommodate the sliding and sliding must relieve the pile-ups from slip. Two processes in series at common strain rate combine through the reciprocal-sum rule
+
+$$
+\dot\varepsilon_{\mathrm{series}}=\left(\dot\varepsilon_{\mathrm{basal}}^{-1}+\dot\varepsilon_{\mathrm{gbs}}^{-1}\right)^{-1},
+$$
+
+which is dominated by the smaller of the two rates, the slower mechanism. The full law sums this series block with the two parallel mechanisms. The exponents quoted, near $1$, $1.8$, $2.4$, and $4$, are the fitted values, not predictions of the construction.
+```
+
 with each term a power law $\dot\varepsilon_{(\cdot)} = A_{(\cdot)}\tau^{n_{(\cdot)}}$ of its own exponent, diffusional flow at $n=1$, grain-boundary sliding near $n=1.8$, basal slip near $n=2.4$, and dislocation creep near $n=4$. Basal glide and grain-boundary sliding appear in series because each must wait on the other, and whichever is slower sets the pace. At higher stresses some recent analyses favor $n$ closer to 4. The honest position is that a single power law is an approximation to a composite of mechanisms, each dominant in a different range of stress, temperature, and grain size, and that $n=3$ is a serviceable average across the conditions of most glacier flow rather than a fundamental constant. Because the strain rate depends so steeply on stress, the nonlinearity is responsible for much of the character of ice flow, including the tendency of fast flow to concentrate into narrow streams: a region carrying twice the deviatoric stress of its surroundings deforms about eight times faster.
 
 ## The rate factor and its controls
@@ -74,6 +119,23 @@ The rate factor $A$ varies by more than two orders of magnitude across the tempe
 $$
 A(T)=A_0\exp\!\left(-\frac{Q}{R\,T'}\right),
 $$
+
+```{admonition} Derivation
+:class: dropdown
+The Arrhenius form follows from rate-process theory, the same reasoning that governs the defect processes of {doc}`../foundations/point-defects`. Creep advances by an elementary event, the migration of an orientational defect that gates dislocation glide, that requires the lattice to pass over an energy barrier $\Delta G$. The rate of such thermally activated events is proportional to the Boltzmann probability of having enough energy to surmount the barrier,
+
+$$
+\text{rate}\ \propto\ \exp\!\left(-\frac{\Delta G}{k_B T}\right),
+$$
+
+with $k_B$ Boltzmann's constant. The macroscopic creep rate is proportional to this event rate, so the rate factor inherits the exponential. Writing the barrier per mole as the activation energy $Q=N_A\,\Delta G$ and using the gas constant $R=N_A k_B$ converts the per-molecule form to the per-mole form,
+
+$$
+A\ \propto\ \exp\!\left(-\frac{Q}{R\,T}\right).
+$$
+
+The prefactor $A_0$ collects the attempt frequency, the defect concentration, and geometric factors, all of which vary slowly with temperature compared with the exponential. The temperature used is the homologous temperature $T'$, measured relative to the pressure-dependent melting point, because the processes that limit creep scale with proximity to melting rather than with absolute temperature; the substitution $T\to T'$ is an empirical refinement, not a result of the rate-process argument itself. The two-branch behavior, with $Q$ near 60 kJ mol$^{-1}$ at low temperature and larger above about $-10\ \mathrm{^\circ C}$, reflects a change in the controlling process and so a change in the barrier $Q$.
+```
 
 in which $T'$ is the temperature measured relative to the pressure-melting point, the homologous temperature, $R$ is the gas constant, and $Q$ is the activation energy for creep. Using the homologous temperature matters at depth, where the high pressure lowers the melting point by a few tenths of a degree per hundred meters and makes the deep ice effectively warmer than its absolute temperature suggests.
 
@@ -88,6 +150,34 @@ Glen's law describes a nonlinear viscous fluid, and for numerical work it is wri
 $$
 \eta=\tfrac12\,A^{-1/n}\,\dot\varepsilon_E^{\,(1-n)/n}.
 $$
+
+```{admonition} Derivation
+:class: dropdown
+Start from the tensor flow law $\dot\varepsilon_{ij}=A\,\tau_E^{\,n-1}\,\tau_{ij}$ and invert it to write the stress in terms of the strain rate, in the form of a viscous law $\tau_{ij}=2\eta\,\dot\varepsilon_{ij}$. Solving the flow law for $\tau_{ij}$ gives
+
+$$
+\tau_{ij}=\frac{1}{A\,\tau_E^{\,n-1}}\,\dot\varepsilon_{ij},
+\qquad\text{so}\qquad
+2\eta=\frac{1}{A\,\tau_E^{\,n-1}} .
+$$
+
+The viscosity still carries $\tau_E$, which must be re-expressed through the strain rate. The scalar law $\dot\varepsilon_E=A\,\tau_E^{\,n}$ inverts to $\tau_E=A^{-1/n}\,\dot\varepsilon_E^{\,1/n}$. Substitute this for $\tau_E$,
+
+$$
+2\eta=A^{-1}\,\tau_E^{\,1-n}=A^{-1}\left(A^{-1/n}\,\dot\varepsilon_E^{\,1/n}\right)^{1-n}
+=A^{-1}\,A^{-(1-n)/n}\,\dot\varepsilon_E^{\,(1-n)/n}.
+$$
+
+Combine the powers of $A$, using $-1-\tfrac{1-n}{n}=\tfrac{-n-(1-n)}{n}=-\tfrac{1}{n}$, so that $A^{-1}A^{-(1-n)/n}=A^{-1/n}$. Hence
+
+$$
+2\eta=A^{-1/n}\,\dot\varepsilon_E^{\,(1-n)/n},
+\qquad
+\eta=\tfrac12\,A^{-1/n}\,\dot\varepsilon_E^{\,(1-n)/n}.
+$$
+
+With $n>1$ the exponent $(1-n)/n$ is negative, so the viscosity decreases as the strain rate increases, the shear-thinning behavior noted below.
+```
 
 Because $n>1$, the viscosity falls as the strain rate rises, so ice is shear thinning and softens where it already flows fast. This form has a practical difficulty: as the strain rate approaches zero, the viscosity diverges. Numerical models avoid the singularity by adding a small critical strain rate $\dot\varepsilon_0$ under the root, replacing $\dot\varepsilon_E$ with $\sqrt{\dot\varepsilon_E^2+\dot\varepsilon_0^2}$, which caps the viscosity in nearly stagnant ice without affecting the answer where the ice is deforming appreciably. This regularized viscosity is exactly what icepack assembles and inserts into the momentum balance.
 

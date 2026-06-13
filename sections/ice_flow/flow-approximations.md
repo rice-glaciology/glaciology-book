@@ -58,6 +58,28 @@ $$
 -\tau_{b,x}=\rho g H\,\frac{\partial s}{\partial x},
 $$
 
+```{admonition} Derivation
+:class: dropdown
+
+Start from the $x$ momentum balance $\partial\tau_{xx}/\partial x+\partial\tau_{xy}/\partial y+\partial\tau_{xz}/\partial z=\partial p/\partial x$ and integrate term by term from $b$ to $s$. The vertical-shear term integrates to the boundary tractions as shown above, $\int_b^s\partial\tau_{xz}/\partial z\,\mathrm{d}z=-\tau_{b,x}$. The pressure term gives the driving stress, $\int_b^s\partial p/\partial x\,\mathrm{d}z=\rho g H\,\partial s/\partial x$. The two membrane terms remain. Because the ice slides as a plug, the horizontal velocities and hence the deviatoric stresses are nearly independent of depth, so on the left the integrals over $\partial\tau_{xx}/\partial x$ and $\partial\tau_{xy}/\partial y$ act on depth-independent integrands and the order of integration and horizontal differentiation may be exchanged, contributing $\partial(H\tau_{xx})/\partial x$ and $\partial(H\tau_{xy})/\partial y$ up to surface-slope terms that cancel against the basal-traction definition.
+
+Now express the deviatoric stresses through the viscous flow law $\tau_{ij}=2\eta\,\dot\varepsilon_{ij}$. Incompressibility, $\dot\varepsilon_{xx}+\dot\varepsilon_{yy}+\dot\varepsilon_{zz}=0$, lets the vertical normal strain rate be eliminated, $\dot\varepsilon_{zz}=-(\dot\varepsilon_{xx}+\dot\varepsilon_{yy})$, equivalently $\tau_{zz}=-(\tau_{xx}+\tau_{yy})$. The longitudinal normal deviatoric stress is therefore
+
+$$
+\tau_{xx}=2\eta\,\dot\varepsilon_{xx}=2\eta\,\frac{\partial u}{\partial x}
+=2\eta\left(2\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}\right)-2\eta\!\left(\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}\right),
+$$
+
+but the more useful form follows from writing the resistive stress that appears in the momentum balance as the full deviatoric stress plus the eliminated $\tau_{zz}$. Combining $\tau_{xx}-\tau_{zz}=2\tau_{xx}+\tau_{yy}=2\eta(2\dot\varepsilon_{xx}+\dot\varepsilon_{yy})$ gives the effective longitudinal stress $2\eta(2\,\partial u/\partial x+\partial v/\partial y)$, while the shear deviatoric stress is $\tau_{xy}=\eta(\partial u/\partial y+\partial v/\partial x)$. Replacing the depth-varying viscosity and velocity by their depth averages $\bar\eta$, $\bar u$, $\bar v$, and multiplying each by the thickness $H$ from the integration, the membrane terms become
+
+$$
+\frac{\partial}{\partial x}\!\left[2H\bar\eta\!\left(2\frac{\partial\bar u}{\partial x}+\frac{\partial\bar v}{\partial y}\right)\right]
++\frac{\partial}{\partial y}\!\left[H\bar\eta\!\left(\frac{\partial\bar u}{\partial y}+\frac{\partial\bar v}{\partial x}\right)\right].
+$$
+
+Moving the basal drag to the left and keeping the driving stress on the right gives the printed balance {cite}`macayeal1989`.
+```
+
 with a symmetric $y$ equation, where $\bar u,\bar v$ are the depth-averaged velocities and $\bar\eta$ the depth-averaged viscosity {cite}`macayeal1989`. For a floating shelf $\tau_b=0$, and the ice-shelf lab solves exactly this. Unlike the local SIA balance, this is an elliptic problem in which membrane stress couples the flow across the whole domain, which is what lets shelves and streams transmit stress through grounding lines.
 
 ## Hybrid models
@@ -73,6 +95,23 @@ $$
 +\frac{\partial}{\partial y}\!\left[\eta\left(\frac{\partial u}{\partial y}+\frac{\partial v}{\partial x}\right)\right]
 +\frac{\partial}{\partial z}\!\left[\eta\,\frac{\partial u}{\partial z}\right]=\rho g\,\frac{\partial s}{\partial x},
 $$
+
+```{admonition} Derivation
+:class: dropdown
+
+Begin from the full $x$ momentum balance with the hydrostatic pressure already substituted, so the right side is the driving stress $\rho g\,\partial s/\partial x$. The first-order approximation retains the leading-order deviatoric stresses but drops the two horizontal gradients of the vertical shear stress, $\partial\tau_{xz}/\partial x$ relative to its vertical gradient and the analogous bridging term, which scaling shows to be smaller by $O(\varepsilon^2)$. What remains on the left are the membrane terms $\partial\tau_{xx}/\partial x+\partial\tau_{xy}/\partial y$ and the vertical-shear term $\partial\tau_{xz}/\partial z$.
+
+Express each through the viscous flow law $\tau_{ij}=2\eta\dot\varepsilon_{ij}$ and eliminate $\tau_{zz}$ by incompressibility exactly as in the shallow-shelf reduction. The longitudinal resistive stress becomes $\tau_{xx}-\tau_{zz}=2\eta(2\,\partial u/\partial x+\partial v/\partial y)$, the in-plane shear $\tau_{xy}=\eta(\partial u/\partial y+\partial v/\partial x)$, and the vertical shear $\tau_{xz}=\eta\,\partial u/\partial z$, where the term $\partial w/\partial x$ in $\dot\varepsilon_{xz}$ is dropped at this order. Substituting,
+
+$$
+\frac{\partial}{\partial x}\!\left[2\eta\!\left(2\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}\right)\right]
++\frac{\partial}{\partial y}\!\left[\eta\!\left(\frac{\partial u}{\partial y}+\frac{\partial v}{\partial x}\right)\right]
++\frac{\partial}{\partial z}\!\left[\eta\,\frac{\partial u}{\partial z}\right]
+=\rho g\,\frac{\partial s}{\partial x},
+$$
+
+the printed system {cite}`pattyn2003`. Unlike the shallow-shelf balance the equation is not integrated through the thickness, so it retains the depth-varying shear and is three-dimensional.
+```
 
 with the matching $y$ equation {cite}`pattyn2003`. This is three-dimensional and resolves the depth-varying stress state far more faithfully than the depth-integrated models, at correspondingly higher cost, and is appropriate in grounding zones and other places where the flow is complicated. The asymptotic theory that places all of these models on a single ladder is given by {cite}`schoof2010`.
 

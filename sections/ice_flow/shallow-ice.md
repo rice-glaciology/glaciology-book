@@ -14,11 +14,39 @@ $$
 p = \rho_i g\,(s-z).
 $$
 
+```{admonition} Derivation
+:class: dropdown
+At leading order the vertical momentum balance drops the small deviatoric and acceleration terms and reduces to $\partial p/\partial z = -\rho_i g$. Integrating downward from the stress-free surface $z=s$, where $p=0$,
+
+$$
+p(z) = -\int_s^z \rho_i g\,dz' = \rho_i g\,(s-z),
+$$
+
+which is just the weight per unit area of the ice column standing above the depth $z$.
+```
+
 In the horizontal, the balance reduces to a local one between the gradient of this pressure, set by the surface slope, and the vertical gradient of the horizontal shear stress. Integrating that balance downward from the stress-free surface gives the shear stress at depth,
 
 $$
 \tau_{xz}(z) = -\rho_i g\,(s-z)\,\frac{\partial s}{\partial x},
 $$
+
+```{admonition} Derivation
+:class: dropdown
+At leading order the horizontal momentum balance keeps only the vertical gradient of the shear stress against the horizontal pressure gradient,
+
+$$
+\frac{\partial \tau_{xz}}{\partial z} = \frac{\partial p}{\partial x} = \rho_i g\,\frac{\partial s}{\partial x},
+$$
+
+where the second equality uses the cryostatic pressure $p=\rho_i g\,(s-z)$, whose horizontal gradient is $\rho_i g\,\partial s/\partial x$. The right-hand side is independent of $z$, so integrating from a depth $z$ up to the surface, where the ice is stress-free and $\tau_{xz}(s)=0$,
+
+$$
+\tau_{xz}(s) - \tau_{xz}(z) = \rho_i g\,\frac{\partial s}{\partial x}\,(s-z),
+$$
+
+and setting $\tau_{xz}(s)=0$ gives the result.
+```
 
 which grows linearly from zero at the surface to its largest value at the bed. Physically, each layer of ice must support, through shear, the downslope weight of all the ice above it. All membrane stresses, the longitudinal and lateral stresses carried in {doc}`stress-balance`, are dropped at this order.
 
@@ -30,11 +58,40 @@ $$
 u(z) = u_b + \frac{2A(\rho_i g)^{n}}{n+1}\,\left[H^{\,n+1}-(s-z)^{\,n+1}\right]\left|\frac{\partial s}{\partial x}\right|^{\,n-1}\left(-\frac{\partial s}{\partial x}\right),
 $$
 
+```{admonition} Derivation
+:class: dropdown
+Write $S=\partial s/\partial x$. Substituting $\tau_{xz}=-\rho_i g\,(s-z)\,S$ into the flow law and separating magnitude from sign, with $s-z\ge 0$,
+
+$$
+|\tau_{xz}|^{\,n-1}\tau_{xz} = \big[\rho_i g\,(s-z)\,|S|\big]^{\,n-1}\big(-\rho_i g\,(s-z)\,S\big)
+= -(\rho_i g)^{n}\,(s-z)^{n}\,|S|^{\,n-1}S,
+$$
+
+so that $\partial u/\partial z = -2A(\rho_i g)^{n}(s-z)^{n}|S|^{\,n-1}S$. Integrate upward from the bed $z=b$, where $u=u_b$ and $s-b=H$, using
+
+$$
+\int_b^{z}(s-z')^{n}\,dz' = \frac{H^{\,n+1}-(s-z)^{\,n+1}}{n+1},
+$$
+
+which gives the profile quoted, with the deformation written as $|S|^{\,n-1}(-S)$ so that the flow points down the surface slope.
+```
+
 where $u_b$ is any basal sliding velocity supplied by the friction law of {doc}`../thermomechanics/basal-motion`. The deformation is concentrated near the bed, where the shear stress is largest, so the velocity changes most rapidly there and the profile is nearly uniform through the upper ice. This shape, the Lliboutry profile, matches the deformation measured in deep boreholes reasonably well {cite}`cuffey2010`. Averaging through the thickness gives the depth-averaged velocity,
 
 $$
 \bar u = u_b + \frac{2A(\rho_i g)^{n}}{n+2}\,H^{\,n+1}\,\left|\frac{\partial s}{\partial x}\right|^{\,n-1}\left(-\frac{\partial s}{\partial x}\right),
 $$
+
+```{admonition} Derivation
+:class: dropdown
+Average the profile over the thickness, $\bar u = \frac1H\int_b^{s} u\,dz$. The constant $u_b$ averages to itself; only the depth-dependent bracket needs integrating,
+
+$$
+\int_b^{s}\!\big[H^{\,n+1}-(s-z)^{\,n+1}\big]\,dz = H^{\,n+1}\!\cdot\! H - \frac{H^{\,n+2}}{n+2} = \frac{n+1}{n+2}\,H^{\,n+2}.
+$$
+
+Dividing by $H$ leaves $\frac{n+1}{n+2}H^{\,n+1}$, and the factor $n+1$ cancels the $1/(n+1)$ in the prefactor of $u(z)$, replacing it with $1/(n+2)$.
+```
 
 the single result that the shallow-ice approximation contributes to the evolution of an ice sheet. The deformational part depends very steeply on the geometry, growing as the thickness to the power $n+1$ and the surface slope to the power $n$. Because $n\approx3$, a small change in thickness or slope produces a large change in speed, and the velocity is controlled almost entirely by the ice thickness and the surface slope.
 
@@ -72,6 +129,17 @@ $$
 \frac{\partial H}{\partial t} + \frac{\partial}{\partial x}\!\left(\bar u\,H\right) = \dot b,
 $$
 
+```{admonition} Derivation
+:class: dropdown
+Integrate incompressibility $\partial u/\partial x + \partial w/\partial z = 0$ through the thickness from the bed $z=b$ to the surface $z=s$,
+
+$$
+\int_b^{s}\frac{\partial u}{\partial x}\,dz + \big[w(s)-w(b)\big] = 0 .
+$$
+
+Leibniz's rule moves the derivative outside the first integral, $\int_b^{s}\partial u/\partial x\,dz = \frac{\partial}{\partial x}\!\int_b^s u\,dz - u(s)\frac{\partial s}{\partial x} + u(b)\frac{\partial b}{\partial x} = \frac{\partial(\bar u H)}{\partial x} - u(s)\frac{\partial s}{\partial x} + u(b)\frac{\partial b}{\partial x}$. The vertical velocities follow from the kinematic boundary conditions, which state that the surface and bed move with the ice plus their mass exchange, $w(s) = \frac{\partial s}{\partial t} + u(s)\frac{\partial s}{\partial x} - a$ and $w(b) = \frac{\partial b}{\partial t} + u(b)\frac{\partial b}{\partial x} + m$. Substituting, the slope terms cancel in pairs and, for a fixed bed $\partial b/\partial t = 0$ with $H=s-b$, what remains is $\frac{\partial H}{\partial t} + \frac{\partial(\bar u H)}{\partial x} = a - m = \dot b$.
+```
+
 where the balance function $\dot b=a-m$ is the net rate of accumulation minus melt, the subject of {doc}`mass-balance`. Substituting the shallow-ice expression for $\bar u$ turns this into a single nonlinear diffusion equation for the surface, cheap enough to integrate over whole glacial cycles, which is why the shallow-ice approximation underlies most paleo-ice-sheet models. Its steady solution forced by a uniform accumulation rate, the Vialov profile, ties the shape of an ice sheet to the climate that feeds it, and is derived alongside the mass balance in {doc}`mass-balance`. One steady shape, however, needs no climate at all, and it follows directly from the rheology.
 
 ## The perfect-plastic limit
@@ -97,6 +165,19 @@ H(x)=H_0^{1/2}\,(L-x)^{1/2},
 \qquad
 H_0=\frac{2\tau_i}{\rho_i g}\approx 20\ \mathrm{m}.
 $$
+
+```{admonition} Derivation
+:class: dropdown
+The constant-gradient equation $\partial(H^2)/\partial x = -2\tau_i/\rho_i g$ integrates immediately. Taking the margin at $x=L$ with $H(L)=0$ as the lower limit,
+
+$$
+H^2(x) - H^2(L) = -\frac{2\tau_i}{\rho_i g}\,(x-L)
+\quad\Longrightarrow\quad
+H^2(x) = \frac{2\tau_i}{\rho_i g}\,(L-x),
+$$
+
+since $H^2(L)=0$. Writing $H_0 = 2\tau_i/\rho_i g$ and taking the square root gives the parabola. With $\tau_i \approx 100$ kPa and $\rho_i g \approx 9\times10^{3}\ \mathrm{Pa\,m^{-1}}$, $H_0$ is about 20 m, so an ice sheet spanning $L=1000$ km reaches $H=\sqrt{20\times10^{6}}\approx 4500$ m near the divide.
+```
 
 This parabolic profile is the shape behind the rule of thumb that an ice sheet a thousand kilometres in span stands a few thousand metres high. Because $H^2$ has a constant gradient, the surface is exactly the shape of a heap of dry sand poured onto a table, which is why a pile of sugar in the outline of Antarctica reproduces the real surface so well. The shape depends only on the yield stress and the span, not on the accumulation, which makes it a quick estimate of the thickness of a former ice sheet whose extent is known from its moraines but whose climate is not. Its one flaw is the cusp at the divide, where the slope is infinite; the viscous Vialov profile rounds it off.
 

@@ -33,6 +33,43 @@ $$
 \frac{R_v(f)}{R_{v,0}} = f^{\,\alpha - 1}.
 $$
 
+```{admonition} Derivation
+:class: dropdown
+
+Track the moles of light and heavy isotope in the vapour reservoir of a single air parcel as it rains out. Let $n$ be the moles of the abundant light isotope ($\mathrm{H_2^{16}O}$) in the vapour and $n_h$ the moles of the rare heavy isotope ($\mathrm{H_2^{18}O}$), so that the vapour ratio is $R_v = n_h/n$. Because the heavy isotope is rare, $n_h \ll n$, and the total vapour is essentially $n$. The remaining fraction is $f = n/n_0$, so $d(\ln f) = dn/n$.
+
+When a small amount of condensate forms and is removed at once as precipitation, it carries away $dn$ moles of light isotope and $dn_h$ moles of heavy isotope. Equilibrium fractionation fixes the isotopic ratio of that condensate at $\alpha R_v$,
+
+$$
+\frac{dn_h}{dn} = \alpha R_v = \alpha\,\frac{n_h}{n},
+$$
+
+where the signs are consistent because both $dn$ and $dn_h$ are the (negative) changes in the vapour inventory. Expanding the change in the vapour ratio,
+
+$$
+dR_v = d\!\left(\frac{n_h}{n}\right) = \frac{dn_h}{n} - \frac{n_h}{n^2}\,dn
+= \frac{\alpha n_h/n}{n}\,dn - \frac{n_h}{n^2}\,dn
+= (\alpha - 1)\,\frac{n_h}{n^2}\,dn
+= (\alpha - 1)\,R_v\,\frac{dn}{n}.
+$$
+
+Dividing by $R_v$ gives the differential form quoted in the text,
+
+$$
+d(\ln R_v) = (\alpha - 1)\,d(\ln f).
+$$
+
+With $\alpha$ held constant along the cooling path, integrate from the source ($f=1$, $R_v = R_{v,0}$) to a remaining fraction $f$,
+
+$$
+\int_{R_{v,0}}^{R_v} d(\ln R_v') = (\alpha - 1)\int_1^f d(\ln f'),
+\qquad
+\ln\frac{R_v}{R_{v,0}} = (\alpha - 1)\ln f,
+$$
+
+and exponentiating yields the Rayleigh distillation law $R_v/R_{v,0} = f^{\,\alpha - 1}$. Since $\alpha > 1$ and $f$ decreases as the parcel rains out, the exponent is positive and $R_v$ falls below $R_{v,0}$, so the residual vapour, and the snow condensed from it, grows progressively depleted in the heavy isotope.
+```
+
 The remaining fraction $f$ is itself set by temperature through the saturation vapor pressure, $f = e_s(T)/e_s(T_0)$, which falls off near-exponentially as the parcel cools, by the Clausius-Clapeyron relation already met at the pressure-melting bed of {doc}`../thermomechanics/thermal-structure`. Chaining the two relations turns the distillation law into a curve of $\delta^{18}\mathrm{O}$ against condensation temperature, and the prediction is the observed one, progressively lighter snow at progressively colder sites. Cooling a parcel from a 25 °C ocean to a 0 °C coast removes most of its water and depletes the remainder by tens of per mil, and the polar plateau, at the far end of the distillation path, receives the lightest precipitation on Earth.
 
 The model also explains how the thermometer is calibrated and why the calibration must be handled with care. The modern spatial relation between mean annual $\delta^{18}\mathrm{O}$ and surface temperature across Greenland and Antarctica is strikingly linear, near $0.6$ to $0.7$‰ per °C, very much as Rayleigh distillation predicts {cite}`dansgaard1964,lorius1977`. Applying that spatial slope to a single site through time, however, assumes the whole distillation path shifts the way the modern map does, and it need not. Changes in moisture source, in seasonality of snowfall, and in the inversion strength above the ice sheet all bend the temporal slope away from the spatial one, and in central Greenland the borehole-temperature calibration of the glacial-interglacial swing showed the spatial slope underestimates the true temperature change by nearly a factor of two {cite}`jouzel1997`. The isotope record is an excellent thermometer with a calibration that is itself a piece of climate physics.

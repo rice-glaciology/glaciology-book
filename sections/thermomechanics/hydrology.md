@@ -28,7 +28,38 @@ $$
 \Psi = -\rho_i g\,\nabla Z_s - (\rho_w-\rho_i)\,g\,\nabla Z_b ,
 $$
 
-the Shreve potential gradient. The two terms compare the pull of the surface slope with that of the bed slope, and their coefficients differ by the factor $\rho_i/(\rho_w-\rho_i)\approx 11$. The surface slope is therefore about eleven times more effective than the bed slope at driving subglacial water. The consequence is one of the most useful facts in the subject: subglacial water flows down the ice-surface slope, not the bed slope, so it can be routed uphill over bedrock ridges, and the catchments that feed subglacial lakes and outlets can be predicted from surface topography alone.
+the Shreve potential gradient. The two terms compare the pull of the surface slope with that of the bed slope, and their coefficients differ by the factor $\rho_i/(\rho_w-\rho_i)\approx 11$.
+
+```{admonition} Derivation
+:class: dropdown
+Start from the hydraulic potential with the water pressure written through the effective pressure, $p_w = p_i - N$ and $p_i = \rho_i g(Z_s - Z_b)$,
+
+$$
+\phi = \rho_w g Z_b + \rho_i g (Z_s - Z_b) - N .
+$$
+
+Water flows down the gradient of $\phi$, so form $-\nabla\phi$. Taking the gradient term by term,
+
+$$
+\nabla\phi = \rho_w g\,\nabla Z_b + \rho_i g\,\nabla Z_s - \rho_i g\,\nabla Z_b - \nabla N .
+$$
+
+Collect the two bed-elevation terms, $\rho_w g\,\nabla Z_b - \rho_i g\,\nabla Z_b = (\rho_w - \rho_i)g\,\nabla Z_b$, so
+
+$$
+\nabla\phi = \rho_i g\,\nabla Z_s + (\rho_w - \rho_i)g\,\nabla Z_b + \nabla N .
+$$
+
+Hence
+
+$$
+-\nabla\phi = -\rho_i g\,\nabla Z_s - (\rho_w - \rho_i)g\,\nabla Z_b + \nabla N = \Psi + \nabla N,
+$$
+
+defining $\Psi = -\rho_i g\,\nabla Z_s - (\rho_w-\rho_i)g\,\nabla Z_b$, which matches the printed split. Variations in $N$ are small compared with the elevation terms, so $-\nabla\phi \approx \Psi$, the printed Shreve gradient. Comparing the two surviving coefficients, the surface-slope term carries $\rho_i$ and the bed-slope term $\rho_w - \rho_i$, whose ratio is $\rho_i/(\rho_w-\rho_i) \approx 917/(1000-917) \approx 11$, so the surface slope is about eleven times more effective at driving the flow.
+```
+
+The surface slope is therefore about eleven times more effective than the bed slope at driving subglacial water. The consequence is one of the most useful facts in the subject: subglacial water flows down the ice-surface slope, not the bed slope, so it can be routed uphill over bedrock ridges, and the catchments that feed subglacial lakes and outlets can be predicted from surface topography alone.
 
 ## A spectrum of drainage systems
 
@@ -42,7 +73,33 @@ $$
 q = -\frac{h^3}{12\,\eta_w}\,\nabla\phi ,
 $$
 
-the Poiseuille law, with $\eta_w$ the viscosity of water. As the water flows it dissipates energy and melts the ice roof above it. A patch of film that is slightly thicker than its surroundings carries more flux, dissipates more heat, melts its roof faster, and grows thicker still. The uniform film is therefore unstable, and the instability drives the water to concentrate into a few localized conduits. The endpoint of the instability depends on what the conduit melts or erodes into, which is what distinguishes the channel and cavity systems below.
+the Poiseuille law, with $\eta_w$ the viscosity of water.
+
+```{admonition} Derivation
+:class: dropdown
+Consider laminar flow of water in a thin film of thickness $h$ between two parallel surfaces, the ice roof and the bed, driven by the potential gradient $\nabla\phi$. Let $z$ run across the film, $0\le z\le h$, and $u(z)$ be the flow speed. For slow viscous flow the pressure gradient is balanced by the viscous shear stress gradient, $\eta_w\,\mathrm{d}^2u/\mathrm{d}z^2 = \nabla\phi$ (the driving force per unit volume is $-\nabla\phi$). Integrating twice with no-slip at both walls, $u(0)=u(h)=0$, gives the parabolic profile
+
+$$
+u(z) = \frac{1}{2\eta_w}\,\nabla\phi\,\big(z^2 - h z\big)
+= -\frac{1}{2\eta_w}\,\nabla\phi\,z(h-z),
+$$
+
+directed down the potential gradient. The flux per unit width is the integral across the film,
+
+$$
+q = \int_0^h u(z)\,\mathrm{d}z = -\frac{\nabla\phi}{2\eta_w}\int_0^h z(h-z)\,\mathrm{d}z .
+$$
+
+The integral evaluates to $\int_0^h (hz - z^2)\,\mathrm{d}z = h\cdot\frac{h^2}{2} - \frac{h^3}{3} = \frac{h^3}{6}$, so
+
+$$
+q = -\frac{\nabla\phi}{2\eta_w}\cdot\frac{h^3}{6} = -\frac{h^3}{12\,\eta_w}\,\nabla\phi,
+$$
+
+the printed Poiseuille law. The cubic dependence on thickness is the source of the film instability: a slightly thicker patch carries disproportionately more flux.
+```
+
+As the water flows it dissipates energy and melts the ice roof above it. A patch of film that is slightly thicker than its surroundings carries more flux, dissipates more heat, melts its roof faster, and grows thicker still. The uniform film is therefore unstable, and the instability drives the water to concentrate into a few localized conduits. The endpoint of the instability depends on what the conduit melts or erodes into, which is what distinguishes the channel and cavity systems below.
 
 ## Röthlisberger channels
 
@@ -69,6 +126,57 @@ A steady state follows by setting the time derivative to zero and, for a channel
 $$
 N \approx \left(\frac{K_c^{3/4}}{\rho_i L\,\tilde A}\right)^{1/n}\Psi^{\,11/8n}\,Q^{\,1/4n}.
 $$
+
+```{admonition} Derivation
+:class: dropdown
+Take the three steady balances. Setting $\partial S/\partial t = 0$ in the wall balance and dropping $\partial N/\partial x$ against $\Psi$ in the flow and energy relations,
+
+$$
+\text{(wall)}\quad \tilde A\,S\,N^{\,n} = \frac{m}{\rho_i},
+\qquad
+\text{(flow)}\quad Q = K_c\,S^{4/3}\Psi^{1/2},
+\qquad
+\text{(energy)}\quad m L = Q\Psi .
+$$
+
+From the energy balance, $m = Q\Psi/L$. Insert into the wall balance,
+
+$$
+\tilde A\,S\,N^{\,n} = \frac{Q\Psi}{\rho_i L}
+\;\Rightarrow\;
+N^{\,n} = \frac{Q\Psi}{\rho_i L\,\tilde A\,S} .
+$$
+
+From the flow relation, solve for the cross-section,
+
+$$
+S^{4/3} = \frac{Q}{K_c\,\Psi^{1/2}}
+\;\Rightarrow\;
+S = \left(\frac{Q}{K_c\,\Psi^{1/2}}\right)^{3/4}
+= K_c^{-3/4}\,Q^{3/4}\,\Psi^{-3/8} .
+$$
+
+Substitute this $S$ into the expression for $N^{\,n}$,
+
+$$
+N^{\,n} = \frac{Q\Psi}{\rho_i L\,\tilde A}\,\cdot\,\frac{1}{S}
+= \frac{Q\Psi}{\rho_i L\,\tilde A}\,K_c^{3/4}\,Q^{-3/4}\,\Psi^{3/8} .
+$$
+
+Collect powers of $Q$ and $\Psi$: $Q^{1-3/4} = Q^{1/4}$ and $\Psi^{1+3/8} = \Psi^{11/8}$, giving
+
+$$
+N^{\,n} = \frac{K_c^{3/4}}{\rho_i L\,\tilde A}\,\Psi^{11/8}\,Q^{1/4} .
+$$
+
+Raising to the power $1/n$,
+
+$$
+N = \left(\frac{K_c^{3/4}}{\rho_i L\,\tilde A}\right)^{1/n}\Psi^{\,11/8n}\,Q^{\,1/4n},
+$$
+
+the printed result. The discharge exponent $1/4n$ is positive, so a channel carrying more water runs at higher effective pressure, hence lower water pressure.
+```
 
 The exponent of the discharge is positive, so the effective pressure increases with discharge. A channel carrying more water runs at lower water pressure. This is the signature of an efficient, channelized system, and it has a self-organizing consequence: because a larger channel sits at lower pressure, it draws water from its smaller neighbours, which collapse. The drainage collects into a few arborescent trunk channels, exactly the opposite of the distributed film it grew from.
 
@@ -113,6 +221,52 @@ In steady state $S=U_b h_r/(\tilde A N^n)$ and $S=(Q/K\Psi)^{1/\alpha}$, and eli
 $$
 N \approx \left(\frac{U_b h_r\,K^{1/\alpha}\Psi^{1/\alpha}}{\tilde A}\right)^{1/n}\,Q^{-1/\alpha n}.
 $$
+
+```{admonition} Derivation
+:class: dropdown
+The two steady balances are opening by sliding set against creep closure, and a flux relation. Setting $\partial S/\partial t = 0$,
+
+$$
+\text{(opening)}\quad U_b h_r = \tilde A\,S\,N^{\,n},
+\qquad
+\text{(flux)}\quad Q = K\,S^{\alpha}\,|\nabla\phi| \approx K\,S^{\alpha}\,\Psi .
+$$
+
+From the opening balance, solve for the cavity cross-section,
+
+$$
+S = \frac{U_b h_r}{\tilde A\,N^{\,n}} .
+$$
+
+From the flux relation, solve for $S$ the other way,
+
+$$
+S^{\alpha} = \frac{Q}{K\Psi}
+\;\Rightarrow\;
+S = \left(\frac{Q}{K\Psi}\right)^{1/\alpha} .
+$$
+
+Equate the two expressions for $S$,
+
+$$
+\frac{U_b h_r}{\tilde A\,N^{\,n}} = \left(\frac{Q}{K\Psi}\right)^{1/\alpha}
+= Q^{1/\alpha}\,K^{-1/\alpha}\,\Psi^{-1/\alpha} .
+$$
+
+Solve for $N^{\,n}$,
+
+$$
+N^{\,n} = \frac{U_b h_r}{\tilde A}\,K^{1/\alpha}\,\Psi^{1/\alpha}\,Q^{-1/\alpha} ,
+$$
+
+and raise to the power $1/n$,
+
+$$
+N = \left(\frac{U_b h_r\,K^{1/\alpha}\Psi^{1/\alpha}}{\tilde A}\right)^{1/n}\,Q^{-1/\alpha n},
+$$
+
+the printed result. The discharge exponent $-1/\alpha n$ is negative, the opposite sign to the channel: more water through a cavity network raises the water pressure and weakens the bed.
+```
 
 Now the exponent of discharge is negative: the effective pressure decreases with discharge. More water raises the water pressure rather than lowering it. This is the opposite of the channel result, and it is what makes the cavity system inefficient and prone to fast sliding when meltwater is delivered faster than it can escape. The two systems are not separate. A cavity network becomes unstable and collapses into channels when the discharge grows large or the sliding slows, and a channel relaxes back into cavities when the discharge drops or the sliding speeds up, so a glacier switches between regimes through the season.
 

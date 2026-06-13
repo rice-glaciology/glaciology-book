@@ -78,6 +78,30 @@ $$
 \Delta t \lesssim \frac{\Delta x^2}{2D_{\max}}.
 $$
 
+```{admonition} Derivation
+:class: dropdown
+
+The diffusive stability limit follows from a von Neumann analysis of the explicit update applied to the linear diffusion equation $\partial H/\partial t = D\,\partial^2 H/\partial x^2$ with constant $D$. Discretizing the second derivative with the centred three-point stencil and stepping with explicit Euler gives
+
+$$
+H_i^{k+1} = H_i^k + \frac{D\,\Delta t}{\Delta x^2}\left(H_{i+1}^k - 2H_i^k + H_{i-1}^k\right).
+$$
+
+Substitute a single Fourier mode $H_i^k = G^k e^{\mathrm{i}\kappa i \Delta x}$, where $G$ is the per-step amplification factor and $\kappa$ the wavenumber. Using $e^{\mathrm{i}\kappa\Delta x} - 2 + e^{-\mathrm{i}\kappa\Delta x} = -4\sin^2(\kappa\Delta x/2)$,
+
+$$
+G = 1 - \frac{4D\,\Delta t}{\Delta x^2}\sin^2\!\left(\frac{\kappa\Delta x}{2}\right).
+$$
+
+Stability requires $|G|\le 1$ for every mode. The factor $G$ never exceeds $1$, so the binding constraint is $G \ge -1$. The worst case is the shortest resolvable wavelength, where $\sin^2(\kappa\Delta x/2) = 1$, giving
+
+$$
+1 - \frac{4D\,\Delta t}{\Delta x^2} \ge -1 \quad\Longrightarrow\quad \Delta t \le \frac{\Delta x^2}{2D}.
+$$
+
+Replacing $D$ by its largest value $D_{\max}$ over the domain gives the stated limit. The square dependence on $\Delta x$ is what makes the constraint punishing at fine resolution.
+```
+
 Since $D \propto H^5$ in the SIA, a modest doubling of the ice thickness tightens the stability limit by more than thirty times. Near fast-flowing outlet glaciers, where $D$ can be orders of magnitude larger than in the interior, the explicit time step shrinks to years or less even when the century-scale evolution is what we care about. The equation is **stiff** in the numerical sense, meaning the stability constraint is far more demanding than the accuracy needs. The practical consequence is that an explicit scheme is often unusable for whole-ice-sheet simulations at reasonable resolution.
 
 ### The staggered-grid update and its stability cost
@@ -163,6 +187,54 @@ Before turning to verification in the abstract, it is useful to see exactly what
 $$
 H_0 = \left(\frac{(n+2)\,\dot a}{2A(\rho_i g)^n}\right)^{1/(n+2)} L^{n/(n+2)} \approx 2800\ \mathrm{m}
 $$
+
+```{admonition} Derivation
+:class: dropdown
+
+The central thickness is the value at the divide of the Vialov profile derived in {doc}`../ice_flow/mass-balance`. The steady balance on a flat bed with uniform accumulation $\dot a$ requires the flux to carry away all the ice accumulated upstream of position $x$, measured from the divide. By symmetry no ice crosses the divide, so
+
+$$
+q(x) = \dot a\,x.
+$$
+
+The SIA flux on a flat bed, where $s = H$, is
+
+$$
+q = \frac{2A(\rho_i g)^n}{n+2}\,H^{n+2}\left|\frac{\partial H}{\partial x}\right|^{n-1}\!\left(-\frac{\partial H}{\partial x}\right) = \frac{2A(\rho_i g)^n}{n+2}\,H^{n+2}\left(-\frac{\partial H}{\partial x}\right)^{n}
+$$
+
+on the flank, where $\partial H/\partial x < 0$. Equating the two expressions and writing $C = 2A(\rho_i g)^n/(n+2)$,
+
+$$
+C\,H^{n+2}\left(-\frac{\partial H}{\partial x}\right)^{n} = \dot a\,x .
+$$
+
+Solve for the slope and separate variables,
+
+$$
+-H^{(n+2)/n}\,\frac{\partial H}{\partial x} = \left(\frac{\dot a}{C}\right)^{1/n} x^{1/n}.
+$$
+
+The left side is $-\tfrac{n}{2n+2}\,\dfrac{\mathrm d}{\mathrm dx}H^{(2n+2)/n}$. Integrate from the divide to the margin $x = L$, where $H(L)=0$, so that the integral of the left side telescopes to $\tfrac{n}{2n+2}H_0^{(2n+2)/n}$:
+
+$$
+\frac{n}{2n+2}\,H_0^{(2n+2)/n} = \left(\frac{\dot a}{C}\right)^{1/n}\frac{n}{n+1}\,L^{(n+1)/n}.
+$$
+
+The factors $n/(n+1)$ cancel between the two sides after the $x$-integral is evaluated, leaving
+
+$$
+H_0^{(2n+2)/n} = \left(\frac{\dot a}{C}\right)^{1/n} L^{(n+1)/n}\cdot 2 .
+$$
+
+Raising both sides to the power $n/(2n+2)$ and substituting $C = 2A(\rho_i g)^n/(n+2)$, the factor of $2$ combines with $C$ to give
+
+$$
+H_0 = \left(\frac{(n+2)\,\dot a}{2A(\rho_i g)^n}\right)^{1/(n+2)} L^{n/(n+2)},
+$$
+
+the printed result. With $n=3$ this is the well-known $H_0 \propto L^{3/5}$ scaling of the Vialov dome.
+```
 
 for $L = 50\ \mathrm{km}$ (half the domain width) and the standard parameter values.
 

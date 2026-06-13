@@ -20,6 +20,30 @@ $$
 \nu_b \;\cong\; \frac{\rho_i S_i}{\rho_b S_b} \;\cong\; -\frac{m\,\rho_i\,S_i}{\rho_b\,T_i},
 $$
 
+```{admonition} Derivation
+:class: dropdown
+
+The first relation is a salt-mass balance. All of the salt in a sample of bulk sea ice resides in the liquid brine, because the ice lattice rejects salt. Per unit volume of sea ice, the mass of salt is the bulk salinity times the bulk density, $\rho_i S_i$ (with salinity expressed as a mass fraction). The same salt, viewed as residing in the brine, is the brine salinity times the brine density times the brine volume fraction, $\nu_b\,\rho_b S_b$. Equating the two,
+
+$$
+\rho_i S_i = \nu_b\,\rho_b S_b \quad\Longrightarrow\quad \nu_b = \frac{\rho_i S_i}{\rho_b S_b}.
+$$
+
+The second relation eliminates the brine salinity using the freezing equilibrium. A brine pocket sits at the freezing point of its own salinity, so its salinity is fixed by the temperature through the liquidus, the line on the phase diagram relating freezing temperature to salinity. For the dilute, near-linear part of the liquidus,
+
+$$
+T_i = m\,S_b \quad\Longrightarrow\quad S_b = \frac{T_i}{m},
+$$
+
+where $T_i$ is the temperature in Celsius (negative for ice) and $m$ is the liquidus slope. Substituting $S_b = T_i/m$ into the salt balance,
+
+$$
+\nu_b = \frac{\rho_i S_i}{\rho_b\,(T_i/m)} = \frac{m\,\rho_i\,S_i}{\rho_b\,T_i}.
+$$
+
+The minus sign in the printed form is a matter of convention. Writing the liquidus as $T_i = -|m|\,S_b$, the slope $m=-|m|$ is negative, and the expression becomes $\nu_b = -|m|\rho_i S_i/(\rho_b T_i)$; with $T_i<0$ this is positive, as a volume fraction must be. The result shows the brine fraction diverging as $T_i\to 0$, which is why sea ice has no single melting point but a liquid fraction that grows without bound toward the freezing point. The relation is an approximation valid where the liquidus is linear and where the brine and ice densities can be taken as constants {cite}`thomas2017`.
+```
+
 with $S_i$ the bulk ice salinity, $S_b$ the brine salinity, $\rho_i, \rho_b$ the densities, $T_i$ the temperature in Celsius, and $m$ the liquidus slope. Fast-grown young ice traps more salt, with salinity decreasing as the ice thickens and ages, from roughly 10‰ in thin first-year ice toward 5‰ or less in multiyear ice that has flushed its brine.
 
 % TODO Illustrator figure: figures/brine-volume.svg (label fig-brine-volume, width 80%)
@@ -43,6 +67,26 @@ Almost every bulk property of sea ice is the pure-ice value corrected by the bri
 $$
 c_i = c_0 + a\,T_i + \frac{b\,S_i}{T_i^{2}},
 $$
+
+```{admonition} Derivation
+:class: dropdown
+
+This is the {cite}`maykut1971` parametrization, and the structure of the three terms can be read off from the physics rather than fitted blindly. The first term, $c_0$, is the specific heat of pure ice, the energy to raise the temperature of the solid lattice. The second, $a\,T_i$, is the weak, nearly linear temperature dependence of the pure-ice specific heat itself, a standard small correction.
+
+The third term carries the new physics of sea ice. Changing the temperature of the bulk material by $\mathrm dT_i$ forces a phase change at the brine-pocket walls, because the brine must stay on the liquidus. The latent heat released or absorbed by that internal freezing or melting is
+
+$$
+\Delta Q = L\,\rho_b\,\mathrm d\nu_b,
+$$
+
+with $L$ the latent heat of fusion. From the brine-volume relation $\nu_b \cong -m\rho_i S_i/(\rho_b T_i)$ derived above, the brine fraction changes with temperature as
+
+$$
+\frac{\mathrm d\nu_b}{\mathrm dT_i} = \frac{m\,\rho_i\,S_i}{\rho_b\,T_i^{2}} \;\propto\; \frac{S_i}{T_i^{2}}.
+$$
+
+The internal-latent-heat contribution to the effective specific heat is $L\rho_b\,(\mathrm d\nu_b/\mathrm dT_i)$ per unit volume, which inherits the $S_i/T_i^2$ dependence and collects the constants into the single coefficient $b$. The $1/T_i^2$ singularity is why the effective specific heat near the melting point exceeds the pure-ice value by up to two orders of magnitude. The coefficients $c_0,a,b$ are obtained by fitting laboratory and field measurements {cite}`maykut1971`.
+```
 
 includes the latent heat of the internal melting and freezing that any temperature change forces in the brine pockets, and near the melting point it exceeds the pure-ice value by up to two orders of magnitude. Mechanical strength collapses as the brine volume grows, which is the practical limit on travel over spring ice. The thermal physics here is the heat equation of {doc}`../thermomechanics/thermal-structure` again, with coefficients that depend savagely on temperature.
 

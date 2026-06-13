@@ -1,19 +1,12 @@
-# Firn
+# Firn densification
 
-Every parcel of ice this book has deformed, slid, and melted arrived at the surface as snow, and the transformation from one to the other takes years to millennia, played out in a surface layer called firn. The way it happens controls several things glaciologists care about, including how surface elevation relates to mass, how radar and altimeter measurements should be interpreted, and when the climate archive of {doc}`../climate/paleoclimate` is sealed into the ice. The process is described in Chapter 2 of {cite}`cuffey2010`.
+The snow processes of {doc}`snow-processes` carried fresh snow through its first season to firn, snow that has survived a melt season at a density near 550 kg per cubic metre. This chapter follows the firn the rest of the way, through the slow burial densification that compacts it to glacier ice. The way it happens controls several things glaciologists care about, including how surface elevation relates to mass, how radar and altimeter measurements should be interpreted, and when the climate archive of {doc}`../climate/paleoclimate` is sealed into the ice. The process is described in Chapter 2 of {cite}`cuffey2010`.
 
 ## Densification
 
-Fresh snow has a density of roughly 50 to 400 kg per cubic metre, while solid glacier ice has a density close to 917 kg per cubic metre. The intervening material, snow that has survived at least one melt season, is firn. As newer snow buries older snow, the older layers compact and their density rises along a fairly predictable path, which the empirical model of {cite}`herron1980` divides into stages.
+Firn has a density of roughly 400 to 550 kg per cubic metre, while solid glacier ice has a density close to 917 kg per cubic metre. As newer snow buries older firn, the older layers compact and their density rises along a fairly predictable path, which the empirical model of {cite}`herron1980` divides into stages.
 
-In the first stage, the grains rearrange and pack more tightly, and the density climbs quickly until it reaches about 550 kg per cubic metre, near the limit of what grain packing alone can achieve. In the second stage, the grains deform and sinter together more slowly, and the density rises to about 830 kg per cubic metre. At that point the air spaces between grains pinch off into isolated bubbles, an event called pore close-off, and the firn becomes impermeable ice. Beyond close-off the remaining density increase to 917 kg per cubic metre comes from the slow compression of the trapped bubbles.
-
-```{figure} figures/lachapelle-metamorphism.jpeg
-:name: fig-lachapelle-metamorphism
-:width: 80%
-
-What the first stage looks like at the grain scale. A stellar snow crystal sketched at 0, 2, 5, 14, 23, and 57 days, its dendritic arms retreating as vapor moves from sharp, high-curvature points to flatter surfaces. The rounded grains that remain pack far more efficiently than the original stars, which is why settling alone carries the density to about 550 kg per cubic metre. From E. LaChapelle, *Field Guide to Snow Crystals*.
-```
+In the first stage, the grains rearrange and pack more tightly, the rounding and settling described in {doc}`snow-processes`, and the density climbs quickly until it reaches about 550 kg per cubic metre, near the limit of what grain packing alone can achieve. In the second stage, the grains deform and sinter together more slowly, and the density rises to about 830 kg per cubic metre. At that point the air spaces between grains pinch off into isolated bubbles, an event called pore close-off, and the firn becomes impermeable ice. Beyond close-off the remaining density increase to 917 kg per cubic metre comes from the slow compression of the trapped bubbles.
 
 ```{figure} figures/siple-pit-annual-layers.jpeg
 :name: fig-siple-pit-layers

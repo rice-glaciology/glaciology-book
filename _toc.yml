@@ -54,6 +54,7 @@ parts:
   - caption: The surface and surface processes
     chapters:
       - file: sections/thermomechanics/surface-energy-balance
+      - file: sections/foundations/snow-processes
       - file: sections/foundations/snow-to-ice
       - file: sections/thermomechanics/surface-hydrology
   - caption: Mass balance, climate, and prognostic modeling
@@ -74,22 +75,14 @@ parts:
     chapters:
       - file: sections/observing/elevation
       - file: sections/radar/em-waves
-      - file: sections/observing/laser-altimetry
       - file: sections/observing/laser-altimetry-lab
-      - file: sections/observing/radar-altimetry
       - file: sections/observing/radar-altimetry-lab
-      - file: sections/observing/panchromatic-imagery
       - file: sections/observing/panchromatic-imagery-lab
-      - file: sections/observing/insar
       - file: sections/observing/insar-lab
       - file: sections/radar/apres
-      - file: sections/radar/apres-lab
       - file: sections/radar/radiowave-fabric
-      - file: sections/observing/cryoseismicity
       - file: sections/observing/cryoseismicity-lab
-      - file: sections/observing/magnetotellurics
       - file: sections/observing/magnetotellurics-lab
-      - file: sections/observing/gravity
       - file: sections/observing/gravity-lab
   - caption: The wider cryosphere
     chapters:

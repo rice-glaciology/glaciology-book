@@ -18,6 +18,8 @@ $$
 E_n = \frac{p_n^2}{2m} = \frac{n^2 h^2}{8 m L^2}.
 $$
 
+Here $E_n$ is the energy of the state labelled by the integer $n$, $p_n$ the momentum the de Broglie relation assigns to that standing wave, $m$ the particle mass, $h$ Planck's constant, and $L$ the width of the box. The energy is wholly kinetic, since the particle is free between the walls, and it climbs as $n^2$ because each higher state packs in more half-wavelengths and so carries more momentum.
+
 ```{admonition} Derivation
 :class: dropdown
 The energy is purely kinetic, since the particle is free between the walls, so $E_n = p_n^2/2m$ with $p_n$ the momentum that the de Broglie relation assigns to the standing wave. The boundary condition that the wave vanish at both walls admits only an integer number of half-wavelengths in the segment, $L = n(\lambda_n/2)$, which is the printed quantization $\lambda_n = 2L/n$. The de Broglie relation $\lambda = h/p$ then fixes the momentum,
@@ -54,6 +56,8 @@ $$
 E_n = -\frac{m e^4}{8\,\epsilon_0^2 h^2}\,\frac{1}{n^2} = -\frac{13.6\ \mathrm{eV}}{n^2},
 \qquad n = 1, 2, 3, \ldots
 $$
+
+where $m$ is the electron mass, $e$ the elementary charge, $\epsilon_0$ the permittivity of free space, $h$ Planck's constant, and $n$ the principal quantum number. The energy is negative because the electron is bound; the prefactor $me^4/8\epsilon_0^2 h^2$ collects the atomic constants into the binding energy of the ground state, $13.6$ eV, and the factor $1/n^2$ makes the levels climb toward zero as $n$ grows, crowding together at the top of the well where the electron is least tightly held.
 
 ```{admonition} Derivation
 :class: dropdown
@@ -109,6 +113,8 @@ E_v = \left(v + \tfrac{1}{2}\right) h\nu, \qquad
 \nu = \frac{1}{2\pi}\sqrt{\frac{k}{\mu}}, \qquad v = 0, 1, 2, \ldots
 $$
 
+where $v$ is the vibrational quantum number, $\nu$ the classical oscillation frequency, $h$ Planck's constant, $k$ the force constant of the well, and $\mu$ the oscillating mass. The term $v\,h\nu$ counts the rungs of the ladder in equal steps of $h\nu$, and the constant $\tfrac{1}{2}h\nu$ lifts the whole ladder off the bottom of the well, the zero-point energy that the lowest state retains. The frequency rises with the stiffness $k$ and falls as the mass $\mu$ increases.
+
 ```{admonition} Derivation
 :class: dropdown
 The classical frequency follows from the equation of motion alone, and the level structure is the standard result for the quantized oscillator, quoted here without solving the wave equation. A mass $\mu$ in the parabolic potential $V = \tfrac12 k x^2$ obeys $\mu\ddot x = -kx$, the equation of simple harmonic motion, whose solution oscillates at angular frequency $\omega = \sqrt{k/\mu}$ and hence at frequency
@@ -134,6 +140,8 @@ Rotational levels complete the ladder. A molecule with moment of inertia $I$ rot
 $$
 E_J = B\,J(J+1), \qquad B = \frac{\hbar^2}{2I}, \qquad J = 0, 1, 2, \ldots
 $$
+
+where $J$ is the rotational quantum number, $I$ the moment of inertia about the rotation axis, $\hbar$ the reduced Planck constant, and $B$ the rotational constant. The factor $J(J+1)$ sets the spacing of the rungs, which widens as $J$ rises, and the rotational constant $B$ scales the whole ladder, growing smaller as the molecule's moment of inertia $I$ grows, so that heavier or more spread-out molecules have finer rotational levels.
 
 ```{admonition} Derivation
 :class: dropdown
@@ -181,6 +189,8 @@ A quantum particle also has a finite probability of penetrating a potential barr
 $$
 \kappa = \frac{\sqrt{2m(V - E)}}{\hbar},
 $$
+
+where $\kappa$ is the rate at which the wave amplitude decays inside the barrier, $m$ the particle mass, $V$ the barrier height, $E$ the particle energy, and $\hbar$ the reduced Planck constant. The shortfall $V-E$ is the amount by which the barrier overtops the particle, so a taller barrier or a heavier particle makes $\kappa$ larger and the wave die away faster across the forbidden region.
 
 ```{admonition} Derivation
 :class: dropdown

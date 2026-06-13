@@ -46,7 +46,7 @@ $$
 identifies $\bar\epsilon = \epsilon_a + \tfrac13\Delta\epsilon = \tfrac13(2\epsilon_a+\epsilon_c)$ as the orientation-averaged permittivity and isolates the anisotropic, traceless part. For isotropic ice $\langle\mathbf c^2\rangle = \tfrac13\mathbf I$ and the second term vanishes, as stated.
 ```
 
-where $\langle\mathbf{c}^2\rangle$ is the second-order structure tensor, the orientation average of the outer product of the c-axis with itself. This tensor is the compact description of the fabric. Its three eigenvalues $\lambda_x,\lambda_y,\lambda_z$ sum to one and measure how strongly the c-axes cluster toward each principal axis. For perfectly isotropic ice $\langle\mathbf{c}^2\rangle = \tfrac{1}{3}\mathbf{I}$, the anisotropic term vanishes, and the bulk permittivity is the scalar $\bar\epsilon\,\mathbf{I}$. Any departure from isotropy shows up directly as anisotropy in $\boldsymbol{\epsilon}$.
+where $\bar\epsilon$ is the orientation-averaged permittivity, $\Delta\epsilon$ the single-crystal anisotropy, and $\langle\mathbf{c}^2\rangle$ the second-order structure tensor, the orientation average of the outer product of the c-axis with itself. The first term $\bar\epsilon\,\mathbf{I}$ is the isotropic response the ice would have with c-axes pointing every way, and the second term scales the fabric's departure from that average by $\Delta\epsilon$. This tensor is the compact description of the fabric. Its three eigenvalues $\lambda_x,\lambda_y,\lambda_z$ sum to one and measure how strongly the c-axes cluster toward each principal axis. For perfectly isotropic ice $\langle\mathbf{c}^2\rangle = \tfrac{1}{3}\mathbf{I}$, the anisotropic term vanishes, and the bulk permittivity is the scalar $\bar\epsilon\,\mathbf{I}$. Any departure from isotropy shows up directly as anisotropy in $\boldsymbol{\epsilon}$.
 
 ## Fast and slow waves
 
@@ -86,7 +86,7 @@ $$
 the printed result. The larger eigenvalue $\lambda_i$, the stronger the c-axis clustering along that axis, raises the effective permittivity and lowers the speed, so that polarization is the slow wave and the other is the fast wave.
 ```
 
-A wave polarized along the axis where the c-axes cluster more strongly, the larger $\lambda_i$, travels more slowly. The two horizontal polarizations therefore propagate as a fast wave and a slow wave. This is the birefringence: a single radar pulse splits, in effect, into two polarizations that drift apart in time as they go deeper.
+Here $V_i$ is the speed of the wave polarized along principal axis $i$, $\mu$ the permeability, $\epsilon_a$ the across-axis permittivity, and $\lambda_i$ the structure-tensor eigenvalue measuring c-axis clustering along that axis. The eigenvalue enters the effective permittivity as $\epsilon_a + \lambda_i\Delta\epsilon$, so a wave polarized along the axis where the c-axes cluster more strongly, the larger $\lambda_i$, sees a higher permittivity and travels more slowly. The two horizontal polarizations therefore propagate as a fast wave and a slow wave. This is the birefringence: a single radar pulse splits, in effect, into two polarizations that drift apart in time as they go deeper.
 
 ## From travel-time difference to fabric
 

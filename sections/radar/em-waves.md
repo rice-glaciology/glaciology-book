@@ -10,7 +10,7 @@ $$
 \nabla\times\nabla\times\mathbf{E} = -\frac{1}{c^2}\,\mu_r\,\epsilon_r\,\frac{\partial^2 \mathbf{E}}{\partial t^2},
 $$
 
-in which the relative permittivity $\epsilon_r$ encodes the response of the material. Ice is non-magnetic, so $\mu_r\approx 1$, and the speed at which a wave travels is set entirely by the permittivity,
+in which $\mathbf{E}$ is the electric field, $c$ the speed of light in vacuum, $\mu_r$ the relative permeability, and the relative permittivity $\epsilon_r$ encodes the response of the material. Ice is non-magnetic, so $\mu_r\approx 1$, and the speed at which a wave travels is set entirely by the permittivity,
 
 $$
 v=\frac{c}{n},\qquad n=\sqrt{\epsilon_r'},
@@ -40,7 +40,7 @@ $$
 which both defines the refractive index $n$ and gives the printed wave speed. The wave travels slower than in vacuum by exactly the factor $n$, the physical content of the refractive index.
 ```
 
-where $n$ is the refractive index and $\epsilon_r'$ is the real part of the permittivity at the frequency of the wave. The imaginary part, written $\epsilon_r''$, measures absorption, the conversion of wave energy into heat. The permittivity is not a single number but a function of frequency, because the different parts of the molecule and the lattice can follow a slow field but not a fast one. Reading that function from low frequency to high is reading off, in order, which physical response is still able to keep up.
+where $v$ is the wave speed in the medium, $c$ the speed of light in vacuum, $n$ the refractive index, and $\epsilon_r'$ the real part of the permittivity at the frequency of the wave. The relation states that the wave travels slower than in vacuum by the factor $n$, which is itself fixed by the square root of the real permittivity. The imaginary part, written $\epsilon_r''$, measures absorption, the conversion of wave energy into heat. The permittivity is not a single number but a function of frequency, because the different parts of the molecule and the lattice can follow a slow field but not a fast one. Reading that function from low frequency to high is reading off, in order, which physical response is still able to keep up.
 
 ## The two windows
 

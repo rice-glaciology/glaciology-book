@@ -195,6 +195,8 @@ $$
 \frac{dL'}{dt}+\frac{L'}{\epsilon\tau}=\frac{F'}{\epsilon H},
 $$
 
+with $h'$ the interior thickness anomaly, $F'$ the terminus flux anomaly, $L'$ the length anomaly, $\dot b'$ the balance anomaly that drives the chain, $L$ and $H$ the reference glacier length and thickness, and $\epsilon=1/\sqrt 3$ a constant set below. In each equation the first term on the left is the rate of change of that reservoir's state, the second is its relaxation, draining the reservoir on the common timescale $\epsilon\tau$, and the right side is the source fed to it by the stage upstream. The balance anomaly fills the thickness reservoir; the stored thickness over a glacier of length $L$ drives the flux reservoir; and the arriving flux, divided by the terminus thickness scale $\epsilon H$, advances the length.
+
 ```{admonition} Derivation
 :class: dropdown
 
@@ -310,6 +312,8 @@ $$
 Q = \nu\,\frac{H^{\alpha}}{L^{\gamma}},
 $$
 
+where $Q$ is the interior flux delivered toward the margin per unit width, $H$ the reservoir thickness, $L$ its length, $\nu$ a constant absorbing the rate factor and the dimensional constants of the flux integral, and $\alpha$ and $\gamma$ the thickness and length exponents.
+
 ```{admonition} Derivation
 :class: dropdown
 
@@ -361,6 +365,8 @@ $$
 Q_g = \Omega\, h_g^{\beta},
 \qquad \beta = \frac{m+n+3}{m+1} \approx 4.75
 $$
+
+in which $Q_g$ is the ice flux exported across the grounding line per unit width, $h_g$ the grounding-line thickness pinned to the bed by the flotation relation above, $\Omega$ a prefactor, and $\beta$ the thickness exponent built from the Glen flow exponent $n$ and the Weertman friction exponent $m$.
 
 ```{admonition} Derivation
 :class: dropdown
@@ -428,6 +434,8 @@ $$
 \frac{dH}{dt} = P - \frac{Q_g}{L} - \frac{H}{h_g L}\left(Q - Q_g\right),
 $$
 
+with $H$ the mean interior thickness, $P$ the accumulation rate, $L$ the grounding-line position, $Q$ and $Q_g$ the interior and grounding-line fluxes, and $h_g$ the flotation thickness at the grounding line. The accumulation term $P$ thickens the interior at the rate snow falls; the export term $-Q_g/L$ thins it by spreading the grounding-line loss back over the reservoir length; and the moving-boundary term $-(H/h_gL)(Q-Q_g)$ is a geometric correction, the thickening or thinning forced on a fixed volume as grounding-line migration changes the length it is spread over.
+
 ```{admonition} Derivation
 :class: dropdown
 
@@ -469,6 +477,8 @@ $$
 \qquad
 \Sigma \equiv \beta\,\frac{\bar L\, h_g'(\bar L)}{\bar h_g} - 1,
 $$
+
+where $\delta\bar L/\bar L$ is the fractional shift in the equilibrium grounding-line position, $\delta P/P$ and $\delta\Omega/\Omega$ the fractional changes in the atmospheric and oceanic forcings, $\bar L$ and $\bar h_g$ the steady-state grounding-line position and flotation thickness, $h_g'(\bar L)$ the rate at which the flotation thickness grows as the grounding line advances, and $\beta$ the flux exponent. The forcing term inside the parentheses is the net push, more snowfall advancing the grounding line and a larger export coefficient retreating it; the prefactor $1/\Sigma$ is the gain that amplifies it. In the stability number $\Sigma$ the first term measures how steeply the export $\Omega h_g^\beta$ stiffens against advance through the bed slope, and the $-1$ is the destabilizing pull of the accumulation gathered over the lengthening reservoir.
 
 ```{admonition} Derivation
 :class: dropdown

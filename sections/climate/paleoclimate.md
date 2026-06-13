@@ -33,6 +33,8 @@ $$
 \frac{R_v(f)}{R_{v,0}} = f^{\,\alpha - 1}.
 $$
 
+Here $R_v(f)$ is the isotopic ratio of the vapor when a fraction $f$ remains, $R_{v,0}$ its value at the warm-ocean source, and the exponent $\alpha - 1$, positive because the heavy molecule favors the condensate, drives the residual vapor steadily lighter as rainout proceeds and $f$ falls.
+
 ```{admonition} Derivation
 :class: dropdown
 

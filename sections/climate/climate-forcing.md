@@ -20,6 +20,8 @@ $$
 \frac{dL'}{dt} = -\frac{L'}{\tau} + F'(t),
 $$
 
+where $L'$ is the length anomaly, the departure of the terminus from its equilibrium position, $\tau$ the response time, and $F'(t)$ the forcing. The first term on the right is the relaxation, returning the glacier toward equilibrium on the timescale $\tau$, and the second is the climate forcing that drives it away.
+
 ```{admonition} Derivation
 :class: dropdown
 
@@ -277,7 +279,7 @@ $$
 \dot a(z) = \gamma\,(z - z_\mathrm{ELA}),
 $$
 
-where $\gamma$ is the mass-balance gradient in $\mathrm{m\,w.e.\,yr^{-1}\,m^{-1}}$ and
+in which $\dot a(z)$ is the surface mass balance at elevation $z$, $z_\mathrm{ELA}$ the equilibrium line altitude where the balance vanishes, and the height above that line, $z - z_\mathrm{ELA}$, sets how far into the accumulation or ablation regime a point lies. Here $\gamma$ is the mass-balance gradient in $\mathrm{m\,w.e.\,yr^{-1}\,m^{-1}}$ and
 is typically of order $0.005$–$0.01\ \mathrm{yr^{-1}}$ for temperate mountain glaciers.
 The profile is capped at some maximum accumulation rate above, because no glacier
 accumulates without limit at its summit, and the cap prevents unphysical behavior in the
@@ -324,6 +326,8 @@ interface,
 $$
 \dot m_b = \Omega\,\Delta T^2,
 $$
+
+where $\dot m_b$ is the basal melt rate beneath the shelf, $\Delta T$ the thermal forcing, the temperature of the ocean water above the in-situ melting point at the ice-ocean interface, and $\Omega$ a coefficient absorbing the geometry and mixing efficiency.
 
 ```{admonition} Derivation
 :class: dropdown

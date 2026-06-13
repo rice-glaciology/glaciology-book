@@ -12,7 +12,7 @@ $$
 \rho c \left(\frac{\partial T}{\partial t} + \bu\cdot\nabla T\right) = \nabla\!\cdot\!(k\,\nabla T) + \Phi,
 $$
 
-where $\rho$ is density, $c$ is the specific heat capacity, $k$ is the thermal conductivity, and $\Phi$ is the rate of heating by internal deformation. The term with $\bu$ is the advection of heat by the flow, and the divergence term is conduction.
+where $T$ is temperature, $\bu$ the ice velocity, $\rho$ the density, $c$ the specific heat capacity, and $k$ the thermal conductivity. Each term carries a physical meaning. On the left, $\rho c\,\partial T/\partial t$ is the heat stored as a fixed parcel of ice warms or cools, and $\rho c\,\bu\cdot\nabla T$ is the heat carried bodily from place to place by the moving ice, the advection. On the right, $\nabla\!\cdot\!(k\,\nabla T)$ is the heat that spreads by conduction down temperature gradients, and $\Phi$ is the heat generated internally wherever the ice deforms. The equation states that the heat a parcel gains through storage and transport equals what conduction and internal heating supply.
 
 ```{admonition} Derivation
 :class: dropdown
@@ -56,7 +56,7 @@ T(z,t) = T_0 - \Delta T\, e^{-\alpha z}\cos(\omega t - \alpha z),
 \qquad \alpha = \sqrt{\frac{\omega}{2\kappa_T}},
 $$
 
-penetrating to a depth $z_* = \sqrt{\kappa_T P/\pi}$ for a forcing of period $P$, about 0.2 m for the daily cycle and 3 m for the annual one.
+where $T_0$ is the mean surface temperature, $\Delta T$ the amplitude of the surface swing, $z$ depth below the surface, $t$ time, $\omega$ the angular frequency of the forcing, and $\kappa_T$ the thermal diffusivity. The factor $e^{-\alpha z}$ damps the swing with depth, so the amplitude falls by $1/e$ over the scale $1/\alpha$; the argument $\omega t - \alpha z$ of the cosine carries a phase lag $\alpha z$ that grows with depth, so the warmest and coldest moments arrive later the deeper one looks; and the inverse penetration scale $\alpha = \sqrt{\omega/2\kappa_T}$ tightens as the forcing quickens, so fast cycles die out shallower than slow ones. The wave penetrates to a depth $z_* = \sqrt{\kappa_T P/\pi}$ for a forcing of period $P$, about 0.2 m for the daily cycle and 3 m for the annual one.
 
 ```{admonition} Derivation
 :class: dropdown
@@ -106,7 +106,7 @@ $$
 H_c = \frac{k\,(T_m - T_s)}{G},
 $$
 
-about 1750 m for a surface 50 °C below melting and $G = 60\ \mathrm{mW\,m^{-2}}$.
+where $k$ is the thermal conductivity, $T_m$ the pressure-melting temperature at the bed, $T_s$ the surface temperature, and $G$ the geothermal flux. The numerator $k\,(T_m - T_s)$ is the conductive heat the ice column can carry for the available top-to-bottom temperature contrast, and dividing by the geothermal flux $G$ that must be carried converts it into the thickness at which the bed first reaches the melting point. It is about 1750 m for a surface 50 °C below melting and $G = 60\ \mathrm{mW\,m^{-2}}$.
 
 ```{admonition} Derivation
 :class: dropdown
@@ -145,7 +145,7 @@ $$
 Pe = \frac{aH}{\kappa_T},
 $$
 
-the ratio of advective to conductive heat transport. High accumulation (large $Pe$) flushes cold surface ice downward, holding the upper column isothermal at the surface temperature and compressing all the geothermal warming into a thin basal layer; low accumulation lets the profile relax toward the conductive line. The kink seen partway down many interior boreholes, where mid-depth ice is colder than the ice above and below it, is the signature of the third process, horizontal advection of ice from the colder, higher interior, and needs the full equation rather than any of these reduced balances.
+where $a$ is the accumulation rate, $H$ the ice thickness, and $\kappa_T$ the thermal diffusivity. The product $aH$ in the numerator measures the strength of the downward advection that carries surface ice into the column, the diffusivity $\kappa_T$ in the denominator measures how fast conduction can spread heat against it, and their ratio is therefore the relative importance of advective to conductive heat transport. High accumulation (large $Pe$) flushes cold surface ice downward, holding the upper column isothermal at the surface temperature and compressing all the geothermal warming into a thin basal layer; low accumulation lets the profile relax toward the conductive line. The kink seen partway down many interior boreholes, where mid-depth ice is colder than the ice above and below it, is the signature of the third process, horizontal advection of ice from the colder, higher interior, and needs the full equation rather than any of these reduced balances.
 
 ```{figure} figures/divide-temperature-profile.png
 :name: fig-divide-profile
@@ -197,7 +197,7 @@ $$
 G + \tau_b u_b - mL = -k\,\frac{\partial T}{\partial z},
 $$
 
-where $\tau_b u_b$ is the rate of frictional work at the bed, $m$ the basal melt rate (negative for freeze-on), and $L$ the latent heat of fusion.
+where $G$ is the geothermal flux entering from below, $\tau_b$ the basal shear stress, $u_b$ the sliding speed, $m$ the basal melt rate (negative for freeze-on), $L$ the latent heat of fusion, $k$ the thermal conductivity, and $\partial T/\partial z$ the basal temperature gradient with $z$ measured upward. Each term is an energy flux into a thin layer at the interface. The geothermal flux $G$ supplies heat from the rock below, the product $\tau_b u_b$ is the rate at which sliding friction dissipates heat at the bed, the term $mL$ is the heat consumed in melting ice at the rate $m$, and $-k\,\partial T/\partial z$ is the heat conducted away upward into the ice. The condition states that the geothermal and frictional heat not removed by conduction is what drives the melt.
 
 ```{admonition} Derivation
 :class: dropdown

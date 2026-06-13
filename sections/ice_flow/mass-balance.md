@@ -77,6 +77,8 @@ H(x)=\left[\frac{2(n+2)^{1/n}}{(2A)^{1/n}\rho_i g}\right]^{\!\frac{n}{2(n+1)}}\d
 \qquad 0<x<L .
 $$
 
+where $H(x)$ is the thickness at distance $x$ from the divide, $A$ and $n$ are the rate factor and exponent of Glen's law, $\rho_i$ the ice density, $g$ gravity, $\dot b$ the uniform balance rate, and $L$ the half-span from divide to margin. The bracketed prefactor sets the central thickness from the rheology and the span, the $\dot b^{\,1/2(n+1)}$ factor is the weak dependence on the climate that feeds the ice, and the final bracket is the dome's profile, equal to one at the divide and falling to zero at the margin $x=L$.
+
 ```{admonition} Derivation
 :class: dropdown
 

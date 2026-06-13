@@ -14,7 +14,7 @@ $$
 \frac{\partial \tau_{xz}}{\partial x}+\frac{\partial \tau_{yz}}{\partial y}+\frac{\partial \tau_{zz}}{\partial z}-\frac{\partial p}{\partial z}-\rho g=0,
 $$
 
-with a matching $y$ equation, the incompressibility condition $\nabla\!\cdot\!\mathbf{u}=0$, and Glen's law relating $\boldsymbol{\tau}$ to the strain rate. This is the **full Stokes** system. It keeps every term and is the most accurate and most expensive model, needed near grounding lines, ice divides, and steep terrain.
+where $\tau_{xx}$ is the longitudinal deviatoric stress, $\tau_{xy}$ and $\tau_{xz}$ the horizontal and vertical shear stresses, $\tau_{zz}$ the vertical normal deviatoric stress, $p$ the pressure, $\rho$ the density, and $g$ the gravitational acceleration. In the horizontal equation the three stress-gradient terms are the net forces per unit volume from the gradients of longitudinal stretching, horizontal shear, and vertical shear, and $\partial p/\partial x$ is the horizontal pressure gradient that resists them. In the vertical equation the stress-gradient terms balance the pressure gradient $\partial p/\partial z$ and the weight $\rho g$. This is accompanied by a matching $y$ equation, the incompressibility condition $\nabla\!\cdot\!\mathbf{u}=0$, and Glen's law relating $\boldsymbol{\tau}$ to the strain rate. This is the **full Stokes** system. It keeps every term and is the most accurate and most expensive model, needed near grounding lines, ice divides, and steep terrain.
 
 ## The hydrostatic approximation
 
@@ -80,7 +80,7 @@ $$
 Moving the basal drag to the left and keeping the driving stress on the right gives the printed balance {cite}`macayeal1989`.
 ```
 
-with a symmetric $y$ equation, where $\bar u,\bar v$ are the depth-averaged velocities and $\bar\eta$ the depth-averaged viscosity {cite}`macayeal1989`. For a floating shelf $\tau_b=0$, and the ice-shelf lab solves exactly this. Unlike the local SIA balance, this is an elliptic problem in which membrane stress couples the flow across the whole domain, which is what lets shelves and streams transmit stress through grounding lines.
+with a symmetric $y$ equation, where $\bar u,\bar v$ are the depth-averaged horizontal velocities, $\bar\eta$ the depth-averaged viscosity, $H$ the thickness, and $\tau_{b,x}$ the basal drag {cite}`macayeal1989`. The first term is the gradient of the depth-integrated longitudinal stress, the push and pull of stretching and compression along the flow, the second is the gradient of the depth-integrated lateral shear stress, the drag transmitted sideways across the flow, $\tau_{b,x}$ is the friction the bed exerts on the sliding ice, and the right-hand side $\rho g H\,\partial s/\partial x$ is the gravitational driving stress that the membrane and basal terms together oppose. For a floating shelf $\tau_b=0$, and the ice-shelf lab solves exactly this. Unlike the local SIA balance, this is an elliptic problem in which membrane stress couples the flow across the whole domain, which is what lets shelves and streams transmit stress through grounding lines.
 
 ## Hybrid models
 
@@ -113,7 +113,7 @@ $$
 the printed system {cite}`pattyn2003`. Unlike the shallow-shelf balance the equation is not integrated through the thickness, so it retains the depth-varying shear and is three-dimensional.
 ```
 
-with the matching $y$ equation {cite}`pattyn2003`. This is three-dimensional and resolves the depth-varying stress state far more faithfully than the depth-integrated models, at correspondingly higher cost, and is appropriate in grounding zones and other places where the flow is complicated. The asymptotic theory that places all of these models on a single ladder is given by {cite}`schoof2010`.
+with the matching $y$ equation {cite}`pattyn2003`, where $u,v$ are the horizontal velocities, $\eta$ the effective viscosity, $\rho$ the density, $g$ gravity, and $s$ the surface elevation. The first two terms are the horizontal gradients of the longitudinal and lateral membrane stresses, as in the shallow-shelf balance but now retained at every depth rather than depth-averaged, the third term $\partial(\eta\,\partial u/\partial z)/\partial z$ is the vertical gradient of the vertical-shear stress, the resistance that the shallow-shelf balance drops, and the right-hand side is the driving stress. Keeping both the membrane and the vertical-shear terms is what places this model between the two depth-integrated limits. This is three-dimensional and resolves the depth-varying stress state far more faithfully than the depth-integrated models, at correspondingly higher cost, and is appropriate in grounding zones and other places where the flow is complicated. The asymptotic theory that places all of these models on a single ladder is given by {cite}`schoof2010`.
 
 ## Summary of the hierarchy
 

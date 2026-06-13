@@ -41,7 +41,7 @@ $$
 \text{rate} = \nu_0\,\exp\!\left(-\frac{\Delta U}{k T}\right).
 $$
 
-The attempt frequency $\nu_0$ is set by the lattice vibrations of {doc}`lattice-dynamics`, the oscillation that rattles the defect against its barrier, and is of order $10^{12}$ to $10^{13}\ \mathrm{Hz}$. A fuller transition-state treatment replaces $\Delta U$ by an activation free energy and folds an entropy of activation into the prefactor, but the essential content is the exponential Boltzmann factor: warming the crystal multiplies the rate of every activated process, and steeply, because the barrier sits in the exponent.
+Here $\nu_0$ is the attempt frequency, $\Delta U$ the height of the energy barrier, $k$ Boltzmann's constant, and $T$ the absolute temperature, so the first factor counts the tries per second and the exponential gives the fraction of them energetic enough to clear the barrier. The attempt frequency $\nu_0$ is set by the lattice vibrations of {doc}`lattice-dynamics`, the oscillation that rattles the defect against its barrier, and is of order $10^{12}$ to $10^{13}\ \mathrm{Hz}$. A fuller transition-state treatment replaces $\Delta U$ by an activation free energy and folds an entropy of activation into the prefactor, but the essential content is the exponential Boltzmann factor: warming the crystal multiplies the rate of every activated process, and steeply, because the barrier sits in the exponent.
 
 The activation energy that governs creep is built from the defect energetics already assembled. Two pieces enter. The orientational defects that pace a gliding dislocation must first exist, and because they form in pairs their equilibrium concentration carries half the formation enthalpy,
 

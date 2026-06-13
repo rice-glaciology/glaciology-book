@@ -12,7 +12,7 @@ $$
 \frac{\partial H}{\partial t} = \dot a - \nabla\!\cdot\!\left(\bar{u}\,H\right),
 $$
 
-where $\dot a(\mathbf{x},t)$ is the net surface and basal mass balance. Given $H$ at time $t$, one diagnostic solve supplies $\bar{u}$, and the right-hand side then tells us how fast each column of ice is thickening or thinning. A small step $\Delta t$ forward gives a new $H$, the geometry has changed, and the diagnostic problem must be solved again for the new geometry. Repeat enough times and the photograph becomes a movie.
+where $H(\mathbf{x},t)$ is the ice thickness, $t$ is time, $\dot a(\mathbf{x},t)$ is the net surface and basal mass balance, and $\bar{u}$ is the depth-averaged velocity. Each term has a physical reading. The left side $\partial H/\partial t$ is the rate at which a column of ice thickens or thins. On the right, $\dot a$ is the ice added or removed locally at the surface and bed, and $-\nabla\!\cdot\!(\bar{u}\,H)$ is the convergence of the depth-integrated flux $\bar{u}H$, the rate at which flow piles ice into the column or drains it away. The equation states that a column thickens at the rate mass is added minus the rate flow carries it off. Given $H$ at time $t$, one diagnostic solve supplies $\bar{u}$, and the right-hand side then tells us how fast each column of ice is thickening or thinning. A small step $\Delta t$ forward gives a new $H$, the geometry has changed, and the diagnostic problem must be solved again for the new geometry. Repeat enough times and the photograph becomes a movie.
 
 The simplest prognostic model is therefore a two-step loop: transport the thickness, then re-solve for the velocity. Everything that follows in this chapter is a discussion of how to do those two steps correctly, how to check that the loop is producing sensible answers, and what it means to start the loop from the right initial condition.
 
@@ -28,7 +28,7 @@ $$
 \mathbf{q} = \bar{u}\,H = \left(\frac{2A(\rho_i g)^n}{n+2}\,H^{n+2}\,\left|\frac{\partial s}{\partial x}\right|^{n-1}\right)\left(-\frac{\partial s}{\partial x}\right),
 $$
 
-where $s = H + b$ is the surface elevation and $b$ is the (fixed) bed. On a flat bed $s = H$, so $\partial s/\partial x = \partial H/\partial x$, and the flux can be written as $\mathbf{q} = -D\,\nabla H$ where the diffusivity is
+where $s = H + b$ is the surface elevation, $b$ is the (fixed) bed, $A$ is the flow-rate factor of Glen's law, $n$ its exponent, $\rho_i$ the ice density, and $g$ gravity. The flux is the product of two factors: the bracketed group, an effective diffusivity that grows steeply with thickness $H$ and surface slope $\partial s/\partial x$, multiplied by the driving slope $-\partial s/\partial x$ that sets the flow direction downhill. On a flat bed $s = H$, so $\partial s/\partial x = \partial H/\partial x$, and the flux can be written as $\mathbf{q} = -D\,\nabla H$ where the diffusivity is
 
 $$
 D(H,\,\nabla s) = \frac{2A(\rho_i g)^n}{n+2}\,H^{n+2}\,|\nabla s|^{n-1}.

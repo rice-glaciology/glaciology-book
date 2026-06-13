@@ -10,7 +10,7 @@ $$
 \boldsymbol{\tau}_b = f(u_b,\dots)\,\frac{\mathbf{u}_b}{u_b},
 $$
 
-this is a parameterization of all the small-scale processes near the bed that the model does not resolve. Historically it was thought of as a sliding law giving the speed as a function of stress, $u_b=F(\tau_b)$, but that form can be multivalued, and the modern view writes it as a friction law giving the stress as a function of the speed, $\tau_b=f(u_b,\dots)$, which is single valued and better suited to the way models are posed. The thermal state of the bed, established in {doc}`thermal-structure`, sets the two limiting cases. Where the bed is frozen the ice does not slide, $u_b=0$, and the friction law is a vertical line in the stress-speed plane. Where the ice is afloat the bed exerts no traction, $\tau_b=0$. Everything interesting lies between, and which physics fills that gap depends on whether the bed is hard rock or soft sediment, and on how much water is present.
+where $\boldsymbol{\tau}_b$ is the vector basal shear stress, $u_b=|\mathbf{u}_b|$ the sliding speed, and $f(u_b,\dots)$ a friction function that may depend on the speed and on further variables such as the effective pressure. The scalar $f$ sets the magnitude of the drag, while the unit vector $\mathbf{u}_b/u_b$ fixes its direction, so the stress opposes the sliding and the whole expression is a parameterization of all the small-scale processes near the bed that the model does not resolve. Historically it was thought of as a sliding law giving the speed as a function of stress, $u_b=F(\tau_b)$, but that form can be multivalued, and the modern view writes it as a friction law giving the stress as a function of the speed, $\tau_b=f(u_b,\dots)$, which is single valued and better suited to the way models are posed. The thermal state of the bed, established in {doc}`thermal-structure`, sets the two limiting cases. Where the bed is frozen the ice does not slide, $u_b=0$, and the friction law is a vertical line in the stress-speed plane. Where the ice is afloat the bed exerts no traction, $\tau_b=0$. Everything interesting lies between, and which physics fills that gap depends on whether the bed is hard rock or soft sediment, and on how much water is present.
 
 In the shallow-ice limit of {doc}`../ice_flow/shallow-ice` the basal shear stress is just the driving stress, $\tau_b=-\rho_i g H\,\nabla s$, so the friction law closes the problem by tying that stress to the sliding speed. The chapters that follow build the candidate forms of $f$ from the physics of the bed.
 
@@ -43,7 +43,7 @@ $$
 u_R \approx \frac{k\,\Gamma}{\rho_i L\,a}\,\frac{\tau_b}{\nu^{2}},
 $$
 
-where $k$ is the thermal conductivity, $L$ the latent heat, and $\Gamma$ the slope of the pressure-melting relation. Because heat conduction through a small bump is quick, regelation is effective at passing the small bumps.
+where $k$ is the thermal conductivity, $L$ the latent heat of fusion, $\rho_i$ the ice density, $\Gamma$ the slope of the pressure-melting relation, $a$ the bump height, and $\nu$ the bed roughness as before. The group $k\Gamma/\rho_i L a$ measures how readily the heat released by refreezing can conduct back through a bump of height $a$ to drive the melt on its upstream face, and the factor $\tau_b/\nu^2$ is the stress concentrated onto the bump that sets the pressure, and hence the melting-point, contrast across it. Because heat conduction through a small bump is quick, regelation is effective at passing the small bumps.
 
 ```{admonition} Derivation
 :class: dropdown
@@ -66,7 +66,7 @@ $$
 R=\left(\frac{\rho_i L}{2 k\,\Gamma A}\right)^{1/(n+1)} .
 $$
 
-For $n=3$ the exponent is $2/(n+1)=1/2$, so the hard-bed law takes the familiar power-law form $\tau_b=C\,u_b^{m}$ with $m\approx 1/2$, the stress rising with the square root of the sliding speed.
+Here $\tau_b$ is the basal shear stress, $u_b$ the sliding speed, $\nu$ the bed roughness, $n$ the flow-law exponent, and $R$ a coefficient collecting the regelation and creep properties, the ice density $\rho_i$, latent heat $L$, thermal conductivity $k$, pressure-melting slope $\Gamma$, and rate factor $A$. The factor $\nu^2$ carries the bed geometry, the coefficient $R$ carries the material physics of the two sliding mechanisms, and the power $u_b^{2/(n+1)}$ is how the resistance grows with sliding speed once the controlling bump size has been chosen. For $n=3$ the exponent is $2/(n+1)=1/2$, so the hard-bed law takes the familiar power-law form $\tau_b=C\,u_b^{m}$ with $m\approx 1/2$, the stress rising with the square root of the sliding speed.
 
 ```{admonition} Derivation
 :class: dropdown
@@ -146,7 +146,7 @@ $$
 \tau_b = C\,u_b^{\,p}\,N^{\,q},
 $$
 
-which adds an effective-pressure dependence to the power law and so makes the bed weaker when the water pressure is high.
+where $\tau_b$ is the basal shear stress, $u_b$ the sliding speed, $N$ the effective pressure, $C$ a friction coefficient, and $p$ and $q$ positive exponents. The factor $u_b^{\,p}$ is the Weertman-like rise of drag with sliding speed, while the added factor $N^{\,q}$ encodes the effective-pressure dependence and so makes the bed weaker when the water pressure is high and $N$ is small.
 
 ```{admonition} Derivation
 :class: dropdown
@@ -159,7 +159,7 @@ $$
 \tau_b = \mu N\left(\frac{u_b}{u_b+\lambda N^{\,n}}\right)^{1/n}.
 $$
 
-At low speed, $u_b\ll\lambda N^n$, this reduces to a Weertman-like power law $\tau_b\approx\mu(\lambda^{-1}u_b)^{1/n}$ that is nearly independent of $N$, while at high speed, $u_b\gg\lambda N^n$, it saturates at the Coulomb value $\mu N$. The single parameter $\lambda$ sets the transition.
+Here $\mu$ is the friction coefficient, $N$ the effective pressure, $u_b$ the sliding speed, $n$ the flow-law exponent, and $\lambda$ a parameter setting the transition speed. The prefactor $\mu N$ is the Iken Coulomb ceiling the stress cannot exceed, and the bracketed ratio is a throttle that rises from zero toward one as the speed climbs, so the drag interpolates smoothly from a power law at low speed to the ceiling at high speed. At low speed, $u_b\ll\lambda N^n$, this reduces to a Weertman-like power law $\tau_b\approx\mu(\lambda^{-1}u_b)^{1/n}$ that is nearly independent of $N$, while at high speed, $u_b\gg\lambda N^n$, it saturates at the Coulomb value $\mu N$. The single parameter $\lambda$ sets the transition.
 
 ```{admonition} Derivation
 :class: dropdown

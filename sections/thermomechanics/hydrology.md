@@ -14,7 +14,7 @@ $$
 \phi = \rho_w g Z_b + p_w,
 $$
 
-where $Z_b$ is the bed elevation. Writing the water pressure in terms of the effective pressure, $p_w = p_i - N = \rho_i g (Z_s - Z_b) - N$, with $Z_s$ the surface elevation, gives
+where $\rho_w$ is the density of water, $g$ the gravitational acceleration, $Z_b$ the bed elevation, and $p_w$ the water pressure. The first term $\rho_w g Z_b$ is the gravitational potential energy per unit volume of water raised to the bed elevation, and the second term $p_w$ is the pressure energy stored in the water squeezed between ice and rock; their sum is the potential whose gradient drives the flow. Writing the water pressure in terms of the effective pressure, $p_w = p_i - N = \rho_i g (Z_s - Z_b) - N$, with $Z_s$ the surface elevation, gives
 
 $$
 \phi = \rho_w g Z_b + \rho_i g (Z_s - Z_b) - N .
@@ -28,7 +28,7 @@ $$
 \Psi = -\rho_i g\,\nabla Z_s - (\rho_w-\rho_i)\,g\,\nabla Z_b ,
 $$
 
-the Shreve potential gradient. The two terms compare the pull of the surface slope with that of the bed slope, and their coefficients differ by the factor $\rho_i/(\rho_w-\rho_i)\approx 11$.
+the Shreve potential gradient, where $\nabla Z_s$ is the surface slope, $\nabla Z_b$ the bed slope, $\rho_i$ and $\rho_w$ the densities of ice and water, and $\nabla N$ the small gradient in effective pressure that is dropped. The surface-slope term, weighted by $\rho_i$, is the pull exerted by the overlying ice through its sloping upper surface, while the bed-slope term, weighted by the much smaller buoyant density $\rho_w-\rho_i$, is the pull of the bed topography; their coefficients differ by the factor $\rho_i/(\rho_w-\rho_i)\approx 11$, so the surface slope dominates.
 
 ```{admonition} Derivation
 :class: dropdown
@@ -73,7 +73,7 @@ $$
 q = -\frac{h^3}{12\,\eta_w}\,\nabla\phi ,
 $$
 
-the Poiseuille law, with $\eta_w$ the viscosity of water.
+the Poiseuille law, where $q$ is the water flux per unit width, $h$ the film thickness, $\eta_w$ the viscosity of water, and $\nabla\phi$ the potential gradient that drives the flow. The flux runs down the potential gradient, the minus sign carrying that direction, and the cubic factor $h^3$ means a slightly thicker patch of film conducts disproportionately more water, the dependence that makes the uniform film unstable.
 
 ```{admonition} Derivation
 :class: dropdown
@@ -109,13 +109,13 @@ $$
 \frac{\partial S}{\partial t} = \frac{m}{\rho_i} - \tilde A\,S\,N^{\,n},
 $$
 
-where $m$ is the melt rate of the wall and the second term is creep closure; a turbulent flow relation,
+where $S$ is the channel cross-sectional area, $m$ the melt rate of the wall per unit length, $\rho_i$ the ice density, $N$ the effective pressure, and $\tilde A$ and $n$ the creep parameters of the surrounding ice. The first term $m/\rho_i$ is the rate at which wall melt enlarges the channel, and the second term $\tilde A\,S\,N^{\,n}$ is the rate at which the ice creeps inward under the effective pressure and shrinks it, so the cross-section grows or shrinks according to which prevails; a turbulent flow relation,
 
 $$
 Q = K_c\,S^{4/3}\left(\Psi + \frac{\partial N}{\partial x}\right)^{1/2};
 $$
 
-and local conservation of energy, the heat that melts the wall coming from the potential energy released by the flow,
+where $Q$ is the discharge, $K_c$ a constant fixed by the wall friction, $S$ the cross-section, $\Psi$ the background potential gradient, and $\partial N/\partial x$ its correction from the effective-pressure gradient along the channel. The discharge grows with the cross-section through $S^{4/3}$ and with the square root of the driving potential gradient, the turbulent dependence of flow speed on slope. The last balance is local conservation of energy, the heat that melts the wall coming from the potential energy released by the flow,
 
 $$
 m L = Q\left(\Psi + \frac{\partial N}{\partial x}\right).
@@ -188,13 +188,13 @@ $$
 \frac{\partial S}{\partial t} = \frac{S^{4/3}\Psi^{3/2}}{\rho_i L} - \tilde A S N^{\,n},
 $$
 
-to an equation for the draining lake,
+in which the first term is the wall melt, now written through the energy released by the flow, and the second is creep closure as before, to an equation for the draining lake,
 
 $$
 \frac{A_L}{\rho_w g}\frac{\partial N}{\partial t} = m_L - Q,
 $$
 
-reproduces the characteristic flood hydrograph, a slow exponential rise to a sharp peak followed by an abrupt collapse when the lake empties and the channel creeps shut. The model of {cite}`nye1976`, refined by later workers, matches recorded jökulhlaup discharges from Iceland closely.
+where $A_L$ is the surface area of the lake, $\rho_w$ the water density, $g$ gravity, $N$ the effective pressure at the seal, $m_L$ the rate at which meltwater and inflow supply the lake, and $Q$ the discharge leaving down the channel. The left side tracks the falling lake level through the change in $N$, and the right side is the net balance of supply against outflow, so the lake drains whenever the channel carries water away faster than it arrives. Coupled, the two reproduce the characteristic flood hydrograph, a slow exponential rise to a sharp peak followed by an abrupt collapse when the lake empties and the channel creeps shut. The model of {cite}`nye1976`, refined by later workers, matches recorded jökulhlaup discharges from Iceland closely.
 
 The clip below shows what the sharp end of that hydrograph looks like from the proglacial zone, a glacial outburst flood in full flow.
 
@@ -216,7 +216,7 @@ $$
 Q = -K\,S^{\alpha}\,\nabla\phi .
 $$
 
-In steady state $S=U_b h_r/(\tilde A N^n)$ and $S=(Q/K\Psi)^{1/\alpha}$, and eliminating $S$,
+Here $S$ is the cavity cross-section, $U_b$ the sliding speed, $h_r$ the bump height, $\tilde A$ and $n$ the creep parameters, $N$ the effective pressure, $Q$ the discharge, $K$ a conductivity constant, $\alpha$ a flow exponent, and $\nabla\phi$ the potential gradient. In the first equation the opening term $U_b h_r$ is the rate at which sliding drags ice off the lee of each bump and enlarges the cavity, set against the same creep-closure term $\tilde A\,S\,N^{\,n}$ as the channel; the second equation is a flux law in which the discharge grows with cavity size through $S^{\alpha}$ and runs down the potential gradient. In steady state $S=U_b h_r/(\tilde A N^n)$ and $S=(Q/K\Psi)^{1/\alpha}$, and eliminating $S$,
 
 $$
 N \approx \left(\frac{U_b h_r\,K^{1/\alpha}\Psi^{1/\alpha}}{\tilde A}\right)^{1/n}\,Q^{-1/\alpha n}.

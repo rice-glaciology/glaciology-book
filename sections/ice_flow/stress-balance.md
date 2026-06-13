@@ -28,7 +28,7 @@ $$
 The volume $V$ is arbitrary, so the integrand must vanish at every point, which is the local equation above.
 ```
 
-where $D/Dt$ is the material derivative following the flow. This is Cauchy's equation of motion, the continuum form of $\mathbf{F}=m\mathbf{a}$. The divergence of the stress tensor is the net surface force per unit volume, and $\rho\mathbf{g}$ is the gravitational body force.
+where $\rho$ is the ice density, $\mathbf{u}$ the velocity, $\boldsymbol{\sigma}$ the Cauchy stress tensor, $\mathbf{g}$ the gravitational acceleration, and $D/Dt$ the material derivative following the flow. This is Cauchy's equation of motion, the continuum form of $\mathbf{F}=m\mathbf{a}$. The left-hand term $\rho\,D\mathbf{u}/Dt$ is the mass per unit volume times the acceleration of a parcel, its inertia. On the right, $\nabla\!\cdot\!\boldsymbol{\sigma}$ is the net surface force per unit volume exerted by neighbouring ice across the parcel's faces, and $\rho\mathbf{g}$ is the gravitational body force pulling on its mass.
 
 ## Ice flow is a Stokes flow
 
@@ -44,7 +44,7 @@ $$
 \nabla\!\cdot\!\boldsymbol{\tau}-\nabla p+\rho\,\mathbf{g}=0.
 $$
 
-Together with incompressibility, $\nabla\!\cdot\!\mathbf{u}=0$, and Glen's law relating $\boldsymbol{\tau}$ to the strain rate, this is a closed system: four scalar equations, the three components of the momentum balance and the incompressibility condition, for the three velocity components and the pressure, with the deviatoric stresses eliminated through the flow law. It is the complete description of glacier flow, and everything in the following chapters is an approximation to it.
+where $\boldsymbol{\tau}$ is the deviatoric stress, the part that changes the shape of a parcel, $p$ the pressure, and $\mathbf{I}$ the identity tensor. The first term $\nabla\!\cdot\!\boldsymbol{\tau}$ is the net viscous force per unit volume from the deforming ice around the parcel, $-\nabla p$ is the force from the pressure gradient, and $\rho\mathbf{g}$ is gravity; the three sum to zero because the ice is in force balance. Together with incompressibility, $\nabla\!\cdot\!\mathbf{u}=0$, and Glen's law relating $\boldsymbol{\tau}$ to the strain rate, this is a closed system: four scalar equations, the three components of the momentum balance and the incompressibility condition, for the three velocity components and the pressure, with the deviatoric stresses eliminated through the flow law. It is the complete description of glacier flow, and everything in the following chapters is an approximation to it.
 
 ## Boundary conditions
 
@@ -56,7 +56,7 @@ $$
 \frac{\partial s}{\partial t}+u\,\frac{\partial s}{\partial x}+v\,\frac{\partial s}{\partial y}=w+a,
 $$
 
-with $a$ the surface mass balance, and its counterpart at the bed, $u\,b_x+v\,b_y=w$ for a rigid bed without melting or freezing. The surface condition is where time enters the problem. The Stokes balance itself is instantaneous, the diagnostic problem of the introduction, and it is this kinematic condition, depth-integrated into the thickness equation of {doc}`shallow-ice`, that carries the geometry forward in time and makes the prognostic problem.
+where $s(x,y,t)$ is the surface elevation, $u,v,w$ are the components of the velocity $\mathbf{u}$, and $a$ is the surface mass balance. The term $\partial s/\partial t$ is the rate at which the surface rises or falls, $u\,\partial s/\partial x+v\,\partial s/\partial y$ is the change a parcel sees as the horizontal flow carries it along the sloping surface, $w$ is the vertical velocity that lifts or lowers the surface, and $a$ is the mass added by snowfall or removed by melt. Its counterpart at the bed is $u\,b_x+v\,b_y=w$ for a rigid bed without melting or freezing. The surface condition is where time enters the problem. The Stokes balance itself is instantaneous, the diagnostic problem of the introduction, and it is this kinematic condition, depth-integrated into the thickness equation of {doc}`shallow-ice`, that carries the geometry forward in time and makes the prognostic problem.
 
 ## The driving stress
 

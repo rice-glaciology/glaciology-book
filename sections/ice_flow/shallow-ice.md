@@ -76,7 +76,7 @@ $$
 which gives the profile quoted, with the deformation written as $|S|^{\,n-1}(-S)$ so that the flow points down the surface slope.
 ```
 
-where $u_b$ is any basal sliding velocity supplied by the friction law of {doc}`../thermomechanics/basal-motion`. The deformation is concentrated near the bed, where the shear stress is largest, so the velocity changes most rapidly there and the profile is nearly uniform through the upper ice. This shape, the Lliboutry profile, matches the deformation measured in deep boreholes reasonably well {cite}`cuffey2010`. Averaging through the thickness gives the depth-averaged velocity,
+where $u_b$ is any basal sliding velocity supplied by the friction law of {doc}`../thermomechanics/basal-motion`, $A$ and $n$ are the rate factor and exponent of Glen's law, $\rho_i$ the ice density, $g$ gravity, $H$ the thickness, and $\partial s/\partial x$ the surface slope. The leading $u_b$ slides the whole column bodily, and the second term is the deformation added by internal shear, accumulated from the bed upward, which grows with the thickness and slope and vanishes at the surface where $s-z=0$. The deformation is concentrated near the bed, where the shear stress is largest, so the velocity changes most rapidly there and the profile is nearly uniform through the upper ice. This shape, the Lliboutry profile, matches the deformation measured in deep boreholes reasonably well {cite}`cuffey2010`. Averaging through the thickness gives the depth-averaged velocity,
 
 $$
 \bar u = u_b + \frac{2A(\rho_i g)^{n}}{n+2}\,H^{\,n+1}\,\left|\frac{\partial s}{\partial x}\right|^{\,n-1}\left(-\frac{\partial s}{\partial x}\right),

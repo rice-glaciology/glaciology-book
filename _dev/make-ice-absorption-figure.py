@@ -48,14 +48,15 @@ ax.text(0.53, 4e-1, "visible\nwindow", ha="center", fontsize=8.5)
 ax.axvspan(3e5, 1e7, color="C2", alpha=0.15)
 ax.text(1.7e6, 1e5, "radar\nwindow", ha="center", fontsize=8.5)
 
-top = 4e7
-for label, xpk, ypk, xt in [
-    ("O–H stretch\n3.1 µm", 3.08, 2.6e6, 1.1),
-    ("bend\n6 µm", 6.1, 4e5, 4.6),
-    ("libration", 12.0, 4e5, 26.0),
-    ("lattice\nmodes", 45.0, 4e5, 70.0),
+# staggered into two rows so the multi-line labels do not overlap
+hi, lo = 5e7, 6e6
+for label, xpk, ypk, xt, yt in [
+    ("O–H stretch\n3.1 µm", 3.08, 2.6e6, 1.0, hi),
+    ("bend\n6 µm", 6.1, 4e5, 6.5, lo),
+    ("libration", 14.0, 4e5, 16.0, hi),
+    ("lattice\nmodes", 45.0, 4e5, 90.0, lo),
 ]:
-    ax.annotate(label, xy=(xpk, ypk), xytext=(xt, top), fontsize=8.5,
+    ax.annotate(label, xy=(xpk, ypk), xytext=(xt, yt), fontsize=8.5,
                 ha="center", va="bottom",
                 arrowprops=dict(arrowstyle="-", lw=0.7, color="0.4"))
 ax.annotate("electronic\nabsorption (UV)", xy=(0.155, 1e5), xytext=(0.105, 6e1),

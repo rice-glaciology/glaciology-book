@@ -14,7 +14,6 @@ parts:
     chapters:
       - file: sections/modeling/labs-intro
       - file: sections/modeling/icepack-intro
-      - file: sections/modeling/running-icepack-docker
   - caption: The physics of ice
     chapters:
       - file: sections/foundations/preface

@@ -4,7 +4,7 @@ This chapter builds a complete, if idealized, ice-flow model: a rectangular **fl
 
 ```{admonition} Run this in the container
 :class: tip
-The code below is meant to be run in the Firedrake/icepack environment from {doc}`running-icepack-docker`, with the **Firedrake (icepack)** kernel. It is **not executed** when the book is built, so you won't see output here — copy it into a notebook and run it yourself.
+The code below is meant to be run in the Firedrake/icepack environment from {doc}`icepack-intro`, with the **Firedrake (icepack)** kernel. It is **not executed** when the book is built, so you won't see output here — copy it into a notebook and run it yourself.
 ```
 
 ## The domain

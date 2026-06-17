@@ -46,7 +46,12 @@ The minus sign in the printed form is a matter of convention. Writing the liquid
 
 with $\nu_b$ the brine volume fraction, $S_i$ the bulk ice salinity, $S_b$ the brine salinity, $\rho_i, \rho_b$ the ice and brine densities, $T_i$ the temperature in Celsius, and $m$ the liquidus slope. The first form is a salt budget, the ratio of the salt held in a unit volume of ice to the salt a unit volume of brine can carry, which is the fraction of the volume the brine must occupy. The second form eliminates the brine salinity through the freezing equilibrium $S_b = T_i/m$, leaving the brine fraction set by temperature alone, growing without bound as $T_i \to 0$. Fast-grown young ice traps more salt, with salinity decreasing as the ice thickens and ages, from roughly 10‰ in thin first-year ice toward 5‰ or less in multiyear ice that has flushed its brine.
 
-% TODO Illustrator figure: figures/brine-volume.svg (label fig-brine-volume, width 80%)
+```{figure} figures/brine-volume.png
+:name: fig-brine-volume
+:width: 80%
+
+Brine volume fraction against temperature for first-year ice ($S_i=10$‰) and multiyear ice ($S_i=5$‰), from the freezing-equilibrium relation. The liquid fraction grows without bound as the temperature approaches the freezing point, where the ice becomes a mush {cite}`thomas2017`.
+```
 % Spec: brine volume fraction vs temperature for first-year (S_i = 10 permil) and multiyear
 % (S_i = 5 permil) ice from the freezing-equilibrium relation; liquid fraction diverging toward
 % the freezing point; cite thomas2017.
@@ -103,7 +108,7 @@ Bulk salinity against ice thickness for cold first-year sea ice, compiled from f
 
 Glacier ice creeps at meters per year; the sea-ice pack travels at the pace of the weather driving it. Pushed by wind and ocean stress, the Arctic pack circulates at kilometers per day, clockwise around the Beaufort Gyre and across the pole in the Transpolar Drift, exporting roughly a tenth of the basin's ice through Fram Strait each year. Where floes diverge they open leads, windows of dark ocean that lose heat furiously in winter and absorb sunlight in summer. Where they converge they raft and ridge, stacking ice into keels tens of meters deep. The thickness of the pack is therefore as much a record of deformation as of freezing.
 
-September extent has fallen by roughly 13% per decade over the satellite record, submarine sonar shows the mean draft thinner by more than a meter since the 1960s, and the old multiyear ice has largely been replaced by first-year ice, which is saltier, weaker, and more easily melted. The amplifier is the ice–albedo feedback. Sea ice reflects 60 to 90% of incoming sunlight while open water reflects under 10%, so a little melting exposes dark ocean, which absorbs more heat, which melts more ice. Melt ponds push the summer ice albedo down toward 0.45 even before the ice is gone. The feedback operates on the same radiative physics introduced in {doc}`../foundations/optical-properties`, and it is the leading reason the Arctic warms at twice the global rate. Sea ice extent and thickness are monitored by the passive microwave, laser, and radar altimetry methods of {doc}`../observing/elevation`, which is where the observational thread of this chapter continues.
+September extent has fallen by roughly 13% per decade over the satellite record, submarine sonar shows the mean draft thinner by more than a meter since the 1960s, and the old multiyear ice has largely been replaced by first-year ice, which is saltier, weaker, and more easily melted. The amplifier is the ice–albedo feedback. Sea ice reflects 60 to 90% of incoming sunlight while open water reflects under 10%, so a little melting exposes dark ocean, the exposed water absorbs more heat, and the added heat melts more ice. Melt ponds push the summer ice albedo down toward 0.45 even before the ice is gone. The feedback operates on the same radiative physics introduced in {doc}`../foundations/optical-properties`, and it is the leading reason the Arctic warms at twice the global rate. Sea ice extent and thickness are monitored by the passive microwave, laser, and radar altimetry methods of {doc}`../observing/elevation`, which is where the observational thread of this chapter continues.
 
 ```{figure} figures/arctic-thinning-scicex.png
 :name: fig-scicex-thinning

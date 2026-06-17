@@ -42,13 +42,20 @@ Where an ice sheet ends in the ocean, the grounded ice goes afloat at the ground
 
 Consider a grounding line in steady state, discharging exactly the accumulation it is fed. If the bed slopes seaward, prograde, a small retreat moves the grounding line into shallower water, the discharge falls below the supply, and the ice readvances. The geometry is self-correcting. If the bed deepens inland, retrograde, the same small retreat puts the grounding line in deeper water, discharge rises above supply, and the imbalance drives further retreat into still deeper water. There is no stable resting place on a retrograde slope. This flux argument is the content of the stability diagrams of {cite}`schoof2007`, and we have already met its kinematic skeleton in the two-stage model of {doc}`../climate/glacier-variations`, where the instability appears as a sign change in a single stability parameter {cite}`robel2018`.
 
-% TODO Illustrator figure: figures/misi-flux-stability.svg (label fig-misi-flux-stability, width 90%)
-% Spec: two stacked panels. Top, grounding-line flux (blue) vs integrated accumulation supply (gray)
-% as functions of grounding-line position, with imbalance arrows at each crossing. Bottom, the bed,
-% an overdeepened basin between two sills. Prograde crossings stable, retrograde crossing unstable.
-% After the stability diagrams of weertman1974, schoof2007.
+```{figure} figures/misi-flux-stability.png
+:name: fig-misi-flux-stability
+:width: 90%
+
+The marine ice-sheet instability as a flux argument {cite}`weertman1974,schoof2007`, on the overdeepened bed of the MISMIP+ intercomparison {cite}`asaydavis2016`. Top, the grounding-line flux $Q_g=\Omega\,h_g^{\beta}$ from Schoof's boundary-layer theory, which climbs steeply with the flotation thickness and so with the depth of the bed, set against the accumulation supply $a\,x_g$, which grows with the grounded extent. The two curves meet at three steady states. Bottom, the bed, a polynomial overdeepening with a retrograde reach (shaded) where it deepens inland. The inland and seaward crossings, on prograde slopes, are stable; the crossing on the retrograde reach is unstable, and no steady grounding line can rest there. A grounding line nudged off the seaward stable position retreats across the overdeepening to the inland one.
+```
+% Spec: two stacked panels. Top, grounding-line flux Q_g = Omega h_g^beta (Schoof boundary layer, blue)
+% vs accumulation supply a*x_g (gray) as functions of grounding-line position; three crossings, S-U-S.
+% Bottom, the MISMIP+ centreline bed (Asay-Davis et al. 2016), a polynomial overdeepening with the
+% retrograde reach shaded; stable crossings on prograde slopes, unstable crossing on the retrograde reach.
 
 Retreat across a real bed is therefore episodic rather than smooth. Model reconstructions of deglaciation through overdeepened troughs show the grounding line pausing on sills for centuries and then sweeping across basins at rates of kilometers per year, a punctuated style of retreat that the geological record of the Antarctic shelf corroborates. The instability does not require a trigger to be catastrophic, only a nudge that moves the grounding line off its sill.
+
+The strength of the instability is inherited from the flow law, through the exponent $\beta$ that governs how steeply the discharge climbs with grounding-line thickness. For a power-law bed the boundary-layer analysis gives $\beta = (m+n+3)/(m+1)$, built from the Glen stress exponent $n$ of {doc}`../ice_flow/ice-rheology` and the exponent $m$ of the basal sliding law of {doc}`../thermomechanics/basal-motion`. Glen's $n=3$ with a Weertman bed at $m=1/3$ gives $\beta \approx 4.75$, the value used in the figure; a linear-viscous bed, $m=1$, lowers it to $\beta = 3.5$; and a Coulomb bed, where the basal drag is set by the effective pressure rather than by a power of the sliding speed, gives instead $\beta = n+2 = 5$ {cite}`tsai2015`. Across the plausible range of rheologies and basal laws the exponent stays close to five, and a stiffer rheology, larger $n$, raises it further. The existence of the instability does not depend on these choices. The flux rises with thickness for any $\beta > 0$, so a retreat into deeper water always raises the export, and the sign argument needs nothing more. What the flow law sets is the sharpness. A large exponent makes the discharge extremely sensitive to grounding-line thickness, so that the export rises steeply on a prograde bed and collapses steeply on a retrograde one, and the migration is correspondingly fast; a weaker dependence on thickness would slow the runaway without removing it. The basal friction law compared in the lab of {doc}`../thermomechanics/sliding-laws-lab` therefore sets how quickly a marine grounding line responds once it crosses onto a reverse slope, and through the prefactor $\Omega$ it sets the magnitude of the discharge, even though it does not decide whether the instability is present.
 
 ## Ice shelves and buttressing
 

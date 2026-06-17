@@ -4,9 +4,9 @@ The subglacial drainage of {doc}`hydrology` was developed from its outlet, the e
 
 ## Surface melt and the weathering crust
 
-Surface melt is produced by the energy balance at the ice surface developed in {doc}`surface-energy-balance`. That chapter decides how much water is made; this one follows what becomes of it once it exists.
+Surface melt is produced by the energy balance at the ice surface developed in {doc}`surface-energy-balance`. That chapter sets how much water is produced, and this one follows what becomes of it.
 
-The first thing that happens is that some of it is stored close to where it formed. Solar radiation penetrates the upper few tens of centimetres of ice and melts preferentially at grain boundaries below the surface, producing a porous, water-saturated layer called the weathering crust. The crust acts as a shallow aquifer that buffers the diurnal melt cycle, releasing water slowly through the day and into the night, and it is the reason a glacier surface continues to discharge water for hours after the sun has gone off it. Scattered across the ablation zone are cryoconite holes, small water-filled cylinders melted into the ice by dark wind-blown dust and microbial material whose low albedo absorbs sunlight, each a few centimetres across and a few centimetres deep. The crust and the cryoconite holes are minor reservoirs individually, but together they govern how quickly the surface responds to a change in melt and how much of the surface darkens, the albedo feedback that itself amplifies melt.
+The first thing that happens is that some of it is stored close to where it formed. Solar radiation penetrates the upper few tens of centimetres of ice and melts preferentially at grain boundaries below the surface, producing a porous, water-saturated layer called the weathering crust. The crust acts as a shallow aquifer that drains by the slow Darcy flow of the next section through the porous near-surface ice, buffering the diurnal melt cycle, releasing water slowly through the day and into the night, and it is the reason a glacier surface continues to discharge water for hours after the sun has gone off it. Scattered across the ablation zone are cryoconite holes, small water-filled cylinders melted into the ice by dark wind-blown dust and microbial material whose low albedo absorbs sunlight, each a few centimetres across and a few centimetres deep. The crust and the cryoconite holes are minor reservoirs individually, but together they govern how quickly the surface responds to a change in melt and how much of the surface darkens, the albedo feedback that itself amplifies melt.
 
 ## Supraglacial streams and lakes
 
@@ -23,6 +23,20 @@ The consequences were measured directly in Greenland, where a supraglacial lake 
 ## Moulins and the englacial system
 
 Most surface water reaches the bed not through a single dramatic lake drainage but steadily, through moulins. A moulin is a vertical shaft kept open by the stream that pours into it, melted and wedged through the ice along a crevasse, and it is the standing connection between the surface network and the interior of the glacier. Below the moulin the water travels through an englacial network of conduits to the bed, where it joins the subglacial system of {doc}`hydrology`. The englacial passage introduces a delay and a storage term between surface melt and basal discharge, so the water pressure at the bed responds to the surface melt smoothed and lagged rather than instantly, and a moulin that feeds a subglacial channel buffers the diurnal melt cycle into a steadier basal supply. The supply that the subglacial chapter assumed at its upstream end is, in detail, the output of this englacial routing.
+
+## Percolation through snow and firn
+
+In the accumulation zone the meltwater does not run off over an impermeable surface but sinks into the porous snow and firn beneath it, where it moves by the same Darcy law that governs water in any permeable medium,
+
+$$
+q = -\frac{k}{\mu_w}\left(\frac{\partial p_w}{\partial z} + \rho_w g\right),
+$$
+
+where $q$ is the volume flux of water per unit area, $k$ the permeability of the snow, $\mu_w$ the viscosity of water, $\partial p_w/\partial z$ the gradient of the pore-water pressure, and $\rho_w g$ the weight of the water that drives it downward. Well below the surface the pressure gradient is small and the flow is essentially gravity-driven, $q\approx k\rho_w g/\mu_w$, a steady downward percolation set by the permeability alone.
+
+What distinguishes snow from the frozen sediment of {doc}`frozen-ground` is the permeability and the direction of the drive. Snow is extraordinarily permeable, with $k$ of order $10^{-9}$ to $10^{-10}\ \mathrm{m^2}$, set by the square of the grain size, so water sinks through it freely under its own weight. The frozen fringe sat at the opposite extreme, with a permeability collapsing toward zero as pore ice choked the throats, and there the water was drawn *upward* against gravity by the cryosuction of the Clapeyron relation rather than pushed down by its weight. The two are the same Darcy law read in opposite regimes, a fast gravity drainage through an open pack on the one hand, a slow suction-fed creep through a nearly sealed one on the other.
+
+Percolation through snow is rarely as tidy as uniform downward flow. Part of the water is held back by capillary suction in the pore necks, so a snowpack must be wetted to a threshold, its irreducible water content, before any water drains through it at all. Where the flow meets a layer of cold, fine, or wind-packed snow it slows and spreads, and where it meets snow below the melting point it refreezes into the ice lenses and layers that the next section describes. An ice layer is nearly impermeable, so it perches the water above it and forces it sideways until it finds a way down, and the descent often concentrates into narrow vertical channels, the flow fingers or piping seen in dye-tracer experiments, rather than wetting the snow evenly. These departures from uniform flow are what make the depth and timing of refreezing, and the eventual delivery of water to the bed, so difficult to predict in the percolation zone.
 
 ## Refreezing, firn aquifers, and retained meltwater
 

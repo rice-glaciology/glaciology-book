@@ -52,15 +52,14 @@ accumulates at low frequencies until the response time cuts it off. Formally, th
 power spectrum of $L'$ is red: $S_{LL}(\omega) = S_{FF}(\omega)/(\omega^2 + \tau^{-2})$,
 proportional to $\tau^2 \sigma_F^2$ at frequencies $\omega \ll \tau^{-1}$ and falling
 off as $\omega^{-2}$ above that corner. A glacier integrates interannual mass-balance
-noise into slow, persistent length excursions the same way a heavy flywheel integrates
-a sputtering engine into smooth rotation — the larger the flywheel (the longer $\tau$),
-the smoother and the larger the stored energy. This is the Hasselmann integration
-argument applied to glacier length {cite}`hasselmann1976`, and its consequence is concrete and uncomfortable:
-even a glacier in a perfectly stationary climate will wander its terminus by a kilometer
-or more on multi-decade timescales. A retreating terminus is not automatically a retreating
-climate. The null hypothesis every observed retreat must beat is not zero variability; it
-is the red-noise wandering that the climate's own interannual noise produces after passing
-through the integrating glacier.
+noise into slow, persistent length excursions in the same way a heavy flywheel integrates
+a sputtering engine into smooth rotation, and the larger the flywheel, the longer $\tau$,
+the smoother and the larger those excursions. This is the Hasselmann integration
+argument applied to glacier length {cite}`hasselmann1976`. Even a glacier in a perfectly
+stationary climate wanders its terminus by a kilometer or more on multi-decade timescales,
+so a retreating terminus is not by itself evidence of a changing climate. The appropriate
+null hypothesis for any observed retreat is not zero variability but the red-noise excursion
+that the climate's own interannual noise produces after passing through the integrating glacier.
 
 For mountain glaciers with $\tau$ of decades this means a few kilometers of excursion are
 climatically innocent. For the great ice sheets, where $\tau$ can reach millennia, the

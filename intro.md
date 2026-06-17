@@ -22,7 +22,7 @@ The chapters of our book build on one another and are ordered around the ingredi
 
 ## Running the code
 
-The modeling chapters use icepack, which runs on Firedrake. Firedrake can be awkward to install directly, so this book ships a **Docker image** that gives you a ready-to-go environment with Firedrake, icepack, and JupyterLab. See {doc}`sections/modeling/running-icepack-docker`. Because that stack is heavy, the notebooks are **not executed** when the book is built — you run them yourself in the container.
+The modeling chapters use icepack, which runs on Firedrake. Firedrake can be awkward to install directly, so this book ships a **Docker image** that gives you a ready-to-go environment with Firedrake, icepack, and JupyterLab. See {doc}`sections/modeling/icepack-intro`. Because that stack is heavy, the notebooks are **not executed** when the book is built — you run them yourself in the container.
 
 ```{note}
 This is a living document. Each page has "open issue" and "suggest edit" links in the top-right that point back to the source repository, so corrections and contributions are welcome.

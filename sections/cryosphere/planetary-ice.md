@@ -4,7 +4,7 @@ Everything derived in this book was motivated by ice on Earth, but the physics i
 
 ## Mars
 
-Mars is the most Earth-like of the other planets in its ice inventory, and it repays a careful look because each of its icy features has a direct analog in a chapter we have already read.
+Mars is the most Earth-like of the other planets in its ice inventory, and each of its icy features has a direct analog in a chapter we have already read.
 
 The Martian poles are capped year-round by layered deposits of water ice and dust that reach 3 km thick at the north pole and slightly less at the south. Unlike the seasonal carbon dioxide frost that comes and goes with every Martian year, the polar layered deposits are permanent, and they are a paleoclimate archive in the same sense as the Antarctic or Greenland ice sheets treated in {doc}`../climate/paleoclimate`. Obliquity cycles on Mars span roughly 120,000 years, the eccentricity cycle near 95,000 years, and the precession cycle near 51,000 years — a Milankovitch spectrum shifted to different periods but the same orbital logic. Dust and water ice accumulate in proportions that vary with insolation, and the resulting stratigraphy is visible in the steep scarps that erosion has cut into the deposit, alternating bright and dark layers that are the Martian equivalent of the glacial–interglacial cycles readable in an ice core.
 

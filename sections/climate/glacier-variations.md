@@ -163,7 +163,12 @@ $$
 Inserting the equilibrium length $L_{1,\mathrm{eq}} = C\,t_r = (\dot b_1/\dot a_0)(\bar Y/Y_t)L_0$, in which the $H_0$ in $C$ cancels against the $H_0$ in $t_r$, gives the result quoted in the text. The terminus relaxes exponentially toward the equilibrium response, reaching a fraction $1 - e^{-1} \approx 0.63$ of it after one response time and $1 - e^{-2} \approx 0.86$ after two.
 ```
 
-% TODO Illustrator figure: figures/response-time-curve.svg (label fig-response-time-curve, width 80%)
+```{figure} figures/response-time-curve.png
+:name: fig-response-time-curve
+:width: 80%
+
+The length of a glacier after a step change in mass balance, approaching its new equilibrium exponentially. It reaches 63 percent of the full response in one response time $t_r=H/\dot a_0$ and 86 percent in two {cite}`johannesson1989`.
+```
 % Spec: length vs time after a step change in balance, exponential approach to new equilibrium;
 % mark 63% at one response time t_r = H/a_0 and 86% at two; cite johannesson1989.
 
@@ -296,7 +301,12 @@ $$
 and $L' = L'_{\mathrm{eq}} + y$ gives the quoted solution after restoring $s = t/(\epsilon\tau)$. Near $t=0$ the bracket cancels to second order, so the terminus barely moves while the flux anomaly is still propagating down the chain; only once the polynomial growth is overtaken by the decaying exponential does the length climb to its equilibrium, producing the sigmoid.
 ```
 
-% TODO Illustrator figure: figures/three-stage-response.svg (label fig-three-stage-response, width 80%)
+```{figure} figures/three-stage-response.png
+:name: fig-three-stage-response
+:width: 80%
+
+Step responses of the one-stage and three-stage kinematic models, scaled to the same equilibrium and the same response time. The one-stage terminus moves immediately at its fastest rate, while the three-stage terminus barely moves until the thickness anomaly has travelled down-glacier, then catches up, the more realistic sigmoidal onset {cite}`roebaker2014`.
+```
 % Spec: step responses of one-stage vs three-stage kinematic models, same equilibrium response and
 % timescale tau; three-stage curve sigmoidal (delayed onset, then catches up); cite roebaker2014.
 
@@ -526,6 +536,6 @@ The stochastic counterpart of this sensitivity matters as much as the determinis
 
 The asymptotic behavior of the gain $1/\Sigma$ as the bed slope is varied is the cleanest route into the book's instability discussion. Hold the climate fixed and flatten the bed at the grounding line, so that $h_g' \to h_g/(\beta L)$ from above and $\Sigma \to 0^+$. Three things happen together. The sensitivity $1/\Sigma$ of the steady state diverges, so ever-smaller changes in ocean or atmosphere produce ever-larger equilibrium migrations. The slow eigenvalue, proportional to $\Sigma$, goes to zero, so the system takes arbitrarily long to settle, the critical slowing that in observed systems precedes a bifurcation. And the steady state's basin of attraction shrinks, so finite fluctuations of the kind the stochastic forcing supplies become capable of dislodging the system entirely.
 
-When the slope reverses, $b_x > 0$ at the grounding line, the bed deepening inland, the flotation thickness *increases* as the grounding line retreats, $h_g' < 0$, and $\Sigma$ is negative for any $\beta > 0$. No stable steady state exists on such a slope. A retreat into deeper water raises $h_g$, which raises the export $\Omega h_g^\beta$ by more than it raises the supply, which draws the interior down and retreats the grounding line further, and the feedback closes on itself without any new physics. This is the marine ice-sheet instability, obtained here from two mass reservoirs and a flux rule, with no stress balance anywhere in the argument, which is the strongest available evidence that the instability is at root a statement about mass conservation over a bed that deepens inland. A grounding line perturbed off the end of a retrograde reach does not stop until it finds the next prograde slope, the origin of the hysteresis and the discrete stable positions explored, with the full mechanical story, buttressing, and the observational case for the Amundsen Sea glaciers, in {doc}`../cryosphere/ice-sheets`, and of the oscillatory variants in {doc}`../cryosphere/instabilities`. The lab accompanying this chapter exhibits the asymmetry directly, the two-stage model relaxing to a new steady state when forced on a prograde bed and running away when forced on a retrograde one, and the full stress-balance version of the same experiment is carried out in icepack in {doc}`../modeling/ice-stream-vaf-lab`.
+When the slope reverses, with $b_x > 0$ at the grounding line and the bed deepening inland, the flotation thickness *increases* as the grounding line retreats, $h_g' < 0$, and $\Sigma$ is negative for any $\beta > 0$. No stable steady state exists on such a slope. A retreat into deeper water thickens the ice at the grounding line and raises the export $\Omega h_g^\beta$ faster than it raises the supply, the interior thins, and the grounding line retreats further, so the imbalance grows rather than corrects. This is the marine ice-sheet instability. It follows here from two mass reservoirs and a flux rule, with no stress balance entering the argument at any point, so the instability is a consequence of mass conservation over a bed that deepens inland. A grounding line displaced off a retrograde reach does not halt until it reaches the next prograde slope, which sets the hysteresis and the discrete stable positions. The full mechanical treatment, with buttressing and the observational case for the Amundsen Sea glaciers, is given in {doc}`../cryosphere/ice-sheets`, and the oscillatory variants in {doc}`../cryosphere/instabilities`. The lab accompanying this chapter exhibits the asymmetry directly, the two-stage model relaxing to a new steady state when forced on a prograde bed and running away when forced on a retrograde one, and the full stress-balance version of the same experiment is carried out in icepack in {doc}`../modeling/ice-stream-vaf-lab`.
 
 These reduced models earn their place in the book because they convert the prognostic problem's most expensive questions, how sensitive, how fast, how close to the edge, into algebra. The full models of {doc}`../modeling/prognostic-problem` remain the instruments of projection, but the one-, two-, and three-stage systems are how the projections are understood, attributed, and stress-tested, and they are the lens through which {doc}`../cryosphere/ice-sheets` and {doc}`../cryosphere/instabilities` are best read.

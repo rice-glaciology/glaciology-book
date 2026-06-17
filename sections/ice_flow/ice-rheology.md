@@ -10,7 +10,7 @@ A glacier is not a single crystal but an aggregate of many, with their c-axes in
 
 ## Dislocation glide and the molecular origin of the rate
 
-It is worth looking more closely at how basal glide actually proceeds, because the mechanism explains both the form of the flow law and the value of its activation energy. Glide does not happen by sliding whole planes rigidly over one another, which would require breaking every bond across the plane at once. It happens by the motion of dislocations, line defects across which the lattice is offset by one repeat distance, so that only the bonds along the moving line are rearranged at any instant. The dislocations of lowest energy in ice have the smallest possible offset, a Burgers vector of $(a/3)\langle 11\bar20\rangle$ lying in the basal plane, and X-ray topographs show them running predominantly in the basal plane in a screw orientation. Their density in a well-grown crystal is modest, of order $10^5$ per square centimeter, comparable to a semiconductor crystal of moderate quality. The plastic strain rate produced by their motion is
+Basal glide proceeds by a mechanism that explains both the form of the flow law and the value of its activation energy. Glide does not happen by sliding whole planes rigidly over one another, which would require breaking every bond across the plane at once. It happens by the motion of dislocations, line defects across which the lattice is offset by one repeat distance, so that only the bonds along the moving line are rearranged at any instant. The dislocations of lowest energy in ice have the smallest possible offset, a Burgers vector of $(a/3)\langle 11\bar20\rangle$ lying in the basal plane, and X-ray topographs show them running predominantly in the basal plane in a screw orientation. Their density in a well-grown crystal is modest, of order $10^5$ per square centimeter, comparable to a semiconductor crystal of moderate quality. The plastic strain rate produced by their motion is
 
 $$
 \dot\varepsilon_p = \rho_d\, b\, v,
@@ -35,7 +35,7 @@ Ice shows almost no work hardening: once a single crystal yields it continues to
 
 A dislocation gliding through the basal plane cannot advance without changing the proton configuration along its path, because the bonds it sweeps across must be reconnected on the far side. If those bonds simply reformed in whatever configuration they happened to meet, roughly half of them would end up as orientational defects, with two protons or none, at a prohibitive energy cost. The dislocation can therefore move only as fast as the proton arrangement ahead of it can be put right, and that ordering is accomplished by the migration of the very Bjerrum defects introduced in {doc}`../foundations/point-defects`. The flow of ice is, at this level, rate-limited by the diffusion of orientational defects. The prediction that follows is quantitative: the activation energy for creep should equal the energy to form and move a Bjerrum defect, about $0.6\ \mathrm{eV}$, and the measured activation energy for the creep of single crystals, near $0.6$ to $0.7\ \mathrm{eV}$, agrees {cite}`fletcher1970`. This same value reappears as the low-temperature branch of the rate factor below.
 
-Two further observations clinch the picture. The first is a doping experiment of exactly the semiconductor kind anticipated in the chapter on defects: adding a few parts per million of hydrogen fluoride, which supplies L-defects, increases the creep rate of single-crystal ice by about a factor of ten at $-70\ \mathrm{^\circ C}$, just as expected if the diffusion of orientational defects sets the dislocation velocity {cite}`fletcher1970`. The second is a comparison across materials. Silicon and germanium share the open, tetrahedrally bonded framework of ice, with easy glide on their close-packed planes, and when deformed near the comparable fraction of their melting temperature they show the same pronounced yield point and the same low stress exponent that ice does. The character of ice flow is, in the end, a property of tetrahedral bonding worked out on a lattice whose protons must be reordered before it can shear {cite}`fletcher1970`.
+Two further observations support the dislocation mechanism. The first is a doping experiment of exactly the semiconductor kind anticipated in the chapter on defects. Adding a few parts per million of hydrogen fluoride, which supplies L-defects, increases the creep rate of single-crystal ice by about a factor of ten at $-70\ \mathrm{^\circ C}$, just as expected if the diffusion of orientational defects sets the dislocation velocity {cite}`fletcher1970`. The second is a comparison across materials. Silicon and germanium share the open, tetrahedrally bonded framework of ice, with easy glide on their close-packed planes, and when deformed near the comparable fraction of their melting temperature they show the same pronounced yield point and the same low stress exponent that ice does. The character of ice flow is in this way a property of tetrahedral bonding on a lattice whose protons must be reordered before it can shear {cite}`fletcher1970`.
 
 ## The creep curve
 
@@ -47,7 +47,12 @@ The loading itself produces an immediate elastic strain, the stretch of the bond
 
 In **tertiary creep** the strain rate climbs from the minimum and levels onto a genuinely steady plateau, typically around three times the minimum rate in shear and higher still where the conditions favor it. The acceleration is the microstructure reorganizing under the imposed stress. New, strain-free grains nucleate and grow at the expense of the hardened ones, and the recrystallized grains take up orientations with their basal planes aligned for easy glide, so the sample manufactures exactly the crystal fabric that {doc}`ice-fabric` describes in nature. Tertiary creep, not secondary, is the state of the ice in a shear margin, in the deforming trunk of an ice stream, and in most deep, old, warm ice.
 
-% TODO Illustrator figure: figures/creep-curve.svg (label fig-creep-curve, width 85%)
+```{figure} figures/creep-curve.png
+:name: fig-creep-curve
+:width: 85%
+
+The creep of ice under constant stress. (a) Strain against time shows the instantaneous elastic step, a decelerating primary stage, a near-linear secondary stage at the minimum rate, and an accelerating tertiary stage. (b) The strain rate against accumulated strain dips to a minimum near one percent strain, the rate that Glen's flow law describes, and recovers to a tertiary plateau about three times higher as recrystallization aligns the fabric; the deforming ice of shear margins and ice-stream trunks rides that plateau.
+```
 % Spec: two stacked panels for a constant-stress creep test. Top, strain vs time showing the
 % instantaneous elastic step, decelerating primary, near-linear secondary instant, accelerating
 % tertiary. Bottom, strain rate vs strain on log axes: primary decay, minimum at ~1% strain
@@ -85,7 +90,12 @@ Contracting this tensor form back with itself recovers $\dot\varepsilon_E=A\,\ta
 
 where $\boldsymbol{\tau}$ is the deviatoric stress, $\tau_E$ the effective stress, $A$ the rate factor, and $n$ Glen's exponent. For the stresses found in glaciers and ice sheets, roughly 0.05 to 0.2 megapascals, the data are consistent with $n$ close to 3. This value is the signature of dislocation creep, in which the density of mobile dislocations itself rises with stress, so that the strain rate increases faster than linearly.
 
-% TODO Illustrator figure: figures/glen-law-curves.svg (label fig-glen-law-curves, width 80%)
+```{figure} figures/glen-law-curves.png
+:name: fig-glen-law-curves
+:width: 80%
+
+Strain rate against deviatoric stress for a Newtonian fluid ($n=1$), Glen's law ($n=3$), and the perfectly plastic limit ($n\to\infty$), all passing through a common point near $\tau_0\approx100$ kPa. The cubic dependence makes the strain rate of ice climb far faster than linearly with stress {cite}`glen1955,cuffey2010`.
+```
 % Spec: strain rate vs deviatoric stress for n=1 (Newtonian), n=3 (Glen), and the perfectly
 % plastic limit, all normalized through the same point at tau_0 ~ 100 kPa; cite glen1955,cuffey2010.
 

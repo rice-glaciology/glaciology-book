@@ -1,10 +1,10 @@
 # Modeling ice flow with icepack
 
-The chapters ahead develop the physics of ice flow, conservation of mass, the kinematics of stress and strain, and Glen's flow law. To turn that physics into a prediction of how a real glacier moves, we have to solve the **momentum balance** — the statement that the divergence of stress balances the driving force of gravity — together with the flow law, on a real domain. Outside of a few idealized geometries this can only be done numerically. [icepack](https://icepack.github.io/) is a Python package built for exactly this purpose {cite}`shapero2021`.
+The chapters ahead develop the physics of ice flow, conservation of mass, the kinematics of stress and strain, and Glen's flow law. To turn that physics into a prediction of how a real glacier moves, we have to solve the **momentum balance** — the statement that the divergence of stress balances the driving force of gravity. Outside of a few idealized analytic geometries this can only be done numerically using tool like the python package [icepack](https://icepack.github.io/) {cite}`shapero2021`.
 
 ## Overview
 
-icepack is a library for modeling the flow of glaciers and ice sheets. It is built on top of the [Firedrake](https://www.firedrakeproject.org/) finite element system, which means models are expressed in terms of the underlying variational (weak) form of the equations and discretized automatically. A few features make it well suited to learning and to research:
+icepack is a library for modeling the flow of glaciers and ice sheets. It is built on top of the [Firedrake](https://www.firedrakeproject.org/) finite element package, which gives us a variety of elements and function spaces to describe the numerics of our problem. A few features make it well suited to learning and to research:
 
 - **Physics by composition.** You choose a flow model — an ice shelf, a grounded ice stream, or a hybrid — and icepack assembles the corresponding equations. The rheology (Glen's law) and the boundary conditions are inputs you control.
 - **The action principle.** Rather than discretizing the momentum equations directly, icepack derives the flow from minimizing an **action functional**. The velocity that a glacier takes is the one that minimizes a balance of viscous and gravitational energy. This makes the formulation compact and the solvers robust.

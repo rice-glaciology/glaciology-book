@@ -8,7 +8,7 @@ icepack is a library for modeling the flow of glaciers and ice sheets. It is bui
 
 - **Physics by composition.** You choose a flow model — an ice shelf, a grounded ice stream, or a hybrid — and icepack assembles the corresponding equations. The rheology (Glen's law) and the boundary conditions are inputs you control.
 - **The action principle.** Rather than discretizing the momentum equations directly, icepack derives the flow from minimizing an **action functional**. The velocity solution is the one that minimizes a balance of viscous and gravitational energy. This makes the formulation compact and the solvers robust.
-- **Inverse methods.** Because models are differentiable, icepack can *assimilate data*, for example, using surface velocities to infer the basal friction or the fluidity of the ice shelf.
+- **Inverse methods.** Because models are differentiable, icepack can *assimilate data*, for example, using surface velocities to infer the basal friction or the fluidity of an ice stream or an ice shelf.
 
 ## Diagnostic and prognostic problems
 

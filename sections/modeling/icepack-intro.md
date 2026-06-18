@@ -4,7 +4,7 @@ The chapters ahead develop the physics of ice flow, conservation of mass, the ki
 
 ## Overview
 
-icepack is a library for modeling the flow of glaciers and ice sheets. It is built on top of the [Firedrake](https://www.firedrakeproject.org/) finite element package, which gives us a variety of elements and function spaces to describe the numerics of our problem. A few features make it well suited to learning and to research:
+icepack is a library for modeling the flow of glaciers and ice sheets. It is built on top of the [Firedrake](https://www.firedrakeproject.org/) finite element package, which gives us a variety of elements and function spaces to describe the numerics of our problem. A few features make icepack and firedrake well suited to learning and research:
 
 - **Physics by composition.** You choose a flow model — an ice shelf, a grounded ice stream, or a hybrid — and icepack assembles the corresponding equations. The rheology (Glen's law) and the boundary conditions are inputs you control.
 - **The action principle.** Rather than discretizing the momentum equations directly, icepack derives the flow from minimizing an **action functional**. The velocity that a glacier takes is the one that minimizes a balance of viscous and gravitational energy. This makes the formulation compact and the solvers robust.

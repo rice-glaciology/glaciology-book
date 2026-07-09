@@ -17,13 +17,9 @@ It helps to distinguish two kinds of question:
 - A **diagnostic** solve asks: *given the current geometry (thickness, bed) and material properties (fluidity, friction), what is the velocity?* This is a single nonlinear solve of the momentum balance.
 - A **prognostic** solve asks: *how does the geometry evolve in time?* It steps the thickness forward using the mass-conservation equation from {doc}`../ice_flow/mass-balance`, re-solving the diagnostic problem as the geometry changes.
 
-In this book we focus on the diagnostic problem, which is the natural first model and the building block for everything else.
+## The flow models and running icepack with Docker
 
-## The flow models
-
-icepack provides several depth-averaged flow models. The simplest is the **ice shelf**, floating ice with no basal drag, where flow is resisted only by horizontal stretching (membrane stresses). Adding basal friction gives the **ice stream** model (the shallow-stream/shelfy-stream approximation of {cite}`macayeal1989`), appropriate for fast-flowing grounded ice. A **hybrid** model adds vertical shearing for thicker, slower interior ice. We start with the ice shelf because it isolates the physics with the fewest moving parts.
-
-## Running icepack with Docker
+icepack provides several depth-averaged flow models. The simplest is the **ice shelf**, floating ice with no basal drag, where flow is resisted only by horizontal stretching (membrane stresses). Adding basal friction gives the **ice stream** model (the shallow-stream/shelfy-stream approximation of {cite}`macayeal1989`), appropriate for fast-flowing grounded ice. A **hybrid** model adds vertical shearing for thicker, slower interior ice. 
 
 icepack runs on Firedrake, a finite element library that depends on a large stack of compiled scientific software (PETSc, MPI, a mesh generator, and more). Installing all of that by hand is the single biggest hurdle to getting started. The reliable solution is a **container**, a pre-built image that bundles a known-good Firedrake, icepack, and JupyterLab. This book ships one, and the rest of this chapter sets it up so that every lab in the book can be run.
 
@@ -31,8 +27,6 @@ icepack runs on Firedrake, a finite element library that depends on a large stac
 :class: note
 Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) (macOS/Windows) or Docker Engine (Linux) first. The image is several gigabytes, so the first build takes a while; after that it is cached.
 ```
-
-## The image
 
 The `Dockerfile` at the root of the book repository builds on the official Firedrake image and adds icepack and a Jupyter kernel:
 
@@ -50,8 +44,6 @@ RUN source firedrake/bin/activate && \
     pip install ipykernel jupyterlab && \
     python -m ipykernel install --user --name=firedrake --display-name "Firedrake (icepack)"
 ```
-
-## Build and run
 
 From the book repository (the folder containing the `Dockerfile`):
 
@@ -86,7 +78,7 @@ If that imports without error, you are ready for the modeling labs. Anything you
 
 ## One kernel for every lab
 
-The image is built so that every notebook in this book runs in this single kernel, not just the icepack chapters. The modeling labs need Firedrake and icepack; the observing labs additionally use obspy for seismic data, rasterio and scikit-image for imagery and interferograms, netCDF4, h5py, and xarray for altimetry and gravity files, and earthaccess, icepyx, asf_search, and hyp3_sdk for programmatic data access, all of which are installed in the container. Two practical notes apply to the observing labs. Their download cells need network access from inside the container and, for the NASA archives, a free Earthdata login, which the access libraries will prompt for on first use; and the cells marked as not executed at build are sized so that what they fetch fits comfortably in the mounted work folder, with each lab's text stating the expected volumes before any download begins. A quick way to verify the full stack is to run the import block below in a fresh notebook.
+The image is built so that every notebook in this book runs in the same kernel. The modeling labs need Firedrake and icepack while the observing labs additionally use obspy for seismic data processing, rasterio and scikit-image to process and interpret satellite imagery, netCDF4, h5py, and xarray for altimetry and gravity files, and earthaccess, icepyx, asf_search, and hyp3_sdk for programmatic data access, all of which are installed in the container. Two practical notes apply to the observing labs. Their download cells need network access from inside the container and, for the NASA archives, a free Earthdata login, which the access libraries will prompt for on first use; and the cells marked as not executed at build are sized so that what they fetch fits comfortably in the mounted work folder, with each lab's text stating the expected volumes before any download begins. A quick way to verify the full stack is to run the import block below in a fresh notebook.
 
 ```python
 import firedrake, icepack, irksome

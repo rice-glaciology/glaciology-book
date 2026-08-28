@@ -1,15 +1,11 @@
 # Forcing glaciers with climate
 
-## Ice sheets are climate
+## Ice sheets: the low-pass filter of climate variability
 
-The popular framing — climate changes, glaciers
-respond — makes ice sound passive, a thermometer hanging in the atmosphere. The reality
-is more interesting. On timescales beyond a few thousand years, ice sheets are not the
-thermometer; they are part of the temperature. They reflect sunlight, elevate their own
-surface into thinner and colder air, drive the freshwater fluxes that pace the ocean
-overturning circulation, and lock up enough water to shift sea level by a hundred meters
-and thereby change the shape of every coastline on Earth. An ice sheet is both
-the recorder of past climate — the subject of {doc}`paleoclimate` — and the slowest
+Ice sheets are critical components that co-evolve with global climate.
+They are a source and signal of climate climate change.
+Changes in the configuration of  reflect sunlight, elevate their own surface into thinner and colder air, drive the freshwater fluxes that pace the ocean overturning circulation, and lock up enough water to shift sea level by a hundred meters and thereby change the shape of every coastline on Earth. 
+An ice sheet is both the recorder of past climate — the subject of {doc}`paleoclimate` — and the slowest
 dynamical component of the climate system itself, carrying its own integrated history, its own
 instabilities, and its own committed trajectories that no weather forecast could reveal.
 

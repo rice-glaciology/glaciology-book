@@ -5,18 +5,17 @@
 Ice sheets are critical components that co-evolve with global climate.
 They are a source and signal of climate climate change.
 Changes in the configuration of  reflect sunlight, elevate their own surface into thinner and colder air, drive the freshwater fluxes that pace the ocean overturning circulation, and lock up enough water to shift sea level by a hundred meters and thereby change the shape of every coastline on Earth. 
-An ice sheet is both the recorder of past climate — the subject of {doc}`paleoclimate` — and the slowest
-dynamical component of the climate system itself, carrying its own integrated history, its own
-instabilities, and its own committed trajectories that no weather forecast could reveal.
+An ice sheet is both a recorder of past climate — the subject of {doc}`paleoclimate` — and a
+dynamical component of the climate system itself integrating forcing at it's ocean terminus and interior history and responding
+with length and volume change that can change ocean circulation.
 
-The one-stage kinematic model of {doc}`glacier-variations` gives the cleanest
-statement of that memory. A glacier of length $L$ in a perturbed climate obeys
+To develop some intuition for how this system changes, recall the one-stage kinematic model of {doc}`glacier-variations` . A glacier of length $L$ in a perturbed climate obeys
 
 $$
 \frac{dL'}{dt} = -\frac{L'}{\tau} + F'(t),
 $$
 
-where $L'$ is the length anomaly, the departure of the terminus from its equilibrium position, $\tau$ the response time, and $F'(t)$ the forcing. The first term on the right is the relaxation, returning the glacier toward equilibrium on the timescale $\tau$, and the second is the climate forcing that drives it away.
+where $L'$ is the length change, the departure of the terminus from its equilibrium position, $\tau$ the response time, and $F'(t)$ the forcing anomaly. The first term on the right controls how the system relaxes back to it's mean state, returning the glacier toward equilibrium on the timescale $\tau$, and the second is the climate anomaly.
 
 ```{admonition} Derivation
 :class: dropdown

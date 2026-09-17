@@ -17,10 +17,10 @@ $$
 
 where $L'$ is the length change, the departure of the terminus from its equilibrium position, $\tau$ the response time, and $F'(t)$ the forcing anomaly. The first term on the right controls how the system relaxes back to it's mean state, returning the glacier toward equilibrium on the timescale $\tau$, and the second is the climate anomaly.
 
-```{admonition} Derivation
+```{admonition} Derivation of low pass filtering properties of ice sheets and glaciers
 :class: dropdown
 
-The red power spectrum quoted below follows from this equation by Fourier transform. Write the length anomaly and the forcing as superpositions of harmonics, $L'(t) = \int \hat L(\omega)\,e^{i\omega t}\,d\omega$ and $F'(t) = \int \hat F(\omega)\,e^{i\omega t}\,d\omega$. A time derivative becomes multiplication by $i\omega$, so the equation transforms term by term into
+The red power spectrum response can be derived from this equation by Fourier transform. Write the length anomaly and the forcing as superpositions of harmonics, $L'(t) = \int \hat L(\omega)\,e^{i\omega t}\,d\omega$ and $F'(t) = \int \hat F(\omega)\,e^{i\omega t}\,d\omega$. A time derivative becomes multiplication by $i\omega$, so the equation transforms term by term into
 
 $$
 i\omega\,\hat L(\omega) = -\frac{\hat L(\omega)}{\tau} + \hat F(\omega),

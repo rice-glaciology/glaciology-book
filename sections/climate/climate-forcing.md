@@ -42,28 +42,19 @@ Now suppose the interannual mass balance varies randomly from year to year, whit
 The length anomaly $L'$ is then an Ornstein–Uhlenbeck process, and its variance accumulates at low frequencies until the response time mutes the response to high frequency perturbations. 
 Formally, the power spectrum of $L'$ is red: $S_{LL}(\omega) = S_{FF}(\omega)/(\omega^2 + \tau^{-2})$, proportional to $\tau^2 \sigma_F^2$ at frequencies $\omega \ll \tau^{-1}$ and falling off as $\omega^{-2}$ above that corner. 
 A glacier integrates interannual mass-balance noise into slow, persistent length excursions in the same way a heavy flywheel integrates a sputtering engine into smooth rotation, and the larger the flywheel, the longer $\tau$, the smoother and the larger those excursions. 
-This is the Hasselmann integration argument applied to glacier length {cite}`hasselmann1976`. Even a glacier in a perfectly
-stationary climate wanders its terminus by a kilometer or more on multi-decade timescales,
-so a retreating terminus is not by itself evidence of a changing climate. The appropriate
-null hypothesis for any observed retreat is not zero variability but the red-noise excursion
-that the climate's own interannual noise produces after passing through the integrating glacier.
+Even a glacier in equalibrium with climate wanders its terminus by a kilometer or more on multi-decade timescales due to the integration of climate variability, so a retreating terminus is not by itself evidence of a changing climate.
+The appropriate null hypothesis for any observed retreat is not zero variability but the red-noise excursion that the climate's own interannual noise produces after passing through the low-pass filtering glacier.
 
-For mountain glaciers with $\tau$ of decades this means a few kilometers of excursion are
-climatically innocent. For the great ice sheets, where $\tau$ can reach millennia, the
-implied natural variability is vast — and the ocean-forced marine glaciers, as we will see
-below, produce an even slower and larger integration effect. The present shape of the West
-Antarctic ice sheet still reflects conditions at the Last Glacial Maximum.
-Reading a glacier's terminus position and inferring climate from it requires knowing the
-filter, and most of this book is about building and using that filter correctly.
+For mountain glaciers with $\tau$ of decades kilometers of excursion are a mix of changes in mean forcing state and interannual variability. 
+For the great ice sheets, where $\tau$ can reach millennia, for ocean-forced marine glaciers, this effect can be larger. 
+The present shape of the West Antarctic ice sheet still reflects conditions at the Last Glacial Maximum.
+Reading a glacier's terminus position and inferring climate from it requires knowing the filter, and most of this book is about building and using that filter correctly.
 
 ## From simple glaciers to marine ice sheets
 
-The one-stage reservoir model is the right starting point for small mountain glaciers, but
-it eventually runs out of physics. For the large marine-terminating systems — the outlet
-glaciers of Greenland and the ice streams of West Antarctica — the controlling boundary is
-not a thin terminus wedge but a grounding line, and the dynamics feeding that grounding
-line are themselves a slow process with their own timescale. The kinematic machine of
-{doc}`glacier-variations` can still be run, but it needs a second stage.
+The one-stage reservoir model is appropriate for land terminating glaciers and ice sheets (i.e. mountain glaciers, icecaps and land terminating glaciers in Greenland). 
+For the large marine-terminating systems in Greenland Greenland and the ice streams of West Antarctica — the controlling boundary is not a thin terminus wedge but the grounding zone where ice goes aflot, and the dynamics feeding that grounding line are themselves a slow process with their own response time. 
+The kinematic machine of {doc}`glacier-variations` can still be run, but it needs a second stage.
 
 That second stage is the two-stage model of Robel, Roe, and Haseloff {cite}`robel2018`, derived in {doc}`glacier-variations`, which tracks the mean interior thickness and the grounding-line position as coupled reservoirs, fed by the interior flux and drained by the steeply thickness-dependent flux across the grounding line. Three of its results bear directly on this chapter's argument. The linearized system has a fast grounding-zone timescale of decades to centuries and a slow interior timescale of millennia, so a marine ice stream responds to forcing quickly in part and completely only after a very long time. Its steady states are stable or unstable according to the sign of a single number set by the bed slope at the grounding line, which makes the marine ice-sheet instability of {doc}`../cryosphere/ice-sheets` a calculable property of the mean state. And driven by the broadband variability of ocean temperature, the system acts as the marine extension of the Hasselmann argument above, integrating noise into grounding-line excursions that are large, slow, and persistent, so that a decade of observed retreat cannot by itself distinguish forcing from natural variability.
 

@@ -38,19 +38,11 @@ $$
 For white-noise forcing $S_{FF}$ is flat. At low frequencies, $\omega \ll \tau^{-1}$, the denominator is approximately $\tau^{-2}$ and $S_{LL} \approx \tau^2\,S_{FF}$, the constant low-frequency plateau whose height grows as $\tau^2$. At high frequencies, $\omega \gg \tau^{-1}$, the denominator is approximately $\omega^2$ and $S_{LL} \approx S_{FF}/\omega^2$, the $\omega^{-2}$ red tail. The corner separating the two regimes sits at $\omega = \tau^{-1}$, so the longer the response time the lower the corner frequency and the more of the spectrum is lifted into the plateau. Integrating $S_{LL}$ over all frequencies gives the variance of $L'$, which scales as $\tau\,\sigma_F^2$; a longer response time stores more variance, the formal content of the flywheel analogy.
 ```
 
-where $\tau = H/\dot a_0$ is the Jóhannesson–Raymond–Waddington response time
-{cite}`johannesson1989` and $F'(t)$ is a forcing proportional to the mass-balance
-perturbation. Now suppose the climate is not changing at all, but the mass balance
-varies randomly from year to year, white noise with variance $\sigma_F^2$.
-The length anomaly $L'$ is then an Ornstein–Uhlenbeck process, and its variance
-accumulates at low frequencies until the response time cuts it off. Formally, the
-power spectrum of $L'$ is red: $S_{LL}(\omega) = S_{FF}(\omega)/(\omega^2 + \tau^{-2})$,
-proportional to $\tau^2 \sigma_F^2$ at frequencies $\omega \ll \tau^{-1}$ and falling
-off as $\omega^{-2}$ above that corner. A glacier integrates interannual mass-balance
-noise into slow, persistent length excursions in the same way a heavy flywheel integrates
-a sputtering engine into smooth rotation, and the larger the flywheel, the longer $\tau$,
-the smoother and the larger those excursions. This is the Hasselmann integration
-argument applied to glacier length {cite}`hasselmann1976`. Even a glacier in a perfectly
+Now suppose the interannual mass balance varies randomly from year to year, white noise with variance $\sigma_F^2$.
+The length anomaly $L'$ is then an Ornstein–Uhlenbeck process, and its variance accumulates at low frequencies until the response time mutes the response to high frequency perturbations. 
+Formally, the power spectrum of $L'$ is red: $S_{LL}(\omega) = S_{FF}(\omega)/(\omega^2 + \tau^{-2})$, proportional to $\tau^2 \sigma_F^2$ at frequencies $\omega \ll \tau^{-1}$ and falling off as $\omega^{-2}$ above that corner. 
+A glacier integrates interannual mass-balance noise into slow, persistent length excursions in the same way a heavy flywheel integrates a sputtering engine into smooth rotation, and the larger the flywheel, the longer $\tau$, the smoother and the larger those excursions. 
+This is the Hasselmann integration argument applied to glacier length {cite}`hasselmann1976`. Even a glacier in a perfectly
 stationary climate wanders its terminus by a kilometer or more on multi-decade timescales,
 so a retreating terminus is not by itself evidence of a changing climate. The appropriate
 null hypothesis for any observed retreat is not zero variability but the red-noise excursion

@@ -13,7 +13,7 @@ from scipy.spatial import cKDTree
 
 import figstyle as fs
 from common import (ACCENT, ACCENT2, FAINT, FS, FS_TICK, ICE, INK, MUTED, Video, arrow,
-                    data_letter, load_arrows, mechanism, orient_color, ramp, smooth)
+                    data_letter, load_arrows, readout, mechanism, orient_color, ramp, smooth)
 
 H = np.sqrt(3) / 2  # spacing between basal planes (nearest-neighbor distance = 1)
 
@@ -152,11 +152,12 @@ def elastic():
 
     v = Video(
         slug="elastic",
+        title="Elastic deformation",
         captions=[(0.0, 'Unloaded crystal; each row of molecules is a basal plane'),
                   (0.08, 'Shear applied: bonds stretch (red) and compress (blue)'),
                   (0.52, 'Load removed: the crystal recovers exactly')],
-        panels=[dict(rect=[0.02, 0.10, 0.62, 0.88], kind="field", xlim=(-13, 11), ylim=(-7.4, 6.8), letter="a"),
-                dict(rect=[0.74, 0.30, 0.22, 0.48], kind="plot", letter="b", letter_at=(0.10, 0.90))],
+        panels=[dict(rect=[0.02, 0.09, 0.62, 0.79], kind="field", xlim=(-13, 11), ylim=(-7.4, 6.8), letter="A"),
+                dict(rect=[0.74, 0.26, 0.22, 0.46], kind="plot", letter="B", letter_at=(0.10, 0.90))],
         seconds=12)
 
     def draw(axs, t):
@@ -191,6 +192,7 @@ def basal_glide():
 
     v = Video(
         slug="basal-glide",
+        title="Basal slip",
         captions=[(0.0, 'Shear stress parallel to the basal planes'),
                   (0.08, 'An edge dislocation nucleates and glides'),
                   (0.37, 'Each dislocation that exits leaves a one-molecule step'),
@@ -223,8 +225,8 @@ def basal_glide():
             ax.add_patch(Polygon([(gx + off, gy + k * gh / n), (gx + gw + off, gy + k * gh / n),
                                   (gx + gw + off, gy + (k + 0.86) * gh / n), (gx + off, gy + (k + 0.86) * gh / n)],
                                  closed=True, facecolor=ICE, edgecolor=INK, lw=fs.s(0.5), zorder=4))
-        data_letter(ax, -13.6, 5.6, "a")
-        data_letter(ax, gx - 1.0, gy + gh - 0.2, "b")
+        data_letter(ax, -13.6, 5.6, "A")
+        data_letter(ax, gx - 1.0, gy + gh - 0.2, "B")
 
     return v, draw
 
@@ -244,8 +246,9 @@ def nonbasal_glide():
 
     v = Video(
         slug="nonbasal-glide",
+        title="Basal and prismatic slip",
         captions=[(0.0, 'Same shear stress, two crystal orientations'),
-                  (0.15, '(a) basal slip is easy; (b) prismatic slip is ~60 times harder')],
+                  (0.15, '(A) basal slip is easy; (B) prismatic slip is ~60 times harder')],
         xlim=(-26.0, 14.0), ylim=(-12.0, 9.5), seconds=15)
 
     def draw(ax, t):
@@ -278,8 +281,8 @@ def nonbasal_glide():
         load_arrows(ax, (xb - 5.5, xb + 5.5, -5.5, 5.5), "shear", strength=on, size=0.22)
         caxis(ax, xa - 7.8, -6.4, L=1.6)
         caxis(ax, xb - 3.0, -8.9, L=1.6, angle=0.0)
-        data_letter(ax, xa - 7.6, 6.2, "a")
-        data_letter(ax, xb - 6.6, 7.6, "b")
+        data_letter(ax, xa - 7.6, 6.2, "A")
+        data_letter(ax, xb - 6.6, 7.6, "B")
 
     return v, draw
 
@@ -330,6 +333,7 @@ def climb():
 
     v = Video(
         slug="dislocation-climb",
+        title="Dislocation climb",
         captions=[(0.0, 'A dislocation glides to an obstacle'),
                   (0.3, 'A vacancy diffuses to the core'),
                   (0.56, 'The vacancy is absorbed and the dislocation climbs one plane'),
@@ -410,6 +414,7 @@ def kink_band():
 
     v = Video(
         slug="kink-band",
+        title="Kinking",
         captions=[(0.0, 'Compression parallel to the basal planes'),
                   (0.25, 'The planes rotate inside a kink band'),
                   (0.55, 'The band edges are walls of dislocations')],
@@ -454,7 +459,6 @@ def kink_band():
         load_arrows(ax, (-W / 2, W / 2, -Hc / 2, Hc / 2), "compress-y", strength=smooth(t, 0, 0.06), size=0.12)
         caxis(ax, -14.6, -1.5, L=1.8, angle=0.0)
         if phi > 0.1:
-            ax.text(W / 2 + 2.6, Hc / 2 - 0.2, f"rotation in band: {np.degrees(phi):.0f}°",
-                    fontsize=FS_TICK, ha="left", va="top")
+            readout(ax, 0, -Hc / 2 - 2.6, f"lattice rotation in band {np.degrees(phi):.0f}°")
 
     return v, draw

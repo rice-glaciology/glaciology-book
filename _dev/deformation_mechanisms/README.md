@@ -16,7 +16,7 @@ Videos and poster frames go to `_static/videos/deformation/`.
 
 | File | Contents |
 |---|---|
-| `figstyle.py` | The group figure style (Times/STIX, grey-circle panel letters, fixed series colours, 10-band colour bars), restated from `scripts/figstyle.py` in hoffmaao/vertical_velocity |
+| `figstyle.py` | The Morrow, Ghelichkhan & Kramer (2026) figure framework (github.com/sghelichkhani/morrow2026): Times/STIX at 15/17/13 pt, upper-case panel letters in grey circles, light-yellow title boxes, light-blue readout boxes, fixed series colours, 10-band colour bars |
 | `common.py` | Frame layout (panels, caption, orientation colour bar), MP4 writer, registry |
 | `lattice.py` | Atomic scale: elasticity, basal and non-basal glide, climb, kinking. Edge dislocations use the linear-elastic displacement field, with the slipped surface following the core's path so climb works. |
 | `grains.py` | Voronoi polycrystals: dislocation creep, fabric development, grain-boundary sliding (Ashby–Verrall switching), Nabarro–Herring and Coble creep, polygonization, premelting, brittle failure |

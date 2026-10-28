@@ -11,7 +11,7 @@ from scipy.spatial import Voronoi
 
 import figstyle as fs
 from common import (ACCENT, ACCENT2, FAINT, FS, FS_TICK, ICE, INK, MUTED, WATER, Video,
-                    arrow, data_letter, load_arrows, mechanism, orient_color, ramp, smooth)
+                    arrow, data_letter, load_arrows, readout, mechanism, orient_color, ramp, smooth)
 from lattice import draw_core
 
 
@@ -161,7 +161,7 @@ def _rgba(c):
 
 
 def strain_label(ax, x, y, text):
-    ax.text(x, y, text, fontsize=FS_TICK, ha="left", va="center")
+    readout(ax, x, y, text)
 
 
 # -- 6. dislocation creep in a polycrystal -----------------------------------
@@ -193,6 +193,7 @@ def dislocation_creep():
 
     v = Video(
         slug="dislocation-creep",
+        title="Dislocation creep",
         captions=[(0.0, 'Polycrystal; thin lines trace the basal planes'),
                   (0.07, 'Vertical compression; red marks active basal slip'),
                   (0.55, 'Grains flatten and c-axes rotate toward the compression axis')],
@@ -225,7 +226,7 @@ def dislocation_creep():
                     lc.set_clip_path(patch)
         W, Hh = 7.5 * np.exp(eps), 5.0 * np.exp(-eps)
         load_arrows(ax, (-W, W, -Hh, Hh), "compress-y", strength=smooth(t, 0, 0.06), size=0.13)
-        strain_label(ax, 8.2, 7.6, f"shortening {100 * (1 - np.exp(-eps)):.0f}%")
+        strain_label(ax, 10.0, 7.6, f"shortening {100 * (1 - np.exp(-eps)):.0f}%")
 
     return v, draw
 
@@ -253,7 +254,8 @@ def fabric():
 
     v = Video(
         slug="fabric-development",
-        captions=[(0.0, '(a) thin section, (b) c-axes on a Schmidt diagram: a random fabric'),
+        title="Fabric development",
+        captions=[(0.0, '(A) thin section, (B) c-axes on a Schmidt diagram: a random fabric'),
                   (0.1, 'Vertical compression rotates c-axes toward the vertical'),
                   (0.45, 'A single-maximum fabric develops')],
         xlim=(-8.0, 17.5), ylim=(-8.3, 8.3), seconds=14, orient_cbar=True)
@@ -278,10 +280,10 @@ def fabric():
         ax.plot([net_c[0]] * 2, [net_c[1] - net_r, net_c[1] + net_r], color=FAINT, lw=fs.s(0.4), zorder=2)
         draw_dots(ax, pts, INK, r=0.07, alpha=0.75)
         a1 = np.linalg.eigvalsh(np.einsum("ni,nj->ij", c, c) / len(c)).max()
-        data_letter(ax, -7.2, 6.6, "a")
-        data_letter(ax, net_c[0] - net_r - 0.2, net_c[1] + net_r - 0.2, "b")
-        ax.text(net_c[0], net_c[1] - net_r - 0.7, f"a1 = {a1:.2f}    vertical strain {100 * (1 - np.exp(-eps)):.0f}%",
-                ha="center", fontsize=FS_TICK)
+        data_letter(ax, -7.2, 6.6, "A")
+        data_letter(ax, net_c[0] - net_r - 0.2, net_c[1] + net_r - 0.2, "B")
+        readout(ax, net_c[0], net_c[1] - net_r - 1.1, f"$a_1$ = {a1:.2f}")
+        readout(ax, 0, -7.2, f"vertical strain {100 * (1 - np.exp(-eps)):.0f}%")
 
     return v, draw
 
@@ -308,6 +310,7 @@ def gbs():
 
     v = Video(
         slug="grain-boundary-sliding",
+        title="Grain-boundary sliding",
         captions=[(0.0, 'Fine-grained ice with a scribed marker line'),
                   (0.06, 'Extension: grains slide (red boundaries) and switch neighbours'),
                   (0.45, 'Grains stay equiaxed; the marker line is offset at boundaries')],
@@ -437,6 +440,7 @@ def _diffusion_video(slug, path_kind):
     nh = path_kind == "lattice"
     v = Video(
         slug=slug,
+        title="Nabarro–Herring creep" if nh else "Coble creep",
         captions=([(0.0, 'Compression: red boundaries are squeezed, blue ones are in tension'),
                   (0.08, 'Molecules diffuse through the grain interiors'),
                   (0.6, 'Grains lengthen; their lattices do not rotate')]
@@ -533,6 +537,7 @@ def polygonization():
 
     v = Video(
         slug="polygonization",
+        title="Polygonization",
         captions=[(0.0, 'A bent grain with excess dislocations'),
                   (0.08, 'Dislocations glide and climb into walls'),
                   (0.5, 'Walls divide the grain into sub-grains'),
@@ -587,10 +592,7 @@ def polygonization():
             x = late_start[i, 0] + (late_wall[i] - late_start[i, 0]) * gg
             yy = late_slot[i] + np.interp(x, xs, line_y(0, f, k))
             draw_core(ax, x, yy, size=0.28, lw=fs.s(0.9), color=ACCENT2 if gg < 1 else ACCENT)
-        ax.text(0, -Hc / 2 - 2.6, f"misorientation across each wall: {mis:.1f}°", ha="center",
-                fontsize=FS_TICK)
-        label = "sub-grain boundaries" if solid < 0.5 else "grain boundaries"
-        ax.text(0, Hc / 2 + 2.6, label if f > 0.4 else "", ha="center", fontsize=FS_TICK)
+        readout(ax, 0, -Hc / 2 - 2.4, f"misorientation across each wall {mis:.1f}°")
 
     return v, draw
 
@@ -608,6 +610,7 @@ def premelting():
 
     v = Video(
         slug="premelting",
+        title="Premelting and intergranular water",
         captions=[(0.0, 'Cold ice: dry grain boundaries'),
                   (0.08, 'Warming: water films and veins form'),
                   (0.45, 'Shear: the wet boundaries slide easily')],
@@ -645,10 +648,9 @@ def premelting():
             ax.add_collection(LineCollection(msegs, colors=ACCENT2, linewidths=fs.s(1.4), zorder=5,
                                              alpha=smooth(t, 0.40, 0.46)))
         load_arrows(ax, (x0, x1, y0, y1), "shear", strength=smooth(t, 0.44, 0.50), size=0.12)
-        ax.text(x0 - 4.5, y1 + 2.0, f"T = {fs.num(round(T, 1), '.1f')} °C", fontsize=FS, ha="left")
+        readout(ax, x0 - 2.0, y1 + 2.2, f"$T$ = {fs.num(round(T, 1), '.1f')} °C")
         if t > 0.5:
-            ax.text(x0 - 4.5, y1 + 1.1, f"strain rate ×{1 + 2 * smooth(t, 0.5, 0.75):.1f} relative to dry ice", fontsize=FS_TICK,
-                    ha="left", color=MUTED)
+            readout(ax, x1 + 1.5, y1 + 2.2, f"strain rate ×{1 + 2 * smooth(t, 0.5, 0.75):.1f} vs dry ice")
 
     return v, draw
 
@@ -682,6 +684,7 @@ def brittle():
 
     v = Video(
         slug="brittle-fracture",
+        title="Brittle failure",
         captions=[(0.0, 'Rapid compression'),
                   (0.16, 'Inclined boundaries crack'),
                   (0.36, 'Wing cracks grow parallel to the load'),

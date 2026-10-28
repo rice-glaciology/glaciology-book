@@ -1,20 +1,25 @@
 r"""Figure style for the deformation-mechanism animations and figures.
 
-Follows the group's figure grammar, as defined in ``scripts/figstyle.py`` of
-the vertical-velocity paper (github.com/hoffmaao/vertical_velocity), after
-Morrow, Ghelichkhan & Kramer (2026):
+The framework of Morrow, Ghelichkhan & Kramer (2026), as written in their
+figure code (github.com/sghelichkhani/morrow2026 @ 832e49f):
 
-  * Times text with STIX math, 8.5 pt text, 9 pt axis labels, 7.5 pt ticks;
-  * series in a fixed colour order, never cycled: red, blue, black, green, purple;
-  * fields in ``N_LEVELS`` discrete colour bands, colour bars likewise;
-  * panels carry no headings; panel letters sit in light-grey circles;
-  * ``grid(which="both", alpha=0.3)`` under the data;
-  * figures written without timestamps.
+``parallel_scaling/plot_paper_figures.py``, ``reported.py``
+    Times serif with STIX math at 15 pt text, 17 pt titles and axis labels,
+    13 pt ticks, 15 pt legend; series in a fixed colour + marker (red
+    #d62728, blue #3182bd, black, green #2ca02c, purple #9467bd), line width
+    1.9 / marker size 8.5; ``grid(which="both", alpha=0.3)``; upper-case panel
+    letters in light-grey circles at the top left; titles in light-yellow
+    rounded boxes; one framed legend across the top of the figure.
+``verification/tracy/plot_solution.py``
+    field panels attached with no ticks; ``N_LEVELS`` = 10 discrete colour
+    bands in panels and colour bars alike, bar labels 17 pt and rotated;
+    boxed, rotated row labels; times in light-blue rounded boxes on a strip.
+``parallel_scaling/figstyle.py``
+    figures written without creation timestamps.
 
-Sizes are set for a figure drawn at print width ``FULL`` (17.8 cm). A video
-frame is wider than that in inches, so ``apply_rc(scale)`` multiplies every
-length by the frame's width / ``FULL``: the frame then looks exactly like a
-full-width figure enlarged to 1280 pixels.
+Their figures are drawn 9.6 to 12 in wide, the width of a video frame here,
+so the sizes above are used as they are. ``s(x)`` converts a print-size line
+width (in points, for a 17.8 cm figure) to this native size.
 """
 from pathlib import Path
 
@@ -23,64 +28,67 @@ import numpy as np
 from matplotlib.colors import BoundaryNorm, LinearSegmentedColormap, ListedColormap
 from matplotlib.ticker import MaxNLocator
 
-# -- series (reported.py in Morrow et al.) -----------------------------------
+# -- series (reported.py) --------------------------------------------------------
 RED, BLUE, BLACK, GREEN, PURPLE = "#d62728", "#3182bd", "#000000", "#2ca02c", "#9467bd"
 ORANGE = "#ff7f0e"
 GREY = "gray"
-LW, MS = 1.1, 4.5
+LW, MS = 1.9, 8.5
 
-# -- page and type -------------------------------------------------------------
-FULL = 17.8 / 2.54                 # inches, Copernicus full width
-DPI = 300
-FS, FS_LABEL, FS_TICK = 8.5, 9.0, 7.5
+# -- type (plot_paper_figures.py) and boxes ------------------------------------------
+FS, FS_TITLE, FS_LABEL, FS_TICK, FS_LEGEND = 15, 17, 17, 13, 15
+FS_CBAR_TICK = 12
 N_LEVELS = 10
-LETTER_BOX = dict(boxstyle="circle,pad=0.25", facecolor="lightgrey", edgecolor="black", lw=0.6)
+DPI = 200
+LETTER_BOX = dict(boxstyle="circle,pad=0.3", facecolor="lightgrey", edgecolor="black")
+TITLE_BOX = dict(boxstyle="round,pad=0.4", facecolor="lightyellow", edgecolor="black")
+TIME_BOX = dict(boxstyle="round,pad=0.4", facecolor="lightblue", edgecolor="black")
 MINUS = "\N{MINUS SIGN}"
 
-_scale = 1.0
+# Print-size line widths (17.8 cm figure) scale to these native sizes by this factor.
+FULL = 17.8 / 2.54
+NATIVE = 12.8 / FULL
 
 
 def s(x):
-    """A length in points at the current scale."""
-    return x * _scale
+    """A print-size length in points, at the native size of these figures."""
+    return x * NATIVE
 
 
-def apply_rc(scale=1.0):
-    """The paper's rcParams, every length multiplied by ``scale``."""
-    global _scale
-    _scale = scale
-    k = scale
+def apply_rc():
+    """Morrow et al. rcParams (plot_paper_figures.py), on a white page."""
     plt.rcParams.update({
         "font.family": "serif",
-        "font.serif": ["Times New Roman", "STIXGeneral", "DejaVu Serif"],
+        "font.serif": ["Times New Roman", "Times", "STIXGeneral", "DejaVu Serif"],
         "mathtext.fontset": "stix",
-        "font.size": FS * k, "axes.titlesize": FS * k, "axes.labelsize": FS_LABEL * k,
-        "xtick.labelsize": FS_TICK * k, "ytick.labelsize": FS_TICK * k, "legend.fontsize": FS * k,
-        "axes.linewidth": 0.6 * k, "xtick.major.width": 0.6 * k, "ytick.major.width": 0.6 * k,
-        "xtick.minor.width": 0.4 * k, "ytick.minor.width": 0.4 * k,
-        "xtick.major.size": 3.0 * k, "ytick.major.size": 3.0 * k,
-        "xtick.major.pad": 3.5 * k, "ytick.major.pad": 3.5 * k,
-        "axes.labelpad": 4.0 * k,
-        "lines.linewidth": LW * k, "lines.markersize": MS * k, "axes.unicode_minus": True,
-        "legend.edgecolor": "black", "legend.fancybox": False, "legend.framealpha": 1.0,
-        "patch.linewidth": 0.6 * k,
+        "font.size": FS, "axes.titlesize": FS_TITLE, "axes.labelsize": FS_LABEL,
+        "legend.fontsize": FS_LEGEND, "xtick.labelsize": FS_TICK, "ytick.labelsize": FS_TICK,
+        "lines.linewidth": LW, "lines.markersize": MS, "axes.unicode_minus": True,
         "figure.facecolor": "white", "axes.facecolor": "white", "savefig.facecolor": "white",
         "text.color": BLACK, "axes.edgecolor": BLACK,
-        "axes.spines.top": True, "axes.spines.right": True,
         "figure.dpi": 100, "savefig.dpi": DPI, "pdf.fonttype": 42, "ps.fonttype": 42,
     })
 
 
 def grid(ax):
-    ax.grid(True, which="both", alpha=0.3, zorder=0, lw=s(0.6))
+    ax.grid(True, which="both", alpha=0.3, zorder=0)
     ax.set_axisbelow(True)
 
 
 def panel_letter(ax, letter, x=0.04, y=0.94):
-    """Grey-circle panel letter at the top left of an axes."""
-    box = dict(LETTER_BOX, lw=s(0.6))
+    """Upper-case panel letter in a light-grey circle at the top left (plot_paper_figures.panel_letter)."""
     ax.text(x, y, letter, transform=ax.transAxes, ha="center", va="center",
-            fontsize=s(FS), zorder=20, bbox=box)
+            fontsize=FS, zorder=20, bbox=LETTER_BOX)
+
+
+def title_box(ax, text, pad=12):
+    """Panel title in a light-yellow rounded box (fig_murr_weak)."""
+    ax.set_title(text, fontsize=FS_TITLE, bbox=TITLE_BOX, pad=pad)
+
+
+def time_box(ax, x, y, text, transform=None):
+    """A time or progress readout in a light-blue rounded box (tracy/plot_solution.py)."""
+    ax.text(x, y, text, transform=transform or ax.transAxes, ha="center", va="center",
+            fontsize=FS, zorder=20, bbox=TIME_BOX)
 
 
 def num(x, spec="g"):
@@ -122,9 +130,8 @@ def orient_colorbar(fig, cax, label="c-axis angle (°)"):
     norm = BoundaryNorm(np.linspace(0, 180, N_LEVELS + 1), N_LEVELS)
     sm = plt.cm.ScalarMappable(norm=norm, cmap=ORIENT_CMAP)
     cb = fig.colorbar(sm, cax=cax)
-    cb.set_label(label, rotation=90, labelpad=s(4))
-    cb.outline.set_linewidth(s(0.6))
-    cb.ax.tick_params(width=s(0.5), length=s(2.5), labelsize=s(FS_TICK))
+    cb.set_label(label, rotation=90, fontsize=FS_LABEL, labelpad=10)
+    cb.ax.tick_params(labelsize=FS_CBAR_TICK)
     cb.set_ticks([0, 45, 90, 135, 180])
     return cb
 

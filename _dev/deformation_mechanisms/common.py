@@ -28,11 +28,10 @@ REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 VIDEO_DIR = os.path.join(REPO, "_static", "videos", "deformation")
 FIG_DIR = os.path.join(REPO, "sections", "ice_flow", "figures")
 
-# Frame: 12.8 x 7.2 in at 100 dpi = 1280 x 720 px, drawn as a full-width
-# figure enlarged by SCALE, so type and lines keep the paper's proportions.
+# Frame: 12.8 x 7.2 in at 100 dpi = 1280 x 720 px, the native width of the
+# Morrow et al. figures, so their type sizes are used as they are.
 FRAME_W, FRAME_H = 12.8, 7.2
-SCALE = FRAME_W / fs.FULL
-fs.apply_rc(SCALE)
+fs.apply_rc()
 
 # Roles, all from the paper's series colours.
 PAPER = "white"
@@ -44,8 +43,8 @@ WATER = fs.BLUE        # liquid water
 ACCENT = fs.RED        # the thing to watch: dislocation cores, active slip, cracks
 ACCENT2 = fs.GREEN     # secondary: markers, molecules in transit
 STRESS = fs.BLACK      # applied-load arrows
-FS = fs.s(fs.FS)
-FS_TICK = fs.s(fs.FS_TICK)
+FS = fs.FS
+FS_TICK = fs.FS_TICK
 
 
 def smooth(t, a=0.0, b=1.0):
@@ -99,13 +98,14 @@ def load_arrows(ax, box, mode, strength=1.0, color=STRESS, gap=0.06, size=0.16):
 @dataclass
 class Video:
     slug: str                    # file name stem, e.g. "basal-glide"
+    title: str                   # short title, in a light-yellow box at the top
     captions: list               # [(t_start, text), ...] in normalized time
     seconds: float = 14.0
     fps: int = 24
     xlim: tuple = (0, 1)         # data limits of the single field panel
     ylim: tuple = (0, 1)
     hold: float = 0.06           # fraction of the clip frozen at each end
-    panels: list = None          # [{rect, kind: "field"|"plot", xlim, ylim, letter}, ...]
+    panels: list = None          # [{rect, kind: "field"|"plot", xlim, ylim, letter, title}, ...]
     orient_cbar: bool = False    # add the c-axis orientation colour bar
     _fig: object = field(default=None, repr=False)
 
@@ -114,12 +114,14 @@ class Video:
         fig = plt.figure(figsize=(FRAME_W, FRAME_H), dpi=100)
         self._fig = fig
         right = 0.87 if self.orient_cbar else 0.98
-        specs = self.panels or [dict(rect=[0.02, 0.10, right - 0.02, 0.88], kind="field",
+        specs = self.panels or [dict(rect=[0.02, 0.10, right - 0.02, 0.78], kind="field",
                                      xlim=self.xlim, ylim=self.ylim)]
+        fig.text(0.5, 0.95, self.title, ha="center", va="center", fontsize=fs.FS_TITLE,
+                 bbox=fs.TITLE_BOX)
         self._specs = specs
         self.axes = [fig.add_axes(p["rect"]) for p in specs]
         if self.orient_cbar:
-            fs.orient_colorbar(fig, fig.add_axes([0.905, 0.27, 0.014, 0.50]))
+            fs.orient_colorbar(fig, fig.add_axes([0.905, 0.22, 0.017, 0.56]))
         self.cap = fig.text(0.5, 0.04, "", fontsize=FS, va="center", ha="center")
 
     def caption_at(self, t):
@@ -148,6 +150,8 @@ class Video:
             for ax, p in zip(self.axes, self._specs):
                 if p.get("letter"):
                     fs.panel_letter(ax, p["letter"], *p.get("letter_at", (0.03, 0.95)))
+                if p.get("title"):
+                    fs.title_box(ax, p["title"])
             self.cap.set_text(self.caption_at(t))
 
         if preview_at is not None:  # one still for quick checks
@@ -191,5 +195,9 @@ def mechanism(slug, order):
 
 def data_letter(ax, x, y, letter):
     """A grey-circle panel letter at data coordinates, for sub-panels that share one axes."""
-    ax.text(x, y, letter, ha="center", va="center", fontsize=FS, zorder=20,
-            bbox=dict(fs.LETTER_BOX, lw=fs.s(0.6)))
+    ax.text(x, y, letter, ha="center", va="center", fontsize=FS, zorder=20, bbox=fs.LETTER_BOX)
+
+
+def readout(ax, x, y, text):
+    """A progress readout (strain, temperature, angle) in a light-blue box, at data coordinates."""
+    fs.time_box(ax, x, y, text, transform=ax.transData)

@@ -113,9 +113,9 @@ def draw_hist(bx, model):
     fs.grid(bx)
 
 
-PANELS = [dict(rect=[0.02, 0.10, 0.64, 0.86], kind="field", xlim=(-4, NX + 4), ylim=(-18, NY + 18),
-               letter="a", letter_at=(0.035, 0.90)),
-          dict(rect=[0.75, 0.26, 0.22, 0.52], kind="plot", letter="b", letter_at=(0.10, 0.90))]
+PANELS = [dict(rect=[0.03, 0.09, 0.62, 0.79], kind="field", xlim=(-4, NX + 4), ylim=(-18, NY + 18),
+               letter="A", letter_at=(0.035, 0.90)),
+          dict(rect=[0.75, 0.24, 0.22, 0.50], kind="plot", letter="B", letter_at=(0.10, 0.90))]
 
 
 class Runner:
@@ -170,7 +170,8 @@ def migration():
 
     v = Video(
         slug="migration-recrystallization",
-        captions=[(0.0, '(a) deformed warm ice, darker = more stored strain energy; (b) c-axis angles'),
+        title="Migration recrystallization",
+        captions=[(0.0, '(A) deformed warm ice, darker = more stored strain energy; (B) c-axis angles'),
                   (0.2, 'Clean, well-oriented grains bulge into deformed neighbours'),
                   (0.7, 'The survivors are oriented for basal slip')],
         panels=PANELS, seconds=15)
@@ -224,7 +225,8 @@ def nucleation():
 
     v = Video(
         slug="nucleation-recrystallization",
-        captions=[(0.0, '(a) heavily deformed ice, darker = more stored strain energy; (b) c-axis angles'),
+        title="Nucleation of new grains",
+        captions=[(0.0, '(A) heavily deformed ice, darker = more stored strain energy; (B) c-axis angles'),
                   (0.06, 'Strain-free nuclei form at old grain boundaries'),
                   (0.5, 'New grains consume the deformed matrix')],
         panels=PANELS, seconds=15)
@@ -260,9 +262,10 @@ def grain_growth():
 
     v = Video(
         slug="grain-growth",
-        captions=[(0.0, '(a) no stored energy: boundary energy alone drives growth'),
+        title="Normal grain growth",
+        captions=[(0.0, '(A) no stored energy: boundary energy alone drives growth'),
                   (0.35, 'Small grains shrink and vanish'),
-                  (0.6, '(b) mean grain area grows linearly in time')],
+                  (0.6, '(B) mean grain area grows linearly in time')],
         panels=PANELS, seconds=15)
 
     def draw(axs, t):

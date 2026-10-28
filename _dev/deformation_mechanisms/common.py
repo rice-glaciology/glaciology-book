@@ -125,6 +125,8 @@ class Video:
         if self.orient_cbar:
             fs.orient_colorbar(fig, fig.add_axes([0.905, 0.22, 0.017, 0.56]))
         self.cap = fig.text(0.5, 0.04, "", fontsize=FS, va="center", ha="center")
+        if getattr(self, "extra", None):      # static extras such as a second colour bar
+            self.extra(fig)
 
     def caption_at(self, t):
         txt = ""

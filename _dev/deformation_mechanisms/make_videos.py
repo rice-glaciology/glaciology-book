@@ -21,6 +21,7 @@ from common import MECHANISMS, VIDEO_DIR  # noqa: E402
 import lattice  # noqa: E402,F401  (registers mechanisms)
 import grains  # noqa: E402,F401
 import potts  # noqa: E402,F401
+import alley1988  # noqa: E402,F401
 
 
 def main():

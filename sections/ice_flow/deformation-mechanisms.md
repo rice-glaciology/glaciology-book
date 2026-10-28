@@ -229,6 +229,39 @@ Every mechanism above relaxes stress by flow. If the load rises faster than cree
 <p><em>Brittle failure in compression: boundary cracks, wing cracks, and a through-going fault.</em></p>
 ```
 
+## Fabrics in polar ice sheets: putting the mechanisms in place
+
+{cite}`alley1988` combined these mechanisms into a single prediction of the c-axis fabric anywhere in an ice sheet. His model treats basal glide as the carrier of strain. Each grain strains in proportion to its geometric factor $S=\cos\phi\sin\phi$, where $\phi$ is the angle between its c-axis and the stress axis, and the grain strains average to the bulk strain. A grain that slips on its basal plane must rotate, toward a compression axis and away from a tension axis, at a rate that follows from $S$. For an increment of uniaxial strain $\Delta\varepsilon$ (negative in compression),
+
+$$
+\Delta\phi = \frac{\Delta\varepsilon\,\sin^2\phi}{\bar S}\quad\text{(compression)},\qquad
+\Delta\phi = \frac{\Delta\varepsilon\,\cos^2\phi}{\bar S + S\,\Delta\varepsilon}\quad\text{(tension)},
+$$
+
+where $\bar S$, the mean of $S$ over the grains, is the geometric softness of the aggregate. Pure shear is a uniaxial compression superposed on an equal uniaxial tension, and simple shear adds a rigid-body rotation. With these rules the fabric records the cumulative strain and the stress state.
+
+The first animation repeats his Figs. 1 and 2 with the model written in `_dev/deformation_mechanisms/alley1988.py`. Divergent flow, in which transverse extension makes the flow a uniaxial vertical compression, clusters the c-axes about the vertical, passing through a small-circle girdle at intermediate strain. This is the fabric of Dome C, Byrd Station, Camp Century, and Dye 3. Parallel flow, a pure shear, gives an elongated cluster. Convergent flow, a uniaxial longitudinal extension, gathers the c-axes into a vertical plane transverse to the flow, as at Mizuho and Vostok. The geometric softness first rises, because the median c-axis of a random fabric lies at 60° and rotates toward the 45° of maximum resolved shear, and then falls as the fabric tightens beyond it.
+
+```{raw} html
+<video controls width="100%" preload="metadata" poster="../../_static/videos/deformation/alley-flow-regimes.jpg" style="max-width: 860px;">
+  <source src="../../_static/videos/deformation/alley-flow-regimes.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>Alley's rotation model under the three flow patterns of an ice sheet, with the geometric softness against strain.</em></p>
+```
+
+Which mechanism controls the fabric changes with depth, and the second animation follows a parcel down a column like that at Byrd Station to show where each mechanism of this chapter takes over. In the cold upper ice, below about $-10\ \mathrm{^\circ C}$ and dominated by normal stresses, rotation by basal glide controls the fabric: the c-axes close in on the vertical while grains first grow and then stop growing as polygonization subdivides them. Near the bed, basal shear exceeds the normal stresses, and simple shear builds a strong single maximum in fine-grained ice with undulose extinction and kink bands. Where the basal ice is warmer than about $-10\ \mathrm{^\circ C}$ and strain rates are high, migration recrystallization and nucleation replace the rotation fabric with coarse, interlocking grains whose c-axes form a multiple-maximum small-circle girdle 25 to 30° from the vertical. Recrystallization is more rapid under normal stresses than under simple shear, because the mismatch between neighbouring grains and the hardening of the aggregate store more strain energy there, so the rotation predictions hold only where recrystallization has not yet taken over {cite}`alley1988`.
+
+```{raw} html
+<video controls width="100%" preload="metadata" poster="../../_static/videos/deformation/alley-ice-column.jpg" style="max-width: 860px;">
+  <source src="../../_static/videos/deformation/alley-ice-column.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>A parcel descending through a Byrd-like column: (A) the depth zones, (B) its c-axis fabric, with recrystallized grains in red, and (C) its geometric softness for bed-parallel shear.</em></p>
+```
+
+The depths, temperatures, and strain path in the column are illustrative, chosen to resemble Byrd Station rather than fitted to it.
+
 ## From mechanisms to a flow law
 
 The mechanisms are not alternatives that a glacier chooses between. They operate together, in parallel and in series, as the composite law of {doc}`ice-rheology` expresses: independent mechanisms add their strain rates, and coupled ones, such as basal slip and boundary sliding, are limited by the slower partner. Microstructure ties them together over time. Lattice rotation and migration recrystallization build the fabrics of {doc}`ice-fabric`. Polygonization, nucleation, and normal grain growth set the grain size, which decides how fast boundary sliding and diffusion can go. Premelting softens everything near the melting point. Glen's law with $n=3$ and a temperature-dependent $A$, multiplied by an enhancement factor, is a practical average over this machinery. Knowing the machinery tells a modeler when that average can be trusted and in which direction it fails: toward $n<3$ and grain-size dependence at low stress, toward strong anisotropy where fabrics are well developed, and toward fracture where the ice is loaded quickly.

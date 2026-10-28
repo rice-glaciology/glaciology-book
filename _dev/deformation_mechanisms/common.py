@@ -11,6 +11,7 @@ panel, ``draw(ax, t)`` redraws it at normalized time t in [0, 1]; with
 from __future__ import annotations
 
 import os
+import sys
 import textwrap
 from dataclasses import dataclass, field
 
@@ -21,6 +22,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 from matplotlib.animation import FFMpegWriter  # noqa: E402
 
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 import figstyle as fs  # noqa: E402
 from figstyle import orient_color  # noqa: E402,F401  (re-exported for the modules)
 

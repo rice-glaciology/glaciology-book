@@ -51,7 +51,7 @@ In **tertiary creep** the strain rate climbs from the minimum and levels onto a 
 :name: fig-creep-curve
 :width: 85%
 
-The creep of ice under constant stress. (a) Strain against time shows the instantaneous elastic step, a decelerating primary stage, a near-linear secondary stage at the minimum rate, and an accelerating tertiary stage. (b) The strain rate against accumulated strain dips to a minimum near one percent strain, the rate that Glen's flow law describes, and recovers to a tertiary plateau about three times higher as recrystallization aligns the fabric; the deforming ice of shear margins and ice-stream trunks rides that plateau.
+The creep of ice under constant stress. (A) Strain against time shows the instantaneous elastic step, a decelerating primary stage, a near-linear secondary stage at the minimum rate, and an accelerating tertiary stage. (B) The strain rate against accumulated strain dips to a minimum near one percent strain, the rate that Glen's flow law describes, and recovers to a tertiary plateau about three times higher as recrystallization aligns the fabric; the deforming ice of shear margins and ice-stream trunks rides that plateau.
 ```
 % Spec: two stacked panels for a constant-stress creep test. Top, strain vs time showing the
 % instantaneous elastic step, decelerating primary, near-linear secondary instant, accelerating

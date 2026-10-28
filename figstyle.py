@@ -1,4 +1,10 @@
-r"""Figure style for the deformation-mechanism animations and figures.
+r"""Figure style for every figure, animation and lab plot in the book.
+
+Usage (a script or notebook anywhere in the repository):
+
+    import sys; sys.path.insert(0, "../..")   # path to the repository root
+    import figstyle as fs
+    fs.apply_rc()
 
 The framework of Morrow, Ghelichkhan & Kramer (2026), as written in their
 figure code (github.com/sghelichkhani/morrow2026 @ 832e49f):
@@ -17,14 +23,16 @@ figure code (github.com/sghelichkhani/morrow2026 @ 832e49f):
 ``parallel_scaling/figstyle.py``
     figures written without creation timestamps.
 
-Their figures are drawn 9.6 to 12 in wide, the width of a video frame here,
-so the sizes above are used as they are. ``s(x)`` converts a print-size line
-width (in points, for a 17.8 cm figure) to this native size.
+Their figures are drawn 9.6 to 12 in wide, and so are ours: the type sizes
+above are meant for that width (``WIDTH``), and the book scales the images to
+the page. ``s(x)`` converts a print-size line width (in points, for a 17.8 cm
+figure) to this native size.
 """
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
+from cycler import cycler
 from matplotlib.colors import BoundaryNorm, LinearSegmentedColormap, ListedColormap
 from matplotlib.ticker import MaxNLocator
 
@@ -43,6 +51,10 @@ LETTER_BOX = dict(boxstyle="circle,pad=0.3", facecolor="lightgrey", edgecolor="b
 TITLE_BOX = dict(boxstyle="round,pad=0.4", facecolor="lightyellow", edgecolor="black")
 TIME_BOX = dict(boxstyle="round,pad=0.4", facecolor="lightblue", edgecolor="black")
 MINUS = "\N{MINUS SIGN}"
+
+WIDTH = 9.6                        # in, a full-width figure (fig_murr_weak)
+SERIES = (RED, BLUE, BLACK, GREEN, PURPLE)
+MARKERS = ("o", "s", "D", "^", "v")
 
 # Print-size line widths (17.8 cm figure) scale to these native sizes by this factor.
 FULL = 17.8 / 2.54
@@ -63,6 +75,8 @@ def apply_rc():
         "font.size": FS, "axes.titlesize": FS_TITLE, "axes.labelsize": FS_LABEL,
         "legend.fontsize": FS_LEGEND, "xtick.labelsize": FS_TICK, "ytick.labelsize": FS_TICK,
         "lines.linewidth": LW, "lines.markersize": MS, "axes.unicode_minus": True,
+        "axes.prop_cycle": cycler(color=SERIES),
+        "figure.figsize": (WIDTH, 0.62 * WIDTH),
         "figure.facecolor": "white", "axes.facecolor": "white", "savefig.facecolor": "white",
         "text.color": BLACK, "axes.edgecolor": BLACK,
         "figure.dpi": 100, "savefig.dpi": DPI, "pdf.fonttype": 42, "ps.fonttype": 42,
@@ -149,12 +163,14 @@ _PDF_METADATA = {"CreationDate": None, "Producer": None, "Creator": None}
 _PNG_METADATA = {"Software": ""}
 
 
-def save(fig, path, pad_inches=0.04):
-    """PNG at 300 dpi and a vector PDF, with no embedded timestamp."""
+def save(fig, path, pad_inches=0.2, formats=("png",)):
+    """Write the figure with no embedded timestamp (parallel_scaling/figstyle.py),
+    as PNG at ``DPI`` and any other ``formats`` (e.g. "pdf") beside it."""
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    for ext, meta in (("png", _PNG_METADATA), ("pdf", _PDF_METADATA)):
+    meta = {"png": _PNG_METADATA, "pdf": _PDF_METADATA}
+    for ext in formats:
         fig.savefig(str(path.with_suffix(f".{ext}")), bbox_inches="tight",
-                    pad_inches=pad_inches, metadata=dict(meta))
+                    pad_inches=pad_inches, metadata=dict(meta.get(ext, {})))
     plt.close(fig)
-    print(f"Saved {path.with_suffix('')}.{{png,pdf}}", flush=True)
+    print(f"Saved {path.with_suffix('')}.{{{','.join(formats)}}}", flush=True)

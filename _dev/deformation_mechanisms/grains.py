@@ -9,8 +9,9 @@ from matplotlib.collections import EllipseCollection, LineCollection
 from matplotlib.patches import Circle, Polygon
 from scipy.spatial import Voronoi
 
-from common import (ACCENT, ACCENT2, FAINT, ICE, INK, MUTED, STRESS, WATER, Video,
-                    arrow, load_arrows, mechanism, orient_color, ramp, smooth)
+import figstyle as fs
+from common import (ACCENT, ACCENT2, FAINT, FS, FS_TICK, ICE, INK, MUTED, WATER, Video,
+                    arrow, data_letter, load_arrows, readout, mechanism, orient_color, ramp, smooth)
 from lattice import draw_core
 
 
@@ -119,8 +120,8 @@ def segment_in_convex(poly, p0, p1):
 
 
 # -- drawing ----------------------------------------------------------------
-def draw_grain(ax, poly, theta, traces=True, spacing=0.42, fill=None, edge=INK, lw=1.6,
-               trace_color="#4b5563", trace_lw=0.7, z=1, alpha=1.0):
+def draw_grain(ax, poly, theta, traces=True, spacing=0.42, fill=None, edge=INK, lw=fs.s(0.6),
+               trace_color="0.3", trace_lw=fs.s(0.3), z=1, alpha=1.0):
     """Fill a grain by orientation and rule its basal-plane traces.
 
     theta is the c-axis angle from the x-axis; basal traces run perpendicular.
@@ -160,7 +161,7 @@ def _rgba(c):
 
 
 def strain_label(ax, x, y, text):
-    ax.text(x, y, text, fontsize=12, color=MUTED, ha="left", va="center")
+    readout(ax, x, y, text)
 
 
 # -- 6. dislocation creep in a polycrystal -----------------------------------
@@ -192,21 +193,11 @@ def dislocation_creep():
 
     v = Video(
         slug="dislocation-creep",
-        title="Dislocation creep of polycrystalline ice",
-        scale="Grain scale · ~1 to 10 mm",
-        facts=[("What moves", "Dislocations glide on basal planes and climb to recover; grains interact through their boundaries"),
-               ("Flow law", "$\\dot\\varepsilon = A\\,\\tau^{\\,n}$, n ≈ 3 to 4"),
-               ("Grain-size dependence", "None"),
-               ("Activation energy", "~60 kJ/mol below -10 °C, up to ~180 kJ/mol near the melting point"),
-               ("Signature", "Grains flatten with the bulk shape and their c-axes rotate: a fabric develops")],
-        where="The fast-deforming ice of shear margins, ice-stream trunks and the lower part of "
-              "most glaciers, where stresses exceed ~0.1 MPa. Glen's n = 3 law describes it.",
-        captions=[(0.0, "A polycrystal: colors stand for c-axis orientation, thin lines trace each grain's basal planes."),
-                  (0.07, "Vertical compression. Grains whose basal planes lie near 45° to the load are soft and slip readily (flashes)."),
-                  (0.30, "Hard grains, with basal planes near parallel or perpendicular to the load, barely slip and are squeezed by their neighbors."),
-                  (0.55, "Grains flatten with the sample and their lattices rotate: c-axes swing toward the compression axis."),
-                  (0.80, "Strain rate ~ stress^3 to 4 and is independent of grain size. This is the regime of Glen's flow law.")],
-        xlim=(-13.5, 13.5), ylim=(-8.8, 8.8), seconds=15)
+        title="Dislocation creep",
+        captions=[(0.0, 'Polycrystal; thin lines trace the basal planes'),
+                  (0.07, 'Vertical compression; red marks active basal slip'),
+                  (0.55, 'Grains flatten and c-axes rotate toward the compression axis')],
+        xlim=(-13.5, 13.5), ylim=(-8.8, 8.8), seconds=15, orient_cbar=True)
 
     def draw(ax, t):
         eps = EPS * smooth(t, 0.06, 0.95)
@@ -230,12 +221,12 @@ def dislocation_creep():
                     p = c + off * 0.4 * cv + u * dv
                     segs.append([p - 0.5 * dv, p + 0.5 * dv])
                 if segs:
-                    lc = LineCollection(segs, colors=ACCENT, linewidths=2.6, zorder=2, alpha=0.9)
+                    lc = LineCollection(segs, colors=ACCENT, linewidths=fs.s(1.1), zorder=2, alpha=0.9)
                     ax.add_collection(lc)
                     lc.set_clip_path(patch)
         W, Hh = 7.5 * np.exp(eps), 5.0 * np.exp(-eps)
         load_arrows(ax, (-W, W, -Hh, Hh), "compress-y", strength=smooth(t, 0, 0.06), size=0.13)
-        strain_label(ax, 8.2, 7.6, f"shortening {100 * (1 - np.exp(-eps)):.0f}%")
+        strain_label(ax, 10.0, 7.6, f"shortening {100 * (1 - np.exp(-eps)):.0f}%")
 
     return v, draw
 
@@ -263,20 +254,11 @@ def fabric():
 
     v = Video(
         slug="fabric-development",
-        title="Lattice rotation and fabric development",
-        scale="Grain scale, many grains · centimetres to metres",
-        facts=[("What happens", "Basal slip rotates each grain's lattice; c-axes migrate toward the compression axis"),
-               ("Diagram", "Schmidt plot: each dot is one c-axis on an equal-area projection, center = vertical"),
-               ("Fabric strength", "Largest eigenvalue a1 of the orientation tensor: 1/3 random, 1 a single maximum"),
-               ("Consequence", "Anisotropic ice: up to ~10x softer for shear on the aligned basal planes")],
-        where="Ice cores show fabrics strengthening with depth: girdles under extension near divides, "
-              "single maxima under simple shear in deep ice. Radar can detect them.",
-        captions=[(0.0, "Left: a thin section of the polycrystal. Right: the c-axis of every grain on a Schmidt diagram. The fabric starts random."),
-                  (0.10, "Vertical compression. Basal slip rotates every lattice so that c-axes swing toward the vertical."),
-                  (0.45, "The dots crowd toward the center of the diagram: a single-maximum fabric is forming."),
-                  (0.75, "With aligned basal planes, the polycrystal is strongly anisotropic, like a single crystal writ large."),
-                  (0.90, "Recrystallization (later videos) modifies this pattern, but rotation by slip is its starting point.")],
-        xlim=(-8.0, 17.5), ylim=(-8.3, 8.3), seconds=14)
+        title="Fabric development",
+        captions=[(0.0, '(A) thin section, (B) c-axes on a Schmidt diagram: a random fabric'),
+                  (0.1, 'Vertical compression rotates c-axes toward the vertical'),
+                  (0.45, 'A single-maximum fabric develops')],
+        xlim=(-8.0, 17.5), ylim=(-8.3, 8.3), seconds=14, orient_cbar=True)
 
     def draw(ax, t):
         eps = EPS * smooth(t, 0.08, 0.92)
@@ -285,7 +267,7 @@ def fabric():
         for k, cell in enumerate(cells):
             poly = cell * (sx, sy)
             th = np.arctan2(cgt[k, 2], cgt[k, 0])   # projection on the x-z section
-            draw_grain(ax, poly, th, spacing=0.36, lw=1.2)
+            draw_grain(ax, poly, th, spacing=0.36)
         load_arrows(ax, (-4.2 * sx, 4.2 * sx, -5.5 * sy, 5.5 * sy), "compress-y", strength=smooth(t, 0, 0.06), size=0.10)
         # Schmidt net
         c = rotate(c0, eps)
@@ -293,14 +275,15 @@ def fabric():
         rho = np.sqrt(np.clip(1 + c[:, 2], 0, 1))
         az = np.arctan2(c[:, 1], c[:, 0])
         pts = net_c + net_r * np.c_[rho * np.cos(az), rho * np.sin(az)]
-        ax.add_patch(Circle(net_c, net_r, facecolor="white", edgecolor=INK, lw=1.6, zorder=2))
-        ax.plot([net_c[0] - net_r, net_c[0] + net_r], [net_c[1]] * 2, color=FAINT, lw=0.8, zorder=2)
-        ax.plot([net_c[0]] * 2, [net_c[1] - net_r, net_c[1] + net_r], color=FAINT, lw=0.8, zorder=2)
+        ax.add_patch(Circle(net_c, net_r, facecolor="white", edgecolor=INK, lw=fs.s(0.6), zorder=2))
+        ax.plot([net_c[0] - net_r, net_c[0] + net_r], [net_c[1]] * 2, color=FAINT, lw=fs.s(0.4), zorder=2)
+        ax.plot([net_c[0]] * 2, [net_c[1] - net_r, net_c[1] + net_r], color=FAINT, lw=fs.s(0.4), zorder=2)
         draw_dots(ax, pts, INK, r=0.07, alpha=0.75)
         a1 = np.linalg.eigvalsh(np.einsum("ni,nj->ij", c, c) / len(c)).max()
-        ax.text(net_c[0], net_c[1] + net_r + 0.6, "c-axes (Schmidt diagram)", ha="center", fontsize=12)
-        ax.text(net_c[0], net_c[1] - net_r - 0.7, f"a1 = {a1:.2f}    vertical strain {100 * (1 - np.exp(-eps)):.0f}%",
-                ha="center", fontsize=12, color=MUTED)
+        data_letter(ax, -7.2, 6.6, "A")
+        data_letter(ax, net_c[0] - net_r - 0.2, net_c[1] + net_r - 0.2, "B")
+        readout(ax, net_c[0], net_c[1] - net_r - 1.1, f"$a_1$ = {a1:.2f}")
+        readout(ax, 0, -7.2, f"vertical strain {100 * (1 - np.exp(-eps)):.0f}%")
 
     return v, draw
 
@@ -328,20 +311,10 @@ def gbs():
     v = Video(
         slug="grain-boundary-sliding",
         title="Grain-boundary sliding",
-        scale="Grain scale · ~0.01 to 1 mm (fine-grained ice)",
-        facts=[("What moves", "Whole grains slide past one another and switch neighbors"),
-               ("Flow law", "$\\dot\\varepsilon = A\\,\\tau^{1.8}\\,d^{-1.4}$"),
-               ("Accommodation", "Basal slip near boundaries must keep up; the slower of the two sets the rate"),
-               ("Activation energy", "~49 kJ/mol below -18 °C, ~190 kJ/mol near the melting point"),
-               ("Signature", "Grains stay equiaxed after large strain; scribed lines are offset at boundaries")],
-        where="Low-stress, fine-grained ice: ice-sheet interiors, ice divides and the upper "
-              "parts of ice cores (Goldsby and Kohlstedt's superplastic regime).",
-        captions=[(0.0, "Fine-grained ice with a straight line scribed across it."),
-                  (0.06, "Horizontal extension. The grains move as nearly rigid blocks and slide along their boundaries (bright = sliding fast)."),
-                  (0.30, "The scribed line breaks into offset pieces: the classic evidence for boundary sliding."),
-                  (0.45, "Grains in neighboring rows switch neighbors. The sample extends 70% while every grain keeps its size and shape."),
-                  (0.80, "Sliding is accommodated by slip near the boundaries, so rate ~ stress^1.8 and is faster for smaller grains.")],
-        xlim=(-14.0, 14.0), ylim=(-9.2, 9.2), seconds=15)
+        captions=[(0.0, 'Fine-grained ice with a scribed marker line'),
+                  (0.06, 'Extension: grains slide (red boundaries) and switch neighbours'),
+                  (0.45, 'Grains stay equiaxed; the marker line is offset at boundaries')],
+        xlim=(-14.0, 14.0), ylim=(-9.2, 9.2), seconds=15, orient_cbar=True)
 
     def draw(ax, t):
         f = smooth(t, 0.06, 0.94)
@@ -351,7 +324,7 @@ def gbs():
         box = (box0[0] * lam, box0[1] * lam, box0[2] / lam, box0[3] / lam)
         cells, vor = voronoi_cells(S, box)
         for k, c in enumerate(cells):
-            draw_grain(ax, c, theta[k], spacing=0.5, lw=1.0, edge=MUTED)
+            draw_grain(ax, c, theta[k], spacing=0.5, lw=fs.s(0.4), edge=MUTED)
         # boundaries colored by sliding rate (tangential velocity jump)
         L = np.diag([lamdot / lam, -lamdot / lam])
         segs, rates = [], []
@@ -370,10 +343,10 @@ def gbs():
         w = (rates[:, None] * (0.25 < t < 0.97)) if t > 0.06 else 0 * rates[:, None]
         w = 0.8 * w ** 1.5
         col = (1 - w) * col + w * hot
-        ax.add_collection(LineCollection(segs, colors=col, linewidths=1.4 + 1.6 * w[:, 0], zorder=3))
+        ax.add_collection(LineCollection(segs, colors=col, linewidths=fs.s(0.6) + fs.s(1.0) * w[:, 0], zorder=3))
         # marker segments ride rigidly with their grain
         msegs = [np.array(mk) - seeds0[k] + S[k] for k, mk in enumerate(marks) if mk is not None]
-        ax.add_collection(LineCollection(msegs, colors=ACCENT2, linewidths=3.2, zorder=4))
+        ax.add_collection(LineCollection(msegs, colors=ACCENT2, linewidths=fs.s(1.4), zorder=4))
         load_arrows(ax, box, "extend-x", strength=smooth(t, 0, 0.05), size=0.11)
         strain_label(ax, 8.0, 8.4, f"extension {100 * (lam - 1):.0f}%")
 
@@ -410,7 +383,7 @@ def _pick_edges(edges, g, rng, kind):
     return a + rng.uniform(0.15, 0.85) * (b - a)
 
 
-def _diffusion_video(slug, title, path_kind):
+def _diffusion_video(slug, path_kind):
     rng, box, cells, theta, edges = _diffusion_setup(8)
     EPS = 0.32
     particles = []
@@ -467,53 +440,33 @@ def _diffusion_video(slug, title, path_kind):
     nh = path_kind == "lattice"
     v = Video(
         slug=slug,
-        title=title,
-        scale="Grain scale · ~0.01 to 1 mm",
-        facts=([("What moves", "Single water molecules diffuse through the crystal interior, from compressed boundaries to boundaries in tension"),
-                ("Flow law", "$\\dot\\varepsilon \\propto D_v\\,\\sigma\\,/\\,(k T d^{2})$"),
-                ("Stress exponent", "n = 1 (Newtonian)"),
-                ("Activation energy", "~59 kJ/mol, lattice self-diffusion")]
-               if nh else
-               [("What moves", "Water molecules diffuse along the grain boundaries, the thin disordered layer between grains"),
-                ("Flow law", "$\\dot\\varepsilon \\propto \\delta D_b\\,\\sigma\\,/\\,(k T d^{3})$"),
-                ("Stress exponent", "n = 1 (Newtonian)"),
-                ("Activation energy", "~49 kJ/mol, grain-boundary diffusion")])
-        + [("Signature", "Grains elongate but their lattices do not rotate: no fabric forms")],
-        where=("Very fine-grained ice at very low stress: likely only in fine-grained polar firn and ice "
-               "near divides, and in icy-moon shells. Rarely dominant in glaciers because ice grains are coarse."
-               if nh else
-               "Like Nabarro-Herring creep but with a stronger grain-size dependence (1/d^3), so it wins "
-               "for the finest grains and lowest temperatures. Rare in glaciers; expected in fine-grained cold ice."),
-        captions=([(0.0, "A few grains under vertical compression. Purple boundaries are squeezed; green ones are in relative tension."),
-                   (0.08, "Molecules leave the squeezed boundaries and diffuse through the grain interiors to the tensile ones (vacancies go the other way)."),
-                   (0.35, "Material is added to the sides and removed from top and bottom: each grain lengthens sideways."),
-                   (0.60, "The basal-plane traces do not rotate. Diffusion moves mass, not dislocations, so no fabric develops."),
-                   (0.80, "Strain rate ∝ stress / grain size². Grain-boundary sliding must operate too, to keep grains fitting together.")]
+        title="Nabarro–Herring creep" if nh else "Coble creep",
+        captions=([(0.0, 'Compression: red boundaries are squeezed, blue ones are in tension'),
+                  (0.08, 'Molecules diffuse through the grain interiors'),
+                  (0.6, 'Grains lengthen; their lattices do not rotate')]
                   if nh else
-                  [(0.0, "The same grains under vertical compression. Purple boundaries are squeezed; green ones are in relative tension."),
-                   (0.08, "This time molecules travel around the grains, along the boundaries themselves, which are faster pathways."),
-                   (0.35, "The shape change is the same as in Nabarro-Herring creep: grains widen, the sample shortens."),
-                   (0.60, "The pathway's cross-section is the boundary width δ (~1 nm), so the rate scales as 1 / grain size³."),
-                   (0.80, "Halving the grain size makes Coble creep 8x faster; Nabarro-Herring only 4x.")]),
-        xlim=(-11.0, 11.0), ylim=(-7.2, 7.2), seconds=15)
+                  [(0.0, 'Compression: red boundaries are squeezed, blue ones are in tension'),
+                  (0.08, 'Molecules diffuse along the grain boundaries'),
+                  (0.6, 'Same shape change, but rate $\\propto 1/d^{3}$ rather than $1/d^{2}$')]),
+        xlim=(-11.0, 11.0), ylim=(-7.2, 7.2), seconds=15, orient_cbar=True)
 
     def draw(ax, t):
         eps = EPS * smooth(t, 0.06, 0.95)
         for g, c in enumerate(cells):
-            draw_grain(ax, mapf(c, eps), theta[g], spacing=0.55, lw=1.2, alpha=0.75)
+            draw_grain(ax, mapf(c, eps), theta[g], spacing=0.55)
         # boundary loading colors
         segs, cols, lws = [], [], []
         for g, a, b, ny2, on_box in edges:
             A, B = mapf(a, eps), mapf(b, eps)
             segs.append([A, B])
             if on_box:
-                cols.append(_rgba(INK)); lws.append(1.8)
+                cols.append(_rgba(INK)); lws.append(fs.s(0.8))
             elif ny2 > 0.6:
-                cols.append(_rgba(STRESS)); lws.append(3.2 if not nh else 2.6)
+                cols.append(_rgba(fs.RED)); lws.append(fs.s(1.4))
             elif ny2 < 0.4:
-                cols.append(_rgba(ACCENT2)); lws.append(3.2 if not nh else 2.6)
+                cols.append(_rgba(fs.BLUE)); lws.append(fs.s(1.4))
             else:
-                cols.append(_rgba(INK)); lws.append(1.4)
+                cols.append(_rgba(INK)); lws.append(fs.s(0.6))
         ax.add_collection(LineCollection(segs, colors=cols, linewidths=lws, zorder=3))
         # moving molecules
         if 0.06 < t < 0.98:
@@ -533,7 +486,7 @@ def _diffusion_video(slug, title, path_kind):
             pos = np.array(pos)
             for a_lo in (0.33, 0.66, 1.0):
                 m = (np.array(alph) <= a_lo) & (np.array(alph) > a_lo - 0.34)
-                draw_dots(ax, pos[m], ACCENT, r=0.09, alpha=a_lo, z=5)
+                draw_dots(ax, pos[m], ACCENT2, r=0.09, alpha=a_lo, z=5)
         W, Hh = 7.0 * np.exp(eps), 4.6 * np.exp(-eps)
         load_arrows(ax, (-W, W, -Hh, Hh), "compress-y", strength=smooth(t, 0, 0.05), size=0.10)
 
@@ -542,12 +495,12 @@ def _diffusion_video(slug, title, path_kind):
 
 @mechanism("nabarro-herring-creep", 9)
 def nabarro_herring():
-    return _diffusion_video("nabarro-herring-creep", "Diffusion creep: Nabarro–Herring", "lattice")
+    return _diffusion_video("nabarro-herring-creep", "lattice")
 
 
 @mechanism("coble-creep", 10)
 def coble():
-    return _diffusion_video("coble-creep", "Diffusion creep: Coble", "boundary")
+    return _diffusion_video("coble-creep", "boundary")
 
 
 # -- 11. polygonization (rotation recrystallization) --------------------------------
@@ -584,20 +537,11 @@ def polygonization():
 
     v = Video(
         slug="polygonization",
-        title="Polygonization: rotation recrystallization",
-        scale="Grain scale · ~1 to 10 mm",
-        facts=[("What happens", "Dislocations in a bent grain glide and climb into walls that divide it into sub-grains"),
-               ("Driving force", "Lower elastic energy: dislocations stacked in a wall screen one another's stress fields"),
-               ("Grain size effect", "Grains subdivide; the mean grain size stops growing or shrinks"),
-               ("Fabric effect", "New grains inherit orientations close to the parent: the fabric spreads slightly")],
-        where="Ice cores from the middle depths of ice sheets, below the firn and above the warm "
-              "basal ice (e.g. GRIP, EPICA Dome C), where grain size levels off.",
-        captions=[(0.0, "A grain bent by uneven slip. Its basal planes curve, held so by dislocations of one sign scattered through it."),
-                  (0.08, "Dislocations glide along their basal planes and climb across them..."),
-                  (0.30, "...gathering into walls (sub-grain boundaries). Between walls the basal planes straighten."),
-                  (0.50, "The grain is now a set of sub-grains, each slightly misoriented from the next: a few degrees across each wall."),
-                  (0.62, "Continued deformation feeds more dislocations into the walls and the misorientation grows."),
-                  (0.85, "Beyond ~10 to 15° a wall is a true grain boundary: the old grain has become several new grains.")],
+        title="Polygonization",
+        captions=[(0.0, 'A bent grain with excess dislocations'),
+                  (0.08, 'Dislocations glide and climb into walls'),
+                  (0.5, 'Walls divide the grain into sub-grains'),
+                  (0.62, 'Misorientation grows until the walls are grain boundaries')],
         xlim=(-14.5, 14.5), ylim=(-9.4, 9.6), seconds=16)
 
     def draw(ax, t):
@@ -617,11 +561,11 @@ def polygonization():
             ax.add_patch(Polygon(poly, closed=True, facecolor=orient_color(np.pi / 2 + 7 * ang * f + 1.2),
                                  edgecolor="none", zorder=1))
         segs = [np.c_[xs, line_y(y0, f, k)] for y0 in Y0]
-        ax.add_collection(LineCollection(segs, colors=INK, linewidths=1.3, zorder=2))
+        ax.add_collection(LineCollection(segs, colors=INK, linewidths=fs.s(0.6), zorder=2))
         # grain outline
         yb, yt = line_y(-Hc / 2, f, k), line_y(Hc / 2, f, k)
         outline = np.r_[np.c_[xs, yb], np.c_[xs[::-1], yt[::-1]]]
-        ax.add_patch(Polygon(outline, closed=True, facecolor="none", edgecolor=INK, lw=2.2, zorder=4))
+        ax.add_patch(Polygon(outline, closed=True, facecolor="none", edgecolor=INK, lw=fs.s(0.8), zorder=4))
         # walls: dashed (sub-grain) becoming solid (grain boundary)
         mis = np.degrees(k * (walls[1] - walls[0]))
         solid = smooth(mis, 7.0, 12.0)
@@ -629,7 +573,7 @@ def polygonization():
             y_lo = np.interp(w, xs, yb)
             y_hi = np.interp(w, xs, yt)
             if f > 0.35:
-                ax.plot([w, w], [y_lo, y_hi], color=INK, lw=1.2 + 2.2 * solid, ls=(0, (4, 3)) if solid < 0.5 else "-",
+                ax.plot([w, w], [y_lo, y_hi], color=INK, lw=fs.s(0.5) + fs.s(1.0) * solid, ls=(0, (4, 3)) if solid < 0.5 else "-",
                         alpha=smooth(f, 0.35, 0.6), zorder=3)
         # dislocations
         g = smooth(t, 0.08, 0.30)
@@ -639,7 +583,7 @@ def polygonization():
             y = start[i, 1] + (slots[i] - start[i, 1]) * c
             yy = y + np.interp(x, xs, line_y(0, f, k))
             ang = np.interp(x, xs, k * xs) * (1 - f) + f * k * x * 0
-            draw_core(ax, x, yy, size=0.28, lw=2.0, angle=ang)
+            draw_core(ax, x, yy, size=0.28, lw=fs.s(0.9), angle=ang)
         for i in range(nlate):
             a0 = 0.58 + 0.30 * i / nlate
             gg = smooth(t, a0, a0 + 0.10)
@@ -647,11 +591,8 @@ def polygonization():
                 continue
             x = late_start[i, 0] + (late_wall[i] - late_start[i, 0]) * gg
             yy = late_slot[i] + np.interp(x, xs, line_y(0, f, k))
-            draw_core(ax, x, yy, size=0.28, lw=2.0, color=ACCENT2 if gg < 1 else ACCENT)
-        ax.text(0, -Hc / 2 - 2.6, f"misorientation across each wall: {mis:.1f}°", ha="center",
-                fontsize=12, color=MUTED)
-        label = "sub-grain boundaries" if solid < 0.5 else "grain boundaries"
-        ax.text(0, Hc / 2 + 2.6, label if f > 0.4 else "", ha="center", fontsize=12, color=MUTED)
+            draw_core(ax, x, yy, size=0.28, lw=fs.s(0.9), color=ACCENT2 if gg < 1 else ACCENT)
+        readout(ax, 0, -Hc / 2 - 2.4, f"misorientation across each wall {mis:.1f}°")
 
     return v, draw
 
@@ -669,23 +610,14 @@ def premelting():
 
     v = Video(
         slug="premelting",
-        title="Temperate ice: premelting and intergranular water",
-        scale="Grain scale · ~1 to 10 mm, within ~1 °C of melting",
-        facts=[("What happens", "Liquid water films wet the boundaries and veins open along three-grain junctions"),
-               ("Why", "Boundaries and impurities lower the melting point locally (premelting); salts concentrate in the veins"),
-               ("Effect", "Faster boundary diffusion and sliding: A rises ~3x as water content goes from 0 to ~1%"),
-               ("Activation energy", "Apparent Q jumps to >130 kJ/mol above about -10 °C")],
-        where="Temperate glaciers and the warm basal layers of polar ice sheets, where the softening "
-              "concentrates shear near the bed.",
-        captions=[(0.0, "Cold ice. Grain boundaries are dry, a few molecules thick."),
-                  (0.08, "As the temperature rises toward the melting point, liquid films thicken along the boundaries..."),
-                  (0.28, "...and veins of water open where three grains meet, forming a connected network."),
-                  (0.45, "Now apply shear. The wet boundaries slide easily and molecules diffuse quickly through the liquid."),
-                  (0.75, "The same stress produces several times faster strain: temperate ice is softer than ice at -1 °C.")],
-        xlim=(-12.5, 12.5), ylim=(-8.2, 8.2), seconds=15)
+        title="Premelting and intergranular water",
+        captions=[(0.0, 'Cold ice: dry grain boundaries'),
+                  (0.08, 'Warming: water films and veins form'),
+                  (0.45, 'Shear: the wet boundaries slide easily')],
+        xlim=(-12.5, 12.5), ylim=(-8.2, 8.2), seconds=15, orient_cbar=True)
 
     def draw(ax, t):
-        T = -25 + 25 * smooth(t, 0.06, 0.42) - 0.05
+        T = -25 + 24.9 * smooth(t, 0.06, 0.42)
         wet = smooth(t, 0.06, 0.44)
         gam = 0.65 * smooth(t, 0.46, 0.97)
         S = seeds0 + np.c_[gam * seeds0[:, 1], np.zeros(len(seeds0))]
@@ -698,7 +630,7 @@ def premelting():
         edge_col = tuple(np.array(_rgba(INK)) * (1 - wet) + np.array(_rgba(WATER)) * wet)
         for k, c in enumerate(cells):
             if c is not None:
-                draw_grain(ax, c, theta[k], spacing=0.45, lw=1.0 + 3.0 * wet, edge=edge_col)
+                draw_grain(ax, c, theta[k], spacing=0.45, lw=fs.s(0.5) + fs.s(1.6) * wet, edge=edge_col)
         # veins at triple junctions
         if wet > 0.25:
             V = vor.vertices
@@ -713,14 +645,12 @@ def premelting():
         # rigid marker pieces ride with their grains
         msegs = [np.array(mk) + (gam * seeds0[k, 1], 0) for k, mk in enumerate(marks) if mk is not None]
         if t > 0.40:
-            ax.add_collection(LineCollection(msegs, colors=ACCENT2, linewidths=3.0, zorder=5,
+            ax.add_collection(LineCollection(msegs, colors=ACCENT2, linewidths=fs.s(1.4), zorder=5,
                                              alpha=smooth(t, 0.40, 0.46)))
         load_arrows(ax, (x0, x1, y0, y1), "shear", strength=smooth(t, 0.44, 0.50), size=0.12)
-        ax.text(x0 - 4.5, y1 + 2.0, f"T = {T:5.1f} °C", fontsize=14, ha="left",
-                color=WATER if wet > 0.5 else INK, weight="bold")
+        readout(ax, x0 - 2.0, y1 + 2.2, f"$T$ = {fs.num(round(T, 1), '.1f')} °C")
         if t > 0.5:
-            ax.text(x0 - 4.5, y1 + 1.1, f"strain rate x{1 + 2 * smooth(t, 0.5, 0.75):.1f} vs dry ice", fontsize=11,
-                    ha="left", color=MUTED)
+            readout(ax, x1 + 1.5, y1 + 2.2, f"strain rate ×{1 + 2 * smooth(t, 0.5, 0.75):.1f} vs dry ice")
 
     return v, draw
 
@@ -754,20 +684,12 @@ def brittle():
 
     v = Video(
         slug="brittle-fracture",
-        title="Brittle failure: cracking",
-        scale="Grain to sample scale · millimetres to metres",
-        facts=[("What happens", "Cracks nucleate at grain boundaries, grow wing cracks, and link into a fault"),
-               ("When", "Fast loading: above ~1e-7 /s in tension or ~1e-4 /s in compression (lab ice, -10 °C), where creep cannot relax stress fast enough"),
-               ("Strength", "Tensile ~1 MPa; compressive ~5 to 10 MPa, rising with confinement and falling with grain size"),
-               ("Toughness", "K_Ic ~0.1 MPa m^1/2")],
-        where="Crevasses, rifts, calving fronts, hydrofracture of ice shelves and supraglacial lakes, "
-              "icequakes, and sea ice ridging.",
-        captions=[(0.0, "The same polycrystal, now loaded quickly: creep cannot keep pace with the rising stress."),
-                  (0.16, "Boundaries inclined to the load slide frictionally and crack open (black)."),
-                  (0.36, "Wing cracks sprout from their tips and grow parallel to the compression."),
-                  (0.62, "Cracks interact and link along a band of concentrated damage."),
-                  (0.80, "A through-going fault forms and the two halves slide apart: the sample has failed.")],
-        xlim=(-12.5, 12.5), ylim=(-8.2, 8.2), seconds=14)
+        title="Brittle failure",
+        captions=[(0.0, 'Rapid compression'),
+                  (0.16, 'Inclined boundaries crack'),
+                  (0.36, 'Wing cracks grow parallel to the load'),
+                  (0.8, 'Cracks link into a fault')],
+        xlim=(-12.5, 12.5), ylim=(-8.2, 8.2), seconds=14, orient_cbar=True)
 
     def above(P):
         return (np.atleast_2d(P) @ fault_n) > 0
@@ -783,7 +705,7 @@ def brittle():
                 if piece is None:
                     continue
                 P = piece * scale + (shift if sgn > 0 else 0)
-                draw_grain(ax, P, theta[k], spacing=0.42, lw=1.0, edge=MUTED)
+                draw_grain(ax, P, theta[k], spacing=0.42, lw=fs.s(0.4), edge=MUTED)
         for (A, B, ang), tb in zip(cracks, birth):
             g = smooth(t, tb, tb + 0.05)
             if g <= 0:
@@ -792,7 +714,7 @@ def brittle():
             off = shift if above(mid)[0] else 0
             a = mid + (A - mid) * g
             b = mid + (B - mid) * g
-            ax.plot(*np.c_[a, b] * scale[:, None] + np.array(off).reshape(-1, 1) * 1, color=INK, lw=3.0,
+            ax.plot(*np.c_[a, b] * scale[:, None] + np.array(off).reshape(-1, 1) * 1, color=INK, lw=fs.s(1.4),
                     zorder=4, solid_capstyle="round")
             # wing cracks curve toward the compression axis from both tips
             w = 1.2 * smooth(t, tb + 0.05, tb + 0.28)
@@ -802,14 +724,14 @@ def brittle():
                     s = np.linspace(0, 1, 12)
                     pts = tip + np.c_[0.25 * w * s * np.sign(tip[0] - mid[0]), sgn * w * s ** 0.8]
                     pts = pts * scale + (shift if above(tip)[0] else 0)
-                    ax.plot(pts[:, 0], pts[:, 1], color=INK, lw=1.8, zorder=4)
+                    ax.plot(pts[:, 0], pts[:, 1], color=INK, lw=fs.s(0.8), zorder=4)
         if t > 0.74:
             rect = np.array([[-6, -5.0], [6, -5.0], [6, 5.0], [-6, 5.0]]) * scale
             seg = segment_in_convex(rect, -12 * fault_dir, 12 * fault_dir)
             if seg is not None:
                 for off in (0, shift):
                     fl = np.array(seg) + off
-                    ax.plot(fl[:, 0], fl[:, 1], color=ACCENT, lw=3.0 * smooth(t, 0.74, 0.82), zorder=5)
+                    ax.plot(fl[:, 0], fl[:, 1], color=ACCENT, lw=fs.s(1.4) * smooth(t, 0.74, 0.82), zorder=5)
         load_arrows(ax, (-6, 6, -5.0, 5.0), "compress-y", strength=smooth(t, 0, 0.05), size=0.10)
 
     return v, draw

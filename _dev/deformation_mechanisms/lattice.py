@@ -11,8 +11,9 @@ from matplotlib.collections import EllipseCollection, LineCollection
 from matplotlib.patches import Polygon
 from scipy.spatial import cKDTree
 
-from common import (ACCENT, ACCENT2, FAINT, ICE, INK, MUTED, PAPER, STRESS, Video,
-                    arrow, load_arrows, mechanism, orient_color, ramp, smooth)
+import figstyle as fs
+from common import (ACCENT, ACCENT2, FAINT, FS, FS_TICK, ICE, INK, MUTED, Video, arrow,
+                    data_letter, load_arrows, readout, mechanism, orient_color, ramp, smooth)
 
 H = np.sqrt(3) / 2  # spacing between basal planes (nearest-neighbor distance = 1)
 
@@ -78,7 +79,7 @@ def glide_disp(P, y0, s, x_in, x_out, b=1.0):
 
 
 # -- drawing ----------------------------------------------------------------
-def draw_atoms(ax, Q, colors, r=0.27, edge=INK, lw=0.6, z=3):
+def draw_atoms(ax, Q, colors, r=0.27, edge=INK, lw=fs.s(0.4), z=3):
     n = len(Q)
     ax.add_collection(EllipseCollection(
         np.full(n, 2 * r), np.full(n, 2 * r), np.zeros(n), units="xy", offsets=Q,
@@ -96,16 +97,17 @@ def draw_bonds(ax, Q, rows, cutoff=1.32, strain_colors=False):
     if strain_colors:
         L = np.linalg.norm(seg[:, 1] - seg[:, 0], axis=1)
         e = np.clip((L - 1.0) / 0.12, -1, 1)
-        col = np.where(e[:, None] > 0,
-                       (1 - e[:, None]) * np.array([0.55, 0.55, 0.55, 1]) + e[:, None] * np.array([0.80, 0.15, 0.10, 1]),
-                       (1 + e[:, None]) * np.array([0.55, 0.55, 0.55, 1]) - e[:, None] * np.array([0.10, 0.35, 0.80, 1]))
-        ax.add_collection(LineCollection(seg, colors=col, linewidths=2.2, zorder=2))
+        grey = np.array(matplotlib_color("0.55"))
+        red, blue = np.array(matplotlib_color(fs.RED)), np.array(matplotlib_color(fs.BLUE))
+        col = np.where(e[:, None] > 0, (1 - e[:, None]) * grey + e[:, None] * red,
+                       (1 + e[:, None]) * grey - e[:, None] * blue)
+        ax.add_collection(LineCollection(seg, colors=col, linewidths=fs.s(1.1), zorder=2))
         return
-    ax.add_collection(LineCollection(seg[same], colors=INK, linewidths=2.0, zorder=2))
-    ax.add_collection(LineCollection(seg[~same], colors="#9aa3ad", linewidths=0.9, zorder=2))
+    ax.add_collection(LineCollection(seg[same], colors=INK, linewidths=fs.s(0.9), zorder=2))
+    ax.add_collection(LineCollection(seg[~same], colors="0.65", linewidths=fs.s(0.45), zorder=2))
 
 
-def draw_core(ax, x, y, size=0.7, color=ACCENT, up=True, angle=0.0, lw=3.5):
+def draw_core(ax, x, y, size=0.7, color=ACCENT, up=True, angle=0.0, lw=fs.s(1.5)):
     """The edge-dislocation symbol: a bar on the glide plane and a stem along the
     extra half-plane."""
     c, s = np.cos(angle), np.sin(angle)
@@ -118,8 +120,8 @@ def draw_core(ax, x, y, size=0.7, color=ACCENT, up=True, angle=0.0, lw=3.5):
 
 def caxis(ax, x, y, L=2.0, angle=np.pi / 2, label="c", color=INK):
     dx, dy = L * np.cos(angle), L * np.sin(angle)
-    arrow(ax, x, y, dx, dy, color=color, lw=2.0)
-    ax.text(x + dx * 1.12, y + dy * 1.12, label, fontsize=13, style="italic",
+    arrow(ax, x, y, dx, dy, color=color)
+    ax.text(x + dx * 1.15, y + dy * 1.15, label, fontsize=FS, style="italic",
             color=color, ha="center", va="center")
 
 
@@ -151,21 +153,15 @@ def elastic():
     v = Video(
         slug="elastic",
         title="Elastic deformation",
-        scale="Atomic scale · nanometres · instantaneous",
-        facts=[("What moves", "Bonds stretch, compress and bend; no molecule changes neighbors"),
-               ("Rate law", "$\\varepsilon = \\sigma / E$   (Hooke)"),
-               ("Stiffness", "Young's modulus ~9 GPa; shear modulus ~3.5 GPa"),
-               ("Recoverable?", "Fully, the instant the load is removed")],
-        where="Seismic waves, tidal flexure of ice shelves, the first instant of any load. "
-              "Over hours to days (the Maxwell time) viscous creep takes over.",
-        captions=[(0.0, "A perfect crystal. Each horizontal row of molecules is a basal plane; dark lines are bonds within a plane."),
-                  (0.08, "A shear stress is applied. Every bond stretches (red) or compresses (blue) a little; the shape change is uniform."),
-                  (0.30, "The strain is proportional to the stress, and no molecule has swapped neighbors (strain exaggerated ~10,000x)."),
-                  (0.52, "Remove the load and the bonds spring back: the crystal recovers its exact original shape."),
-                  (0.72, "Elastic strain stores energy but never accumulates. Permanent flow needs defects that move: dislocations.")],
-        xlim=(-13, 13), ylim=(-7.4, 9.6), seconds=12)
+        captions=[(0.0, 'Unloaded crystal; each row of molecules is a basal plane'),
+                  (0.08, 'Shear applied: bonds stretch (red) and compress (blue)'),
+                  (0.52, 'Load removed: the crystal recovers exactly')],
+        panels=[dict(rect=[0.02, 0.09, 0.62, 0.79], kind="field", xlim=(-13, 11), ylim=(-7.4, 6.8), letter="A"),
+                dict(rect=[0.74, 0.26, 0.22, 0.46], kind="plot", letter="B", letter_at=(0.10, 0.90))],
+        seconds=12)
 
-    def draw(ax, t):
+    def draw(axs, t):
+        ax, bx = axs
         g = gamma(t)
         Q = P.copy()
         Q[:, 0] += g * (P[:, 1] + 0.3)
@@ -173,15 +169,15 @@ def elastic():
         draw_atoms(ax, Q, ICE)
         load_arrows(ax, (-9, 9, -4.0, 3.5), "shear", strength=g / 0.16)
         caxis(ax, -11.8, -1.5)
-        # stress-strain inset in data coordinates
-        x0, y0, w, h = 6.0, 5.6, 4.8, 2.6
-        ax.plot([x0, x0 + w], [y0, y0], color=MUTED, lw=1)
-        ax.plot([x0, x0], [y0, y0 + h], color=MUTED, lw=1)
-        ax.plot([x0, x0 + 0.9 * w], [y0, y0 + 0.9 * h], color=FAINT, lw=2)
+        # (b) stress against strain: one straight line, traced up and back down
         f = g / 0.16
-        ax.plot(x0 + 0.9 * w * f, y0 + 0.9 * h * f, "o", color=ACCENT, ms=9, zorder=7)
-        ax.text(x0 + w / 2, y0 - 0.55, "strain", ha="center", fontsize=10, color=MUTED)
-        ax.text(x0 - 0.35, y0 + h / 2, "stress", ha="right", va="center", fontsize=10, color=MUTED, rotation=90)
+        bx.plot([0, 1], [0, 1], color=fs.BLACK, lw=fs.s(0.8))
+        bx.plot(f, f, "o", color=fs.RED, mec=fs.BLACK, mew=fs.s(0.5), zorder=5)
+        bx.set_xlim(0, 1.1); bx.set_ylim(0, 1.1)
+        bx.set_xticks([0, 0.5, 1]); bx.set_yticks([0, 0.5, 1])
+        bx.set_xlabel("shear strain / peak strain")
+        bx.set_ylabel("shear stress / peak stress")
+        fs.grid(bx)
 
     return v, draw
 
@@ -196,20 +192,11 @@ def basal_glide():
 
     v = Video(
         slug="basal-glide",
-        title="Basal slip: dislocation glide",
-        scale="Atomic scale · nanometres",
-        facts=[("What moves", "Edge and screw dislocations on the basal plane"),
-               ("Burgers vector", "b = (a/3)<11-20>, one molecular spacing, ~0.45 nm"),
-               ("Strain rate", "$\\dot\\varepsilon = \\rho_d\\, b\\, v$   (Orowan)"),
-               ("Rate-limiting step", "Re-ordering protons ahead of the core by Bjerrum defects; Q ≈ 0.6 eV")],
-        where="The dominant carrier of strain in all glacier ice: every flow law is ultimately "
-              "a description of how fast basal dislocations can move and multiply.",
-        captions=[(0.0, "A single ice crystal under shear stress parallel to its basal planes (the rows)."),
-                  (0.08, "A dislocation, an extra half-plane of molecules ending at the core (orange), nucleates at the left surface."),
-                  (0.20, "It glides along the basal plane. Only the bonds at the core are broken and remade at any moment."),
-                  (0.37, "When it exits, the top of the crystal has moved one molecular spacing: a step appears on each surface."),
-                  (0.62, "Each further dislocation adds another step. Strain = (number per area) x (spacing) x (distance travelled)."),
-                  (0.86, "Billions of dislocations make the crystal shear like a deck of cards, but only parallel to the basal planes.")],
+        title="Basal slip",
+        captions=[(0.0, 'Shear stress parallel to the basal planes'),
+                  (0.08, 'An edge dislocation nucleates and glides'),
+                  (0.37, 'Each dislocation that exits leaves a one-molecule step'),
+                  (0.86, 'Many dislocations: the crystal shears like a deck of cards')],
         xlim=(-14.5, 14.5), ylim=(-8.2, 10.7), seconds=16)
 
     def state(t):
@@ -237,9 +224,9 @@ def basal_glide():
             off = 1.6 * smooth(t, 0.86, 1.0) * k / (n - 1) + 0.25 * nslip * k / (n - 1)
             ax.add_patch(Polygon([(gx + off, gy + k * gh / n), (gx + gw + off, gy + k * gh / n),
                                   (gx + gw + off, gy + (k + 0.86) * gh / n), (gx + off, gy + (k + 0.86) * gh / n)],
-                                 closed=True, facecolor=ICE, edgecolor=INK, lw=0.9, zorder=4))
-        ax.text(gx + gw / 2 + 0.8, gy - 0.5, "the whole crystal: basal planes slide", ha="center",
-                fontsize=10, color=MUTED)
+                                 closed=True, facecolor=ICE, edgecolor=INK, lw=fs.s(0.5), zorder=4))
+        data_letter(ax, -13.6, 5.6, "A")
+        data_letter(ax, gx - 1.0, gy + gh - 0.2, "B")
 
     return v, draw
 
@@ -259,20 +246,9 @@ def nonbasal_glide():
 
     v = Video(
         slug="nonbasal-glide",
-        title="Non-basal slip: the hard systems",
-        scale="Atomic scale · nanometres",
-        facts=[("What moves", "Dislocations on prismatic and pyramidal planes"),
-               ("Strength", "~60x the resolved shear stress of basal slip"),
-               ("Why it matters", "Basal slip gives only 2 of the 5 independent strain components an arbitrary grain shape change needs"),
-               ("In practice", "A minor carrier of strain; grains that need it are the hard grains")],
-        where="Grains whose basal planes are badly oriented for the local stress, e.g. c-axes parallel "
-              "to the compression axis in strong single-maximum fabrics near ice divides.",
-        captions=[(0.0, "Two identical crystals under the same horizontal shear stress. Only their orientation differs."),
-                  (0.06, "Left: the stress lies in the basal plane. Right: the basal planes are vertical, so slip must cut across them."),
-                  (0.15, "The basal dislocation glides easily, again and again."),
-                  (0.45, "The prismatic dislocation is wider (larger Burgers vector, closer-spaced planes) and the lattice grips it hard."),
-                  (0.75, "It creeps forward in fits and starts. Grains that must rely on these systems are ~60x stronger."),
-                  (0.90, "Because a grain cannot change shape freely by basal slip alone, its neighbors and its boundaries must accommodate it.")],
+        title="Basal and prismatic slip",
+        captions=[(0.0, 'Same shear stress, two crystal orientations'),
+                  (0.15, '(A) basal slip is easy; (B) prismatic slip is ~60 times harder')],
         xlim=(-26.0, 14.0), ylim=(-12.0, 9.5), seconds=15)
 
     def draw(ax, t):
@@ -305,8 +281,8 @@ def nonbasal_glide():
         load_arrows(ax, (xb - 5.5, xb + 5.5, -5.5, 5.5), "shear", strength=on, size=0.22)
         caxis(ax, xa - 7.8, -6.4, L=1.6)
         caxis(ax, xb - 3.0, -8.9, L=1.6, angle=0.0)
-        ax.text(xa, -10.8, "basal slip: easy", ha="center", fontsize=14, weight="bold")
-        ax.text(xb, -10.8, "prismatic slip: hard", ha="center", fontsize=14, weight="bold")
+        data_letter(ax, xa - 7.6, 6.2, "A")
+        data_letter(ax, xb - 6.6, 7.6, "B")
 
     return v, draw
 
@@ -357,21 +333,11 @@ def climb():
 
     v = Video(
         slug="dislocation-climb",
-        title="Dislocation climb and recovery",
-        scale="Atomic scale · nanometres",
-        facts=[("What moves", "An edge dislocation steps out of its glide plane by absorbing or emitting vacancies"),
-               ("Rate-limiting step", "Self-diffusion of water molecules through the lattice"),
-               ("Activation energy", "Q ≈ 60 kJ/mol (0.6 eV), the low-temperature value in the rate factor A(T)"),
-               ("Consequence", "Recovery: tangles unpin and opposite dislocations annihilate, so ice barely work-hardens")],
-        where="Everywhere ice reaches steady creep. Climb is the recovery half of dislocation creep "
-              "and part of the reason the stress exponent is about 3 to 4 rather than higher.",
-        captions=[(0.0, "A dislocation glides in on its basal plane under shear stress."),
-                  (0.20, "It reaches an obstacle (dark: an impurity or a tangle of other dislocations). Glide alone cannot get past."),
-                  (0.30, "A vacancy, a missing molecule (dashed), wanders through the lattice as neighbors hop into it."),
-                  (0.56, "The vacancy reaches the edge of the extra half-plane and swallows its last molecule."),
-                  (0.62, "The half-plane is one molecule shorter, so the dislocation has climbed up onto the next basal plane."),
-                  (0.70, "Free of the obstacle, it glides on. Climb is slow and diffusion-limited, so it sets the pace of recovery."),
-                  (0.90, "Climb also lets dislocations of opposite sign meet and annihilate, keeping ice from work-hardening.")],
+        title="Dislocation climb",
+        captions=[(0.0, 'A dislocation glides to an obstacle'),
+                  (0.3, 'A vacancy diffuses to the core'),
+                  (0.56, 'The vacancy is absorbed and the dislocation climbs one plane'),
+                  (0.7, 'Glide resumes on the new plane')],
         xlim=(-14.5, 14.5), ylim=(-9.3, 9.6), seconds=16)
 
     def draw(ax, t):
@@ -419,7 +385,7 @@ def climb():
 
 def plt_circle(xy, r, alpha):
     from matplotlib.patches import Circle
-    return Circle(xy, r, facecolor="none", edgecolor=ACCENT2, lw=2.2, ls="--",
+    return Circle(xy, r, facecolor="none", edgecolor=ACCENT2, lw=fs.s(1.0), ls="--",
                   alpha=float(alpha), zorder=6)
 
 
@@ -448,20 +414,11 @@ def kink_band():
 
     v = Video(
         slug="kink-band",
-        title="Kinking: lattice rotation in a band",
-        scale="Grain scale · ~0.1 to 10 mm",
-        facts=[("What moves", "Basal planes buckle and rotate inside a narrow band"),
-               ("When", "Compression or extension nearly parallel to the basal planes, where basal slip has no resolved stress"),
-               ("Band boundaries", "Walls of basal edge dislocations of opposite sign"),
-               ("Consequence", "Sharp lattice rotations that later become sub-grain and grain boundaries")],
-        where="Hard grains in ice cores and laboratory samples; kink bands are favored sites "
-              "for nucleating new grains during recrystallization.",
-        captions=[(0.0, "A grain with its basal planes (lines) parallel to the compression. Resolved shear stress on them is zero."),
-                  (0.10, "Under load the planes bow slightly, a small perturbation that tilts some of them toward easy slip."),
-                  (0.25, "The tilt runs away: inside a band the planes rotate sharply and slip, while the rest of the grain stays put."),
-                  (0.55, "The band is a region of rotated lattice (new interference color). Its edges are walls of dislocations."),
-                  (0.80, "Kinking lets a hard grain shorten. Strongly rotated bands later become new grains.")],
-        xlim=(-15.5, 15.5), ylim=(-10.2, 10.0), seconds=13)
+        title="Kinking",
+        captions=[(0.0, 'Compression parallel to the basal planes'),
+                  (0.25, 'The planes rotate inside a kink band'),
+                  (0.55, 'The band edges are walls of dislocations')],
+        xlim=(-15.5, 15.5), ylim=(-10.2, 10.0), seconds=13, orient_cbar=True)
 
     def draw(ax, t):
         bow = smooth(t, 0.08, 0.25) * (1 - smooth(t, 0.25, 0.5))
@@ -474,7 +431,7 @@ def kink_band():
                      np.c_[np.linspace(W / 2, -W / 2, 60), np.full(60, Hc / 2)],
                      np.c_[np.full(120, -W / 2), np.linspace(Hc / 2, -Hc / 2, 120)]]
         ox, oy = mapping(edge[:, 0], edge[:, 1], delta, bow)
-        outline = Polygon(np.c_[ox, oy], closed=True, facecolor=orient_color(0.0), edgecolor=INK, lw=2, zorder=1)
+        outline = Polygon(np.c_[ox, oy], closed=True, facecolor=orient_color(0.0), edgecolor=INK, lw=fs.s(0.8), zorder=1)
         ax.add_patch(outline)
         xs = np.linspace(-W / 2, W / 2, 80)
         lo = np.c_[xs, Yc + m * xs - wband / 2 + 1e-3]
@@ -485,7 +442,7 @@ def kink_band():
             bx1, by1 = mapping(lo[:, 0], lo[:, 1], delta, bow)
             bx2, by2 = mapping(hi[:, 0], hi[:, 1], delta, bow)
             band = np.r_[np.c_[bx1, by1], np.c_[bx2, by2][::-1]]
-            bp = Polygon(band, closed=True, facecolor=orient_color(-phi * 1.6), edgecolor="none", zorder=1.5)
+            bp = Polygon(band, closed=True, facecolor=orient_color(-phi), edgecolor="none", zorder=1.5)
             ax.add_patch(bp)
             bp.set_clip_path(outline)
             # dislocation walls along band edges
@@ -493,16 +450,15 @@ def kink_band():
             for (bx, by), up in (((bx1, by1), True), ((bx2, by2), False)):
                 for k in np.linspace(0.1, 0.9, nwall):
                     i = int(k * (len(bx) - 1))
-                    draw_core(ax, bx[i], by[i], size=0.28, up=up, lw=2.2, angle=np.pi / 2 - phi)
+                    draw_core(ax, bx[i], by[i], size=0.28, up=up, lw=fs.s(1.0), angle=np.pi / 2 - phi)
         segs = []
         for x0 in X:
             x, y = mapping(np.full_like(Ys, x0), Ys, delta, bow)
             segs.append(np.c_[x, y])
-        ax.add_collection(LineCollection(segs, colors=INK, linewidths=1.4, zorder=3))
+        ax.add_collection(LineCollection(segs, colors=INK, linewidths=fs.s(0.6), zorder=3))
         load_arrows(ax, (-W / 2, W / 2, -Hc / 2, Hc / 2), "compress-y", strength=smooth(t, 0, 0.06), size=0.12)
         caxis(ax, -14.6, -1.5, L=1.8, angle=0.0)
         if phi > 0.1:
-            ax.text(W / 2 + 2.6, Hc / 2 - 0.2, f"lattice rotation\nin band: {np.degrees(phi):.0f}°",
-                    fontsize=11, color=MUTED, ha="left", va="top")
+            readout(ax, 0, -Hc / 2 - 2.6, f"lattice rotation in band {np.degrees(phi):.0f}°")
 
     return v, draw

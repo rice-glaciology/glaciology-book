@@ -13,8 +13,8 @@ Sites are darker where the stored energy is higher.
 """
 import numpy as np
 
-from common import (ACCENT, ACCENT2, FAINT, INK, MUTED, STRESS, Video, load_arrows,
-                    mechanism, orient_color, smooth)
+import figstyle as fs
+from common import (ACCENT, INK, Video, load_arrows, mechanism, orient_color, smooth)
 
 NX, NY = 180, 112
 UP = 4  # upsampling for crisp boundaries
@@ -96,27 +96,26 @@ class Potts:
 
 def draw_field(ax, model, Emax):
     ax.imshow(model.image(Emax), extent=(0, NX, 0, NY), origin="lower", interpolation="nearest", zorder=1)
-    ax.plot([0, NX, NX, 0, 0], [0, 0, NY, NY, 0], color=INK, lw=1.5, zorder=2)
+    ax.plot([0, NX, NX, 0, 0], [0, 0, NY, NY, 0], color=INK, lw=fs.s(0.6), zorder=2)
 
 
-def draw_hist(ax, model, x0=NX + 12, y0=14, w=36, h=62, title="c-axis angle\nfrom compression"):
+def draw_hist(bx, model):
+    """(b) Area fraction of each c-axis angle from the compression axis, in the colour bands."""
     p = model.orientation_hist()
-    nb = len(p)
-    bw = w / nb
-    for i, pi in enumerate(p):
-        mid = (i + 0.5) * 90 / nb
-        col = orient_color(np.radians(90 - mid))
-        ax.add_patch(_rect(x0 + i * bw, y0, bw * 0.9, h * min(pi / 0.35, 1.0), col))
-    ax.plot([x0, x0 + w], [y0, y0], color=INK, lw=1)
-    ax.text(x0 + w / 2, y0 + h + 6, title, ha="center", va="bottom", fontsize=11)
-    for v, lab in ((0, "0°"), (45, "45°"), (90, "90°")):
-        ax.text(x0 + w * v / 90, y0 - 4, lab, ha="center", va="top", fontsize=10, color=MUTED)
-    ax.text(x0 + w / 2, y0 - 13, "area fraction", ha="center", va="top", fontsize=10, color=MUTED)
+    edges = np.linspace(0, 90, len(p) + 1)
+    mids = 0.5 * (edges[:-1] + edges[1:])
+    bx.bar(mids, p, width=0.9 * (edges[1] - edges[0]), color=orient_color(np.radians(90 - mids)),
+           edgecolor=INK, lw=fs.s(0.5), zorder=3)
+    bx.set_xlim(0, 90); bx.set_ylim(0, 0.6)
+    bx.set_xticks([0, 45, 90]); bx.set_yticks([0, 0.2, 0.4, 0.6])
+    bx.set_xlabel("c-axis angle from compression (°)")
+    bx.set_ylabel("area fraction")
+    fs.grid(bx)
 
 
-def _rect(x, y, w, h, col):
-    from matplotlib.patches import Rectangle
-    return Rectangle((x, y), w, h, facecolor=col, edgecolor=INK, lw=0.6, zorder=3)
+PANELS = [dict(rect=[0.03, 0.09, 0.62, 0.79], kind="field", xlim=(-4, NX + 4), ylim=(-18, NY + 18),
+               letter="A", letter_at=(0.035, 0.90)),
+          dict(rect=[0.75, 0.24, 0.22, 0.50], kind="plot", letter="B", letter_at=(0.10, 0.90))]
 
 
 class Runner:
@@ -172,25 +171,16 @@ def migration():
     v = Video(
         slug="migration-recrystallization",
         title="Migration recrystallization",
-        scale="Grain scale · millimetres to centimetres",
-        facts=[("What happens", "Boundaries bulge and sweep from grains with few dislocations into grains with many"),
-               ("Driving force", "Difference in stored strain energy (dislocation density) across a boundary"),
-               ("When", "Warm ice, above about -10 °C, with fast deformation"),
-               ("Consequence", "Large, interlocking grains; the survivors are those well oriented for basal slip, so fabrics form fast")],
-        where="Warm basal ice of ice sheets, temperate glaciers and shear margins: interlocking "
-              "grains up to centimetres across and multi-maximum fabrics.",
-        captions=[(0.0, "Deformed warm ice under vertical compression. Darker grains hold more dislocations (more stored strain energy)."),
-                  (0.08, "Hard grains (c-axes near 0° or 90° to the load) cannot slip, so they keep storing dislocations."),
-                  (0.20, "Soft grains, oriented for easy slip, recover and stay clean. Their boundaries bulge into dirty neighbors."),
-                  (0.45, "Each swept region is reset to strain-free crystal of the growing grain's orientation."),
-                  (0.70, "The survivors are well-oriented grains with irregular, lobate boundaries: watch the orientation histogram shift."),
-                  (0.88, "Migration recrystallization manufactures the soft fabric that makes tertiary creep fast.")],
-        xlim=(-4, NX + 54), ylim=(-26, NY + 12), seconds=15)
+        captions=[(0.0, '(A) deformed warm ice, darker = more stored strain energy; (B) c-axis angles'),
+                  (0.2, 'Clean, well-oriented grains bulge into deformed neighbours'),
+                  (0.7, 'The survivors are oriented for basal slip')],
+        panels=PANELS, seconds=15)
 
-    def draw(ax, t):
+    def draw(axs, t):
+        ax, bx = axs
         m = run.at(t)
         draw_field(ax, m, EMAX)
-        draw_hist(ax, m)
+        draw_hist(bx, m)
         load_arrows(ax, (0, NX, 0, NY), "compress-y", strength=1.0, size=0.06, gap=0.02)
 
     return v, draw
@@ -236,24 +226,16 @@ def nucleation():
     v = Video(
         slug="nucleation-recrystallization",
         title="Nucleation of new grains",
-        scale="Grain scale · millimetres",
-        facts=[("What happens", "Small strain-free grains appear at highly deformed sites and grow into the old grains"),
-               ("Where nuclei form", "Grain boundaries, triple junctions and kink bands, where dislocations pile up"),
-               ("New orientations", "Often well oriented for basal slip, unrelated to the parent grain"),
-               ("Consequence", "Grain size resets; strain softening as new soft grains take over")],
-        where="Warm, rapidly deforming ice near the bed and in shear margins, and in laboratory "
-              "tests where it drives the tertiary acceleration of the creep curve.",
-        captions=[(0.0, "Heavily deformed ice: every grain is dark with stored dislocations."),
-                  (0.06, "New strain-free grains (bright) nucleate where dislocations are densest, along the old boundaries."),
-                  (0.25, "They grow rapidly, because the stored energy of the old grains drives their boundaries forward."),
-                  (0.50, "A necklace of new grains outlines the old ones, then consumes them."),
-                  (0.75, "The new grains favor orientations soft for basal slip, so the ice weakens: tertiary creep.")],
-        xlim=(-4, NX + 54), ylim=(-26, NY + 12), seconds=15)
+        captions=[(0.0, '(A) heavily deformed ice, darker = more stored strain energy; (B) c-axis angles'),
+                  (0.06, 'Strain-free nuclei form at old grain boundaries'),
+                  (0.5, 'New grains consume the deformed matrix')],
+        panels=PANELS, seconds=15)
 
-    def draw(ax, t):
+    def draw(axs, t):
+        ax, bx = axs
         m = run.at(t)
         draw_field(ax, m, EMAX)
-        draw_hist(ax, m)
+        draw_hist(bx, m)
         load_arrows(ax, (0, NX, 0, NY), "compress-y", strength=1.0, size=0.06, gap=0.02)
 
     return v, draw
@@ -281,34 +263,25 @@ def grain_growth():
     v = Video(
         slug="grain-growth",
         title="Normal grain growth",
-        scale="Grain scale · millimetres, over centuries",
-        facts=[("What happens", "Curved boundaries migrate toward their centers of curvature; small grains shrink and vanish"),
-               ("Driving force", "Grain-boundary energy (~0.065 J/m²): less boundary area, lower energy"),
-               ("Growth law", "$d^{2} - d_0^{2} = K\\,t$,  K ∝ exp(-Q/RT)"),
-               ("Activation energy", "~40 to 50 kJ/mol"),
-               ("Consequence", "Grains coarsen steadily with age: a clock for ice-core depth and temperature")],
-        where="Firn and the upper few hundred metres of polar ice sheets, where grain area grows "
-              "linearly with age until polygonization caps it.",
-        captions=[(0.0, "A fine-grained aggregate with no stored strain energy. Only the boundaries carry energy."),
-                  (0.06, "Boundaries move toward their centers of curvature: small, many-cornered-concave grains shrink."),
-                  (0.35, "Grains with few neighbors vanish; their neighbors absorb the area."),
-                  (0.60, "Mean grain area grows linearly with time (right): d² - d0² = K t, as seen in polar firn and ice."),
-                  (0.85, "Growth is slow and thermally activated: centuries in cold polar ice.")],
-        xlim=(-4, NX + 54), ylim=(-26, NY + 12), seconds=15)
+        captions=[(0.0, '(A) no stored energy: boundary energy alone drives growth'),
+                  (0.35, 'Small grains shrink and vanish'),
+                  (0.6, '(B) mean grain area grows linearly in time')],
+        panels=PANELS, seconds=15)
 
-    def draw(ax, t):
+    def draw(axs, t):
+        ax, bx = axs
         m = run.at(t)
         draw_field(ax, m, 1.0)
-        # mean grain area vs time
-        x0, y0, w, h = NX + 12, 14, 36, 62
-        ax.plot([x0, x0 + w], [y0, y0], color=INK, lw=1)
-        ax.plot([x0, x0], [y0, y0 + h], color=INK, lw=1)
+        # (b) mean grain area against time
         if hist:
-            tt = np.array([a for a, _ in hist]) / TOTAL
+            tt = np.array([a for a, _ in hist])
             aa = np.array([b for _, b in hist])
-            ax.plot(x0 + w * tt, y0 + h * aa / 600.0, color=ACCENT, lw=2.2, zorder=4)
-            ax.plot(x0 + w * tt[-1], y0 + h * aa[-1] / 600.0, "o", color=ACCENT, ms=6, zorder=5)
-        ax.text(x0 + w / 2, y0 + h + 10, "mean grain area", ha="center", va="bottom", fontsize=11)
-        ax.text(x0 + w / 2, y0 - 4, "time", ha="center", va="top", fontsize=10, color=MUTED)
+            bx.plot(tt, aa, color=fs.RED, zorder=4)
+            bx.plot(tt[-1], aa[-1], "o", color=fs.RED, mec=INK, mew=fs.s(0.5), zorder=5)
+        bx.set_xlim(0, TOTAL); bx.set_ylim(0, 600)
+        bx.set_xlabel("Monte Carlo steps")
+        bx.set_ylabel("mean grain area (cells)")
+        fs.nice_ticks(bx)
+        fs.grid(bx)
 
     return v, draw

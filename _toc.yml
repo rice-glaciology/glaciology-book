@@ -30,6 +30,7 @@ parts:
       - file: sections/math/tensor-algebra
       - file: sections/ice_flow/stress-and-strain
       - file: sections/ice_flow/ice-rheology
+      - file: sections/ice_flow/deformation-mechanisms
       - file: sections/ice_flow/ice-fabric
       # lab (diagnostic, specfab): fabric evolution and directional enhancement
       - file: sections/ice_flow/stress-balance

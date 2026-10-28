@@ -20,10 +20,17 @@ import sys
 import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import ACCENT, FIG_DIR, INK, MUTED, PAPER  # noqa: E402
+import matplotlib  # noqa: E402
 
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
-from matplotlib.colors import ListedColormap  # noqa: E402
+from matplotlib.colors import ListedColormap, to_rgb  # noqa: E402
+from matplotlib.ticker import LogFormatterMathtext  # noqa: E402
+
+import figstyle as fs  # noqa: E402
+
+FIG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..",
+                       "sections", "ice_flow", "figures")
 
 R = 8.314
 
@@ -58,34 +65,32 @@ def main(T=263.15):
     dom = np.argmax(stack, axis=0)
     field = np.where(dom == 0, 0, np.where(dom == 2, 3, np.where(r["gbs"] < r["basal"], 1, 2)))
 
-    fig, ax = plt.subplots(figsize=(7.2, 5.4), dpi=160)
-    fig.patch.set_facecolor(PAPER)
-    cmap = ListedColormap(["#dbeafe", "#dcfce7", "#fef9c3", "#fde2e2"])  # diff, GBS, basal, disl
+    fs.apply_rc()
+    fig, ax = plt.subplots(figsize=(0.62 * fs.FULL, 0.47 * fs.FULL))
+    # Fields in light tints of the series colours: diffusion, GBS, basal, dislocation.
+    tint = lambda c, f=0.78: tuple((1 - f) * x + f for x in to_rgb(c))  # noqa: E731
+    cmap = ListedColormap([tint(fs.BLUE), tint(fs.GREEN), tint(fs.PURPLE), tint(fs.RED)])
     ax.pcolormesh(d * 1e3, s, field.T, cmap=cmap, vmin=-0.5, vmax=3.5, shading="auto", rasterized=True)
-    ax.contour(d * 1e3, s, field.T, levels=[0.5, 1.5, 2.5], colors=INK, linewidths=1.3)
-    cs = ax.contour(d * 1e3, s, np.log10(total.T), levels=np.arange(-14, -2, 2), colors=MUTED,
-                    linewidths=0.7, linestyles="--")
-    ax.clabel(cs, fmt=lambda v: f"$10^{{{int(v)}}}$ s$^{{-1}}$", fontsize=7.5)
+    ax.contour(d * 1e3, s, field.T, levels=[0.5, 1.5, 2.5], colors=fs.BLACK, linewidths=0.8)
+    cs = ax.contour(d * 1e3, s, np.log10(total.T), levels=np.arange(-14, -2, 2), colors=fs.GREY,
+                    linewidths=0.5, linestyles="--")
+    ax.clabel(cs, fmt=lambda v: f"$10^{{{int(v)}}}$ s$^{{-1}}$", fontsize=fs.FS_TICK - 1)
     ax.set_xscale("log"); ax.set_yscale("log")
+    ax.xaxis.set_major_formatter(LogFormatterMathtext())
+    ax.yaxis.set_major_formatter(LogFormatterMathtext())
     ax.set_xlabel("grain size (mm)"); ax.set_ylabel("differential stress (MPa)")
     # (Basal slip limits the series pair only for grains of ~2-15 microns, where diffusion
     # creep is faster still, so no basal-slip-limited field shows at -10 C.)
-    labels = [(0.025, 0.0025, "diffusion creep\n($n=1$)"),
-              (0.25, 0.06, "grain-boundary sliding,\nGBS-limited ($n\\approx1.8$)"),
+    labels = [(0.028, 0.0025, "diffusion creep\n($n=1$)"),
+              (0.25, 0.06, "grain-boundary sliding\n($n\\approx1.8$)"),
               (12, 2.5, "dislocation creep\n($n\\approx4$)")]
     for x, y, lab in labels:
-        ax.text(x, y, lab, ha="center", va="center", fontsize=9.5)
+        ax.text(x, y, lab, ha="center", va="center", fontsize=fs.FS)
     # where natural ice sits
     for (x0, x1, y0, y1, lab) in [(1, 5, 0.01, 0.1, "ice-sheet\ninteriors"), (2, 20, 0.1, 0.3, "shear\nmargins")]:
-        ax.add_patch(plt.Rectangle((x0, y0), x1 - x0, y1 - y0, fill=False, ec=ACCENT, lw=1.6))
-        ax.text(x1 * 1.1, np.sqrt(y0 * y1) * (1 if y1 > 0.2 else 0.6), lab, color=ACCENT, fontsize=8.5, va="center")
-    ax.set_title(f"Deformation mechanisms of ice at {T - 273.15:.0f} °C", fontsize=11)
-    for sp in ("top", "right"):
-        ax.spines[sp].set_visible(False)
-    fig.tight_layout()
-    out = os.path.join(FIG_DIR, "deformation-mechanism-map.png")
-    fig.savefig(out)
-    print(out)
+        ax.add_patch(plt.Rectangle((x0, y0), x1 - x0, y1 - y0, fill=False, ec=fs.BLACK, lw=0.8))
+        ax.text(x1 * 1.1, np.sqrt(y0 * y1) * (1 if y1 > 0.2 else 0.6), lab, fontsize=fs.FS_TICK, va="center")
+    fs.save(fig, os.path.join(os.path.abspath(FIG_DIR), "deformation-mechanism-map.png"))
 
 
 if __name__ == "__main__":

@@ -16,12 +16,13 @@ Videos and poster frames go to `_static/videos/deformation/`.
 
 | File | Contents |
 |---|---|
-| `common.py` | Frame layout (title, main panel, caption, fact sheet), palette, MP4 writer, registry |
+| `figstyle.py` | The group figure style (Times/STIX, grey-circle panel letters, fixed series colours, 10-band colour bars), restated from `scripts/figstyle.py` in hoffmaao/vertical_velocity |
+| `common.py` | Frame layout (panels, caption, orientation colour bar), MP4 writer, registry |
 | `lattice.py` | Atomic scale: elasticity, basal and non-basal glide, climb, kinking. Edge dislocations use the linear-elastic displacement field, with the slipped surface following the core's path so climb works. |
 | `grains.py` | Voronoi polycrystals: dislocation creep, fabric development, grain-boundary sliding (Ashby–Verrall switching), Nabarro–Herring and Coble creep, polygonization, premelting, brittle failure |
 | `potts.py` | Monte Carlo Potts model with stored energy: migration recrystallization, nucleation, normal grain growth |
 | `mechanism_map.py` | Goldsby–Kohlstedt (2001) mechanism map at −10 °C |
 
 To add a mechanism, write a function decorated with `@mechanism("slug", order)`
-that returns `(Video(...), draw)`, where `draw(ax, t)` redraws the main panel
-for normalized time `t` in [0, 1].
+that returns `(Video(...), draw)`, where `draw(ax, t)` redraws the panel for
+normalized time `t` in [0, 1] (or `draw(axes, t)` when `Video(panels=[...])`).

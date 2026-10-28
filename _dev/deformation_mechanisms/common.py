@@ -1,17 +1,12 @@
-"""Shared layout, colors and video writer for the deformation-mechanism animations.
+"""Shared frame and video writer for the deformation-mechanism animations.
 
-Every video has the same frame (1280 x 720):
+Every video is a 1280 x 720 frame in the group's figure style (``figstyle``):
+one or more panels and a one-line caption for the current stage underneath.
+Grain-scale videos add a discrete colour bar for c-axis orientation.
 
-    +--------------------------------------+------------------+
-    |  title                               |  fact sheet      |
-    |                                      |  (rate law, n,   |
-    |  main panel: what the crystals do    |   grain size, Q, |
-    |                                      |   where it acts) |
-    |  caption for the current stage       |                  |
-    +--------------------------------------+------------------+
-
-A mechanism module builds a `Video`, then calls `video.render(draw)`, where
-`draw(ax, t)` redraws the main panel for normalized time t in [0, 1].
+A mechanism module builds a ``Video`` and a ``draw`` function. For a single
+panel, ``draw(ax, t)`` redraws it at normalized time t in [0, 1]; with
+``panels=[...]`` it is ``draw(axes, t)`` with one axes per panel.
 """
 from __future__ import annotations
 
@@ -26,46 +21,31 @@ import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 from matplotlib.animation import FFMpegWriter  # noqa: E402
 
+import figstyle as fs  # noqa: E402
+from figstyle import orient_color  # noqa: E402,F401  (re-exported for the modules)
+
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 VIDEO_DIR = os.path.join(REPO, "_static", "videos", "deformation")
 FIG_DIR = os.path.join(REPO, "sections", "ice_flow", "figures")
 
-# Palette: warm paper background, dark ink, one accent per role.
-PAPER = "#fbfaf6"
-INK = "#1f2933"
-MUTED = "#6b7280"
-FAINT = "#d6d3cb"
-ICE = "#cfe6f2"        # plain ice fill
-WATER = "#2b7bb9"      # liquid water, vacancies flowing
-ACCENT = "#c2410c"     # the thing to watch (dislocation core, crack, ...)
-ACCENT2 = "#047857"    # secondary highlight (new grains, atoms in transit)
-STRESS = "#7c3aed"     # applied-load arrows
+# Frame: 12.8 x 7.2 in at 100 dpi = 1280 x 720 px, drawn as a full-width
+# figure enlarged by SCALE, so type and lines keep the paper's proportions.
+FRAME_W, FRAME_H = 12.8, 7.2
+SCALE = FRAME_W / fs.FULL
+fs.apply_rc(SCALE)
 
-plt.rcParams.update({
-    "font.family": "DejaVu Sans",
-    "font.size": 12,
-    "figure.facecolor": PAPER,
-    "axes.facecolor": PAPER,
-    "savefig.facecolor": PAPER,
-    "text.color": INK,
-    "axes.edgecolor": INK,
-})
-
-ORIENT_CMAP = plt.get_cmap("hsv")
-
-
-def orient_color(theta, alpha=1.0):
-    """Color for a c-axis at angle theta (radians, axial so theta and theta+pi match).
-
-    A cyclic map stands in for the interference colors of a thin section
-    viewed between crossed polarizers: grains with similar c-axes look alike.
-    """
-    u = (np.asarray(theta) % np.pi) / np.pi
-    c = np.array(ORIENT_CMAP(u))
-    # Pastel version so ink drawn on top stays readable.
-    c[..., :3] = 0.30 * c[..., :3] + 0.70
-    c[..., 3] = alpha
-    return c
+# Roles, all from the paper's series colours.
+PAPER = "white"
+INK = fs.BLACK
+MUTED = "0.35"
+FAINT = "0.85"
+ICE = "white"          # molecules
+WATER = fs.BLUE        # liquid water
+ACCENT = fs.RED        # the thing to watch: dislocation cores, active slip, cracks
+ACCENT2 = fs.GREEN     # secondary: markers, molecules in transit
+STRESS = fs.BLACK      # applied-load arrows
+FS = fs.s(fs.FS)
+FS_TICK = fs.s(fs.FS_TICK)
 
 
 def smooth(t, a=0.0, b=1.0):
@@ -83,8 +63,8 @@ def ramp(t, a=0.0, b=1.0):
 
 def arrow(ax, x, y, dx, dy, color=STRESS, width=0.012, **kw):
     ax.annotate("", (x + dx, y + dy), (x, y),
-                arrowprops=dict(arrowstyle="-|>,head_width=0.4,head_length=0.8",
-                                color=color, lw=kw.pop("lw", 3.0), shrinkA=0, shrinkB=0),
+                arrowprops=dict(arrowstyle="-|>,head_width=0.25,head_length=0.6",
+                                color=color, lw=kw.pop("lw", fs.s(1.0)), shrinkA=0, shrinkB=0),
                 annotation_clip=False, **kw)
 
 
@@ -119,84 +99,55 @@ def load_arrows(ax, box, mode, strength=1.0, color=STRESS, gap=0.06, size=0.16):
 @dataclass
 class Video:
     slug: str                    # file name stem, e.g. "basal-glide"
-    title: str                   # headline at the top of the frame
-    scale: str                   # e.g. "atomic scale (~1 nm)"
-    facts: list                  # [(label, value), ...] for the fact sheet
-    where: str                   # one paragraph: where it matters in glaciers
     captions: list               # [(t_start, text), ...] in normalized time
     seconds: float = 14.0
     fps: int = 24
-    xlim: tuple = (0, 1)
+    xlim: tuple = (0, 1)         # data limits of the single field panel
     ylim: tuple = (0, 1)
     hold: float = 0.06           # fraction of the clip frozen at each end
+    panels: list = None          # [{rect, kind: "field"|"plot", xlim, ylim, letter}, ...]
+    orient_cbar: bool = False    # add the c-axis orientation colour bar
     _fig: object = field(default=None, repr=False)
 
     # -- layout -----------------------------------------------------------
     def _setup(self):
-        fig = plt.figure(figsize=(12.8, 7.2), dpi=100)
+        fig = plt.figure(figsize=(FRAME_W, FRAME_H), dpi=100)
         self._fig = fig
-        fig.text(0.025, 0.945, self.title, fontsize=22, weight="bold", va="center")
-        fig.text(0.025, 0.895, self.scale, fontsize=12.5, color=MUTED, va="center")
-        self.ax = fig.add_axes([0.025, 0.14, 0.62, 0.72])
-        self.cap = fig.text(0.025, 0.07, "", fontsize=13.5, va="center", ha="left",
-                            linespacing=1.35)
-        self._side(fig)
-        fig.text(0.975, 0.02, "Introduction to Glaciology · Rice Glaciology",
-                 fontsize=8.5, color=MUTED, ha="right")
-
-    def _side(self, fig):
-        side = fig.add_axes([0.675, 0.06, 0.30, 0.86])
-        side.set_axis_off()
-        side.add_patch(plt.Rectangle((0, 0), 1, 1, transform=side.transAxes,
-                                     facecolor="#f2efe7", edgecolor=FAINT, lw=1))
-        # Shrink the type until the fact sheet fits in the panel.
-        for k in np.linspace(1.0, 0.7, 13):
-            if self._side_text(side, k, dry=True) > 0.02:
-                break
-        self._side_text(side, k)
-
-    def _side_text(self, side, k, dry=False):
-        def put(y, s, **kw):
-            if not dry:
-                side.text(0.06, y, s, transform=side.transAxes, va="top", **kw)
-
-        y = 0.955
-        for label, value in self.facts:
-            put(y, label.upper(), fontsize=9 * k, color=MUTED, weight="bold")
-            y -= 0.04 * k
-            lines = [value] if value.startswith("$") else textwrap.wrap(value, int(34 / k))
-            for ln in lines:
-                put(y, ln, fontsize=13 * k)
-                y -= 0.048 * k
-            y -= 0.022 * k
-        put(y, "WHERE IT MATTERS", fontsize=9 * k, color=MUTED, weight="bold")
-        y -= 0.04 * k
-        for ln in textwrap.wrap(self.where, int(38 / k)):
-            put(y, ln, fontsize=11.5 * k)
-            y -= 0.042 * k
-        return y
+        right = 0.87 if self.orient_cbar else 0.98
+        specs = self.panels or [dict(rect=[0.02, 0.10, right - 0.02, 0.88], kind="field",
+                                     xlim=self.xlim, ylim=self.ylim)]
+        self._specs = specs
+        self.axes = [fig.add_axes(p["rect"]) for p in specs]
+        if self.orient_cbar:
+            fs.orient_colorbar(fig, fig.add_axes([0.905, 0.27, 0.014, 0.50]))
+        self.cap = fig.text(0.5, 0.04, "", fontsize=FS, va="center", ha="center")
 
     def caption_at(self, t):
         txt = ""
         for t0, s in self.captions:
             if t >= t0:
                 txt = s
-        return "\n".join(textwrap.wrap(txt, 84))
+        return "\n".join(textwrap.wrap(txt, 120))
 
     # -- rendering --------------------------------------------------------
     def render(self, draw, out_dir=VIDEO_DIR, preview_at=None):
-        """Render the clip. `draw(ax, t)` must fully redraw the main axes."""
+        """Render the clip. ``draw`` must fully redraw its panel(s)."""
         os.makedirs(out_dir, exist_ok=True)
         self._setup()
-        ax = self.ax
+        single = self.panels is None
 
         def frame(t):
-            ax.clear()
-            ax.set_xlim(*self.xlim)
-            ax.set_ylim(*self.ylim)
-            ax.set_aspect("equal")
-            ax.set_axis_off()
-            draw(ax, t)
+            for ax, p in zip(self.axes, self._specs):
+                ax.clear()
+                if p.get("kind", "field") == "field":
+                    ax.set_xlim(*p["xlim"])
+                    ax.set_ylim(*p["ylim"])
+                    ax.set_aspect("equal")
+                    ax.set_axis_off()
+            draw(self.axes[0] if single else self.axes, t)
+            for ax, p in zip(self.axes, self._specs):
+                if p.get("letter"):
+                    fs.panel_letter(ax, p["letter"], *p.get("letter_at", (0.03, 0.95)))
             self.cap.set_text(self.caption_at(t))
 
         if preview_at is not None:  # one still for quick checks
@@ -213,15 +164,15 @@ class Video:
         path = os.path.join(out_dir, f"{self.slug}.mp4")
         with writer.saving(self._fig, path, dpi=100):
             for i in range(n):
-                s = i / (n - 1)
+                u = i / (n - 1)
                 # Hold the first and last frames briefly so viewers can read them.
-                t = np.clip((s - self.hold) / (1 - 2 * self.hold), 0, 1)
+                t = np.clip((u - self.hold) / (1 - 2 * self.hold), 0, 1)
                 frame(t)
                 writer.grab_frame()
         # A poster frame for the <video> tag, taken late in the clip.
         frame(0.8)
         self._fig.savefig(os.path.join(out_dir, f"{self.slug}.jpg"), dpi=50,
-                          pil_kwargs={"quality": 80})
+                          pil_kwargs={"quality": 85})
         plt.close(self._fig)
         return path
 
@@ -236,3 +187,9 @@ def mechanism(slug, order):
         MECHANISMS[slug] = (order, fn)
         return fn
     return deco
+
+
+def data_letter(ax, x, y, letter):
+    """A grey-circle panel letter at data coordinates, for sub-panels that share one axes."""
+    ax.text(x, y, letter, ha="center", va="center", fontsize=FS, zorder=20,
+            bbox=dict(fs.LETTER_BOX, lw=fs.s(0.6)))

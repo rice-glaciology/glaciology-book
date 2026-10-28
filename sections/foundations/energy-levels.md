@@ -132,7 +132,7 @@ The levels are uniformly spaced by $h\nu$, and the ground state retains the zero
 :name: fig-oscillator-isotope
 :width: 95%
 
-The harmonic oscillator and the isotope effect. (a) Energy levels $(v+\tfrac{1}{2})h\nu$ and probability distributions in a parabolic potential well; the levels are uniformly spaced and the ground state retains the zero-point energy $\tfrac{1}{2}h\nu$. (b) The same well holding two masses. Substituting D for H in the O–H oscillator lowers every level by the factor $\sqrt{\mu_{\mathrm{OH}}/\mu_{\mathrm{OD}}} \approx 1/1.37$, and the difference $\Delta E_0$ between the two zero-point energies drives the isotopic fractionation developed in {doc}`water-molecule`.
+The harmonic oscillator and the isotope effect. (A) Energy levels $(v+\tfrac{1}{2})h\nu$ and probability distributions in a parabolic potential well; the levels are uniformly spaced and the ground state retains the zero-point energy $\tfrac{1}{2}h\nu$. (B) The same well holding two masses. Substituting D for H in the O–H oscillator lowers every level by the factor $\sqrt{\mu_{\mathrm{OH}}/\mu_{\mathrm{OD}}} \approx 1/1.37$, and the difference $\Delta E_0$ between the two zero-point energies drives the isotopic fractionation developed in {doc}`water-molecule`.
 ```
 
 Rotational levels complete the ladder. A molecule with moment of inertia $I$ rotating freely has the energy levels

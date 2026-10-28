@@ -27,6 +27,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.colors import ListedColormap, to_rgb  # noqa: E402
 from matplotlib.ticker import LogFormatterMathtext  # noqa: E402
 
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 import figstyle as fs  # noqa: E402
 
 FIG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..",

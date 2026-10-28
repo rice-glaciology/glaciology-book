@@ -185,6 +185,53 @@ class Video:
         return path
 
 
+    # -- static figure ------------------------------------------------------
+    def still(self, draw, stages, path, ncols=2):
+        """A publication figure: the panels drawn at each (t, label) in ``stages``,
+        one cell per stage with an upper-case letter and a light-yellow stage title."""
+        global STILL
+        STILL = True
+        Y0, Y1 = 0.075, 0.895                     # the frame's panel region
+        n = len(stages)
+        nrows = int(np.ceil(n / ncols))
+        cw = FRAME_W / 2                          # each cell is a half-size frame
+        ch = cw * FRAME_H / FRAME_W * (Y1 - Y0)
+        band = 0.62                               # room for the stage title
+        margin_r = 1.25 if self.orient_cbar else 0.15
+        W = ncols * cw + margin_r
+        Ht = nrows * (ch + band) + 0.1
+        fig = plt.figure(figsize=(W, Ht))
+        single = self.panels is None
+        specs = self.panels or [dict(rect=[0.01, Y0, 0.98, Y1 - Y0], kind="field",
+                                     xlim=self.xlim, ylim=self.ylim)]
+        for k, (t, label) in enumerate(stages):
+            r, c = divmod(k, ncols)
+            x0 = c * cw / W
+            top = 1 - (r * (ch + band) + band) / Ht
+            cell_w, cell_h = cw / W, ch / Ht
+            axes = []
+            for p in specs:
+                x, y, w, h = p["rect"]
+                ax = fig.add_axes([x0 + x * cell_w, top - cell_h + (y - Y0) / (Y1 - Y0) * cell_h,
+                                   w * cell_w, h / (Y1 - Y0) * cell_h])
+                if p.get("kind", "field") == "field":
+                    ax.set_xlim(*p["xlim"]); ax.set_ylim(*p["ylim"])
+                    ax.set_aspect("equal"); ax.set_axis_off()
+                axes.append(ax)
+            draw(axes[0] if single else axes, t)
+            yb = top + 0.5 * band / Ht
+            fig.text(x0 + 0.03 * cell_w, yb, "ABCDEFGHIJ"[k], ha="center", va="center",
+                     fontsize=FS, bbox=fs.LETTER_BOX)
+            fig.text(x0 + 0.5 * cell_w, yb, label, ha="center", va="center",
+                     fontsize=fs.FS_TITLE, bbox=fs.TITLE_BOX)
+        if self.orient_cbar:
+            fs.orient_colorbar(fig, fig.add_axes([(ncols * cw + 0.25) / W, 0.2, 0.17 / W, 0.6]))
+        STILL = False
+        fs.save(fig, path, pad_inches=0.15)
+        plt.close(fig)
+        return path
+
+
 # -- registry -------------------------------------------------------------
 # Each mechanism module registers a builder that returns (Video, draw).
 MECHANISMS = {}
@@ -197,8 +244,13 @@ def mechanism(slug, order):
     return deco
 
 
+STILL = False       # True while a static figure is drawn: its letters are the figure's
+
+
 def data_letter(ax, x, y, letter):
     """A grey-circle panel letter at data coordinates, for sub-panels that share one axes."""
+    if STILL:
+        return
     ax.text(x, y, letter, ha="center", va="center", fontsize=FS, zorder=20, bbox=fs.LETTER_BOX)
 
 

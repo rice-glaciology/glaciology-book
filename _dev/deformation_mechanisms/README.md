@@ -9,7 +9,8 @@ python _dev/deformation_mechanisms/make_videos.py --list          # what exists
 python _dev/deformation_mechanisms/make_videos.py                 # render all (~15 min)
 python _dev/deformation_mechanisms/make_videos.py basal-glide     # one video
 python _dev/deformation_mechanisms/make_videos.py --preview 0.5 --out /tmp/p   # stills
-python _dev/deformation_mechanisms/mechanism_map.py               # static figure
+python _dev/deformation_mechanisms/make_figures.py                # four-stage figure per mechanism
+python _dev/deformation_mechanisms/mechanism_map.py               # mechanism map
 ```
 
 Videos and poster frames go to `_static/videos/deformation/`.

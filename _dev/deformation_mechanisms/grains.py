@@ -486,7 +486,7 @@ def _diffusion_video(slug, path_kind):
             pos = np.array(pos)
             for a_lo in (0.33, 0.66, 1.0):
                 m = (np.array(alph) <= a_lo) & (np.array(alph) > a_lo - 0.34)
-                draw_dots(ax, pos[m], ACCENT2, r=0.09, alpha=a_lo, z=5)
+                draw_dots(ax, pos[m], ACCENT2, r=0.12, alpha=a_lo, z=5)
         W, Hh = 7.0 * np.exp(eps), 4.6 * np.exp(-eps)
         load_arrows(ax, (-W, W, -Hh, Hh), "compress-y", strength=smooth(t, 0, 0.05), size=0.10)
 
@@ -558,8 +558,8 @@ def polygonization():
             yt = line_y(Hc / 2, f, k)
             m = (xs >= xa - 1e-9) & (xs <= xb + 1e-9)
             poly = np.r_[np.c_[xs[m], yb[m]], np.c_[xs[m][::-1], yt[m][::-1]]]
-            ax.add_patch(Polygon(poly, closed=True, facecolor=orient_color(np.pi / 2 + 7 * ang * f + 1.2),
-                                 edgecolor="none", zorder=1))
+            col = orient_color(np.pi / 2 + 7 * ang * f + 1.2)
+            ax.add_patch(Polygon(poly, closed=True, facecolor=col, edgecolor=col, lw=1.0, zorder=1))
         segs = [np.c_[xs, line_y(y0, f, k)] for y0 in Y0]
         ax.add_collection(LineCollection(segs, colors=INK, linewidths=fs.s(0.6), zorder=2))
         # grain outline
@@ -592,7 +592,8 @@ def polygonization():
             x = late_start[i, 0] + (late_wall[i] - late_start[i, 0]) * gg
             yy = late_slot[i] + np.interp(x, xs, line_y(0, f, k))
             draw_core(ax, x, yy, size=0.28, lw=fs.s(0.9), color=ACCENT2 if gg < 1 else ACCENT)
-        readout(ax, 0, -Hc / 2 - 2.4, f"misorientation across each wall {mis:.1f}°")
+        if f > 0.4:
+            readout(ax, 0, -Hc / 2 - 2.4, f"misorientation across each wall {mis:.1f}°")
 
     return v, draw
 

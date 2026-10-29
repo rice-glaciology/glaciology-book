@@ -39,7 +39,15 @@ The mechanical consequence is that ice deforms far more easily by gliding along 
 
 The oxygen atoms occupy a fixed, ordered lattice, but the hydrogen atoms do not. Each hydrogen bond between two oxygens holds a single proton, and that proton sits closer to one of the two oxygens than to the other. Which side it occupies is, to a good approximation, random, subject only to two constraints known as the Bernal-Fowler ice rules: there is exactly one proton on each oxygen-oxygen bond, and exactly two protons lie close to each oxygen, so that every molecule remains a recognizable, intact water molecule.
 
-An enormous number of proton arrangements satisfy these rules. As a result the crystal retains a configurational entropy even as its temperature falls toward absolute zero, in apparent tension with the third law of thermodynamics. Pauling estimated this residual entropy by a simple counting argument as $R\ln(3/2)$, about 3.4 joules per mole per kelvin, and calorimetric measurements agree closely. Ordinary ice is, in this precise sense, a disordered crystal: ordered in its oxygen framework, disordered in its protons.
+An enormous number of proton arrangements satisfy these rules: reversing every proton around any closed loop of bonds turns one allowed arrangement into another. As a result the crystal retains a configurational entropy even as its temperature falls toward absolute zero, in apparent tension with the third law of thermodynamics. Pauling estimated this residual entropy by a simple counting argument as $R\ln(3/2)$, about 3.4 joules per mole per kelvin, and calorimetric measurements agree closely. Ordinary ice is, in this precise sense, a disordered crystal: ordered in its oxygen framework, disordered in its protons.
+
+```{raw} html
+<video controls width="100%" preload="metadata" poster="../../_static/videos/defects/proton-disorder.jpg" style="max-width: 860px;">
+  <source src="../../_static/videos/defects/proton-disorder.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>Proton disorder in square ice, a two-dimensional lattice with the same ice rules. Reversing the protons around a closed loop gives a new allowed arrangement; Pauling's count of them gives the residual entropy.</em></p>
+```
 
 ## Consequences of proton disorder
 

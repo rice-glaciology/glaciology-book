@@ -10,6 +10,14 @@ The structure of ice was defined by three conditions: each site holds a water mo
 
 An ionic defect appears when a proton jumps from its normal position near one oxygen across the hydrogen bond to the other, converting the two molecules it joins into a hydronium ion $\mathrm{H_3O^+}$ and a hydroxyl ion $\mathrm{OH^-}$. Once a second jump on a neighboring bond separates the two ions, they can drift apart and survive as independent charged defects. They are the carriers of the small direct-current conductivity of ice. Forming a separated pair costs an enthalpy of order one electron volt, appreciably more than in liquid water, because the rigid ice lattice cannot reorganize around the new ions the way mobile liquid molecules can. As a result the equilibrium concentration of ionic defects in ice is some two orders of magnitude smaller than in water at the same temperature, of order $10^{10}$ per cubic centimeter near $-10\ \mathrm{^\circ C}$.
 
+```{raw} html
+<video controls width="100%" preload="metadata" poster="../../_static/videos/defects/ionic-defects.jpg" style="max-width: 860px;">
+  <source src="../../_static/videos/defects/ionic-defects.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>Ionic defects in square ice, a two-dimensional lattice with the same ice rules. A proton jump makes an H<sub>3</sub>O<sup>+</sup> and OH<sup>&minus;</sup> pair, which separates in a field; the H<sub>3</sub>O<sup>+</sup> moves faster.</em></p>
+```
+
 What the ionic defects lack in number they make up in mobility. The positive defect in particular is extraordinarily mobile, because moving it requires only that an excess proton hop from one essentially neutral molecule to the next, a transfer that can proceed by quantum tunneling along the bonds. Its mobility approaches that of electrons in a semiconductor like germanium and far exceeds the mobility of ordinary ions in solids. The negative defect moves more sluggishly, by a factor that ranges from a few to a hundred, because shifting it amounts to moving a proton vacancy through a network of negatively charged units. The barrier to motion is set sensitively by the oxygen-oxygen spacing, and the proton transfer is not a simple classical hop over the barrier but is coupled to the vibrations of the surrounding lattice, another point at which the lattice dynamics of the previous chapter enter.
 
 ## Orientational, or Bjerrum, defects
@@ -23,15 +31,39 @@ The second native family was proposed by Bjerrum to explain how the molecules of
 A patch of proton-disordered lattice with a misbonded molecule (blue) carrying an orientational defect. Each molecular rotation hands the defect to a neighbor, so the blue site wanders through the crystal, and every molecule it visits comes away reoriented.
 ```
 
+```{raw} html
+<video controls width="100%" preload="metadata" poster="../../_static/videos/defects/bjerrum-defects.jpg" style="max-width: 860px;">
+  <source src="../../_static/videos/defects/bjerrum-defects.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>A molecular rotation makes a D- and L-defect pair; further rotations carry them apart, reorienting every molecule they pass (orange).</em></p>
+```
+
 Two facts about the orientational defects make them central to what follows. They are far more numerous than the ionic defects, with a formation energy near $0.68\ \mathrm{eV}$ giving an equilibrium concentration of order $10^{15}$ to $10^{16}$ per cubic centimeter near $-10\ \mathrm{^\circ C}$, a thousand times the ionic population. And they are the only mechanism by which a water molecule can reorient. A molecule cannot simply turn in place without violating the bonding rules with all four of its neighbors; reorientation happens only as a D- or L-defect passes through, rotating each molecule it visits. The migration of these defects is thermally activated, with an energy barrier of a few tenths of an electron volt, and is slower than the motion of the ionic defects despite their greater number. Because they reorient the molecular dipoles, the orientational defects control the dielectric relaxation of ice, and because they rearrange the proton configuration ahead of a moving dislocation, they also control the rate of creep. The same defect therefore links the electrical and mechanical behavior of ice, a connection developed in {doc}`../radar/radiowave-fabric` and {doc}`../ice_flow/ice-rheology`.
 
 ## Impurities as dopants
 
-A small amount of chemical impurity changes the defect populations in a way closely analogous to doping a semiconductor. Two impurities are especially instructive because they enter the lattice substitutionally and act as proton donors and acceptors. Ammonia, $\mathrm{NH_3}$, is nearly the same size as a water molecule and carries one proton too few; sitting in the lattice it behaves as a proton acceptor that generates D-defects and negative ionic states while depressing their opposites. Hydrogen fluoride, $\mathrm{HF}$, carries one proton too many and behaves as a proton donor that generates L-defects and positive ionic states. The parallel with electron donors and acceptors in silicon and germanium is exact enough that the same statistical relations describe the defect concentrations, with the dissociated defect concentration rising as the square root of the impurity content. This doping analogy is not a curiosity. It is the basis of a decisive experiment on the mechanism of ice flow, discussed in the rheology chapter, in which a few parts per million of hydrogen fluoride, by supplying L-defects, measurably speeds the creep of single crystals.
+A small amount of chemical impurity changes the defect populations in a way closely analogous to doping a semiconductor. Two impurities are especially instructive because they enter the lattice substitutionally and act as proton donors and acceptors. Ammonia, $\mathrm{NH_3}$, is nearly the same size as a water molecule and carries one proton too many; sitting in the lattice it behaves as a proton acceptor that generates D-defects and negative ionic states while depressing their opposites. Hydrogen fluoride, $\mathrm{HF}$, carries one proton too few and behaves as a proton donor that generates L-defects and positive ionic states. The parallel with electron donors and acceptors in silicon and germanium is exact enough that the same statistical relations describe the defect concentrations, with the dissociated defect concentration rising as the square root of the impurity content. This doping analogy is not a curiosity. It is the basis of a decisive experiment on the mechanism of ice flow, discussed in the rheology chapter, in which a few parts per million of hydrogen fluoride, by supplying L-defects, measurably speeds the creep of single crystals.
+
+```{raw} html
+<video controls width="100%" preload="metadata" poster="../../_static/videos/defects/hf-doping.jpg" style="max-width: 860px;">
+  <source src="../../_static/videos/defects/hf-doping.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>HF in square ice. Each fluorine (F) has one proton where water has two, so it leaves an empty bond, an L-defect, that can break away; its proton can also jump off, releasing an H<sub>3</sub>O<sup>+</sup>.</em></p>
+```
 
 ## Self-diffusion, vacancies, and interstitials
 
 Distinct from the proton-rearranging defects is the bodily migration of whole molecules through the lattice, the process measured by following isotopically labeled water. All the tracers, whether labeled in oxygen or hydrogen, diffuse at essentially the same rate, about $2$ to $3\times10^{-11}\ \mathrm{cm^2\,s^{-1}}$ near $-10\ \mathrm{^\circ C}$ with an activation energy of about $0.6\ \mathrm{eV}$. That they share a common rate shows that self-diffusion proceeds by the motion of complete molecules and not by the proton jumps that dominate the electrical behavior. The most likely carrier is the vacancy: a molecule hops into a neighboring empty site, and the vacancy moves the other way. Forming a vacancy costs about $0.5\ \mathrm{eV}$, roughly the energy to lift a molecule from the interior to a surface step, giving an equilibrium vacancy concentration near $10^{12}$ per cubic centimeter at $-10\ \mathrm{^\circ C}$. Interstitial molecules, which the open structure accommodates more easily than a close-packed crystal would, are present in smaller numbers, of order $10^{10}$ to $10^{11}$ per cubic centimeter. The diffusion is slightly faster along the c-axis than across it, by about ten percent, and where dislocations thread the crystal they offer easy pipes for transport along their disordered cores. Self-diffusion matters for flow because it controls the climb of dislocations, the out-of-plane motion by which dislocations escape obstacles and annihilate one another, and so helps set the steady creep rate discussed next door.
+
+```{raw} html
+<video controls width="100%" preload="metadata" poster="../../_static/videos/defects/self-diffusion.jpg" style="max-width: 860px;">
+  <source src="../../_static/videos/defects/self-diffusion.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>Self-diffusion in a basal plane seen down the c-axis. A vacancy wanders as neighbors jump into it, a labeled molecule (green) moves only when the vacancy is beside it, and an interstitial (blue) travels through the open channels.</em></p>
+```
 
 ## Rate processes and the Arrhenius law
 
@@ -42,6 +74,14 @@ $$
 $$
 
 Here $\nu_0$ is the attempt frequency, $\Delta U$ the height of the energy barrier, $k$ Boltzmann's constant, and $T$ the absolute temperature, so the first factor counts the tries per second and the exponential gives the fraction of them energetic enough to clear the barrier. The attempt frequency $\nu_0$ is set by the lattice vibrations of {doc}`lattice-dynamics`, the oscillation that rattles the defect against its barrier, and is of order $10^{12}$ to $10^{13}\ \mathrm{Hz}$. A fuller transition-state treatment replaces $\Delta U$ by an activation free energy and folds an entropy of activation into the prefactor, but the essential content is the exponential Boltzmann factor: warming the crystal multiplies the rate of every activated process, and steeply, because the barrier sits in the exponent.
+
+```{raw} html
+<video controls width="100%" preload="metadata" poster="../../_static/videos/defects/thermal-activation.jpg" style="max-width: 860px;">
+  <source src="../../_static/videos/defects/thermal-activation.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>Thermally activated jumps of particles in a periodic potential at four temperatures. The jump rate follows the fraction of the Boltzmann distribution above the barrier, so its logarithm falls linearly with 1/<i>T</i>.</em></p>
+```
 
 The activation energy that governs creep is built from the defect energetics already assembled. Two pieces enter. The orientational defects that pace a gliding dislocation must first exist, and because they form in pairs their equilibrium concentration carries half the formation enthalpy,
 
@@ -109,4 +149,24 @@ The rate factor of {doc}`../ice_flow/ice-rheology` is this Arrhenius law carryin
 
 ## Electrical and mechanical roles of defects
 
-The orientational defects, by reorienting molecular dipoles, give ice its large static permittivity and its characteristic dielectric relaxation, with a relaxation time of order $10^{-4}\ \mathrm{s}$ and a permittivity that falls from near $100$ at low frequency to about $3.2$ in the microwave range used by radar. That relaxation, and its anisotropy along and across the c-axis, is what lets radio-echo sounding sense the crystal fabric of ice, the subject of {doc}`../radar/radiowave-fabric`. The same orientational defects, by rearranging protons in front of gliding dislocations, set the activation energy for creep and so underlie Glen's flow law. The proton disorder of ice, introduced in the previous chapters as a structural curiosity, turns out to be the feature that makes ice both electrically active and mechanically soft. The ice deformation chapters take up that softness directly.
+The orientational defects, by reorienting molecular dipoles, give ice its large static permittivity and its characteristic dielectric relaxation, with a relaxation time of order $10^{-4}\ \mathrm{s}$ and a permittivity that falls from near $100$ at low frequency to about $3.2$ in the microwave range used by radar. That relaxation, and its anisotropy along and across the c-axis, is what lets radio-echo sounding sense the crystal fabric of ice, the subject of {doc}`../radar/radiowave-fabric`.
+
+```{raw} html
+<video controls width="100%" preload="metadata" poster="../../_static/videos/defects/dielectric-relaxation.jpg" style="max-width: 860px;">
+  <source src="../../_static/videos/defects/dielectric-relaxation.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>Dielectric relaxation. Wandering D- and L-defects turn the molecular dipoles along a field and randomize them again when it is removed; a field that alternates faster than they move barely polarizes the ice.</em></p>
+```
+
+Neither family of defect can carry a steady current alone. An ionic defect passing along a chain of bonds leaves every proton on the chain at the far end of its bond, so the chain is polarized and no second ionic defect can follow it in the same direction. Only an orientational defect, which rotates each molecule back, restores the chain. Steady conduction therefore needs both kinds in alternation, and the charge carried round each cycle is shared between them: about $0.62e$ by the ionic defects and $0.38e$ by the orientational defects, adding to the charge of one proton {cite}`petrenko1999`.
+
+```{raw} html
+<video controls width="100%" preload="metadata" poster="../../_static/videos/defects/conduction-cycle.jpg" style="max-width: 860px;">
+  <source src="../../_static/videos/defects/conduction-cycle.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+<p><em>Why ice conducts only with both kinds of defect. An ionic pair polarizes a row of bonds and blocks it; a Bjerrum pair restores it.</em></p>
+```
+
+The same orientational defects, by rearranging protons in front of gliding dislocations, set the activation energy for creep and so underlie Glen's flow law. The proton disorder of ice, introduced in the previous chapters as a structural curiosity, turns out to be the feature that makes ice both electrically active and mechanically soft. The ice deformation chapters take up that softness directly.

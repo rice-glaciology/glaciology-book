@@ -1,14 +1,19 @@
 # Deformation mechanisms of ice
 
-The flow law of {doc}`ice-rheology` compresses an entire microphysics into two numbers, a rate factor $A$ and an exponent $n$. This chapter opens that box. Ice deforms by a family of distinct mechanisms. Some move molecules, some move line defects, some move whole grains, and some rebuild the grains themselves. Each has its own dependence on stress, temperature, and grain size. Which one controls the strain rate depends on where a parcel of ice sits in that space, and that is why a single power law with $n=3$ works well across most glaciers but fails at the extremes.
+Ice deforms by a family of distinct mechanisms. Some move molecules, some move defects within the crystal, some move whole grains, and some change the grains themselves. 
+Each has its own dependence on macroscopic state variables like stress, temperature, and grain size.
 
-Each mechanism below comes with a figure of its key stages and an animation of the same model. Both are schematic: strains are exaggerated, timescales are compressed by many orders of magnitude, and the three-dimensional crystal is reduced to a two-dimensional section. Each is drawn to show the one thing that distinguishes its mechanism from the others. In the grain-scale figures and videos each grain is colored by its c-axis orientation, in the bands of the colour bar beside it, and thin lines inside each grain trace its basal planes. Red marks the feature to watch: a dislocation core, active slip, a sliding boundary, or a crack. The rate laws and the conditions under which each mechanism matters are in the text and in the table below. The code that generates them is in `_dev/deformation_mechanisms/` and can be rerun or modified.
+Each mechanism below comes with a figure of its key stages and an animation of the . Both are schematic: strains are exaggerated, timescales are compressed by many orders of magnitude, and the three-dimensional crystal is reduced to a two-dimensional section. Each is drawn to show the one thing that distinguishes its mechanism from the others. In the grain-scale figures and videos each grain is colored by its c-axis orientation, in the bands of the colour bar beside it, and thin lines inside each grain trace its basal planes. Red marks the feature to watch: a dislocation core, active slip, a sliding boundary, or a crack. The rate laws and the conditions under which each mechanism matters are in the text and in the table below. The code that generates them is in `_dev/deformation_mechanisms/` and can be rerun or modified.
 
 ## An overview
 
-The mechanisms sort naturally into four groups. The first is what happens inside a single crystal: elastic stretching of bonds, and the glide, climb, and kinking of dislocations. The second is how a polycrystal accommodates an imposed strain: dislocation creep, grain-boundary sliding, and the two forms of diffusion creep. The third is how the grains themselves evolve during and after deformation, through lattice rotation, polygonization, migration recrystallization, nucleation, and normal grain growth. These processes change the microstructure, and through it the rate factor and the anisotropy. The fourth covers the edges of the ductile regime: premelting near the melting point and brittle fracture at high strain rates.
+The mechanisms sort naturally into four groups. The first group describe deformation within a single crystal: elastic stretching of bonds, and dislocation glide, climb, and kinking of dislocations. 
+The second group describe deformation accommodated by polycrystalline ice and include dislocation creep, grain-boundary sliding, and two forms of diffusion creep. 
+The third group describes how the grains themselves evolve during and after deformation, through lattice rotation, polygonization, migration recrystallization, nucleation, and normal grain growth.
+These processes change the microstructure, affect the rate factor and drive fabric development. 
+The fourth group describes how premelting near the melting point and brittle fracture at high strain rates affect deformation.
 
-| Mechanism | What moves | Stress exponent $n$ | Grain-size exponent $p$ | Dominant where |
+| Mechanism | Deformation | Stress exponent $n$ | Grain-size exponent $p$ | Process |
 |---|---|---|---|---|
 | Elasticity | bond lengths and angles | (linear, recoverable) | 0 | seismic waves, tides, first instants of loading |
 | Basal dislocation glide | dislocations in basal planes | (carrier of most strain) | 0 | all creeping ice |

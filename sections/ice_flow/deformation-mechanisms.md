@@ -23,7 +23,7 @@ The fourth group describes how premelting near the melting point and brittle fra
 | Nabarro–Herring creep | molecules through the lattice | 1 | 2 | very fine grains, very low stress |
 | Coble creep | molecules along grain boundaries | 1 | 3 | very fine, cold grains |
 
-Here a mechanism's strain rate scales as $\dot\varepsilon \propto \tau^n d^{-p} \exp(-Q/RT)$. The microstructural processes of the third group are not flow laws of their own. They set the grain size $d$ and the fabric that the flow laws above respond to.
+For each mechanism, the strain rate scales as $\dot\varepsilon \propto \tau^n d^{-p} \exp(-Q/RT)$. Not all deformation mechanisms affect the relationship between strainrate and effective stress that we often link to ice-rheology. For instance, the microstructural processes of the third group set the grain size $d$ and the fabric that the flow laws above respond to.
 
 {numref}`fig-mechanism-map` shows where the rate-controlling mechanisms dominate at $-10\ \mathrm{^\circ C}$, using the composite law of {cite}`goldsby2001` introduced in {doc}`ice-rheology`. A map of this kind follows the approach of {cite}`frost1982`. Glacier ice, with grains of millimetres and stresses of tens to hundreds of kilopascals, straddles the boundary between grain-boundary sliding and dislocation creep. That is the microphysical reason the effective exponent $n\approx3$ sits between the two.
 
